@@ -1,0 +1,54 @@
+Animal,Notes,Exclude,DOB,Sex,Sugery1,Surgery2,Virus,NS,Trec2,Trec3,Loc1,Loc2,Fiber tips,BLA
+1,,0,1/14/25,M,3/31/25,4/23/25,OPN3,L,NL,L,L,NL,,Expression spreads medial on one side
+2,Weird skull,1,1/14/25,M,3/31/25,4/23/25,OPN3,NL,NL,L,L,NL,Too anterior,Unlateral expression
+3,,0,1/14/25,M,3/31/25,4/23/25,OPN3,L,NL,L,NL,L,,
+4,,0,1/14/25,M,3/31/25,4/23/25,OPN3,NL,NL,L,NL,L,,Expression a bit weak on one side
+5,,0,1/14/25,M,3/31/25,4/23/25,OPN3,L,NL,L,NL,L,,Expression spreads medial on one side
+6,,0,1/14/25,M,3/31/25,4/23/25,OPN3,NL,NL,L,NL,L,,Expression spreads medial on one side
+7,,0,1/14/25,M,3/31/25,4/23/25,OPN3,L,NL,L,L,NL,,
+8,,1,1/14/25,M,3/31/25,4/23/25,OPN3,NL,NL,L,L,NL,,Expression medial on one side and none in BLA
+9,,0,1/14/25,M,3/31/25,4/23/25,OPN3,L,NL,L,L,NL,,Expression spreads a bit lateral on one side
+10,,1,1/14/25,M,3/31/25,4/23/25,OPN3,NL,NL,L,L,NL,,Expression medial on one side and none in BLA
+11,,1,1/14/25,M,3/31/25,4/23/25,OPN3,L,L,NL,L,NL,Dorsal,"Expression a bit medial on one side, but acceptable"
+12,Bregma not clear during surgery 2,0,1/14/25,M,3/31/25,4/23/25,OPN3,NL,L,NL,L,NL,Hole side a bit dorsal,
+13,,0,1/14/25,M,3/31/25,4/23/25,OPN3,L,L,NL,NL,L,,
+14,,0,1/14/25,M,3/31/25,4/23/25,OPN3,NL,L,NL,NL,L,,
+15,,1,1/14/25,M,3/31/25,4/23/25,OPN3,L,L,NL,NL,L,,Too medial on one side
+16,,0,1/14/25,M,3/31/25,4/23/25,OPN3,NL,L,NL,NL,L,,
+17,,0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,L,NL,L,NL,,Expression spreads a bit medial on one side
+18,,0,1/14/25,M,4/1/25,4/24/25,OPN3,L,L,NL,L,NL,,
+19,,0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,L,NL,L,NL,,
+20,,0,1/14/25,M,4/1/25,4/24/25,OPN3,L,L,NL,L,NL,,
+21,,0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,NL,L,NL,L,,
+22,,0,1/14/25,M,4/1/25,4/24/25,OPN3,L,NL,L,NL,L,,
+23,,0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,L,NL,NL,L,,
+24,,0,1/14/25,M,4/1/25,4/24/25,OPN3,L,L,NL,NL,L,,
+25,,0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,L,NL,NL,L,,
+26,,0,1/14/25,M,4/1/25,4/24/25,OPN3,L,L,NL,NL,L,,
+27,"During recall 2/2, mouse given no light twice by mistake.",0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,NL,L,NL,L,,
+28,"Bregma not clear during surgery 2. During recall 2/2, mouse given no light twice by mistake.",1,1/14/25,M,4/1/25,4/24/25,OPN3,L,NL,L,NL,L,One side too lateral,
+29,,0,1/14/25,M,4/1/25,4/24/25,OPN3,NL,NL,L,L,NL,,
+30,,1,1/14/25,M,4/1/25,4/24/25,OPN3,L,NL,L,L,NL,,Too medial on hole side
+31,,1,1/14/25,M,4/1/25,4/24/25,OPN3,NL,L,NL,L,NL,One side too lateral,"Expression a bit medial on one side, but acceptable"
+32,,0,1/14/25,M,4/1/25,4/24/25,OPN3,L,L,NL,L,NL,,"Expression a bit medial on one side, but acceptable"
+41,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,L,NL,,,,
+42,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,,
+43,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,L,NL,,,,
+44,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,,
+45,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,NL,L,,,,
+46,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,NL,L,,,"One side a bit lateral, but ok",
+47,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,NL,L,,,,
+48,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,NL,L,,,,
+49,,0,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,L,NL,,,,
+50,Mouse found dead in homecage on 9/17. Unable to extract brain (mush),1,4/29/25,M,8/12/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,,
+51,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,"A bit posterior, but ok",
+52,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,L,NL,,,"A bit posterior, but ok",
+53,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,NL,L,,,,
+54,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,NL,L,,,,
+55,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,NL,L,,,,
+56,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,NL,L,,,"One side a bit lateral, but ok",
+57,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,,
+58,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,L,NL,,,"A bit lateral, but ok",
+59,,0,5/27/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,,
+60,,0,4/29/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,NL,L,NL,,,,
+61,,0,4/29/25,M,8/13/25,NA - virus and optice fibers both done during surgery 1,EGFP,L,L,NL,,,,

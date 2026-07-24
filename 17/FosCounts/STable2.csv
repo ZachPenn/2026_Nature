@@ -1,0 +1,1357 @@
+"annotation_abrv","annotation_names","group","mean","sem","sd","var"
+"AId1","Agranular insular area, dorsal part, layer 1","Control",34.875,12.7929074937192,36.1838065596042,1309.26785714286
+"AId1","Agranular insular area, dorsal part, layer 1","No Trauma",142.6,66.3954817739882,209.96094875,44083.6
+"AId1","Agranular insular area, dorsal part, layer 1","Trauma",65.9,10.9285050314406,34.5589673199623,1194.32222222222
+"AId2/3","Agranular insular area, dorsal part, layer 2/3","Control",113.75,35.3723812761151,100.048202668228,10009.6428571429
+"AId2/3","Agranular insular area, dorsal part, layer 2/3","No Trauma",464.8,233.156399583341,737.305273727692,543619.066666667
+"AId2/3","Agranular insular area, dorsal part, layer 2/3","Trauma",197.8,25.0881999708584,79.3358543016824,6294.17777777778
+"AId5","Agranular insular area, dorsal part, layer 5","Control",171.375,57.3248691668808,162.139214874132,26289.125
+"AId5","Agranular insular area, dorsal part, layer 5","No Trauma",376.8,83.9200413091732,265.378471872406,70425.7333333333
+"AId5","Agranular insular area, dorsal part, layer 5","Trauma",249.3,29.2187344771201,92.3977512953884,8537.34444444444
+"AId6a","Agranular insular area, dorsal part, layer 6a","Control",107.75,24.1910181088531,68.4225317943063,4681.64285714286
+"AId6a","Agranular insular area, dorsal part, layer 6a","No Trauma",264.7,36.831462999271,116.471312633913,13565.5666666667
+"AId6a","Agranular insular area, dorsal part, layer 6a","Trauma",215,27.7628848965265,87.7939506901118,7707.77777777778
+"AId6b","Agranular insular area, dorsal part, layer 6b","Control",1.375,0.323899234771733,0.916125381312904,0.839285714285714
+"AId6b","Agranular insular area, dorsal part, layer 6b","No Trauma",3.4,0.90921211313239,2.87518115371304,8.26666666666667
+"AId6b","Agranular insular area, dorsal part, layer 6b","Trauma",3,0.802772971919486,2.53859103528797,6.44444444444444
+"AIp1","Agranular insular area, posterior part, layer 1","Control",68.375,8.76669325996328,24.7959530108098,614.839285714286
+"AIp1","Agranular insular area, posterior part, layer 1","No Trauma",211.1,62.8957603234643,198.893857790196,39558.7666666667
+"AIp1","Agranular insular area, posterior part, layer 1","Trauma",173.4,26.256512419673,83.0303826586656,6894.04444444444
+"AIp2/3","Agranular insular area, posterior part, layer 2/3","Control",183,18.032708377517,51.0042015076069,2601.42857142857
+"AIp2/3","Agranular insular area, posterior part, layer 2/3","No Trauma",692.9,182.792380706758,578.040261957975,334130.544444444
+"AIp2/3","Agranular insular area, posterior part, layer 2/3","Trauma",529.3,86.9904273149893,275.087884946692,75673.3444444444
+"AIp5","Agranular insular area, posterior part, layer 5","Control",346.5,38.1402487069575,107.876913987324,11637.4285714286
+"AIp5","Agranular insular area, posterior part, layer 5","No Trauma",595.7,122.173833350499,386.347583861418,149264.455555556
+"AIp5","Agranular insular area, posterior part, layer 5","Trauma",531.6,50.1267726203606,158.514773233706,25126.9333333333
+"AIp6a","Agranular insular area, posterior part, layer 6a","Control",228.25,13.5919487722906,38.4438365857074,1477.92857142857
+"AIp6a","Agranular insular area, posterior part, layer 6a","No Trauma",379,50.7860435771701,160.599571052423,25792.2222222222
+"AIp6a","Agranular insular area, posterior part, layer 6a","Trauma",383.5,34.2361894297053,108.26433700285,11721.1666666667
+"AIv1","Agranular insular area, ventral part, layer 1","Control",65.625,13.7021081537529,38.7554143682808,1501.98214285714
+"AIv1","Agranular insular area, ventral part, layer 1","No Trauma",187.6,46.8167111664675,148.047439844276,21918.0444444444
+"AIv1","Agranular insular area, ventral part, layer 1","Trauma",137.8,22.0316943414608,69.6703348316596,4853.95555555556
+"AIv2/3","Agranular insular area, ventral part, layer 2/3","Control",158.625,44.904636055598,127.009490646509,16131.4107142857
+"AIv2/3","Agranular insular area, ventral part, layer 2/3","No Trauma",433.9,103.453956478769,327.150135428844,107027.211111111
+"AIv2/3","Agranular insular area, ventral part, layer 2/3","Trauma",341.6,50.0682201268096,158.329613991403,25068.2666666667
+"AIv5","Agranular insular area, ventral part, layer 5","Control",161.25,42.2110978975232,119.391014258671,14254.2142857143
+"AIv5","Agranular insular area, ventral part, layer 5","No Trauma",274.4,43.4598665437435,137.432165085179,18887.6
+"AIv5","Agranular insular area, ventral part, layer 5","Trauma",241.3,25.7798586324889,81.5230710358185,6646.01111111111
+"AIv6a","Agranular insular area, ventral part, layer 6a","Control",19.5,5.05328747309257,14.2928553580352,204.285714285714
+"AIv6a","Agranular insular area, ventral part, layer 6a","No Trauma",32.6,3.59691225605766,11.374435272917,129.377777777778
+"AIv6a","Agranular insular area, ventral part, layer 6a","Trauma",32.3,3.80365321471053,12.0282075879068,144.677777777778
+"ACAd1","Anterior cingulate area, dorsal part, layer 1","Control",213.625,50.0948876419255,141.689739017535,20075.9821428571
+"ACAd1","Anterior cingulate area, dorsal part, layer 1","No Trauma",525.6,99.2409189800256,313.827341065115,98487.6
+"ACAd1","Anterior cingulate area, dorsal part, layer 1","Trauma",313,31.2029200912707,98.6722971366443,9736.22222222222
+"ACAd2/3","Anterior cingulate area, dorsal part, layer 2/3","Control",497.75,144.0852612171,407.534661102586,166084.5
+"ACAd2/3","Anterior cingulate area, dorsal part, layer 2/3","No Trauma",1393.8,365.796689129054,1156.75069819636,1338072.17777778
+"ACAd2/3","Anterior cingulate area, dorsal part, layer 2/3","Trauma",818.1,120.008189535363,379.49921680493,144019.655555556
+"ACAd5","Anterior cingulate area, dorsal part, layer 5","Control",270.25,83.8957154533446,237.292917238228,56307.9285714286
+"ACAd5","Anterior cingulate area, dorsal part, layer 5","No Trauma",591.2,129.111906671865,408.287698130184,166698.844444444
+"ACAd5","Anterior cingulate area, dorsal part, layer 5","Trauma",372.9,57.0785910438893,180.498353331978,32579.6555555556
+"ACAd6a","Anterior cingulate area, dorsal part, layer 6a","Control",102.375,29.6695716541857,83.9182212462994,7042.26785714286
+"ACAd6a","Anterior cingulate area, dorsal part, layer 6a","No Trauma",162.2,23.493639801255,74.2934122995512,5519.51111111111
+"ACAd6a","Anterior cingulate area, dorsal part, layer 6a","Trauma",108.6,18.9737830820436,60.0003703692273,3600.04444444444
+"ACAd6b","Anterior cingulate area, dorsal part, layer 6b","Control",11.375,3.81228043864262,10.7827573997961,116.267857142857
+"ACAd6b","Anterior cingulate area, dorsal part, layer 6b","No Trauma",8.2,1.28927197372091,4.07703596037884,16.6222222222222
+"ACAd6b","Anterior cingulate area, dorsal part, layer 6b","Trauma",7.2,1.04136662345422,3.29309040939426,10.8444444444444
+"ACAv6a","Anterior cingulate area, ventral part, 6a","Control",97.125,35.0603752220977,99.1657162819605,9833.83928571429
+"ACAv6a","Anterior cingulate area, ventral part, 6a","No Trauma",117.8,17.4278193956929,55.1116039404488,3037.28888888889
+"ACAv6a","Anterior cingulate area, ventral part, 6a","Trauma",93.2,14.97761292359,47.3633707509177,2243.28888888889
+"ACAv6b","Anterior cingulate area, ventral part, 6b","Control",13.625,4.54319546134656,12.8500972758964,165.125
+"ACAv6b","Anterior cingulate area, ventral part, 6b","No Trauma",10.9,2.00249843945008,6.33245607959503,40.1
+"ACAv6b","Anterior cingulate area, ventral part, 6b","Trauma",9,2.21610268514595,7.00793201387621,49.1111111111111
+"ACAv1","Anterior cingulate area, ventral part, layer 1","Control",117.875,29.1831883477946,82.5425215094793,6813.26785714286
+"ACAv1","Anterior cingulate area, ventral part, layer 1","No Trauma",218.9,36.192218316465,114.449843454094,13098.7666666667
+"ACAv1","Anterior cingulate area, ventral part, layer 1","Trauma",165.5,20.9492773675424,66.2474318160502,4388.72222222222
+"ACAv2/3","Anterior cingulate area, ventral part, layer 2/3","Control",274.5,114.090189887525,322.695787745318,104132.571428571
+"ACAv2/3","Anterior cingulate area, ventral part, layer 2/3","No Trauma",525.7,122.760204373314,388.201851847435,150700.677777778
+"ACAv2/3","Anterior cingulate area, ventral part, layer 2/3","Trauma",422.4,87.0716435535193,275.344713243438,75814.7111111111
+"ACAv5","Anterior cingulate area, ventral part, layer 5","Control",156,55.6141040692788,157.300440468006,24743.4285714286
+"ACAv5","Anterior cingulate area, ventral part, layer 5","No Trauma",240.2,40.7266770338831,128.789060957141,16586.6222222222
+"ACAv5","Anterior cingulate area, ventral part, layer 5","Trauma",184.4,29.9911838897885,94.8404508166801,8994.71111111111
+"VISal1","Anterolateral visual area, layer 1","Control",5.375,1.28086884574495,3.62284418654736,13.125
+"VISal1","Anterolateral visual area, layer 1","No Trauma",20.4,7.41050305684814,23.4340682672803,549.155555555556
+"VISal1","Anterolateral visual area, layer 1","Trauma",8.9,3.44625400495475,10.8980120511342,118.766666666667
+"VISal2/3","Anterolateral visual area, layer 2/3","Control",80.375,21.6687212853656,61.2883990420933,3756.26785714286
+"VISal2/3","Anterolateral visual area, layer 2/3","No Trauma",348.2,117.18748511111,370.579366218178,137329.066666667
+"VISal2/3","Anterolateral visual area, layer 2/3","Trauma",165.4,37.2254990265782,117.717363960368,13857.3777777778
+"VISal4","Anterolateral visual area, layer 4","Control",12.375,4.93144972889022,13.9482461775153,194.553571428571
+"VISal4","Anterolateral visual area, layer 4","No Trauma",86,48.542535757599,153.50497639418,23563.7777777778
+"VISal4","Anterolateral visual area, layer 4","Trauma",26.2,7.19073477933004,22.7390999528712,517.066666666667
+"VISal5","Anterolateral visual area, layer 5","Control",40.625,13.3803393881791,37.8453148638356,1432.26785714286
+"VISal5","Anterolateral visual area, layer 5","No Trauma",154.5,78.7937180237105,249.167614267986,62084.5
+"VISal5","Anterolateral visual area, layer 5","Trauma",70.8,19.8851144773616,62.8822532816516,3954.17777777778
+"VISal6a","Anterolateral visual area, layer 6a","Control",50.25,9.85021754654615,27.860622493302,776.214285714286
+"VISal6a","Anterolateral visual area, layer 6a","No Trauma",71,14.4368356027982,45.6532827102523,2084.22222222222
+"VISal6a","Anterolateral visual area, layer 6a","Trauma",60.9,11.6804204642736,36.9367326955461,1364.32222222222
+"VISal6b","Anterolateral visual area, layer 6b","Control",10.125,2.74146402493266,7.75403120963541,60.125
+"VISal6b","Anterolateral visual area, layer 6b","No Trauma",7.2,1.2,3.79473319220206,14.4
+"VISal6b","Anterolateral visual area, layer 6b","Trauma",6.1,1.53803626600791,4.86369772452561,23.6555555555556
+"VISam1","Anteromedial visual area, layer 1","Control",20,11.4937871416319,32.5093393174507,1056.85714285714
+"VISam1","Anteromedial visual area, layer 1","No Trauma",76.3,41.4546740428628,131.091189635307,17184.9
+"VISam1","Anteromedial visual area, layer 1","Trauma",27.6,7.95012229116285,25.1404941169509,632.044444444444
+"VISam2/3","Anteromedial visual area, layer 2/3","Control",36.125,23.4919724130849,66.4453319869586,4414.98214285714
+"VISam2/3","Anteromedial visual area, layer 2/3","No Trauma",247,145.551212827498,460.273348734809,211851.555555556
+"VISam2/3","Anteromedial visual area, layer 2/3","Trauma",68.9,20.7795037904609,65.7105606259586,4317.87777777778
+"VISam4","Anteromedial visual area, layer 4","Control",8.75,6.92755883616815,19.5940953204931,383.928571428571
+"VISam4","Anteromedial visual area, layer 4","No Trauma",100,57.6697494359044,182.367760308669,33258
+"VISam4","Anteromedial visual area, layer 4","Trauma",35.9,11.9846661289425,37.8988419641316,1436.32222222222
+"VISam5","Anteromedial visual area, layer 5","Control",33.625,21.160895116768,59.8520497321759,3582.26785714286
+"VISam5","Anteromedial visual area, layer 5","No Trauma",188.3,86.8247340591634,274.563916865353,75385.3444444444
+"VISam5","Anteromedial visual area, layer 5","Trauma",134.4,39.7733020449089,125.774224527745,15819.1555555556
+"VISam6a","Anteromedial visual area, layer 6a","Control",40.75,11.4653982548735,32.4290434201019,1051.64285714286
+"VISam6a","Anteromedial visual area, layer 6a","No Trauma",87.7,29.2137905030408,92.382117076605,8534.45555555556
+"VISam6a","Anteromedial visual area, layer 6a","Trauma",63.3,12.2674365700418,38.7930406129759,1504.9
+"VISam6b","Anteromedial visual area, layer 6b","Control",7.75,2.96256404391293,8.37939650060109,70.2142857142857
+"VISam6b","Anteromedial visual area, layer 6b","No Trauma",5.9,1.1200198410941,3.5418137224372,12.5444444444444
+"VISam6b","Anteromedial visual area, layer 6b","Trauma",6.1,1.53079500042734,4.84079883214882,23.4333333333333
+"BLAa","Basolateral amygdalar nucleus, anterior part","Control",650.125,80.9714318007107,229.021794034666,52450.9821428571
+"BLAa","Basolateral amygdalar nucleus, anterior part","No Trauma",1015.6,115.121887097497,364.047371764842,132530.488888889
+"BLAa","Basolateral amygdalar nucleus, anterior part","Trauma",1031.3,127.421003850316,402.940593912083,162361.122222222
+"BLAp","Basolateral amygdalar nucleus, posterior part","Control",292.5,43.6733001141103,123.52674666993,15258.8571428571
+"BLAp","Basolateral amygdalar nucleus, posterior part","No Trauma",537.2,56.6379927453491,179.105059175396,32078.6222222222
+"BLAp","Basolateral amygdalar nucleus, posterior part","Trauma",698.1,94.3363309299939,298.317671842171,88993.4333333333
+"BLAv","Basolateral amygdalar nucleus, ventral part","Control",140.375,20.305644447507,57.4330355407806,3298.55357142857
+"BLAv","Basolateral amygdalar nucleus, ventral part","No Trauma",216.2,25.3292979242089,80.0982729734751,6415.73333333333
+"BLAv","Basolateral amygdalar nucleus, ventral part","Trauma",254.6,43.8459931021195,138.653204474729,19224.7111111111
+"DCO","Dorsal cochlear nucleus","Control",216.125,25.194555463433,71.2609640686961,5078.125
+"DCO","Dorsal cochlear nucleus","No Trauma",222.5,31.4897690616422,99.5793932274924,9916.05555555555
+"DCO","Dorsal cochlear nucleus","Trauma",279.1,40.7042039870849,128.717994943295,16568.3222222222
+"VCO","Ventral cochlear nucleus","Control",77.625,13.9154814864596,39.3589252902058,1549.125
+"VCO","Ventral cochlear nucleus","No Trauma",97.4,18.5053745946654,58.519132673758,3424.48888888889
+"VCO","Ventral cochlear nucleus","Trauma",84,14.0901857096822,44.5570794973519,1985.33333333333
+"COAa","Cortical amygdalar area, anterior part","Control",779.375,81.3095798037177,229.97822101855,52889.9821428571
+"COAa","Cortical amygdalar area, anterior part","No Trauma",1203,165.389439404899,523.007329457883,273536.666666667
+"COAa","Cortical amygdalar area, anterior part","Trauma",1159.8,81.8809162408705,258.930192222623,67044.8444444444
+"COAp","Cortical amygdalar area, posterior part","Control",919.75,114.567938359735,324.047064482924,105006.5
+"COAp","Cortical amygdalar area, posterior part","No Trauma",1503.2,189.272161479471,598.531127938315,358239.511111111
+"COAp","Cortical amygdalar area, posterior part","Trauma",1757.5,200.917962805165,635.358385305316,403680.277777778
+"DG-sg","Dentate gyrus, granule cell layer","Control",2912.25,268.08072811322,758.246803017141,574938.214285714
+"DG-sg","Dentate gyrus, granule cell layer","No Trauma",2221,196.493200334713,621.366057793454,386095.777777778
+"DG-sg","Dentate gyrus, granule cell layer","Trauma",2125.8,147.977911264561,467.947242990299,218974.622222222
+"DG-mo","Dentate gyrus, molecular layer","Control",1105.875,124.89101498907,353.245134432167,124782.125
+"DG-mo","Dentate gyrus, molecular layer","No Trauma",1463.1,218.711908429534,691.627782039508,478348.988888889
+"DG-mo","Dentate gyrus, molecular layer","Trauma",1113.5,183.673033767435,580.825131458112,337357.833333333
+"DG-po","Dentate gyrus, polymorph layer","Control",908.625,105.566150131429,298.586162486763,89153.6964285714
+"DG-po","Dentate gyrus, polymorph layer","No Trauma",1070.3,70.0263521825891,221.442769130085,49036.9
+"DG-po","Dentate gyrus, polymorph layer","Trauma",1004.1,113.850921042485,360.028224202245,129620.322222222
+"AUDd1","Dorsal auditory area, layer 1","Control",74,17.6998789342107,50.0628176822451,2506.28571428571
+"AUDd1","Dorsal auditory area, layer 1","No Trauma",234,51.2683571459477,162.124780476164,26284.4444444444
+"AUDd1","Dorsal auditory area, layer 1","Trauma",100.8,26.7510332095375,84.5941947049428,7156.17777777778
+"AUDd2/3","Dorsal auditory area, layer 2/3","Control",502.625,84.5179476924449,239.052855781191,57146.2678571429
+"AUDd2/3","Dorsal auditory area, layer 2/3","No Trauma",2083.4,581.033814277046,1837.39025069073,3376002.93333333
+"AUDd2/3","Dorsal auditory area, layer 2/3","Trauma",1252.7,202.125706210544,639.17760529536,408548.011111111
+"AUDd4","Dorsal auditory area, layer 4","Control",84.375,15.7954983415258,44.6764159580549,1995.98214285714
+"AUDd4","Dorsal auditory area, layer 4","No Trauma",557.8,256.659991255184,811.63015660528,658743.511111111
+"AUDd4","Dorsal auditory area, layer 4","Trauma",395,127.149693056824,402.08263385086,161670.444444444
+"AUDd5","Dorsal auditory area, layer 5","Control",453.75,76.4051115530144,216.106289985804,46701.9285714286
+"AUDd5","Dorsal auditory area, layer 5","No Trauma",1203.3,432.514201436721,1367.72999690891,1870685.34444444
+"AUDd5","Dorsal auditory area, layer 5","Trauma",774.2,170.19941245492,538.217799779978,289678.4
+"AUDd6a","Dorsal auditory area, layer 6a","Control",435,64.4955701690323,182.421020092062,33277.4285714286
+"AUDd6a","Dorsal auditory area, layer 6a","No Trauma",645.1,140.240622582126,443.479787839561,196674.322222222
+"AUDd6a","Dorsal auditory area, layer 6a","Trauma",537.8,91.4042060787625,289.045478928298,83547.2888888889
+"AUDd6b","Dorsal auditory area, layer 6b","Control",72.125,11.9708537408873,33.8586874270949,1146.41071428571
+"AUDd6b","Dorsal auditory area, layer 6b","No Trauma",60.6,9.46596241511894,29.9340014773242,896.044444444444
+"AUDd6b","Dorsal auditory area, layer 6b","Trauma",92.3,15.8121261484132,50.0023332788914,2500.23333333333
+"CU","Cuneate nucleus","Control",9.25,3.12106895607441,8.82771609356415,77.9285714285714
+"CU","Cuneate nucleus","No Trauma",8.9,2.77067982030885,8.76165889924201,76.7666666666667
+"CU","Cuneate nucleus","Trauma",14.6,5.62770922410807,17.7963791573205,316.711111111111
+"GR","Gracile nucleus","Control",3,1,2.82842712474619,8
+"GR","Gracile nucleus","No Trauma",3.7,1.1551815634109,3.65300485141266,13.3444444444444
+"GR","Gracile nucleus","Trauma",3.8,1.7625738755203,5.57374799095426,31.0666666666667
+"ECT1","Ectorhinal area/Layer 1","Control",47.125,5.13891838258375,14.5350561451567,211.267857142857
+"ECT1","Ectorhinal area/Layer 1","No Trauma",215.2,37.7688290054702,119.435524214718,14264.8444444444
+"ECT1","Ectorhinal area/Layer 1","Trauma",168.2,13.2730302995711,41.9730071990718,1761.73333333333
+"ECT2/3","Ectorhinal area/Layer 2/3","Control",206.375,22.0947129260761,62.4932853535939,3905.41071428571
+"ECT2/3","Ectorhinal area/Layer 2/3","No Trauma",673.2,105.181620701211,332.613489403742,110631.733333333
+"ECT2/3","Ectorhinal area/Layer 2/3","Trauma",574.7,71.6710153719371,226.643650792261,51367.3444444444
+"ECT5","Ectorhinal area/Layer 5","Control",635.75,61.557972095996,174.112238020684,30315.0714285714
+"ECT5","Ectorhinal area/Layer 5","No Trauma",1005.7,135.867832019863,429.651809931924,184600.677777778
+"ECT5","Ectorhinal area/Layer 5","Trauma",900.2,97.7145275222108,309.000467457395,95481.2888888889
+"ECT6a","Ectorhinal area/Layer 6a","Control",283.625,30.69721805683,86.8248442061866,7538.55357142857
+"ECT6a","Ectorhinal area/Layer 6a","No Trauma",512.5,83.9175852316492,265.37070507332,70421.6111111111
+"ECT6a","Ectorhinal area/Layer 6a","Trauma",503.7,57.5905181238872,182.117208900691,33166.6777777778
+"ECT6b","Ectorhinal area/Layer 6b","Control",63.875,8.41223067919562,23.793381432659,566.125
+"ECT6b","Ectorhinal area/Layer 6b","No Trauma",90.8,16.2308348522188,51.3264064590538,2634.4
+"ECT6b","Ectorhinal area/Layer 6b","Trauma",106.6,16.9484184775126,53.5956051266229,2872.48888888889
+"EPd","Endopiriform nucleus, dorsal part","Control",1154.625,96.3590639038621,272.544590060835,74280.5535714286
+"EPd","Endopiriform nucleus, dorsal part","No Trauma",1720.8,162.850633676657,514.978920819958,265203.288888889
+"EPd","Endopiriform nucleus, dorsal part","Trauma",1825.2,155.959025958031,493.185743688702,243232.177777778
+"EPv","Endopiriform nucleus, ventral part","Control",279.5,33.9048037051642,95.8972664588815,9196.28571428571
+"EPv","Endopiriform nucleus, ventral part","No Trauma",401.7,40.0208417924683,126.557013941456,16016.6777777778
+"EPv","Endopiriform nucleus, ventral part","Trauma",443.8,51.5859153904112,163.128987818434,26611.0666666667
+"ENTl","Entorhinal area, lateral part","Control",2461.375,441.178451807526,1247.84109994594,1557107.41071429
+"ENTl","Entorhinal area, lateral part","No Trauma",4129.4,621.447632548391,1965.1899653723,3861971.6
+"ENTl","Entorhinal area, lateral part","Trauma",4433,769.392155463577,2433.03162513127,5919642.88888889
+"ENTm","Entorhinal area, medial part, dorsal zone","Control",1128.625,194.122286339234,549.060740199635,301467.696428571
+"ENTm","Entorhinal area, medial part, dorsal zone","No Trauma",1460.1,189.212957625352,598.343908913038,358015.433333333
+"ENTm","Entorhinal area, medial part, dorsal zone","Trauma",1533.9,298.283103778943,943.253995485839,889728.1
+"ENTmv","Entorhinal area, medial part, ventral zone","Control",40.5,10.5492044385211,29.8376559784061,890.285714285714
+"ENTmv","Entorhinal area, medial part, ventral zone","No Trauma",114.4,27.8472819339897,88.0608375562662,7754.71111111111
+"ENTmv","Entorhinal area, medial part, ventral zone","Trauma",200.2,44.395395156605,140.39056631808,19709.5111111111
+"FRP1","Frontal pole, layer 1","Control",23,4.35889894354067,12.328828005938,152
+"FRP1","Frontal pole, layer 1","No Trauma",95.6,40.218348493636,127.181584970292,16175.1555555556
+"FRP1","Frontal pole, layer 1","Trauma",41.4,13.5771049114963,42.9345755513872,1843.37777777778
+"FRP2/3","Frontal pole, layer 2/3","Control",3.375,1.33547075702059,3.77728171346236,14.2678571428571
+"FRP2/3","Frontal pole, layer 2/3","No Trauma",43.6,22.8084779559414,72.1267403025166,5202.26666666667
+"FRP2/3","Frontal pole, layer 2/3","Trauma",6.8,2.15921796542689,6.82804673550366,46.6222222222222
+"GU1","Gustatory areas, layer 1","Control",21.125,6.53681196871118,18.4888962816682,341.839285714286
+"GU1","Gustatory areas, layer 1","No Trauma",137.8,69.6535553850468,220.263882145434,48516.1777777778
+"GU1","Gustatory areas, layer 1","Trauma",62.2,11.4840952819299,36.315897957292,1318.84444444444
+"GU2/3","Gustatory areas, layer 2/3","Control",70.625,21.3206284248043,60.303843753351,3636.55357142857
+"GU2/3","Gustatory areas, layer 2/3","No Trauma",351.1,166.28786619728,525.848404432727,276516.544444444
+"GU2/3","Gustatory areas, layer 2/3","Trauma",193.2,39.3840915429906,124.543432852426,15511.0666666667
+"GU4","Gustatory areas, layer 4","Control",34,10.1997899138028,28.8493624589126,832.285714285714
+"GU4","Gustatory areas, layer 4","No Trauma",93.6,35.6237124523665,112.652070060381,12690.4888888889
+"GU4","Gustatory areas, layer 4","Trauma",51,8.79267371799449,27.8048756715636,773.111111111111
+"GU5","Gustatory areas, layer 5","Control",240.5,57.7998393472804,163.48263341582,26726.5714285714
+"GU5","Gustatory areas, layer 5","No Trauma",594.2,181.384478081474,573.588082938348,329003.288888889
+"GU5","Gustatory areas, layer 5","Trauma",396.6,54.0713931349614,170.98875856487,29237.1555555556
+"GU6a","Gustatory areas, layer 6a","Control",269,56.8346599482092,160.752693823241,25841.4285714286
+"GU6a","Gustatory areas, layer 6a","No Trauma",507.6,87.8673495168206,277.860956435249,77206.7111111111
+"GU6a","Gustatory areas, layer 6a","Trauma",402.5,48.0419376979923,151.921946333562,23080.2777777778
+"GU6b","Gustatory areas, layer 6b","Control",6,1.75254916376933,4.95695759225642,24.5714285714286
+"GU6b","Gustatory areas, layer 6b","No Trauma",11.3,2.31924317157319,7.33409086996397,53.7888888888889
+"GU6b","Gustatory areas, layer 6b","Trauma",10.7,2.38537208837531,7.54320886625844,56.9
+"FC","Fasciola cinerea","Control",41.625,10.0852393908835,28.5253646527337,813.696428571429
+"FC","Fasciola cinerea","No Trauma",74.5,13.4711626158332,42.5995565965448,1814.72222222222
+"FC","Fasciola cinerea","Trauma",61.5,19.8987715980437,62.9254408892867,3959.61111111111
+"IG","Induseum griseum","Control",1.75,0.590096844352082,1.66904592079256,2.78571428571429
+"IG","Induseum griseum","No Trauma",6.5,1.72723285440422,5.46198986939131,29.8333333333333
+"IG","Induseum griseum","Trauma",4.3,1.1551815634109,3.65300485141266,13.3444444444444
+"ILA1","Infralimbic area, layer 1","Control",49.625,7.91458305913836,22.3858214055236,501.125
+"ILA1","Infralimbic area, layer 1","No Trauma",133.5,23.5028367082217,74.3224954729948,5523.83333333333
+"ILA1","Infralimbic area, layer 1","Trauma",115.4,11.3668132932869,35.9450197446662,1292.04444444444
+"ILA2/3","Infralimbic area, layer 2/3","Control",536,63.4192399828317,179.376698598229,32176
+"ILA2/3","Infralimbic area, layer 2/3","No Trauma",964.7,88.9714123874755,281.352309786542,79159.1222222222
+"ILA2/3","Infralimbic area, layer 2/3","Trauma",964,101.622176057525,321.35753712441,103270.666666667
+"ILA5","Infralimbic area, layer 5","Control",360.125,79.2787661852601,224.234212694801,50280.9821428571
+"ILA5","Infralimbic area, layer 5","No Trauma",525.2,68.9956198287656,218.183307233976,47603.9555555556
+"ILA5","Infralimbic area, layer 5","Trauma",510.3,61.6291868084162,194.888600658598,37981.5666666667
+"ILA6a","Infralimbic area, layer 6a","Control",149.25,51.560210988153,145.834299316529,21267.6428571429
+"ILA6a","Infralimbic area, layer 6a","No Trauma",175,28.4573755329303,89.9901229148078,8098.22222222222
+"ILA6a","Infralimbic area, layer 6a","Trauma",170.4,33.8661417282151,107.094143423231,11469.1555555556
+"ILA6b","Infralimbic area, layer 6b","Control",34.375,15.510293241218,43.8697341162284,1924.55357142857
+"ILA6b","Infralimbic area, layer 6b","No Trauma",31.2,5.42176682969266,17.145132124179,293.955555555556
+"ILA6b","Infralimbic area, layer 6b","Trauma",34,6.60134666396015,20.8752910824682,435.777777777778
+"LSc","Lateral septal nucleus, caudal (caudodorsal) part","Control",125.75,34.6259347475683,97.9369330597138,9591.64285714286
+"LSc","Lateral septal nucleus, caudal (caudodorsal) part","No Trauma",228.6,43.0813700390835,136.235254044041,18560.0444444444
+"LSc","Lateral septal nucleus, caudal (caudodorsal) part","Trauma",179.3,18.834985178297,59.5614528589311,3547.56666666667
+"LSr","Lateral septal nucleus, rostral (rostroventral) part","Control",1633.5,231.598251288735,655.058775988842,429102
+"LSr","Lateral septal nucleus, rostral (rostroventral) part","No Trauma",2469.8,231.098478287216,730.797555186569,534065.066666667
+"LSr","Lateral septal nucleus, rostral (rostroventral) part","Trauma",2568,299.521025045729,947.168646252844,897128.444444444
+"LSv","Lateral septal nucleus, ventral part","Control",127.5,33.2710728067835,94.1048047961117,8855.71428571429
+"LSv","Lateral septal nucleus, ventral part","No Trauma",138.3,19.0904571856086,60.369326280451,3644.45555555556
+"LSv","Lateral septal nucleus, ventral part","Trauma",156.7,22.9540846038347,72.5871889523213,5268.9
+"VISl1","Lateral visual area, layer 1","Control",9.25,2.72390213795262,7.70435869213933,59.3571428571429
+"VISl1","Lateral visual area, layer 1","No Trauma",41.1,18.6645534518122,59.0225004176844,3483.65555555556
+"VISl1","Lateral visual area, layer 1","Trauma",15.1,6.84178339323893,21.6356187801505,468.1
+"VISl2/3","Lateral visual area, layer 2/3","Control",101.375,31.251249975001,88.3918831115165,7813.125
+"VISl2/3","Lateral visual area, layer 2/3","No Trauma",407.9,152.894113686564,483.493640082266,233766.1
+"VISl2/3","Lateral visual area, layer 2/3","Trauma",248.4,60.6078836089461,191.658956366656,36733.1555555556
+"VISl4","Lateral visual area, layer 4","Control",11.125,4.62693009919721,13.086934596874,171.267857142857
+"VISl4","Lateral visual area, layer 4","No Trauma",61.2,39.0819082895853,123.587845500905,15273.9555555556
+"VISl4","Lateral visual area, layer 4","Trauma",28.1,11.0979978174243,35.0949505706384,1231.65555555556
+"VISl5","Lateral visual area, layer 5","Control",95,29.5556376058057,83.5959670934293,6988.28571428571
+"VISl5","Lateral visual area, layer 5","No Trauma",197.7,86.021709146264,272.024529122733,73997.3444444444
+"VISl5","Lateral visual area, layer 5","Trauma",116.7,31.1419866632386,98.4796087184212,9698.23333333333
+"VISl6a","Lateral visual area, layer 6a","Control",90.375,17.7008247386547,50.0654928211894,2506.55357142857
+"VISl6a","Lateral visual area, layer 6a","No Trauma",103.1,24.0478458263706,76.0459656319051,5782.98888888889
+"VISl6a","Lateral visual area, layer 6a","Trauma",99.8,14.099487776354,44.5864952149814,1987.95555555556
+"VISl6b","Lateral visual area, layer 6b","Control",10.375,3.08184487882548,8.71677364953013,75.9821428571429
+"VISl6b","Lateral visual area, layer 6b","No Trauma",3.9,0.72188026092359,2.28278582243519,5.21111111111111
+"VISl6b","Lateral visual area, layer 6b","Trauma",7.7,1.4379769740082,4.54728246074265,20.6777777777778
+"LM","Lateral mammillary nucleus","Control",4.5,2.12132034355964,6,36
+"LM","Lateral mammillary nucleus","No Trauma",5.4,1.51437555888007,4.78887599895146,22.9333333333333
+"LM","Lateral mammillary nucleus","Trauma",5.6,1.35973853695808,4.29987079909256,18.4888888888889
+"MM","Medial mammillary nucleus","Control",140,33.9232326626711,95.9493914221748,9206.28571428571
+"MM","Medial mammillary nucleus","No Trauma",187.6,40.8988454061426,129.333505154525,16727.1555555556
+"MM","Medial mammillary nucleus","Trauma",197.3,16.0305610908941,50.693085217699,2569.78888888889
+"SUM","Supramammillary nucleus","Control",301.5,40.3975777208769,114.26160459977,13055.7142857143
+"SUM","Supramammillary nucleus","No Trauma",319.9,36.5167997867648,115.476260186528,13334.7666666667
+"SUM","Supramammillary nucleus","Trauma",297.9,24.415591557673,77.2088797426249,5961.21111111111
+"RM","Nucleus raphe magnus","Control",51.875,8.70639645810563,24.6254079009001,606.410714285714
+"RM","Nucleus raphe magnus","No Trauma",41.2,8.95147411820471,28.3070466295742,801.288888888889
+"RM","Nucleus raphe magnus","Trauma",20.8,4.42166383967745,13.9825287809863,195.511111111111
+"RO","Nucleus raphe obscurus","Control",1.625,0.564974714984156,1.59798980865694,2.55357142857143
+"RO","Nucleus raphe obscurus","No Trauma",0.5,0.341565025531987,1.08012344973464,1.16666666666667
+"RO","Nucleus raphe obscurus","Trauma",0.8,0.249443825784929,0.788810637746616,0.622222222222222
+"RPA","Nucleus raphe pallidus","Control",12.625,2.39745028251742,6.78101340930269,45.9821428571429
+"RPA","Nucleus raphe pallidus","No Trauma",9.1,1.94050394371038,6.13641227066399,37.6555555555556
+"RPA","Nucleus raphe pallidus","Trauma",11.4,2.56991136898618,8.12677331075775,66.0444444444445
+"MDRNd","Medullary reticular nucleus, dorsal part","Control",12.125,3.46635615596551,9.80433577556379,96.125
+"MDRNd","Medullary reticular nucleus, dorsal part","No Trauma",5.9,1.5088627063675,4.77144282860716,22.7666666666667
+"MDRNd","Medullary reticular nucleus, dorsal part","Trauma",13.5,4.07499147920036,12.8862545200518,166.055555555556
+"MDRNv","Medullary reticular nucleus, ventral part","Control",10.75,4.23315991395823,11.9731843240277,143.357142857143
+"MDRNv","Medullary reticular nucleus, ventral part","No Trauma",16.7,6.18250219032176,19.5507885603966,382.233333333333
+"MDRNv","Medullary reticular nucleus, ventral part","Trauma",30.3,14.6120574260513,46.2073827674996,2135.12222222222
+"CLI","Central linear nucleus raphe","Control",17.625,4.39129618027037,12.420461229071,154.267857142857
+"CLI","Central linear nucleus raphe","No Trauma",15,2.17050941281329,6.86375342732467,47.1111111111111
+"CLI","Central linear nucleus raphe","Trauma",20.1,5.28614541356302,16.7162595497119,279.433333333333
+"DR","Dorsal nucleus raphe","Control",28.875,5.57557652368153,15.7701118756789,248.696428571429
+"DR","Dorsal nucleus raphe","No Trauma",17.7,3.5498043764567,11.225467077637,126.011111111111
+"DR","Dorsal nucleus raphe","Trauma",26.3,6.52695266652908,20.6400366063414,426.011111111111
+"IF","Interfascicular nucleus raphe","Control",48,7.94175223558558,22.462667441144,504.571428571429
+"IF","Interfascicular nucleus raphe","No Trauma",35.9,5.78206037863859,18.2844803651135,334.322222222222
+"IF","Interfascicular nucleus raphe","Trauma",45.7,9.88944442883983,31.2731691887968,978.011111111111
+"IPN","Interpeduncular nucleus","Control",136.25,11.1447457190757,31.5221010902328,993.642857142857
+"IPN","Interpeduncular nucleus","No Trauma",170.2,8.50986355811759,26.9105514209163,724.177777777778
+"IPN","Interpeduncular nucleus","Trauma",177.4,24.939125886847,78.8644406561031,6219.6
+"RL","Rostral linear nucleus raphe","Control",5.5,1,2.82842712474619,8
+"RL","Rostral linear nucleus raphe","No Trauma",10.1,2.05182845286832,6.48845127900333,42.1
+"RL","Rostral linear nucleus raphe","Trauma",9.3,1.3,4.11096095821889,16.9
+"NLOT3","Nucleus of the lateral olfactory tract, layer 3","Control",207.25,24.9948208921083,70.6960293894118,4997.92857142857
+"NLOT3","Nucleus of the lateral olfactory tract, layer 3","No Trauma",429.7,52.8593626732504,167.155981712358,27941.1222222222
+"NLOT3","Nucleus of the lateral olfactory tract, layer 3","Trauma",494.8,64.7879961446906,204.87763285543,41974.8444444444
+"NLOT1","Nucleus of the lateral olfactory tract, molecular layer","Control",162.25,22.7931302307139,64.4687078024237,4156.21428571429
+"NLOT1","Nucleus of the lateral olfactory tract, molecular layer","No Trauma",271.8,59.4255463210525,187.920077574366,35313.9555555556
+"NLOT1","Nucleus of the lateral olfactory tract, molecular layer","Trauma",206.3,23.870972609706,75.4866434101645,5698.23333333333
+"ORBl1","Orbital area, lateral part, layer 1","Control",40.625,12.6348971107801,35.7368857065078,1277.125
+"ORBl1","Orbital area, lateral part, layer 1","No Trauma",84.2,15.8638652989182,50.1659468386895,2516.62222222222
+"ORBl1","Orbital area, lateral part, layer 1","Trauma",74.1,14.7244694301696,46.5628607368577,2168.1
+"ORBl2/3","Orbital area, lateral part, layer 2/3","Control",91.625,32.1563909999685,90.9520085382553,8272.26785714286
+"ORBl2/3","Orbital area, lateral part, layer 2/3","No Trauma",300.4,97.684890222479,308.906746086546,95423.3777777778
+"ORBl2/3","Orbital area, lateral part, layer 2/3","Trauma",284.8,68.4428066182106,216.435158367992,46844.1777777778
+"ORBl5","Orbital area, lateral part, layer 5","Control",40.125,13.0088397143744,36.7945551096122,1353.83928571429
+"ORBl5","Orbital area, lateral part, layer 5","No Trauma",71.1,18.1055240189286,57.2546941306999,3278.1
+"ORBl5","Orbital area, lateral part, layer 5","Trauma",62.6,15.3855632186656,48.6534228554945,2367.15555555556
+"ORBl6a","Orbital area, lateral part, layer 6a","Control",16.875,5.34000234082346,15.1038074669932,228.125
+"ORBl6a","Orbital area, lateral part, layer 6a","No Trauma",16.8,4.13602063179896,13.0792456459334,171.066666666667
+"ORBl6a","Orbital area, lateral part, layer 6a","Trauma",15.7,5.72334401086172,18.0988029070065,327.566666666667
+"ORBm1","Orbital area, medial part, layer 1","Control",41.375,7.17121602559247,20.2832619242003,411.410714285714
+"ORBm1","Orbital area, medial part, layer 1","No Trauma",188.5,44.3862466186192,140.361636100784,19701.3888888889
+"ORBm1","Orbital area, medial part, layer 1","Trauma",121.3,21.3245033809569,67.4340006557852,4547.34444444444
+"ORBm2/3","Orbital area, medial part, layer 2/3","Control",213.875,33.4426147623486,94.5899987162642,8947.26785714286
+"ORBm2/3","Orbital area, medial part, layer 2/3","No Trauma",585.5,150.101391658365,474.662277601431,225304.277777778
+"ORBm2/3","Orbital area, medial part, layer 2/3","Trauma",475.2,59.7161433598803,188.839026098362,35660.1777777778
+"ORBm5","Orbital area, medial part, layer 5","Control",72.75,20.2411797369337,57.2507018048064,3277.64285714286
+"ORBm5","Orbital area, medial part, layer 5","No Trauma",157.4,36.934235849382,116.796308921891,13641.3777777778
+"ORBm5","Orbital area, medial part, layer 5","Trauma",123.7,20.1030953946014,63.5715694665819,4041.34444444444
+"ORBm6a","Orbital area, medial part, layer 6a","Control",22.375,7.56386498897413,21.3938409027325,457.696428571429
+"ORBm6a","Orbital area, medial part, layer 6a","No Trauma",24.7,4.41977877777208,13.9765676918349,195.344444444444
+"ORBm6a","Orbital area, medial part, layer 6a","Trauma",20.7,6.4118813325125,20.2761490974549,411.122222222222
+"ORBvl1","Orbital area, ventrolateral part, layer 1","Control",58.25,13.844480591815,39.1581044339118,1533.35714285714
+"ORBvl1","Orbital area, ventrolateral part, layer 1","No Trauma",194.1,49.9024492830206,157.805400555382,24902.5444444444
+"ORBvl1","Orbital area, ventrolateral part, layer 1","Trauma",129.4,19.3673264374134,61.2448637302209,3750.93333333333
+"ORBvl2/3","Orbital area, ventrolateral part, layer 2/3","Control",233.5,87.2836099816487,246.875330017863,60947.4285714286
+"ORBvl2/3","Orbital area, ventrolateral part, layer 2/3","No Trauma",543.6,105.048369811245,332.192113091205,110351.6
+"ORBvl2/3","Orbital area, ventrolateral part, layer 2/3","Trauma",602.7,142.733633037207,451.36337910823,203728.9
+"ORBvl5","Orbital area, ventrolateral part, layer 5","Control",29.5,9.32354929351325,26.3709797206811,695.428571428571
+"ORBvl5","Orbital area, ventrolateral part, layer 5","No Trauma",67,16.4668016188802,52.0725988938094,2711.55555555556
+"ORBvl5","Orbital area, ventrolateral part, layer 5","Trauma",71.5,16.9005259615723,53.4441556933757,2856.27777777778
+"ORBvl6a","Orbital area, ventrolateral part, layer 6a","Control",29.75,10.7150594958684,30.3067649213835,918.5
+"ORBvl6a","Orbital area, ventrolateral part, layer 6a","No Trauma",20.1,4.74564127501343,15.007035387148,225.211111111111
+"ORBvl6a","Orbital area, ventrolateral part, layer 6a","Trauma",31.7,11.1265947670934,35.185382065726,1238.01111111111
+"PGRNd","Paragigantocellular reticular nucleus, dorsal part","Control",34.5,12.364985125056,34.9734593247917,1223.14285714286
+"PGRNd","Paragigantocellular reticular nucleus, dorsal part","No Trauma",11.1,2.66020049369717,8.41229259278745,70.7666666666667
+"PGRNd","Paragigantocellular reticular nucleus, dorsal part","Trauma",13.7,3.98622628559895,12.6055543313255,158.9
+"PGRNl","Paragigantocellular reticular nucleus, lateral part","Control",190.125,57.9930530014464,164.029124156134,26905.5535714286
+"PGRNl","Paragigantocellular reticular nucleus, lateral part","No Trauma",86.4,25.0901485757967,79.3420163315475,6295.15555555556
+"PGRNl","Paragigantocellular reticular nucleus, lateral part","Trauma",82.6,16.0043049764049,50.6100560934067,2561.37777777778
+"PERI1","Perirhinal area, layer 1","Control",57.875,9.13477949534478,25.8370581032085,667.553571428571
+"PERI1","Perirhinal area, layer 1","No Trauma",226.4,60.8179797976443,192.323338850662,36988.2666666667
+"PERI1","Perirhinal area, layer 1","Trauma",141.4,16.803571049036,53.1375573394186,2823.6
+"PERI2/3","Perirhinal area, layer 2/3","Control",339,50.4072698838457,142.573289423871,20327.1428571429
+"PERI2/3","Perirhinal area, layer 2/3","No Trauma",786.1,170.567578656933,539.382043535831,290932.988888889
+"PERI2/3","Perirhinal area, layer 2/3","Trauma",587.6,87.0588817346564,275.304356828745,75792.4888888889
+"PERI5","Perirhinal area, layer 5","Control",609,66.0792273389625,186.900278987791,34931.7142857143
+"PERI5","Perirhinal area, layer 5","No Trauma",912.8,143.860796914548,454.927784256896,206959.288888889
+"PERI5","Perirhinal area, layer 5","Trauma",800.8,99.693062279512,315.257143720276,99387.0666666667
+"PERI6a","Perirhinal area, layer 6a","Control",221.75,22.2740640335667,63.0005668908735,3969.07142857143
+"PERI6a","Perirhinal area, layer 6a","No Trauma",354,50.0553027493924,158.288765657369,25055.3333333333
+"PERI6a","Perirhinal area, layer 6a","Trauma",364.2,39.0321235223843,123.430412243769,15235.0666666667
+"PERI6b","Perirhinal area, layer 6b","Control",45.5,7.44503669759736,21.0577437402152,443.428571428571
+"PERI6b","Perirhinal area, layer 6b","No Trauma",78.4,7.81195664777184,24.7035759894528,610.266666666667
+"PERI6b","Perirhinal area, layer 6b","Trauma",78.6,11.4922195902755,36.3415892760775,1320.71111111111
+"AUDpo1","Posterior auditory area, layer 1","Control",3.25,1.16112630050063,3.28416112359219,10.7857142857143
+"AUDpo1","Posterior auditory area, layer 1","No Trauma",7.6,1.55062711328173,4.90351347958221,24.0444444444444
+"AUDpo1","Posterior auditory area, layer 1","Trauma",11.7,3.38969025133566,10.7191417566893,114.9
+"AUDpo2/3","Posterior auditory area, layer 2/3","Control",23.75,3.76425860657087,10.6469311473843,113.357142857143
+"AUDpo2/3","Posterior auditory area, layer 2/3","No Trauma",50.3,9.4104551785058,29.7584721830047,885.566666666667
+"AUDpo2/3","Posterior auditory area, layer 2/3","Trauma",54.6,9.87049475288177,31.2132450518472,974.266666666667
+"AUDpo4","Posterior auditory area, layer 4","Control",10.875,2.10812628382918,5.96268156357284,35.5535714285714
+"AUDpo4","Posterior auditory area, layer 4","No Trauma",17.8,4.28122516213395,13.5384226883669,183.288888888889
+"AUDpo4","Posterior auditory area, layer 4","Trauma",19.9,4.64626492763572,14.6927797838863,215.877777777778
+"AUDpo5","Posterior auditory area, layer 5","Control",51.25,7.91641603613295,22.3910058473741,501.357142857143
+"AUDpo5","Posterior auditory area, layer 5","No Trauma",68.8,7.76001145474527,24.5393108659917,602.177777777778
+"AUDpo5","Posterior auditory area, layer 5","Trauma",76,11.6151242400205,36.730247904297,1349.11111111111
+"AUDpo6a","Posterior auditory area, layer 6a","Control",11.5,2.17124059336724,6.14119578862991,37.7142857142857
+"AUDpo6a","Posterior auditory area, layer 6a","No Trauma",12.6,1.52169496140178,4.81202198203162,23.1555555555556
+"AUDpo6a","Posterior auditory area, layer 6a","Trauma",17.2,3.41825166487847,10.8094608766786,116.844444444444
+"AUDpo6b","Posterior auditory area, layer 6b","Control",2.875,0.833184510520586,2.3566016694748,5.55357142857143
+"AUDpo6b","Posterior auditory area, layer 6b","No Trauma",1.4,0.4,1.26491106406735,1.6
+"AUDpo6b","Posterior auditory area, layer 6b","Trauma",2.6,0.581186525805423,1.83787316694536,3.37777777777778
+"VISpl1","Posterolateral visual area, layer 1","Control",3.875,1.77721190150672,5.02671434864337,25.2678571428571
+"VISpl1","Posterolateral visual area, layer 1","No Trauma",11.4,8.65666089076948,27.3747653465336,749.377777777778
+"VISpl1","Posterolateral visual area, layer 1","Trauma",5.9,2.97564185419624,9.40980576018679,88.5444444444445
+"VISpl2/3","Posterolateral visual area, layer 2/3","Control",24.125,5.54345656736712,15.6792629199936,245.839285714286
+"VISpl2/3","Posterolateral visual area, layer 2/3","No Trauma",62.7,29.4758092905578,93.2106932349145,8688.23333333333
+"VISpl2/3","Posterolateral visual area, layer 2/3","Trauma",41.2,11.2494938157728,35.5740229818208,1265.51111111111
+"VISpl4","Posterolateral visual area, layer 4","Control",14.5,4.0133705108229,11.351526014468,128.857142857143
+"VISpl4","Posterolateral visual area, layer 4","No Trauma",28.4,11.2320968656792,35.5190089951845,1261.6
+"VISpl4","Posterolateral visual area, layer 4","Trauma",24.4,6.99714227381436,22.1269066975029,489.6
+"VISpl5","Posterolateral visual area, layer 5","Control",107.75,22.3109118082226,63.1047881361968,3982.21428571429
+"VISpl5","Posterolateral visual area, layer 5","No Trauma",218.1,69.1790671614856,218.763418636054,47857.4333333333
+"VISpl5","Posterolateral visual area, layer 5","Trauma",196.8,49.6637135587387,157.050451907801,24664.8444444444
+"VISpl6a","Posterolateral visual area, layer 6a","Control",68.25,13.3547075702059,37.7728171346236,1426.78571428571
+"VISpl6a","Posterolateral visual area, layer 6a","No Trauma",110.4,26.9473560855235,85.2150221498534,7261.6
+"VISpl6a","Posterolateral visual area, layer 6a","Trauma",99.9,24.4165017059274,77.2117578841173,5961.65555555556
+"VISpm1","posteromedial visual area, layer 1","Control",18.75,11.8528929560918,33.5250439437232,1123.92857142857
+"VISpm1","posteromedial visual area, layer 1","No Trauma",102.7,65.096347397104,205.852725132422,42375.3444444444
+"VISpm1","posteromedial visual area, layer 1","Trauma",37.5,9.21502396451939,29.1404644209159,849.166666666667
+"VISpm2/3","posteromedial visual area, layer 2/3","Control",34.375,18.9368664439047,53.5615467076361,2868.83928571429
+"VISpm2/3","posteromedial visual area, layer 2/3","No Trauma",310.1,200.213300146508,633.130046321888,400853.655555556
+"VISpm2/3","posteromedial visual area, layer 2/3","Trauma",105.6,36.9961559564714,116.992117493255,13687.1555555556
+"VISpm4","posteromedial visual area, layer 4","Control",8,6.74272094293437,19.0712948095898,363.714285714286
+"VISpm4","posteromedial visual area, layer 4","No Trauma",117.7,73.6239770726901,232.819457949717,54204.9
+"VISpm4","posteromedial visual area, layer 4","Trauma",50.7,17.953674956522,56.7745052329339,3223.34444444444
+"VISpm5","posteromedial visual area, layer 5","Control",37.375,24.0378700476679,67.989363663948,4622.55357142857
+"VISpm5","posteromedial visual area, layer 5","No Trauma",214.6,109.127570607371,345.091678640136,119088.266666667
+"VISpm5","posteromedial visual area, layer 5","Trauma",152.6,52.013502520446,164.481137047518,27054.0444444444
+"VISpm6a","posteromedial visual area, layer 6a","Control",55.375,16.4468163441179,46.518621463422,2163.98214285714
+"VISpm6a","posteromedial visual area, layer 6a","No Trauma",113.2,44.1954748814853,139.758362898254,19532.4
+"VISpm6a","posteromedial visual area, layer 6a","Trauma",81,17.3832614252268,54.9706992658614,3021.77777777778
+"VISpm6b","posteromedial visual area, layer 6b","Control",14.5,2.91547594742265,8.24621125123532,68
+"VISpm6b","posteromedial visual area, layer 6b","No Trauma",15.2,3.70525152842407,11.7170341336402,137.288888888889
+"VISpm6b","posteromedial visual area, layer 6b","Trauma",11.3,2.15019378971602,6.79950978625175,46.2333333333333
+"PL1","Prelimbic area, layer 1","Control",71.5,18.0554700852678,51.0685813392148,2608
+"PL1","Prelimbic area, layer 1","No Trauma",224,39.5909641767468,125.197621560653,15674.4444444444
+"PL1","Prelimbic area, layer 1","Trauma",163.7,19.1943568095764,60.6978857402244,3684.23333333333
+"PL2/3","Prelimbic area, layer 2/3","Control",291.25,68.1478827886195,192.751320173356,37153.0714285714
+"PL2/3","Prelimbic area, layer 2/3","No Trauma",723.5,112.25380468682,354.977698830035,126009.166666667
+"PL2/3","Prelimbic area, layer 2/3","Trauma",612.4,81.3705106288513,257.31614795811,66211.6
+"PL5","Prelimbic area, layer 5","Control",234.625,65.7120171386374,185.861651696708,34544.5535714286
+"PL5","Prelimbic area, layer 5","No Trauma",392.4,48.2397254460586,152.547406110727,23270.7111111111
+"PL5","Prelimbic area, layer 5","Trauma",324.1,45.8568909155914,145.012221707153,21028.5444444444
+"PL6a","Prelimbic area, layer 6a","Control",79.5,27.6876713151746,78.3125605688969,6132.85714285714
+"PL6a","Prelimbic area, layer 6a","No Trauma",95.8,11.1582555386882,35.2855022164439,1245.06666666667
+"PL6a","Prelimbic area, layer 6a","Trauma",74.5,12.8575529035142,40.6591523112161,1653.16666666667
+"PL6b","Prelimbic area, layer 6b","Control",4.375,2.12919753495469,6.02228006180858,36.2678571428571
+"PL6b","Prelimbic area, layer 6b","No Trauma",3.8,1.01980390271856,3.22490309931942,10.4
+"PL6b","Prelimbic area, layer 6b","Trauma",3.5,1.16666666666667,3.68932393686311,13.6111111111111
+"AUDp1","Primary auditory area, layer 1","Control",55.375,12.328737480259,34.8709355030395,1215.98214285714
+"AUDp1","Primary auditory area, layer 1","No Trauma",119.9,20.2097061389378,63.9087022417309,4084.32222222222
+"AUDp1","Primary auditory area, layer 1","Trauma",93.8,22.2629737456612,70.4017045248196,4956.4
+"AUDp2/3","Primary auditory area, layer 2/3","Control",765.25,75.8468263767745,214.527221049984,46021.9285714286
+"AUDp2/3","Primary auditory area, layer 2/3","No Trauma",1550.9,268.778986033755,849.953783057251,722421.433333333
+"AUDp2/3","Primary auditory area, layer 2/3","Trauma",1360.7,177.204279481808,560.369134291555,314013.566666667
+"AUDp4","Primary auditory area, layer 4","Control",149.25,23.4336068195109,66.280249158942,4393.07142857143
+"AUDp4","Primary auditory area, layer 4","No Trauma",436.7,148.081737939258,468.275571764224,219282.011111111
+"AUDp4","Primary auditory area, layer 4","Trauma",434.5,99.9485701081644,316.065130418822,99897.1666666667
+"AUDp5","Primary auditory area, layer 5","Control",570.5,72.1855248647539,204.17149654151,41686
+"AUDp5","Primary auditory area, layer 5","No Trauma",1114.5,235.639991418171,745.15908070395,555262.055555556
+"AUDp5","Primary auditory area, layer 5","Trauma",1075.4,154.295042046075,487.923764537043,238069.6
+"AUDp6a","Primary auditory area, layer 6a","Control",242.875,30.9674007742704,87.5890363328327,7671.83928571429
+"AUDp6a","Primary auditory area, layer 6a","No Trauma",394.5,67.0978141720478,212.181918802396,45021.1666666667
+"AUDp6a","Primary auditory area, layer 6a","Trauma",390.3,51.6569990955297,163.353774231132,26684.4555555556
+"AUDp6b","Primary auditory area, layer 6b","Control",63.125,10.3844621223937,29.3716943428776,862.696428571429
+"AUDp6b","Primary auditory area, layer 6b","No Trauma",64.3,8.78768077101879,27.7890865868839,772.233333333333
+"AUDp6b","Primary auditory area, layer 6b","Trauma",86.2,12.8640757322259,40.6797793067323,1654.84444444444
+"MOp1","Primary motor area, Layer 1","Control",106.75,31.7015941464869,89.6656487816185,8039.92857142857
+"MOp1","Primary motor area, Layer 1","No Trauma",751.8,344.303219076829,1088.78237801071,1185447.06666667
+"MOp1","Primary motor area, Layer 1","Trauma",183,58.847637543443,186.092569557316,34630.4444444444
+"MOp2/3","Primary motor area, Layer 2/3","Control",719.25,229.524566845718,649.193510662048,421452.214285714
+"MOp2/3","Primary motor area, Layer 2/3","No Trauma",4555.7,2179.25403674438,6891.40635622851,47491481.5666667
+"MOp2/3","Primary motor area, Layer 2/3","Trauma",1436,269.995678977769,853.801303973393,728976.666666667
+"MOp5","Primary motor area, Layer 5","Control",1057.25,316.362458830284,894.808159806974,800681.642857143
+"MOp5","Primary motor area, Layer 5","No Trauma",2961.5,1155.98680548025,3655.55125041962,13363054.9444444
+"MOp5","Primary motor area, Layer 5","Trauma",1046.6,195.819769743053,619.236483277772,383453.822222222
+"MOp6a","Primary motor area, Layer 6a","Control",746.875,214.82637819378,607.620755194272,369202.982142857
+"MOp6a","Primary motor area, Layer 6a","No Trauma",970,216.805442736108,685.599008167311,470046
+"MOp6a","Primary motor area, Layer 6a","Trauma",560.4,90.4803477741622,286.123982450499,81866.9333333333
+"MOp6b","Primary motor area, Layer 6b","Control",166.75,50.7858775364063,143.64415357801,20633.6428571429
+"MOp6b","Primary motor area, Layer 6b","No Trauma",100.8,17.9020793329838,56.6113455452566,3204.84444444444
+"MOp6b","Primary motor area, Layer 6b","Trauma",78,14.1782305744484,44.8355018062943,2010.22222222222
+"SSp-bfd1","Primary somatosensory area, barrel field, layer 1","Control",35.375,9.6082879030851,27.1763421274566,738.553571428571
+"SSp-bfd1","Primary somatosensory area, barrel field, layer 1","No Trauma",233.7,66.4412940538906,210.105819899296,44144.4555555556
+"SSp-bfd1","Primary somatosensory area, barrel field, layer 1","Trauma",59.4,16.2680327295248,51.4440364754642,2646.48888888889
+"SSp-bfd2/3","Primary somatosensory area, barrel field, layer 2/3","Control",660.625,214.118620120117,605.618913060963,366774.267857143
+"SSp-bfd2/3","Primary somatosensory area, barrel field, layer 2/3","No Trauma",5146.5,1865.69972723968,5899.86056803228,34808354.7222222
+"SSp-bfd2/3","Primary somatosensory area, barrel field, layer 2/3","Trauma",1726.3,411.254072590439,1300.49956640601,1691299.12222222
+"SSp-bfd4","Primary somatosensory area, barrel field, layer 4","Control",113.125,51.8832609601319,146.748022619922,21534.9821428571
+"SSp-bfd4","Primary somatosensory area, barrel field, layer 4","No Trauma",859.8,477.72032264356,1510.68430410416,2282167.06666667
+"SSp-bfd4","Primary somatosensory area, barrel field, layer 4","Trauma",360.8,179.601954951003,567.951249864125,322568.622222222
+"SSp-bfd5","Primary somatosensory area, barrel field, layer 5","Control",391.75,123.42764653258,349.106103396333,121875.071428571
+"SSp-bfd5","Primary somatosensory area, barrel field, layer 5","No Trauma",911.1,379.896314801815,1201.33762947807,1443212.1
+"SSp-bfd5","Primary somatosensory area, barrel field, layer 5","Trauma",443.2,103.859820056758,328.433588754595,107868.622222222
+"SSp-bfd6a","Primary somatosensory area, barrel field, layer 6a","Control",373.5,83.7408843653189,236.854988789102,56100.2857142857
+"SSp-bfd6a","Primary somatosensory area, barrel field, layer 6a","No Trauma",374.4,80.5012353252352,254.567258084949,64804.4888888889
+"SSp-bfd6a","Primary somatosensory area, barrel field, layer 6a","Trauma",352.2,46.8894207447456,148.277367719345,21986.1777777778
+"SSp-bfd6b","Primary somatosensory area, barrel field, layer 6b","Control",75.875,15.5889584321724,44.0922328760973,1944.125
+"SSp-bfd6b","Primary somatosensory area, barrel field, layer 6b","No Trauma",54,8.4813520934656,26.8203902531886,719.333333333333
+"SSp-bfd6b","Primary somatosensory area, barrel field, layer 6b","Trauma",62.5,9.13388076218306,28.8838670848932,834.277777777778
+"SSp-ll1","Primary somatosensory area, lower limb, layer 1","Control",5.625,4.51559796704711,12.7720397744448,163.125
+"SSp-ll1","Primary somatosensory area, lower limb, layer 1","No Trauma",49,21.7802152830907,68.8750882233756,4743.77777777778
+"SSp-ll1","Primary somatosensory area, lower limb, layer 1","Trauma",13.7,4.17146390504714,13.1913271171293,174.011111111111
+"SSp-ll2/3","Primary somatosensory area, lower limb, layer 2/3","Control",92.75,58.510911680765,165.493849691504,27388.2142857143
+"SSp-ll2/3","Primary somatosensory area, lower limb, layer 2/3","No Trauma",806.6,410.958586721339,1299.56515804326,1688869.6
+"SSp-ll2/3","Primary somatosensory area, lower limb, layer 2/3","Trauma",321.7,72.5349034756525,229.375504843526,52613.1222222222
+"SSp-ll4","Primary somatosensory area, lower limb, layer 4","Control",36.25,21.8033008641221,61.6690475730851,3803.07142857143
+"SSp-ll4","Primary somatosensory area, lower limb, layer 4","No Trauma",257.1,170.366171002996,538.745136611202,290246.322222222
+"SSp-ll4","Primary somatosensory area, lower limb, layer 4","Trauma",134.7,52.8934043357224,167.263630901108,27977.1222222222
+"SSp-ll5","Primary somatosensory area, lower limb, layer 5","Control",154.625,58.7059675416392,166.045550979242,27571.125
+"SSp-ll5","Primary somatosensory area, lower limb, layer 5","No Trauma",448.7,195.893171000023,619.468598432918,383741.344444444
+"SSp-ll5","Primary somatosensory area, lower limb, layer 5","Trauma",199,43.8773543211327,138.75237735701,19252.2222222222
+"SSp-ll6a","Primary somatosensory area, lower limb, layer 6a","Control",133.75,42.4456585361969,120.054451931494,14413.0714285714
+"SSp-ll6a","Primary somatosensory area, lower limb, layer 6a","No Trauma",169.5,47.4086841552614,149.919422802162,22475.8333333333
+"SSp-ll6a","Primary somatosensory area, lower limb, layer 6a","Trauma",121.3,22.7640310821944,71.9861869466018,5182.01111111111
+"SSp-ll6b","Primary somatosensory area, lower limb, layer 6b","Control",44.125,14.5362078715776,41.1146046349191,1690.41071428571
+"SSp-ll6b","Primary somatosensory area, lower limb, layer 6b","No Trauma",27.8,4.01331118487798,12.6912043032435,161.066666666667
+"SSp-ll6b","Primary somatosensory area, lower limb, layer 6b","Trauma",30,5.38103666179255,17.0163320241336,289.555555555556
+"SSp-m1","Primary somatosensory area, mouth, layer 1","Control",52.75,16.4455269645839,46.5149745473741,2163.64285714286
+"SSp-m1","Primary somatosensory area, mouth, layer 1","No Trauma",431.1,196.248280954962,620.591554710325,385133.877777778
+"SSp-m1","Primary somatosensory area, mouth, layer 1","Trauma",128,39.8165236498059,125.910903243347,15853.5555555556
+"SSp-m2/3","Primary somatosensory area, mouth, layer 2/3","Control",316.125,147.398323006064,416.905414932452,173810.125
+"SSp-m2/3","Primary somatosensory area, mouth, layer 2/3","No Trauma",2706.5,1381.96797880575,4370.16646644547,19098354.9444444
+"SSp-m2/3","Primary somatosensory area, mouth, layer 2/3","Trauma",949.1,249.471683986602,788.898733115418,622361.211111111
+"SSp-m4","Primary somatosensory area, mouth, layer 4","Control",89.75,33.7626960247126,95.4953252408574,9119.35714285714
+"SSp-m4","Primary somatosensory area, mouth, layer 4","No Trauma",299,140.407897846872,444.008758672369,197143.777777778
+"SSp-m4","Primary somatosensory area, mouth, layer 4","Trauma",98,18.0030861551877,56.9307571626367,3241.11111111111
+"SSp-m5","Primary somatosensory area, mouth, layer 5","Control",175.625,78.5972867352484,222.306697733431,49420.2678571429
+"SSp-m5","Primary somatosensory area, mouth, layer 5","No Trauma",562.5,279.223496703109,882.982225818341,779657.611111111
+"SSp-m5","Primary somatosensory area, mouth, layer 5","Trauma",248,62.2691291447411,196.912276012554,38774.4444444444
+"SSp-m6a","Primary somatosensory area, mouth, layer 6a","Control",179,76.5088697005592,216.399762344734,46828.8571428571
+"SSp-m6a","Primary somatosensory area, mouth, layer 6a","No Trauma",188,36.5726066278513,115.65273691338,13375.5555555556
+"SSp-m6a","Primary somatosensory area, mouth, layer 6a","Trauma",136.2,19.0209241509332,60.1494435182534,3617.95555555556
+"SSp-m6b","Primary somatosensory area, mouth, layer 6b","Control",10.125,5.45251416451949,15.4220389609897,237.839285714286
+"SSp-m6b","Primary somatosensory area, mouth, layer 6b","No Trauma",4.4,1.08730042868667,3.43834585552737,11.8222222222222
+"SSp-m6b","Primary somatosensory area, mouth, layer 6b","Trauma",6.4,1.96751394178316,6.22182538417072,38.7111111111111
+"SSp-n1","Primary somatosensory area, nose, layer 1","Control",38.75,9.36702041358785,26.4939346158431,701.928571428571
+"SSp-n1","Primary somatosensory area, nose, layer 1","No Trauma",332.3,118.539262131442,374.854060491102,140515.566666667
+"SSp-n1","Primary somatosensory area, nose, layer 1","Trauma",95.6,26.1466802651673,82.683062890104,6836.48888888889
+"SSp-n2/3","Primary somatosensory area, nose, layer 2/3","Control",302.875,81.8656210549598,231.550943176041,53615.8392857143
+"SSp-n2/3","Primary somatosensory area, nose, layer 2/3","No Trauma",2710.5,1115.0322989841,3526.04172944362,12432970.2777778
+"SSp-n2/3","Primary somatosensory area, nose, layer 2/3","Trauma",978.3,246.300451120623,778.870414268139,606639.122222222
+"SSp-n4","Primary somatosensory area, nose, layer 4","Control",86.75,24.7572139558785,70.0239754859516,4903.35714285714
+"SSp-n4","Primary somatosensory area, nose, layer 4","No Trauma",275.4,111.233707920656,351.751869615185,123729.377777778
+"SSp-n4","Primary somatosensory area, nose, layer 4","Trauma",107.8,28.0989521354643,88.8566886121192,7895.51111111111
+"SSp-n5","Primary somatosensory area, nose, layer 5","Control",147.625,35.7975146284128,101.250661373501,10251.6964285714
+"SSp-n5","Primary somatosensory area, nose, layer 5","No Trauma",276.3,90.5918870539741,286.476700623279,82068.9
+"SSp-n5","Primary somatosensory area, nose, layer 5","Trauma",159.6,34.4364793657992,108.897709393316,11858.7111111111
+"SSp-n6a","Primary somatosensory area, nose, layer 6a","Control",162.75,47.8299629640548,135.283564623138,18301.6428571429
+"SSp-n6a","Primary somatosensory area, nose, layer 6a","No Trauma",114.4,17.87748428735,56.533569181898,3196.04444444444
+"SSp-n6a","Primary somatosensory area, nose, layer 6a","Trauma",112.7,16.4917824654853,52.1515952669608,2719.78888888889
+"SSp-n6b","Primary somatosensory area, nose, layer 6b","Control",7.25,3.60431289271221,10.1945363518196,103.928571428571
+"SSp-n6b","Primary somatosensory area, nose, layer 6b","No Trauma",2.1,0.504424865014052,1.59513148186739,2.54444444444444
+"SSp-n6b","Primary somatosensory area, nose, layer 6b","Trauma",3.9,2.03005199714468,6.41958807955083,41.2111111111111
+"SSp-tr1","Primary somatosensory area, trunk, layer 1","Control",2.25,1.58958664887628,4.49602999481606,20.2142857142857
+"SSp-tr1","Primary somatosensory area, trunk, layer 1","No Trauma",20.2,9.31522051984457,29.4573137494466,867.733333333333
+"SSp-tr1","Primary somatosensory area, trunk, layer 1","Trauma",1.5,0.582141639885766,1.84089350286454,3.38888888888889
+"SSp-tr2/3","Primary somatosensory area, trunk, layer 2/3","Control",45,37.6349951128316,106.447841016823,11331.1428571429
+"SSp-tr2/3","Primary somatosensory area, trunk, layer 2/3","No Trauma",437.4,218.94734019343,692.372282646971,479379.377777778
+"SSp-tr2/3","Primary somatosensory area, trunk, layer 2/3","Trauma",110.5,37.4994074027251,118.58353829919,14062.0555555556
+"SSp-tr4","Primary somatosensory area, trunk, layer 4","Control",13,10.6351841947915,30.0808434532202,904.857142857143
+"SSp-tr4","Primary somatosensory area, trunk, layer 4","No Trauma",126.5,67.5269904885776,213.539093480431,45598.9444444444
+"SSp-tr4","Primary somatosensory area, trunk, layer 4","Trauma",40.3,16.6780294599412,52.7405599768022,2781.56666666667
+"SSp-tr5","Primary somatosensory area, trunk, layer 5","Control",89.875,38.266657204039,108.234451209268,11714.6964285714
+"SSp-tr5","Primary somatosensory area, trunk, layer 5","No Trauma",359.2,163.64309402545,517.484900477514,267790.622222222
+"SSp-tr5","Primary somatosensory area, trunk, layer 5","Trauma",169.7,45.8916719629559,145.122209036231,21060.4555555556
+"SSp-tr6a","Primary somatosensory area, trunk, layer 6a","Control",54.5,15.0736288170528,42.6346606145081,1817.71428571429
+"SSp-tr6a","Primary somatosensory area, trunk, layer 6a","No Trauma",107.6,36.3792370575427,115.041248641037,13234.4888888889
+"SSp-tr6a","Primary somatosensory area, trunk, layer 6a","Trauma",70.8,14.5409765834348,45.9826054068275,2114.4
+"SSp-tr6b","Primary somatosensory area, trunk, layer 6b","Control",11.375,2.96369400290535,8.38259250726511,70.2678571428571
+"SSp-tr6b","Primary somatosensory area, trunk, layer 6b","No Trauma",13.5,2.32975916733421,7.36734536843345,54.2777777777778
+"SSp-tr6b","Primary somatosensory area, trunk, layer 6b","Trauma",12.9,2.01356510807186,6.36745195855017,40.5444444444444
+"SSp-ul1","Primary somatosensory area, upper limb, layer 1","Control",14,3.47439614486152,9.82707629823991,96.5714285714286
+"SSp-ul1","Primary somatosensory area, upper limb, layer 1","No Trauma",99.3,35.3471828203229,111.777606582595,12494.2333333333
+"SSp-ul1","Primary somatosensory area, upper limb, layer 1","Trauma",28.1,10.5445615261033,33.3448313502674,1111.87777777778
+"SSp-ul2/3","Primary somatosensory area, upper limb, layer 2/3","Control",248.25,76.9667715872988,217.69490446166,47391.0714285714
+"SSp-ul2/3","Primary somatosensory area, upper limb, layer 2/3","No Trauma",1807.8,702.230981309648,2220.64934447362,4931283.51111111
+"SSp-ul2/3","Primary somatosensory area, upper limb, layer 2/3","Trauma",720.5,147.028436403,464.944739846695,216173.611111111
+"SSp-ul4","Primary somatosensory area, upper limb, layer 4","Control",107.125,48.329020230381,136.695111732017,18685.5535714286
+"SSp-ul4","Primary somatosensory area, upper limb, layer 4","No Trauma",420.2,192.115000281949,607.52097357485,369081.733333333
+"SSp-ul4","Primary somatosensory area, upper limb, layer 4","Trauma",218.9,74.0898028671213,234.292528452977,54892.9888888889
+"SSp-ul5","Primary somatosensory area, upper limb, layer 5","Control",257.75,79.0995642935444,223.727353203466,50053.9285714286
+"SSp-ul5","Primary somatosensory area, upper limb, layer 5","No Trauma",575.8,222.053937391597,702.196205565874,493079.511111111
+"SSp-ul5","Primary somatosensory area, upper limb, layer 5","Trauma",308.6,73.9572248743225,233.873280028119,54696.7111111111
+"SSp-ul6a","Primary somatosensory area, upper limb, layer 6a","Control",208.125,51.5497116175944,145.804602612048,21258.9821428571
+"SSp-ul6a","Primary somatosensory area, upper limb, layer 6a","No Trauma",182.1,36.8403311602922,116.499356221397,13572.1
+"SSp-ul6a","Primary somatosensory area, upper limb, layer 6a","Trauma",152.6,25.415743152621,80.3716367881108,6459.6
+"SSp-ul6b","Primary somatosensory area, upper limb, layer 6b","Control",40.625,13.2919652153365,37.5953549562405,1413.41071428571
+"SSp-ul6b","Primary somatosensory area, upper limb, layer 6b","No Trauma",19.8,2.76003220593126,8.72798818616168,76.1777777777778
+"SSp-ul6b","Primary somatosensory area, upper limb, layer 6b","Trauma",25.3,5.19198099636995,16.4184855168394,269.566666666667
+"VISp1","Primary visual area, layer 1","Control",39.875,16.4180187381338,46.437169533529,2156.41071428571
+"VISp1","Primary visual area, layer 1","No Trauma",196.3,93.3464336044322,295.187341643687,87135.5666666667
+"VISp1","Primary visual area, layer 1","Trauma",103.9,34.629611606254,109.508447162765,11992.1
+"VISp2/3","Primary visual area, layer 2/3","Control",348.75,175.994597116746,497.787892293782,247792.785714286
+"VISp2/3","Primary visual area, layer 2/3","No Trauma",1906.6,997.849534415552,3155.47729089172,9957036.93333333
+"VISp2/3","Primary visual area, layer 2/3","Trauma",1109.5,332.820714165717,1052.47150924753,1107696.27777778
+"VISp4","Primary visual area, layer 4","Control",71.625,46.3803905222886,131.183554609562,17209.125
+"VISp4","Primary visual area, layer 4","No Trauma",512.3,326.169691690963,1031.43912945834,1063866.67777778
+"VISp4","Primary visual area, layer 4","Trauma",268.5,90.1613676816308,285.115278829848,81290.7222222222
+"VISp5","Primary visual area, layer 5","Control",432.75,124.018107836834,350.776180165399,123043.928571429
+"VISp5","Primary visual area, layer 5","No Trauma",1145.9,602.322937560169,1904.71236965352,3627929.21111111
+"VISp5","Primary visual area, layer 5","Trauma",505.5,139.351533898985,440.668242558957,194188.5
+"VISp6a","Primary visual area, layer 6a","Control",576,117.763685889521,333.086003480011,110946.285714286
+"VISp6a","Primary visual area, layer 6a","No Trauma",838,230.058301789399,727.508228284892,529268.222222222
+"VISp6a","Primary visual area, layer 6a","Trauma",660.1,118.229950144247,373.875930103973,139783.211111111
+"VISp6b","Primary visual area, layer 6b","Control",58.125,13.0102123349314,36.7984374668273,1354.125
+"VISp6b","Primary visual area, layer 6b","No Trauma",56.2,11.23664639571,35.5333958723652,1262.62222222222
+"VISp6b","Primary visual area, layer 6b","Trauma",55.1,11.3651025316781,35.9396098414487,1291.65555555556
+"RSPagl","Retrosplenial area, lateral agranular part","Control",7.25,6.00817894920868,16.9936963102709,288.785714285714
+"RSPagl","Retrosplenial area, lateral agranular part","No Trauma",74.8,39.803629091942,125.870127071076,15843.2888888889
+"RSPagl","Retrosplenial area, lateral agranular part","Trauma",43.2,14.9427053924129,47.2529834449048,2232.84444444444
+"RSPd1","Retrosplenial area, dorsal part, layer 1","Control",37.875,20.9765494064205,59.3306413246983,3520.125
+"RSPd1","Retrosplenial area, dorsal part, layer 1","No Trauma",166.4,78.6158310322348,248.605086208808,61804.4888888889
+"RSPd1","Retrosplenial area, dorsal part, layer 1","Trauma",54.9,10.9589638601872,34.6552865936626,1200.98888888889
+"RSPd2/3","Retrosplenial area, dorsal part, layer 2/3","Control",187.125,97.2906979660146,275.179649112565,75723.8392857143
+"RSPd2/3","Retrosplenial area, dorsal part, layer 2/3","No Trauma",947.4,479.425262394695,1516.07579699111,2298485.82222222
+"RSPd2/3","Retrosplenial area, dorsal part, layer 2/3","Trauma",369.8,84.8589417798737,268.347535856024,72010.4
+"RSPd4","Retrosplenial area, dorsal part, layer 4","Control",1.75,1.11403385432016,3.15096357144468,9.92857142857143
+"RSPd4","Retrosplenial area, dorsal part, layer 4","No Trauma",12.6,7.03988636271922,22.262075374951,495.6
+"RSPd4","Retrosplenial area, dorsal part, layer 4","Trauma",5.2,1.81842422626478,5.75036230742609,33.0666666666667
+"RSPd5","Retrosplenial area, dorsal part, layer 5","Control",164.875,89.6551802144511,253.583143592562,64304.4107142857
+"RSPd5","Retrosplenial area, dorsal part, layer 5","No Trauma",810.5,414.555350814447,1310.93912478379,1718561.38888889
+"RSPd5","Retrosplenial area, dorsal part, layer 5","Trauma",408.9,126.877670743647,401.222423766834,160979.433333333
+"RSPd6a","Retrosplenial area, dorsal part, layer 6a","Control",236.625,71.2568135839855,201.544704363927,40620.2678571429
+"RSPd6a","Retrosplenial area, dorsal part, layer 6a","No Trauma",523.7,183.603077316258,580.603909735372,337100.9
+"RSPd6a","Retrosplenial area, dorsal part, layer 6a","Trauma",331.9,71.0430933385583,224.65798697378,50471.2111111111
+"RSPd6b","Retrosplenial area, dorsal part, layer 6b","Control",5.125,1.14076258954889,3.22656385117578,10.4107142857143
+"RSPd6b","Retrosplenial area, dorsal part, layer 6b","No Trauma",9.5,2.39559781451079,7.57554545157567,57.3888888888889
+"RSPd6b","Retrosplenial area, dorsal part, layer 6b","Trauma",6.2,1.60416125540213,5.07280330126581,25.7333333333333
+"RSPagl1","Retrosplenial area, lateral agranular part, layer 1","Control",48.875,27.3825006032268,77.4494074495455,5998.41071428571
+"RSPagl1","Retrosplenial area, lateral agranular part, layer 1","No Trauma",163.2,80.3505928900203,254.090884877395,64562.1777777778
+"RSPagl1","Retrosplenial area, lateral agranular part, layer 1","Trauma",87.1,17.3047520769425,54.7224309076675,2994.54444444444
+"RSPagl2/3","Retrosplenial area, lateral agranular part, layer 2/3","Control",92.875,57.4793246990354,162.576081090845,26430.9821428571
+"RSPagl2/3","Retrosplenial area, lateral agranular part, layer 2/3","No Trauma",409.5,209.573654514747,662.730085831832,439211.166666667
+"RSPagl2/3","Retrosplenial area, lateral agranular part, layer 2/3","Trauma",192.8,50.3321854173737,159.164345532814,25333.2888888889
+"RSPagl5","Retrosplenial area, lateral agranular part, layer 5","Control",92.375,66.1505149261893,187.101910733162,35007.125
+"RSPagl5","Retrosplenial area, lateral agranular part, layer 5","No Trauma",445.4,177.479463600722,561.23934288323,314989.6
+"RSPagl5","Retrosplenial area, lateral agranular part, layer 5","Trauma",328.2,98.9430588211669,312.885424538902,97897.2888888889
+"RSPagl6a","Retrosplenial area, lateral agranular part, layer 6a","Control",67.5,29.8119103715277,84.3208159353312,7110
+"RSPagl6a","Retrosplenial area, lateral agranular part, layer 6a","No Trauma",205.6,68.5823430467185,216.876411298642,47035.3777777778
+"RSPagl6a","Retrosplenial area, lateral agranular part, layer 6a","Trauma",151.1,35.1610422042477,111.18897827073,12362.9888888889
+"RSPv1","Retrosplenial area, ventral part, layer 1","Control",210.875,57.5485625673781,162.771915355725,26494.6964285714
+"RSPv1","Retrosplenial area, ventral part, layer 1","No Trauma",521.3,160.941262577376,508.94095924773,259020.9
+"RSPv1","Retrosplenial area, ventral part, layer 1","Trauma",423.2,104.038326271299,328.998074969039,108239.733333333
+"RSPv2/3","Retrosplenial area, ventral part, layer 2/3","Control",787.625,214.861744376305,607.720785864223,369324.553571429
+"RSPv2/3","Retrosplenial area, ventral part, layer 2/3","No Trauma",1747.5,488.322690441474,1544.21193493639,2384590.5
+"RSPv2/3","Retrosplenial area, ventral part, layer 2/3","Trauma",1234.5,262.057553051064,828.698745691769,686741.611111111
+"RSPv5","Retrosplenial area, ventral part, layer 5","Control",524,159.017182360002,449.768511887742,202291.714285714
+"RSPv5","Retrosplenial area, ventral part, layer 5","No Trauma",1315.8,537.251126879538,1698.93723643145,2886387.73333333
+"RSPv5","Retrosplenial area, ventral part, layer 5","Trauma",653.1,214.072337203001,676.956169597084,458269.655555556
+"RSPv6a","Retrosplenial area, ventral part, layer 6a","Control",216,66.1718541807186,187.162267259494,35029.7142857143
+"RSPv6a","Retrosplenial area, ventral part, layer 6a","No Trauma",401.5,137.427415185051,434.583644934372,188862.944444444
+"RSPv6a","Retrosplenial area, ventral part, layer 6a","Trauma",218.8,51.8915107593611,164.095365226715,26927.2888888889
+"RSPv6b","Retrosplenial area, ventral part, layer 6b","Control",15.75,5.61487183418159,15.8812557977726,252.214285714286
+"RSPv6b","Retrosplenial area, ventral part, layer 6b","No Trauma",18.7,4.47722632391479,14.1582327836335,200.455555555556
+"RSPv6b","Retrosplenial area, ventral part, layer 6b","Trauma",10.8,2.84722086720835,9.0037029419382,81.0666666666667
+"MOs1","Secondary motor area, layer 1","Control",102.625,30.7599795072382,87.0023603949095,7569.41071428571
+"MOs1","Secondary motor area, layer 1","No Trauma",408.7,145.376602885976,459.721183617491,211343.566666667
+"MOs1","Secondary motor area, layer 1","Trauma",155.5,27.3204237806729,86.3947657879547,7464.05555555556
+"MOs2/3","Secondary motor area, layer 2/3","Control",438.75,136.025306206498,384.737665726364,148023.071428571
+"MOs2/3","Secondary motor area, layer 2/3","No Trauma",2282.5,891.81405946905,2820.16367728305,7953323.16666667
+"MOs2/3","Secondary motor area, layer 2/3","Trauma",836.9,120.590348793849,381.340166022702,145420.322222222
+"MOs5","Secondary motor area, layer 5","Control",714.875,207.113791833999,585.806266732319,343168.982142857
+"MOs5","Secondary motor area, layer 5","No Trauma",2193.7,759.136293574627,2400.59974219407,5762879.12222222
+"MOs5","Secondary motor area, layer 5","Trauma",769.7,112.766725785776,356.599697762694,127163.344444444
+"MOs6a","Secondary motor area, layer 6a","Control",320.625,82.1907488494208,232.470543448904,54042.5535714286
+"MOs6a","Secondary motor area, layer 6a","No Trauma",609.9,138.303808094113,437.355042652229,191279.433333333
+"MOs6a","Secondary motor area, layer 6a","Trauma",282.2,47.4860915309829,150.164206417138,22549.2888888889
+"MOs6b","Secondary motor area, layer 6b","Control",23.625,8.04881867995901,22.7654970765599,518.267857142857
+"MOs6b","Secondary motor area, layer 6b","No Trauma",18.2,3.40196021924615,10.7579428021036,115.733333333333
+"MOs6b","Secondary motor area, layer 6b","Trauma",12.8,3.17210060089875,10.0310628660288,100.622222222222
+"SPFm","Subparafascicular nucleus, magnocellular part","Control",68.5,9.66769288477275,27.344364789007,747.714285714286
+"SPFm","Subparafascicular nucleus, magnocellular part","No Trauma",73.6,15.6384142418597,49.4530079974919,2445.6
+"SPFm","Subparafascicular nucleus, magnocellular part","Trauma",83.1,14.838725611648,46.9241705070828,2201.87777777778
+"SPFp","Subparafascicular nucleus, parvicellular part","Control",110,13.7736809065074,38.9578526835641,1517.71428571429
+"SPFp","Subparafascicular nucleus, parvicellular part","No Trauma",193.2,17.3652270676519,54.9136696197869,3015.51111111111
+"SPFp","Subparafascicular nucleus, parvicellular part","Trauma",186.1,14.2114586005644,44.9405780509725,2019.65555555556
+"SCdg","Superior colliculus, motor related, deep gray layer","Control",614.875,67.1465448265423,189.919108720378,36069.2678571429
+"SCdg","Superior colliculus, motor related, deep gray layer","No Trauma",701.9,92.2434520410226,291.699407686139,85088.5444444444
+"SCdg","Superior colliculus, motor related, deep gray layer","Trauma",738,80.3876718021972,254.208138693036,64621.7777777778
+"SCdw","Superior colliculus, motor related, deep white layer","Control",134.125,15.0195557048612,42.4817187572658,1804.69642857143
+"SCdw","Superior colliculus, motor related, deep white layer","No Trauma",162.2,24.7986558775538,78.4202354837916,6149.73333333333
+"SCdw","Superior colliculus, motor related, deep white layer","Trauma",161.2,15.7478746361392,49.7991521569952,2479.95555555556
+"SCig","Superior colliculus, motor related, intermediate gray layer","Control",2000.125,284.059063117665,803.440359151994,645516.410714286
+"SCig","Superior colliculus, motor related, intermediate gray layer","No Trauma",3174.3,471.920097992116,1492.34238326494,2227085.78888889
+"SCig","Superior colliculus, motor related, intermediate gray layer","Trauma",2424.6,236.635265522468,748.306413769713,559962.488888889
+"SCiw","Superior colliculus, motor related, intermediate white layer","Control",1444,241.026599006357,681.726170414904,464750.571428571
+"SCiw","Superior colliculus, motor related, intermediate white layer","No Trauma",2236.1,389.499349592953,1231.70509186791,1517097.43333333
+"SCiw","Superior colliculus, motor related, intermediate white layer","Trauma",1842.7,202.502732491852,640.369867082038,410073.566666667
+"SCig-a","Superior colliculus, motor related, intermediate gray layer, sublayer a","Control",87,17.0272890217019,48.1604461298748,2319.42857142857
+"SCig-a","Superior colliculus, motor related, intermediate gray layer, sublayer a","No Trauma",108.6,16.921518187733,53.5105389412009,2863.37777777778
+"SCig-a","Superior colliculus, motor related, intermediate gray layer, sublayer a","Trauma",72.7,4.47722632391479,14.1582327836335,200.455555555556
+"SCig-b","Superior colliculus, motor related, intermediate gray layer, sublayer b","Control",152.5,26.2413250972039,74.2216756942144,5508.85714285714
+"SCig-b","Superior colliculus, motor related, intermediate gray layer, sublayer b","No Trauma",178.9,31.0402784924506,98.1579792420814,9634.98888888889
+"SCig-b","Superior colliculus, motor related, intermediate gray layer, sublayer b","Trauma",132.2,10.4070488932582,32.9099782234304,1083.06666666667
+"SCig-c","Superior colliculus, motor related, intermediate gray layer, sublayer c","Control",46.625,8.55640424310519,24.2011658514921,585.696428571429
+"SCig-c","Superior colliculus, motor related, intermediate gray layer, sublayer c","No Trauma",39.8,7.92997127639467,25.0767710131198,628.844444444444
+"SCig-c","Superior colliculus, motor related, intermediate gray layer, sublayer c","Trauma",43.7,3.87599449604012,12.2569708057633,150.233333333333
+"SCop","Superior colliculus, optic layer","Control",472.875,91.0491306736564,257.52583088193,66319.5535714286
+"SCop","Superior colliculus, optic layer","No Trauma",586.5,113.252642843826,358.136302420058,128261.611111111
+"SCop","Superior colliculus, optic layer","Trauma",443,76.9075924585979,243.203161529158,59147.7777777778
+"SCsg","Superior colliculus, superficial gray layer","Control",482.875,104.229046798043,294.804263150024,86909.5535714286
+"SCsg","Superior colliculus, superficial gray layer","No Trauma",607.1,152.372967127083,481.845629959545,232175.211111111
+"SCsg","Superior colliculus, superficial gray layer","Trauma",462.5,94.0920648443144,297.54523465629,88533.1666666667
+"SOCl","Superior olivary complex, lateral part","Control",29.375,8.93215999312916,25.2639636071393,638.267857142857
+"SOCl","Superior olivary complex, lateral part","No Trauma",24,3.32999833166458,10.5303793326209,110.888888888889
+"SOCl","Superior olivary complex, lateral part","Trauma",32.2,7.61548130820079,24.0822664123532,579.955555555556
+"SOCm","Superior olivary complex, medial part","Control",8,3.58070224556979,10.1277553570092,102.571428571429
+"SOCm","Superior olivary complex, medial part","No Trauma",9.7,2.08726296059377,6.60050503118259,43.5666666666667
+"SOCm","Superior olivary complex, medial part","Trauma",7.1,1.78543489877894,5.64604089409365,31.8777777777778
+"POR","Superior olivary complex, periolivary region","Control",31,27.0680359728698,76.5599671592705,5861.42857142857
+"POR","Superior olivary complex, periolivary region","No Trauma",17.7,10.950443928089,34.6283442027225,1199.12222222222
+"POR","Superior olivary complex, periolivary region","Trauma",18.1,7.8123122199655,24.7047004074573,610.322222222222
+"SSs1","Supplemental somatosensory area, layer 1","Control",98,24.7393555753927,69.9734643581816,4896.28571428571
+"SSs1","Supplemental somatosensory area, layer 1","No Trauma",452.4,136.937714957486,433.035076844564,187519.377777778
+"SSs1","Supplemental somatosensory area, layer 1","Trauma",164.4,39.0703638751079,123.551338856903,15264.9333333333
+"SSs2/3","Supplemental somatosensory area, layer 2/3","Control",571.875,139.42912145859,394.365109113007,155523.839285714
+"SSs2/3","Supplemental somatosensory area, layer 2/3","No Trauma",3689.7,1338.89220419138,4233.94890668799,17926323.3444444
+"SSs2/3","Supplemental somatosensory area, layer 2/3","Trauma",1702.7,444.503544542798,1405.64362877335,1975834.01111111
+"SSs4","Supplemental somatosensory area, layer 4","Control",133.875,43.3117591670306,122.504154448504,15007.2678571429
+"SSs4","Supplemental somatosensory area, layer 4","No Trauma",852,448.601307770422,1418.60189388473,2012431.33333333
+"SSs4","Supplemental somatosensory area, layer 4","Trauma",581.2,230.02911892966,727.415943979478,529133.955555556
+"SSs5","Supplemental somatosensory area, layer 5","Control",456.75,130.361139860444,368.716983994112,135952.214285714
+"SSs5","Supplemental somatosensory area, layer 5","No Trauma",1500.9,566.193576045822,1790.46129686055,3205751.65555556
+"SSs5","Supplemental somatosensory area, layer 5","Trauma",766.7,171.891441839836,543.568466504246,295466.677777778
+"SSs6a","Supplemental somatosensory area, layer 6a","Control",413.25,127.201576528864,359.780389364719,129441.928571429
+"SSs6a","Supplemental somatosensory area, layer 6a","No Trauma",625.6,162.85755193488,515.000798273383,265225.822222222
+"SSs6a","Supplemental somatosensory area, layer 6a","Trauma",440.6,79.2027216142925,250.460997185412,62730.7111111111
+"SSs6b","Supplemental somatosensory area, layer 6b","Control",28.375,11.2105458959729,31.7082120953818,1005.41071428571
+"SSs6b","Supplemental somatosensory area, layer 6b","No Trauma",21.6,5.22642856600524,16.5274182967442,273.155555555556
+"SSs6b","Supplemental somatosensory area, layer 6b","Trauma",31.1,6.74858009757114,21.3408840804062,455.433333333333
+"TEa1","Temporal association areas, layer 1","Control",58.125,10.8371673618419,30.6521381216478,939.553571428571
+"TEa1","Temporal association areas, layer 1","No Trauma",185.7,31.5475126682843,99.7619945447942,9952.45555555556
+"TEa1","Temporal association areas, layer 1","Trauma",139.8,13.1282562098365,41.5151913293328,1723.51111111111
+"TEa2/3","Temporal association areas, layer 2/3","Control",152.875,19.5388235316254,55.2641384624785,3054.125
+"TEa2/3","Temporal association areas, layer 2/3","No Trauma",534,102.809856855589,325.113313579537,105698.666666667
+"TEa2/3","Temporal association areas, layer 2/3","Trauma",459.4,70.1870833320966,221.951045653465,49262.2666666667
+"TEa4","Temporal association areas, layer 4","Control",53.25,6.62449458988598,18.7369001857679,351.071428571429
+"TEa4","Temporal association areas, layer 4","No Trauma",144.5,46.7711330725362,147.903309256044,21875.3888888889
+"TEa4","Temporal association areas, layer 4","Trauma",111.3,20.1632503993445,63.7617962942283,4065.56666666667
+"TEa5","Temporal association areas, layer 5","Control",779.625,83.6905305916642,236.712566809864,56032.8392857143
+"TEa5","Temporal association areas, layer 5","No Trauma",1290.8,176.985925366335,559.678637950188,313240.177777778
+"TEa5","Temporal association areas, layer 5","Trauma",1114.9,118.584657992133,374.997614807229,140623.211111111
+"TEa6a","Temporal association areas, layer 6a","Control",417.625,52.1275693097506,147.439030982786,21738.2678571429
+"TEa6a","Temporal association areas, layer 6a","No Trauma",705,108.234005746808,342.265978443666,117146
+"TEa6a","Temporal association areas, layer 6a","Trauma",656.1,79.3503413141158,250.927811664364,62964.7666666667
+"TEa6b","Temporal association areas, layer 6b","Control",70.625,10.4025022745217,29.422719598491,865.696428571429
+"TEa6b","Temporal association areas, layer 6b","No Trauma",106.9,16.3166241061753,51.5976959003231,2662.32222222222
+"TEa6b","Temporal association areas, layer 6b","Trauma",130.2,20.8234910084207,65.8496604226459,4336.17777777778
+"TMd","Tuberomammillary nucleus, dorsal part","Control",26.25,3.89940471647368,11.0291820704374,121.642857142857
+"TMd","Tuberomammillary nucleus, dorsal part","No Trauma",27.4,7.44490877490562,23.5428687008756,554.266666666667
+"TMd","Tuberomammillary nucleus, dorsal part","Trauma",26.6,5.75654217197944,18.2037847102677,331.377777777778
+"TMv","Tuberomammillary nucleus, ventral part","Control",15.875,2.74797002998837,7.77243297080871,60.4107142857143
+"TMv","Tuberomammillary nucleus, ventral part","No Trauma",21.9,4.82458979257995,15.256692520552,232.766666666667
+"TMv","Tuberomammillary nucleus, ventral part","Trauma",22.4,3.42279937413158,10.8238419960546,117.155555555556
+"AUDv1","Ventral auditory area, layer 1","Control",58.875,9.18546503216592,25.9804184503857,674.982142857143
+"AUDv1","Ventral auditory area, layer 1","No Trauma",163.6,27.3784992689925,86.5784166072713,7495.82222222222
+"AUDv1","Ventral auditory area, layer 1","Trauma",103,12.895304916476,40.7785346584314,1662.88888888889
+"AUDv2/3","Ventral auditory area, layer 2/3","Control",238.25,27.6345733250424,78.1623767733373,6109.35714285714
+"AUDv2/3","Ventral auditory area, layer 2/3","No Trauma",832.6,196.279064372926,620.688900425254,385254.711111111
+"AUDv2/3","Ventral auditory area, layer 2/3","Trauma",592.7,98.4598113163155,311.357261749978,96943.3444444444
+"AUDv4","Ventral auditory area, layer 4","Control",85.125,18.9061946575341,53.474793795101,2859.55357142857
+"AUDv4","Ventral auditory area, layer 4","No Trauma",318.2,125.559795405306,397.05493602551,157652.622222222
+"AUDv4","Ventral auditory area, layer 4","Trauma",261,90.5997301933682,286.501502807771,82083.1111111111
+"AUDv5","Ventral auditory area, layer 5","Control",527.375,61.169535338855,173.013572960538,29933.6964285714
+"AUDv5","Ventral auditory area, layer 5","No Trauma",1028.4,220.433925600293,697.073278469025,485911.155555556
+"AUDv5","Ventral auditory area, layer 5","Trauma",844,142.815965494058,451.623737197238,203964
+"AUDv6a","Ventral auditory area, layer 6a","Control",349.25,56.1031416232638,158.683647550716,25180.5
+"AUDv6a","Ventral auditory area, layer 6a","No Trauma",612.7,134.723259560726,426.032354013949,181503.566666667
+"AUDv6a","Ventral auditory area, layer 6a","Trauma",489.5,79.5428954855317,251.536721419005,63270.7222222222
+"AUDv6b","Ventral auditory area, layer 6b","Control",40.5,6.3160792540038,17.864569884071,319.142857142857
+"AUDv6b","Ventral auditory area, layer 6b","No Trauma",45,7.69270939122087,24.3264830540253,591.777777777778
+"AUDv6b","Ventral auditory area, layer 6b","Trauma",57.4,9.15204895091804,28.9413199422556,837.6
+"LAV","Lateral vestibular nucleus","Control",7.75,2.51246890528022,7.10633520177595,50.5
+"LAV","Lateral vestibular nucleus","No Trauma",6.2,1.4047538337137,4.44222166638871,19.7333333333333
+"LAV","Lateral vestibular nucleus","Trauma",7.7,1.55670592384475,4.92273636642603,24.2333333333333
+"MV","Medial vestibular nucleus","Control",530.75,114.672631870033,324.343182447234,105198.5
+"MV","Medial vestibular nucleus","No Trauma",340.8,40.1715211450987,127.033503892127,16137.5111111111
+"MV","Medial vestibular nucleus","Trauma",461.4,96.5240557236036,305.235865083599,93168.9333333333
+"SPIV","Spinal vestibular nucleus","Control",178.625,35.0086405150826,99.0193884333482,9804.83928571429
+"SPIV","Spinal vestibular nucleus","No Trauma",208.9,30.7041256728364,97.0949706902131,9427.43333333333
+"SPIV","Spinal vestibular nucleus","Trauma",209.1,42.3874850502939,134.040997045266,17966.9888888889
+"SUV","Superior vestibular nucleus","Control",60.875,8.98100674439437,25.4021230833735,645.267857142857
+"SUV","Superior vestibular nucleus","No Trauma",37.8,4.59661711358352,14.5357796106328,211.288888888889
+"SUV","Superior vestibular nucleus","Trauma",55.2,10.3621104671458,32.7678704424522,1073.73333333333
+"VISC1","Visceral area, layer 1","Control",24.75,5.17117698677694,14.6262972562632,213.928571428571
+"VISC1","Visceral area, layer 1","No Trauma",130.6,52.9476051289281,167.435028858626,28034.4888888889
+"VISC1","Visceral area, layer 1","Trauma",86.1,11.6946806521408,36.9818273690681,1367.65555555556
+"VISC2/3","Visceral area, layer 2/3","Control",49.25,10.05476077715,28.4391581149252,808.785714285714
+"VISC2/3","Visceral area, layer 2/3","No Trauma",446.4,230.626499392898,729.305026872997,531885.822222222
+"VISC2/3","Visceral area, layer 2/3","Trauma",292.2,66.7231094399334,210.996998398871,44519.7333333333
+"VISC4","Visceral area, layer 4","Control",19.5,4.13175853256559,11.68637790641,136.571428571429
+"VISC4","Visceral area, layer 4","No Trauma",117.1,69.7978748482598,220.72026035988,48717.4333333333
+"VISC4","Visceral area, layer 4","Trauma",63.4,17.8532287773886,56.4568665246113,3187.37777777778
+"VISC5","Visceral area, layer 5","Control",203,38.4029388756344,108.619913985814,11798.2857142857
+"VISC5","Visceral area, layer 5","No Trauma",587.6,165.11135636291,522.127953666532,272617.6
+"VISC5","Visceral area, layer 5","Trauma",417.6,60.0564919240395,189.915302759473,36067.8222222222
+"VISC6a","Visceral area, layer 6a","Control",267.25,39.0154502363212,110.352357732596,12177.6428571429
+"VISC6a","Visceral area, layer 6a","No Trauma",534.3,130.42188381471,412.430209584334,170098.677777778
+"VISC6a","Visceral area, layer 6a","Trauma",440.9,66.2054798000555,209.360109752444,43831.6555555556
+"VISC6b","Visceral area, layer 6b","Control",13.25,1.81018941392488,5.11998883927355,26.2142857142857
+"VISC6b","Visceral area, layer 6b","No Trauma",20,4.20581607882333,13.29995822884,176.888888888889
+"VISC6b","Visceral area, layer 6b","Trauma",24.6,4.46019431564739,14.1043728443817,198.933333333333
+"CA1","Field CA1","Control",1976.375,234.805537892529,664.130352415849,441069.125
+"CA1","Field CA1","No Trauma",2518.9,299.600120531054,947.418768139107,897602.322222222
+"CA1","Field CA1","Trauma",2310.8,284.407290108159,899.374819898059,808875.066666667
+"CA2","Field CA2","Control",394.125,34.074203428484,96.3764012312439,9288.41071428571
+"CA2","Field CA2","No Trauma",503.9,54.1833205167625,171.342704023901,29358.3222222222
+"CA2","Field CA2","Trauma",493.8,34.7670981117365,109.943217667627,12087.5111111111
+"CA3","Field CA3","Control",2564.125,215.154216908643,608.548023107931,370330.696428571
+"CA3","Field CA3","No Trauma",3285.7,298.42635607466,943.706999020353,890582.9
+"CA3","Field CA3","Trauma",3153.1,281.360048099702,889.738594569589,791634.766666667
+"AD","Anterodorsal nucleus","Control",6.625,2.55606771092965,7.22965124628133,52.2678571428571
+"AD","Anterodorsal nucleus","No Trauma",10.8,2.81977146434088,8.91690030846544,79.5111111111111
+"AD","Anterodorsal nucleus","Trauma",14.4,3.71543327815807,11.7492316533654,138.044444444444
+"AM","Anteromedial nucleus","Control",40.375,8.07981943751574,22.853180460121,522.267857142857
+"AM","Anteromedial nucleus","No Trauma",54.5,12.4143733900132,39.2576956362274,1541.16666666667
+"AM","Anteromedial nucleus","Trauma",48,5.10772834916745,16.152055252781,260.888888888889
+"AV","Anteroventral nucleus of thalamus","Control",91.625,19.6195397317499,55.4924383523171,3079.41071428571
+"AV","Anteroventral nucleus of thalamus","No Trauma",74.1,17.508378946474,55.3663556081971,3065.43333333333
+"AV","Anteroventral nucleus of thalamus","Trauma",68.1,7.21025504249175,22.8008284449881,519.877777777778
+"IAD","Interanterodorsal nucleus of the thalamus","Control",13.625,3.38556547292008,9.57582521621132,91.6964285714286
+"IAD","Interanterodorsal nucleus of the thalamus","No Trauma",20.6,4.00610645001963,12.6684209311535,160.488888888889
+"IAD","Interanterodorsal nucleus of the thalamus","Trauma",29.3,6.5252501016351,20.6346526234121,425.788888888889
+"IAM","Interanteromedial nucleus of the thalamus","Control",26.875,4.59595124616688,12.9993131686694,168.982142857143
+"IAM","Interanteromedial nucleus of the thalamus","No Trauma",26.4,6.98283610003844,22.0816666037688,487.6
+"IAM","Interanteromedial nucleus of the thalamus","Trauma",17.6,4.5220447685631,14.2999611499084,204.488888888889
+"LD","Lateral dorsal nucleus of thalamus","Control",41.5,5.63471383479232,15.9373774505092,254
+"LD","Lateral dorsal nucleus of thalamus","No Trauma",45.7,5.03554035498343,15.9237767714405,253.566666666667
+"LD","Lateral dorsal nucleus of thalamus","Trauma",47.8,6.27304639797213,19.837114485507,393.511111111111
+"MB","Midbrain","Control",2769.625,219.654187425534,621.275861778463,385983.696428571
+"MB","Midbrain","No Trauma",3219.7,274.820711252506,869.059395745385,755264.233333333
+"MB","Midbrain","Trauma",3181.5,196.75146476936,622.182761645554,387111.388888889
+"CTXsp","Cortical subplate","Control",882,122.37544688376,346.130033368964,119806
+"CTXsp","Cortical subplate","No Trauma",1264.2,93.5984092932258,295.984158735264,87606.6222222222
+"CTXsp","Cortical subplate","Trauma",1410.7,144.43637968939,456.747936807357,208618.677777778
+"PAL","Pallidum","Control",666.125,74.8370700493507,211.671198864114,44804.6964285714
+"PAL","Pallidum","No Trauma",928.5,84.852322694589,268.326604470497,71999.1666666667
+"PAL","Pallidum","Trauma",890.5,61.3223269109855,193.918224460152,37604.2777777778
+"STR","Striatum","Control",1318.125,157.454918434724,445.349762225473,198336.410714286
+"STR","Striatum","No Trauma",2107.1,174.788599297679,552.730082811171,305510.544444444
+"STR","Striatum","Trauma",2014.5,167.153904464651,528.587057898486,279404.277777778
+"HPF","Hippocampal formation","Control",670.875,107.966006141484,305.373980321086,93253.2678571429
+"HPF","Hippocampal formation","No Trauma",1122.9,219.663401594348,694.636667618403,482520.1
+"HPF","Hippocampal formation","Trauma",1026.5,166.86243502425,527.665350598485,278430.722222222
+"BMA","Basomedial amygdalar nucleus","Control",874.875,74.4411170705698,210.551274718806,44331.8392857143
+"BMA","Basomedial amygdalar nucleus","No Trauma",1414.6,123.554414463156,390.713364672023,152656.933333333
+"BMA","Basomedial amygdalar nucleus","Trauma",1655.1,184.2826000106,582.752749171264,339600.766666667
+"CLA","Claustrum","Control",605.5,59.7602352261578,169.027470294878,28570.2857142857
+"CLA","Claustrum","No Trauma",918,93.7149341828126,296.352642790458,87824.8888888889
+"CLA","Claustrum","Trauma",958.5,74.2331537192858,234.745843650343,55105.6111111111
+"LA","Lateral amygdalar nucleus","Control",293,45.6731399652543,129.183147950055,16688.2857142857
+"LA","Lateral amygdalar nucleus","No Trauma",819.9,43.7209459082384,138.257770527053,19115.2111111111
+"LA","Lateral amygdalar nucleus","Trauma",849.8,71.8581627621772,227.235462803576,51635.9555555556
+"PA","Posterior amygdalar nucleus","Control",397.875,52.1770466434099,147.578974015368,21779.5535714286
+"PA","Posterior amygdalar nucleus","No Trauma",300.4,46.4619796775337,146.925680381462,21587.1555555556
+"PA","Posterior amygdalar nucleus","Trauma",315.7,50.9897702158645,161.243811250747,25999.5666666667
+"LH","Lateral habenula","Control",67.5,26.3845192706416,74.6266899784712,5569.14285714286
+"LH","Lateral habenula","No Trauma",54.9,9.80980235388166,31.0213188343472,962.322222222222
+"LH","Lateral habenula","Trauma",53.5,4.8745370150519,15.4146395063625,237.611111111111
+"MH","Medial habenula","Control",113.5,44.7608725818176,126.602866137721,16028.2857142857
+"MH","Medial habenula","No Trauma",98,24.8600527397313,78.61438940946,6180.22222222222
+"MH","Medial habenula","Trauma",136.9,28.5176163878478,90.1806212245427,8132.54444444444
+"LGd","Dorsal part of the lateral geniculate complex","Control",9.875,4.41360518332641,12.4835606184408,155.839285714286
+"LGd","Dorsal part of the lateral geniculate complex","No Trauma",35,15.4222062119674,48.7692981746144,2378.44444444444
+"LGd","Dorsal part of the lateral geniculate complex","Trauma",15.3,6.09744937567249,19.2818279446968,371.788888888889
+"MG","Medial geniculate complex","Control",122.75,18.8070560466772,53.1943874590436,2829.64285714286
+"MG","Medial geniculate complex","No Trauma",188.8,32.9014690654789,104.043580612485,10825.0666666667
+"MG","Medial geniculate complex","Trauma",143.4,15.9361224894891,50.3944441382183,2539.6
+"IGL","Intergeniculate leaflet of the lateral geniculate complex","Control",50.25,10.7433534269865,30.3867922436236,923.357142857143
+"IGL","Intergeniculate leaflet of the lateral geniculate complex","No Trauma",70.1,10.7439388597582,33.9753178384283,1154.32222222222
+"IGL","Intergeniculate leaflet of the lateral geniculate complex","Trauma",66.3,10.4243838080616,32.9647960372543,1086.67777777778
+"SubG","Subgeniculate nucleus","Control",2.75,0.3659625273557,1.03509833901353,1.07142857142857
+"SubG","Subgeniculate nucleus","No Trauma",3,1.13529242439509,3.590109871423,12.8888888888889
+"SubG","Subgeniculate nucleus","Trauma",3.4,0.686375342732467,2.17050941281329,4.71111111111111
+"LGv","Ventral part of the lateral geniculate complex","Control",373.625,29.4193434300826,83.2104689498692,6923.98214285714
+"LGv","Ventral part of the lateral geniculate complex","No Trauma",429.7,41.4377846898214,131.03778081149,17170.9
+"LGv","Ventral part of the lateral geniculate complex","Trauma",463.4,22.8206534135686,72.1652424801734,5207.82222222222
+"MY","Medulla","Control",1189.125,224.605959523721,635.281588296538,403582.696428571
+"MY","Medulla","No Trauma",1092,157.926143075384,499.406314203842,249406.666666667
+"MY","Medulla","Trauma",1179.4,216.946188924555,686.04408669479,470656.488888889
+"P","Pons","Control",2500.125,261.635886402404,740.018037907571,547626.696428571
+"P","Pons","No Trauma",2910.5,272.859273863531,862.856786108409,744521.833333333
+"P","Pons","Trauma",3030.1,256.297069389757,810.482496897853,656881.877777778
+"LHA","Lateral hypothalamic area","Control",4611.5,296.598453902145,838.90711217461,703765.142857143
+"LHA","Lateral hypothalamic area","No Trauma",5878,363.754190506599,1150.29175043165,1323171.11111111
+"LHA","Lateral hypothalamic area","Trauma",6402.5,429.564980209307,1358.40374050656,1845260.72222222
+"LPO","Lateral preoptic area","Control",1544.375,80.6006330841851,227.973016887024,51971.6964285714
+"LPO","Lateral preoptic area","No Trauma",1678.8,121.294297750004,383.56624808065,147123.066666667
+"LPO","Lateral preoptic area","Trauma",1680.8,136.124110036883,430.462232179936,185297.733333333
+"PSTN","Parasubthalamic nucleus","Control",185.375,8.21787576827839,23.243662730793,540.267857142857
+"PSTN","Parasubthalamic nucleus","No Trauma",227.7,14.6378884330281,46.2890675838019,2142.67777777778
+"PSTN","Parasubthalamic nucleus","Trauma",221.3,11.9638808270747,37.833113068375,1431.34444444444
+"PST","Preparasubthalamic nucleus","Control",29.375,3.61513435830142,10.2251440786217,104.553571428571
+"PST","Preparasubthalamic nucleus","No Trauma",42,2.65832027165025,8.40634680861233,70.6666666666667
+"PST","Preparasubthalamic nucleus","Trauma",39.9,3.07480803375502,9.72339675444978,94.5444444444445
+"RCH","Retrochiasmatic area","Control",163.25,17.924195538832,50.6972808512871,2570.21428571429
+"RCH","Retrochiasmatic area","No Trauma",229.7,28.2752541986805,89.4142046880696,7994.9
+"RCH","Retrochiasmatic area","Trauma",267,33.749403286906,106.724984058196,11390.2222222222
+"STN","Subthalamic nucleus","Control",64.75,7.44923294229489,21.0696125125397,443.928571428571
+"STN","Subthalamic nucleus","No Trauma",124.9,24.0015971690774,75.8997145361342,5760.76666666667
+"STN","Subthalamic nucleus","Trauma",96.7,12.6921235417876,40.1360187362922,1610.9
+"TU","Tuberal nucleus","Control",324.875,38.4296376976342,108.695429658157,11814.6964285714
+"TU","Tuberal nucleus","No Trauma",688.5,81.3851269513594,257.362368828251,66235.3888888889
+"TU","Tuberal nucleus","Trauma",689.5,33.5208890096907,106.002358464329,11236.5
+"ZI","Zona incerta","Control",737.75,76.374020919607,216.018352394949,46663.9285714286
+"ZI","Zona incerta","No Trauma",928,86.2787472221417,272.837354887893,74440.2222222222
+"ZI","Zona incerta","Trauma",827.9,65.2833907752279,206.444208228546,42619.2111111111
+"AHN","Anterior hypothalamic nucleus","Control",1726.25,52.724265896129,149.126743792942,22238.7857142857
+"AHN","Anterior hypothalamic nucleus","No Trauma",1991,101.4906673323,320.941670020513,103003.555555556
+"AHN","Anterior hypothalamic nucleus","Trauma",2316.4,98.7091350044834,312.145692479222,97434.9333333333
+"PMd","Dorsal premammillary nucleus","Control",75,12.588259836621,35.6049755752519,1267.71428571429
+"PMd","Dorsal premammillary nucleus","No Trauma",101.8,17.2895601126486,54.6743896983669,2989.28888888889
+"PMd","Dorsal premammillary nucleus","Trauma",122.5,9.86942529003364,31.2098631133742,974.055555555556
+"MPN","Medial preoptic nucleus","Control",318.375,24.6539894627334,69.732012529602,4862.55357142857
+"MPN","Medial preoptic nucleus","No Trauma",376.5,34.8183380801937,110.105252675187,12123.1666666667
+"MPN","Medial preoptic nucleus","Trauma",408.3,54.3956799755275,172.014243596279,29588.9
+"PVHd","Paraventricular hypothalamic nucleus, descending division","Control",94.625,9.29081247408274,26.2783860126259,690.553571428571
+"PVHd","Paraventricular hypothalamic nucleus, descending division","No Trauma",101.3,8.40376899571456,26.5750509563638,706.233333333333
+"PVHd","Paraventricular hypothalamic nucleus, descending division","Trauma",120.6,7.10899274002849,22.4806089280913,505.377777777778
+"PH","Posterior hypothalamic nucleus","Control",1288,124.58516880317,352.380070783968,124171.714285714
+"PH","Posterior hypothalamic nucleus","No Trauma",1238.9,166.387262466546,526.16272303453,276847.211111111
+"PH","Posterior hypothalamic nucleus","Trauma",1201.7,103.654452656678,327.784160013195,107442.455555556
+"PMv","Ventral premammillary nucleus","Control",62.5,11.602031841757,32.8155015633944,1076.85714285714
+"PMv","Ventral premammillary nucleus","No Trauma",72.6,14.0104722737434,44.3050034796673,1962.93333333333
+"PMv","Ventral premammillary nucleus","Trauma",112.8,11.3144941459076,35.7795720737096,1280.17777777778
+"VMH","Ventromedial hypothalamic nucleus","Control",325.625,71.4437684726347,202.073492642087,40833.6964285714
+"VMH","Ventromedial hypothalamic nucleus","No Trauma",794,57.8327089303469,182.883083477456,33446.2222222222
+"VMH","Ventromedial hypothalamic nucleus","Trauma",798.4,57.0775690520268,180.495121509942,32578.4888888889
+"HY","Hypothalamus","Control",3563,218.003194603067,616.606148896638,380203.142857143
+"HY","Hypothalamus","No Trauma",4398.5,332.723550580825,1052.16425101365,1107049.61111111
+"HY","Hypothalamus","Trauma",4537.7,176.049301806814,556.716774191928,309933.566666667
+"TH","Thalamus","Control",1347,139.878391060643,395.635835441779,156527.714285714
+"TH","Thalamus","No Trauma",1545.1,150.243539332349,475.111788015317,225731.211111111
+"TH","Thalamus","Trauma",1455.8,72.5967247501183,229.571000878692,52702.8444444444
+"CL","Central lateral nucleus of the thalamus","Control",15.875,3.01447401239894,8.52622006351165,72.6964285714286
+"CL","Central lateral nucleus of the thalamus","No Trauma",21.4,4.70744091837593,14.8862352527427,221.6
+"CL","Central lateral nucleus of the thalamus","Trauma",26.7,3.12712150209884,9.88882646671934,97.7888888888889
+"CM","Central medial nucleus of the thalamus","Control",22.875,3.40397614143057,9.62789845041111,92.6964285714286
+"CM","Central medial nucleus of the thalamus","No Trauma",31.9,10.4726628259802,33.1174676970729,1096.76666666667
+"CM","Central medial nucleus of the thalamus","Trauma",32.5,10.1107753301998,31.9730789536725,1022.27777777778
+"PCN","Paracentral nucleus","Control",5.25,0.881354477089505,2.49284690951645,6.21428571428571
+"PCN","Paracentral nucleus","No Trauma",7.7,2.9365512652316,9.28619046398109,86.2333333333333
+"PCN","Paracentral nucleus","Trauma",8.4,2.19696760710454,6.94742158406028,48.2666666666667
+"PF","Parafascicular nucleus","Control",24,3.34343706813384,9.45666809339164,89.4285714285714
+"PF","Parafascicular nucleus","No Trauma",27.1,4.94064773081425,15.6236999459155,244.1
+"PF","Parafascicular nucleus","Trauma",31.8,4.34306599330729,13.7339805672726,188.622222222222
+"RH","Rhomboid nucleus","Control",17.5,2.8347335475692,8.01783725737273,64.2857142857143
+"RH","Rhomboid nucleus","No Trauma",20.8,5.89689183666559,18.6476093195169,347.733333333333
+"RH","Rhomboid nucleus","Trauma",15.5,3.60632161011127,11.4041902630373,130.055555555556
+"LP","Lateral posterior nucleus of the thalamus","Control",204.5,25.3151563861878,71.6020749898852,5126.85714285714
+"LP","Lateral posterior nucleus of the thalamus","No Trauma",289.8,41.0132228000244,129.695198232026,16820.8444444444
+"LP","Lateral posterior nucleus of the thalamus","Trauma",274.8,24.9567626105631,78.9202128735092,6228.4
+"PO","Posterior complex of the thalamus","Control",2.75,0.725800051175056,2.0528725518857,4.21428571428571
+"PO","Posterior complex of the thalamus","No Trauma",2.8,1.07289846262874,3.39280283999986,11.5111111111111
+"PO","Posterior complex of the thalamus","Trauma",8,3.5932034608565,11.3627070327062,129.111111111111
+"POL","Posterior limiting nucleus of the thalamus","Control",71,11.3073932830314,31.9821378718988,1022.85714285714
+"POL","Posterior limiting nucleus of the thalamus","No Trauma",85.3,10.4892007957391,33.1697653493861,1100.23333333333
+"POL","Posterior limiting nucleus of the thalamus","Trauma",72.4,7.95850348858237,25.1669977903161,633.377777777778
+"SF","Septofimbrial nucleus","Control",90.875,17.125,48.4368145112785,2346.125
+"SF","Septofimbrial nucleus","No Trauma",114.3,14.4745370296332,45.772505090089,2095.12222222222
+"SF","Septofimbrial nucleus","Trauma",118.4,11.2142766151009,35.4626564148824,1257.6
+"SH","Septohippocampal nucleus","Control",6.875,1.92202924758481,5.43631965842439,29.5535714285714
+"SH","Septohippocampal nucleus","No Trauma",19.2,6.42356771757115,20.313104691854,412.622222222222
+"SH","Septohippocampal nucleus","Trauma",13.8,4.68757222166585,14.8234049169998,219.733333333333
+"IMD","Intermediodorsal nucleus of the thalamus","Control",11.75,2.73698217542085,7.74135462490716,59.9285714285714
+"IMD","Intermediodorsal nucleus of the thalamus","No Trauma",16.2,7.16906936467737,22.6705878961168,513.955555555556
+"IMD","Intermediodorsal nucleus of the thalamus","Trauma",13.4,4.63129451545557,14.6454391838855,214.488888888889
+"MD","Mediodorsal nucleus of thalamus","Control",161.75,32.3622078974844,91.5341466339202,8378.5
+"MD","Mediodorsal nucleus of thalamus","No Trauma",158.1,25.8218038788067,81.6557135511996,6667.65555555556
+"MD","Mediodorsal nucleus of thalamus","Trauma",215.3,28.4636415254424,90.0099377229475,8101.78888888889
+"SMT","Submedial nucleus of the thalamus","Control",1.125,0.398098157314428,1.1259916264596,1.26785714285714
+"SMT","Submedial nucleus of the thalamus","No Trauma",2.3,0.731057073315377,2.31180545125329,5.34444444444444
+"SMT","Submedial nucleus of the thalamus","Trauma",2.2,0.592546294487706,1.87379590967403,3.51111111111111
+"NDB","Diagonal band nucleus","Control",819.25,99.4965451661514,281.418727166477,79196.5
+"NDB","Diagonal band nucleus","No Trauma",1107.5,62.7954793135797,198.576741392899,39432.7222222222
+"NDB","Diagonal band nucleus","Trauma",1155.1,96.3047766208925,304.542443675754,92746.1
+"MS","Medial septal nucleus","Control",344.375,47.1104088816898,133.248358338855,17755.125
+"MS","Medial septal nucleus","No Trauma",479.9,48.0907591030866,152.07633317223,23127.2111111111
+"MS","Medial septal nucleus","Trauma",522.8,62.3229581383226,197.082498236427,38841.5111111111
+"VI","Abducens nucleus","Control",3.375,1.26685070718128,3.58319490319543,12.8392857142857
+"VI","Abducens nucleus","No Trauma",3,1.05409255338946,3.33333333333333,11.1111111111111
+"VI","Abducens nucleus","Trauma",6.9,2.54929184066652,8.06156863698926,64.9888888888889
+"DMX","Dorsal motor nucleus of the vagus nerve","Control",24.125,8.10299217220757,22.9187228514779,525.267857142857
+"DMX","Dorsal motor nucleus of the vagus nerve","No Trauma",32.2,9.84637553169242,31.1369733774995,969.511111111111
+"DMX","Dorsal motor nucleus of the vagus nerve","Trauma",30.7,7.45661525835356,23.5798878519621,556.011111111111
+"VII","Facial motor nucleus","Control",15.625,3.58039054134761,10.1268737243323,102.553571428571
+"VII","Facial motor nucleus","No Trauma",28.3,4.11514816798186,13.0132411198919,169.344444444444
+"VII","Facial motor nucleus","Trauma",21.9,2.72621023074564,8.62103370960943,74.3222222222222
+"GRN","Gigantocellular reticular nucleus","Control",100.625,25.5810598881282,72.3541636673385,5235.125
+"GRN","Gigantocellular reticular nucleus","No Trauma",83.7,15.2854687712074,48.3368964203905,2336.45555555556
+"GRN","Gigantocellular reticular nucleus","Trauma",82.8,19.5043015198642,61.6780169734548,3804.17777777778
+"XII","Hypoglossal nucleus","Control",16.125,4.25288767444293,12.0289828568931,144.696428571429
+"XII","Hypoglossal nucleus","No Trauma",19.5,6.09416843292741,19.2714526927497,371.388888888889
+"XII","Hypoglossal nucleus","Trauma",12.5,4.68626835671103,14.8192817339813,219.611111111111
+"IO","Inferior olivary complex","Control",19.125,5.43611435546699,15.375653296225,236.410714285714
+"IO","Inferior olivary complex","No Trauma",11.5,2.31060357674978,7.30677007226099,53.3888888888889
+"IO","Inferior olivary complex","Trauma",15,3.76828873628335,11.916375287813,142
+"ICB","Infracerebellar nucleus","Control",4.375,1.68964810368482,4.77904652773811,22.8392857142857
+"ICB","Infracerebellar nucleus","No Trauma",3.9,1.18743420870379,3.75499667110372,14.1
+"ICB","Infracerebellar nucleus","Trauma",5.4,1.82086670449969,5.75808610178378,33.1555555555556
+"IRN","Intermediate reticular nucleus","Control",77.5,18.8849902605974,53.4148187036412,2853.14285714286
+"IRN","Intermediate reticular nucleus","No Trauma",76.2,22.033207261364,69.675119104471,4854.62222222222
+"IRN","Intermediate reticular nucleus","Trauma",122.2,27.8531067487194,88.0792572377603,7757.95555555556
+"LRN","Lateral reticular nucleus","Control",48.125,15.6084197745045,44.1472778646333,1948.98214285714
+"LRN","Lateral reticular nucleus","No Trauma",32.6,9.39763563645429,29.7179332315616,883.155555555556
+"LRN","Lateral reticular nucleus","Trauma",47.3,20.1604949233781,63.7530827141367,4064.45555555556
+"MARN","Magnocellular reticular nucleus","Control",189.625,48.4601962955166,137.066133672764,18787.125
+"MARN","Magnocellular reticular nucleus","No Trauma",116.2,23.8638732070979,75.4641931278964,5694.84444444444
+"MARN","Magnocellular reticular nucleus","Trauma",92.2,12.7887102989751,40.4414528808142,1635.51111111111
+"x","Nucleus x","Control",15.5,4.68660705780693,13.2557265253281,175.714285714286
+"x","Nucleus x","No Trauma",14.7,3.3,10.4355162785557,108.9
+"x","Nucleus x","Trauma",13.9,3.91421909339668,12.3778475960528,153.211111111111
+"y","Nucleus y","Control",19.5,4.71320333894961,13.3309521683294,177.714285714286
+"y","Nucleus y","No Trauma",8,1.38242942355518,4.371625682868,19.1111111111111
+"y","Nucleus y","Trauma",14.2,3.51441476082592,11.1135552867258,123.511111111111
+"PPY","Parapyramidal nucleus","Control",11.875,4.56867243924785,12.9221570512489,166.982142857143
+"PPY","Parapyramidal nucleus","No Trauma",8.1,3.68616030277819,11.656662377275,135.877777777778
+"PPY","Parapyramidal nucleus","Trauma",10.3,3.36005952328229,10.6254411673116,112.9
+"PAS","Parasolitary nucleus","Control",1.625,0.754451077652772,2.13390989232709,4.55357142857143
+"PAS","Parasolitary nucleus","No Trauma",2.5,1.15710366384732,3.65908306668336,13.3888888888889
+"PAS","Parasolitary nucleus","Trauma",2,0.632455532033676,2,4
+"PARN","Parvicellular reticular nucleus","Control",183.25,50.9536729364458,144.118750638889,20770.2142857143
+"PARN","Parvicellular reticular nucleus","No Trauma",188,42.5955135874399,134.69884104096,18143.7777777778
+"PARN","Parvicellular reticular nucleus","Trauma",233.5,55.6908630048253,176.109971955657,31014.7222222222
+"ECU","External cuneate nucleus","Control",33.75,10.6800046816469,30.2076149339864,912.5
+"ECU","External cuneate nucleus","No Trauma",44.7,12.8314284300523,40.5765394724039,1646.45555555556
+"ECU","External cuneate nucleus","Trauma",49.3,14.29533723515,45.2058255832881,2043.56666666667
+"NTS","Nucleus of the solitary tract","Control",128,33.6521067054395,95.1825314105182,9059.71428571429
+"NTS","Nucleus of the solitary tract","No Trauma",173.9,52.658744129853,166.521570174357,27729.4333333333
+"NTS","Nucleus of the solitary tract","Trauma",192.1,57.773975302226,182.697351437349,33378.3222222222
+"NTB","Nucleus of the trapezoid body","Control",14.875,5.93547897934832,16.7880697435496,281.839285714286
+"NTB","Nucleus of the trapezoid body","No Trauma",8,2.20100986922922,6.9602043392737,48.4444444444444
+"NTB","Nucleus of the trapezoid body","Trauma",7.6,2.29589004769634,7.26024180803306,52.7111111111111
+"SPVC","Spinal nucleus of the trigeminal, caudal part","Control",19,5.22357294250921,14.7744953986833,218.285714285714
+"SPVC","Spinal nucleus of the trigeminal, caudal part","No Trauma",23.1,7.36576163369712,23.2925834643657,542.544444444444
+"SPVC","Spinal nucleus of the trigeminal, caudal part","Trauma",47.9,20.3363112573435,64.309062779328,4135.65555555556
+"SPVI","Spinal nucleus of the trigeminal, interpolar part","Control",11.625,2.85942988823197,8.08768905718527,65.4107142857143
+"SPVI","Spinal nucleus of the trigeminal, interpolar part","No Trauma",12.2,2.77608837515427,8.77876225140348,77.0666666666667
+"SPVI","Spinal nucleus of the trigeminal, interpolar part","Trauma",18.2,8.29564812282788,26.2331427354364,688.177777777778
+"SPVO","Spinal nucleus of the trigeminal, oral part","Control",11.75,3.08075825545781,8.71370021452261,75.9285714285714
+"SPVO","Spinal nucleus of the trigeminal, oral part","No Trauma",14.1,4.65104528275335,14.7078965940825,216.322222222222
+"SPVO","Spinal nucleus of the trigeminal, oral part","Trauma",11,4.01109572173102,12.684198393627,160.888888888889
+"PPN","Pedunculopontine nucleus","Control",88.875,11.0315092543392,31.2018200018616,973.553571428571
+"PPN","Pedunculopontine nucleus","No Trauma",166.1,25.4232832917649,80.3954808016802,6463.43333333333
+"PPN","Pedunculopontine nucleus","Trauma",174.2,13.6941187700738,43.304605862297,1875.28888888889
+"SNc","Substantia nigra, compact part","Control",97.875,6.60475342894365,18.6810637506846,348.982142857143
+"SNc","Substantia nigra, compact part","No Trauma",98.1,13.0549692539746,41.2834376260289,1704.32222222222
+"SNc","Substantia nigra, compact part","Trauma",110.8,10.336343647538,32.6863886044329,1068.4
+"CUN","Cuneiform nucleus","Control",55,7.30948503169487,20.674345731572,427.428571428571
+"CUN","Cuneiform nucleus","No Trauma",169.2,17.2959854044547,54.6947082551055,2991.51111111111
+"CUN","Cuneiform nucleus","Trauma",183.5,18.041464587013,57.0521204202302,3254.94444444444
+"EW","Edinger-Westphal nucleus","Control",11.875,2.8437745289366,8.04340901430659,64.6964285714286
+"EW","Edinger-Westphal nucleus","No Trauma",12.9,2.94938788376315,9.32678341599551,86.9888888888889
+"EW","Edinger-Westphal nucleus","Trauma",16.4,4.28744938421694,13.5581054068119,183.822222222222
+"LT","Lateral terminal nucleus of the accessory optic tract","Control",1,0.462910049886276,1.30930734141595,1.71428571428571
+"LT","Lateral terminal nucleus of the accessory optic tract","No Trauma",1.2,0.466666666666667,1.47572957474524,2.17777777777778
+"LT","Lateral terminal nucleus of the accessory optic tract","Trauma",2,0.494413232473044,1.56347191994114,2.44444444444444
+"MRN","Midbrain reticular nucleus","Control",1367.5,136.318036748103,385.565632730482,148660.857142857
+"MRN","Midbrain reticular nucleus","No Trauma",1779.6,227.60903125999,719.762954806033,518058.711111111
+"MRN","Midbrain reticular nucleus","Trauma",1515.5,117.278893620672,370.868425305915,137543.388888889
+"RR","Midbrain reticular nucleus, retrorubral area","Control",269.5,23.0767353472218,65.2708642066712,4260.28571428571
+"RR","Midbrain reticular nucleus, retrorubral area","No Trauma",289.4,29.9511454056621,94.7138380127799,8970.71111111111
+"RR","Midbrain reticular nucleus, retrorubral area","Trauma",297.5,28.1611434426942,89.0533547936292,7930.5
+"III","Oculomotor nucleus","Control",3.25,1.34629120178363,3.80788655293195,14.5
+"III","Oculomotor nucleus","No Trauma",2.7,1.03333333333333,3.26768691550733,10.6777777777778
+"III","Oculomotor nucleus","Trauma",3.8,1.6983652270476,5.37070241629942,28.8444444444444
+"PAG","Periaqueductal gray","Control",1462.875,197.494885783694,558.59989194925,312033.839285714
+"PAG","Periaqueductal gray","No Trauma",1700.6,238.22245439458,753.325545682461,567499.377777778
+"PAG","Periaqueductal gray","Trauma",1952.9,207.054498998586,654.763816620585,428715.655555556
+"RN","Red nucleus","Control",43.25,8.07719452709735,22.8457560922936,521.928571428571
+"RN","Red nucleus","No Trauma",59.9,13.0106366741473,41.1432456992234,1692.76666666667
+"RN","Red nucleus","Trauma",42.8,7.23233480050991,22.8706507705108,523.066666666667
+"SNr","Substantia nigra, reticular part","Control",213,20.0178491780282,56.6190275942133,3205.71428571429
+"SNr","Substantia nigra, reticular part","No Trauma",223.3,18.3024284970298,57.8773607629865,3349.78888888889
+"SNr","Substantia nigra, reticular part","Trauma",214,32.3085815913426,102.16870579803,10438.4444444444
+"IV","Trochlear nucleus","Control",2.125,0.789156421213727,2.23207142742853,4.98214285714286
+"IV","Trochlear nucleus","No Trauma",1.3,0.395811402901264,1.25166555703457,1.56666666666667
+"IV","Trochlear nucleus","Trauma",3.2,1.07289846262874,3.39280283999986,11.5111111111111
+"VTA","Ventral tegmental area","Control",478,42.7714023284584,120.975794509244,14635.1428571429
+"VTA","Ventral tegmental area","No Trauma",595,46.0137660561127,145.508304459459,21172.6666666667
+"VTA","Ventral tegmental area","Trauma",586.9,35.1670458115422,111.207963343958,12367.2111111111
+"VTN","Ventral tegmental nucleus","Control",1.25,0.700764888226735,1.98206241793023,3.92857142857143
+"VTN","Ventral tegmental nucleus","No Trauma",1.3,0.53851648071345,1.70293863659264,2.9
+"VTN","Ventral tegmental nucleus","Trauma",1.4,0.498887651569859,1.57762127549323,2.48888888888889
+"IC","Inferior colliculus","Control",7932.375,957.280764485306,2707.59888026801,7331091.69642857
+"IC","Inferior colliculus","No Trauma",9471.8,990.807906037627,3133.209706781,9817003.06666667
+"IC","Inferior colliculus","Trauma",9823.6,1170.31260970924,3700.85342109688,13696316.0444444
+"MEV","Midbrain trigeminal nucleus","Control",15.75,3.92678530825698,11.1066260789289,123.357142857143
+"MEV","Midbrain trigeminal nucleus","No Trauma",12.6,3.20485742445918,10.134649037392,102.711111111111
+"MEV","Midbrain trigeminal nucleus","Trauma",23.4,5.69053795543288,17.9950610508056,323.822222222222
+"NB","Nucleus of the brachium of the inferior colliculus","Control",195.375,14.6518374030602,41.4416543381863,1717.41071428571
+"NB","Nucleus of the brachium of the inferior colliculus","No Trauma",241.5,19.5886872114153,61.9448679606847,3837.16666666667
+"NB","Nucleus of the brachium of the inferior colliculus","Trauma",241.6,21.6344375681202,68.4140986119739,4680.48888888889
+"SAG","Nucleus sagulum","Control",25.875,4.35249312791777,12.310709623274,151.553571428571
+"SAG","Nucleus sagulum","No Trauma",36.9,6.72714236837934,21.2730920282982,452.544444444444
+"SAG","Nucleus sagulum","Trauma",40.2,4.78841193809481,15.1422880995208,229.288888888889
+"PBG","Parabigeminal nucleus","Control",25,6.07100838882165,17.1714048015048,294.857142857143
+"PBG","Parabigeminal nucleus","No Trauma",30.1,3.76961536499415,11.9205704561485,142.1
+"PBG","Parabigeminal nucleus","Trauma",33.8,4.29935395663633,13.5957509702276,184.844444444444
+"RE","Nucleus of reuniens","Control",152.5,20.8035024523688,58.8411906260038,3462.28571428571
+"RE","Nucleus of reuniens","No Trauma",177.9,39.7127043764195,125.582597874422,15770.9888888889
+"RE","Nucleus of reuniens","Trauma",143.2,24.8572815175844,78.6056260355736,6178.84444444444
+"PT","Parataenial nucleus","Control",282.5,30.9521520138053,87.5459063251145,7664.28571428571
+"PT","Parataenial nucleus","No Trauma",295.6,55.7277509165965,176.226621774981,31055.8222222222
+"PT","Parataenial nucleus","Trauma",379.9,57.3632576945673,181.398548322012,32905.4333333333
+"PVT","Paraventricular nucleus of the thalamus","Control",922.25,86.0464471749332,243.376105177621,59231.9285714286
+"PVT","Paraventricular nucleus of the thalamus","No Trauma",690.1,137.697450149877,435.437570471104,189605.877777778
+"PVT","Paraventricular nucleus of the thalamus","Trauma",730.3,96.1641016411241,304.097590329888,92475.3444444444
+"AON","Anterior olfactory nucleus","Control",1220.75,330.3167716645,934.276916734464,872873.357142857
+"AON","Anterior olfactory nucleus","No Trauma",2129,435.561247128346,1377.36560142905,1897136
+"AON","Anterior olfactory nucleus","Trauma",2018.9,257.526673915107,814.370847819209,663199.877777778
+"DP","Dorsal peduncular area","Control",142.875,33.2756010464124,94.1176125919055,8858.125
+"DP","Dorsal peduncular area","No Trauma",253.7,47.4327711374507,149.99559252784,22498.6777777778
+"DP","Dorsal peduncular area","Trauma",221.6,28.2678458873525,89.3907775506574,7990.71111111111
+"PIR","Piriform area","Control",5714.75,695.943238397665,1968.42473276766,3874695.92857143
+"PIR","Piriform area","No Trauma",13067.3,2304.3395440873,7286.96146170984,53099807.3444444
+"PIR","Piriform area","Trauma",13059.3,1357.39169856506,4292.44944447029,18425122.2333333
+"PAA","Piriform-amygdalar area","Control",409.375,60.2109201948806,170.302199885129,29002.8392857143
+"PAA","Piriform-amygdalar area","No Trauma",732.9,109.027157676934,344.774145073425,118869.211111111
+"PAA","Piriform-amygdalar area","Trauma",726.9,65.169599252003,206.084367836735,42470.7666666667
+"TR","Postpiriform transition area","Control",261.125,34.7076759212878,98.1681320126707,9636.98214285714
+"TR","Postpiriform transition area","No Trauma",501.2,100.309941902308,317.207888370457,100620.844444444
+"TR","Postpiriform transition area","Trauma",715.4,103.055023059421,325.888597188944,106203.377777778
+"TT","Taenia tecta","Control",1168.375,179.3002208488,507.137608121729,257188.553571429
+"TT","Taenia tecta","No Trauma",2183.9,303.514138422285,959.795979478046,921208.322222222
+"TT","Taenia tecta","Trauma",2091.6,224.285591750042,709.253316288804,503040.266666667
+"BST","Bed nuclei of the stria terminalis","Control",1426.375,133.629009027125,377.959913785274,142853.696428571
+"BST","Bed nuclei of the stria terminalis","No Trauma",1685.7,154.409056297442,488.284309257083,238421.566666667
+"BST","Bed nuclei of the stria terminalis","Trauma",1762.2,111.834381515207,353.651366304287,125069.288888889
+"GPe","Globus pallidus, external segment","Control",34.5,6.83217179442755,19.3243000242847,373.428571428571
+"GPe","Globus pallidus, external segment","No Trauma",128.4,65.9826913330728,208.655590760362,43537.1555555556
+"GPe","Globus pallidus, external segment","Trauma",45.8,7.38737662051512,23.3609360543051,545.733333333333
+"GPi","Globus pallidus, internal segment","Control",90.5,13.5620268186054,38.3592045202787,1471.42857142857
+"GPi","Globus pallidus, internal segment","No Trauma",82.7,18.6904907491602,59.1045213536532,3493.34444444444
+"GPi","Globus pallidus, internal segment","Trauma",61.3,15.4941207487801,48.9967119078186,2400.67777777778
+"TRS","Triangular nucleus of septum","Control",54.25,12.5466984843481,35.4874223191421,1259.35714285714
+"TRS","Triangular nucleus of septum","No Trauma",47.2,7.43236167042482,23.5031912726761,552.4
+"TRS","Triangular nucleus of septum","Trauma",56.4,6.82348884369279,21.5777663348179,465.6
+"MA","Magnocellular nucleus","Control",245.625,31.8848024143164,90.1838400158255,8133.125
+"MA","Magnocellular nucleus","No Trauma",278.3,25.7311095757645,81.3689129827848,6620.9
+"MA","Magnocellular nucleus","Trauma",309.4,29.516549030445,93.339523604241,8712.26666666667
+"SI","Substantia innominata","Control",813.5,92.5054052474773,261.644797387603,68458
+"SI","Substantia innominata","No Trauma",1214.7,146.928860337239,464.629852678452,215880.9
+"SI","Substantia innominata","Trauma",1156.5,67.8624834991077,214.600015532774,46053.1666666667
+"INC","Interstitial nucleus of Cajal","Control",3.875,1.68435553593313,4.76407688554966,22.6964285714286
+"INC","Interstitial nucleus of Cajal","No Trauma",5,1.88561808316413,5.96284793999944,35.5555555555556
+"INC","Interstitial nucleus of Cajal","Trauma",2.3,0.830662386291807,2.62678510731274,6.9
+"ND","Nucleus of Darkschewitsch","Control",3.125,0.854348122421835,2.4164614034339,5.83928571428571
+"ND","Nucleus of Darkschewitsch","No Trauma",3.2,0.771722460186015,2.44040069569642,5.95555555555556
+"ND","Nucleus of Darkschewitsch","Trauma",5.9,0.948097510221859,2.99814757623585,8.98888888888889
+"PRC","Precommissural nucleus","Control",65.625,11.2057662133641,31.6946931114433,1004.55357142857
+"PRC","Precommissural nucleus","No Trauma",73.5,11.6172764067621,36.7370536531049,1349.61111111111
+"PRC","Precommissural nucleus","Trauma",101.3,8.90948308763695,28.1742593316823,793.788888888889
+"NR","Nucleus of Roller","Control",9.375,3.08763374493432,8.73314703545389,76.2678571428571
+"NR","Nucleus of Roller","No Trauma",3.3,1.27410099024109,4.02906109823782,16.2333333333333
+"NR","Nucleus of Roller","Trauma",3.1,1.17803980313815,3.72528895225294,13.8777777777778
+"PRP","Nucleus prepositus","Control",30,8.30017211525503,23.4764319508493,551.142857142857
+"PRP","Nucleus prepositus","No Trauma",18.6,3.65209224661396,11.5489297243415,133.377777777778
+"PRP","Nucleus prepositus","Trauma",23,6.48245495335079,20.4993224820291,420.222222222222
+"ADP","Anterodorsal preoptic nucleus","Control",69.75,10.3608983339146,29.3050458843817,858.785714285714
+"ADP","Anterodorsal preoptic nucleus","No Trauma",74.2,5.38268829984919,17.0215549622628,289.733333333333
+"ADP","Anterodorsal preoptic nucleus","Trauma",86,8.22327320610365,26.0042731531228,676.222222222222
+"AVPV","Anteroventral periventricular nucleus","Control",109.5,10.0800368480052,28.510649639339,812.857142857143
+"AVPV","Anteroventral periventricular nucleus","No Trauma",169.6,16.3130486284923,51.5863892471217,2661.15555555556
+"AVPV","Anteroventral periventricular nucleus","Trauma",164.4,21.1897249733083,67.0077939082048,4490.04444444444
+"AVP","Anteroventral preoptic nucleus","Control",168.875,26.5601994802104,75.1235886484969,5643.55357142857
+"AVP","Anteroventral preoptic nucleus","No Trauma",153.9,12.6354439749636,39.9567822083366,1596.54444444444
+"AVP","Anteroventral preoptic nucleus","Trauma",187.5,16.8801329641946,53.3796673733444,2849.38888888889
+"DMH","Dorsomedial nucleus of the hypothalamus","Control",883.375,97.625,276.125198053347,76245.125
+"DMH","Dorsomedial nucleus of the hypothalamus","No Trauma",950.8,88.1640894393328,278.799330463089,77729.0666666667
+"DMH","Dorsomedial nucleus of the hypothalamus","Trauma",1135.4,59.2000750750275,187.20707489005,35046.4888888889
+"MPO","Medial preoptic area","Control",1833.875,105.126868507261,297.343686425562,88413.2678571429
+"MPO","Medial preoptic area","No Trauma",1941.1,102.284401982359,323.451679372497,104620.988888889
+"MPO","Medial preoptic area","Trauma",1982.7,142.406152332763,450.327794192433,202795.122222222
+"MEPO","Median preoptic nucleus","Control",303.125,28.0378809444855,79.3031029837871,6288.98214285714
+"MEPO","Median preoptic nucleus","No Trauma",356.1,35.3614510763094,111.82272676975,12504.3222222222
+"MEPO","Median preoptic nucleus","Trauma",427.9,34.7554791843435,109.906475393097,12079.4333333333
+"PS","Parastrial nucleus","Control",46.625,7.96406549983828,22.5257788829979,507.410714285714
+"PS","Parastrial nucleus","No Trauma",53.1,4.73626669669501,14.9773903675581,224.322222222222
+"PS","Parastrial nucleus","Trauma",60.6,4.2510129511813,13.4428832886071,180.711111111111
+"PVp","Periventricular hypothalamic nucleus, posterior part","Control",74.375,13.9986447048073,39.5941463927615,1567.69642857143
+"PVp","Periventricular hypothalamic nucleus, posterior part","No Trauma",75.2,21.0120600291039,66.4459680241523,4415.06666666667
+"PVp","Periventricular hypothalamic nucleus, posterior part","Trauma",83.2,12.4755761390006,39.4512357220911,1556.4
+"PVpo","Periventricular hypothalamic nucleus, preoptic part","Control",148.375,15.5746331073503,44.0517147387996,1940.55357142857
+"PVpo","Periventricular hypothalamic nucleus, preoptic part","No Trauma",177.9,32.7293446313855,103.499275359782,10712.1
+"PVpo","Periventricular hypothalamic nucleus, preoptic part","Trauma",167.3,22.7229937385998,71.85641547172,5163.34444444444
+"PD","Posterodorsal preoptic nucleus","Control",1.75,0.3659625273557,1.03509833901353,1.07142857142857
+"PD","Posterodorsal preoptic nucleus","No Trauma",2.4,0.686375342732467,2.17050941281329,4.71111111111111
+"PD","Posterodorsal preoptic nucleus","Trauma",3.1,1.02686145338329,3.24722103412201,10.5444444444444
+"SFO","Subfornical organ","Control",5,2.46402690152291,6.9693205243717,48.5714285714286
+"SFO","Subfornical organ","No Trauma",32.3,10.4403597213463,33.0153163109353,1090.01111111111
+"SFO","Subfornical organ","Trauma",27.8,11.542000596854,36.4990106410815,1332.17777777778
+"SBPV","Subparaventricular zone","Control",346.875,23.7948354990862,67.3019581544889,4529.55357142857
+"SBPV","Subparaventricular zone","No Trauma",364.8,41.320105410213,130.665646254519,17073.5111111111
+"SBPV","Subparaventricular zone","Trauma",393.2,34.2337714999547,108.256690837616,11719.5111111111
+"SCH","Suprachiasmatic nucleus","Control",424.875,27.2340631641437,77.0295629705152,5933.55357142857
+"SCH","Suprachiasmatic nucleus","No Trauma",386.6,43.3902702867308,137.212082396397,18827.1555555556
+"SCH","Suprachiasmatic nucleus","Trauma",370.5,41.4708063314156,131.142204411005,17198.2777777778
+"OV","Vascular organ of the lamina terminalis","Control",17,3.12821263435117,8.84792146697258,78.2857142857143
+"OV","Vascular organ of the lamina terminalis","No Trauma",27.8,5.00399840127872,15.824032355882,250.4
+"OV","Vascular organ of the lamina terminalis","Trauma",28,2.70390663875643,8.55050355892044,73.1111111111111
+"VLPO","Ventrolateral preoptic nucleus","Control",61.25,8.86556339358725,25.0755999785791,628.785714285714
+"VLPO","Ventrolateral preoptic nucleus","No Trauma",46.4,7.73045923603507,24.445858544956,597.6
+"VLPO","Ventrolateral preoptic nucleus","Trauma",42.4,4.05846166805985,12.8339826675553,164.711111111111
+"ASO","Accessory supraoptic group","Control",1.75,0.700764888226735,1.98206241793023,3.92857142857143
+"ASO","Accessory supraoptic group","No Trauma",2.6,0.4,1.26491106406735,1.6
+"ASO","Accessory supraoptic group","Trauma",2,0.447213595499958,1.4142135623731,2
+"ARH","Arcuate hypothalamic nucleus","Control",108.125,25.9535557018962,73.4077409308543,5388.69642857143
+"ARH","Arcuate hypothalamic nucleus","No Trauma",179.6,37.0501761879152,117.162944464347,13727.1555555556
+"ARH","Arcuate hypothalamic nucleus","Trauma",163.9,30.5572140964017,96.6303954940335,9337.43333333333
+"PVH","Paraventricular hypothalamic nucleus","Control",365.375,36.568886804808,103.432431360492,10698.2678571429
+"PVH","Paraventricular hypothalamic nucleus","No Trauma",351.7,41.2491212027602,130.441174481066,17014.9
+"PVH","Paraventricular hypothalamic nucleus","Trauma",380.2,32.6975364345525,103.398689009527,10691.2888888889
+"PVa","Periventricular hypothalamic nucleus, anterior part","Control",20.375,3.63974832332441,10.2947628849402,105.982142857143
+"PVa","Periventricular hypothalamic nucleus, anterior part","No Trauma",16.8,4.44172138803065,14.0459563180614,197.288888888889
+"PVa","Periventricular hypothalamic nucleus, anterior part","Trauma",17.6,3.86781592116274,12.2311078811365,149.6
+"PVi","Periventricular hypothalamic nucleus, intermediate part","Control",89.75,11.431082313462,32.3319832806022,1045.35714285714
+"PVi","Periventricular hypothalamic nucleus, intermediate part","No Trauma",92.2,24.7115807309492,78.1448796929282,6106.62222222222
+"PVi","Periventricular hypothalamic nucleus, intermediate part","Trauma",83.1,15.9634652322803,50.4809094829146,2548.32222222222
+"SO","Supraoptic nucleus","Control",85.5,7.46180751752358,21.1051787821987,445.428571428571
+"SO","Supraoptic nucleus","No Trauma",127,14.1719597954709,44.8156718620222,2008.44444444444
+"SO","Supraoptic nucleus","Trauma",124.8,7.67072356430604,24.2569577647322,588.4
+"LDT","Laterodorsal tegmental nucleus","Control",180.875,35.4951895634163,100.395556959175,10079.2678571429
+"LDT","Laterodorsal tegmental nucleus","No Trauma",130.5,18.1819507570924,57.4963766974349,3305.83333333333
+"LDT","Laterodorsal tegmental nucleus","Trauma",209.5,32.992339178125,104.330937139683,10884.9444444444
+"LC","Locus ceruleus","Control",8.375,2.26729464340213,6.41287766919033,41.125
+"LC","Locus ceruleus","No Trauma",6,0.730296743340221,2.3094010767585,5.33333333333333
+"LC","Locus ceruleus","Trauma",10.3,2.11896201004171,6.70074622710038,44.9
+"NI","Nucleus incertus","Control",43.5,13.3363091917195,37.7207786618615,1422.85714285714
+"NI","Nucleus incertus","No Trauma",22.7,4.35137270805943,13.7602487057627,189.344444444444
+"NI","Nucleus incertus","Trauma",45.6,15.3175280860414,48.4382768754904,2346.26666666667
+"RPO","Nucleus raphe pontis","Control",4.75,1.26420500145913,3.57571171736681,12.7857142857143
+"RPO","Nucleus raphe pontis","No Trauma",3.3,1.08576649832682,3.43349514181816,11.7888888888889
+"RPO","Nucleus raphe pontis","Trauma",2.9,1.01598337694188,3.21282153600573,10.3222222222222
+"PRNr","Pontine reticular nucleus","Control",319.375,37.2323484064213,105.308984150723,11089.9821428571
+"PRNr","Pontine reticular nucleus","No Trauma",385.8,61.8528360977355,195.595841809925,38257.7333333333
+"PRNr","Pontine reticular nucleus","Trauma",419.3,50.9180278050472,161.016941827733,25926.4555555556
+"SLC","Subceruleus nucleus","Control",12.125,1.99497135675822,5.64263109854664,31.8392857142857
+"SLC","Subceruleus nucleus","No Trauma",10.5,1.92209376577847,6.07819417627016,36.9444444444444
+"SLC","Subceruleus nucleus","Trauma",10.4,2.05047419989729,6.48416875508684,42.0444444444444
+"SLD","Sublaterodorsal nucleus","Control",38.375,9.29657675091828,26.2946898495821,691.410714285714
+"SLD","Sublaterodorsal nucleus","No Trauma",22.4,4.69325757514614,14.8413835833007,220.266666666667
+"SLD","Sublaterodorsal nucleus","Trauma",37.7,6.03701545099526,19.0907190947737,364.455555555556
+"CS","Superior central nucleus raphe","Control",72.25,12.9487313223011,36.6245429030472,1341.35714285714
+"CS","Superior central nucleus raphe","No Trauma",83.8,19.49860393863,61.6599996396007,3801.95555555556
+"CS","Superior central nucleus raphe","Trauma",103.5,7.47923050112035,23.6514035289428,559.388888888889
+"B","Barrington's nucleus","Control",46,10.1048079079784,28.5807127772759,816.857142857143
+"B","Barrington's nucleus","No Trauma",32.7,4.78434948556227,15.1294414966317,228.9
+"B","Barrington's nucleus","Trauma",49.2,7.39939937502437,23.3989553423034,547.511111111111
+"DTN","Dorsal tegmental nucleus","Control",46.375,12.1830348963513,34.4588263625695,1187.41071428571
+"DTN","Dorsal tegmental nucleus","No Trauma",25.7,5.53784956258093,17.5122179571229,306.677777777778
+"DTN","Dorsal tegmental nucleus","Trauma",47.2,8.80504905658616,27.8440099283291,775.288888888889
+"V","Motor nucleus of trigeminal","Control",38.25,6.50755055959723,18.4061325184221,338.785714285714
+"V","Motor nucleus of trigeminal","No Trauma",52.1,10.4588612084575,33.0738231503069,1093.87777777778
+"V","Motor nucleus of trigeminal","Trauma",43.2,7.87513668311717,24.903368803794,620.177777777778
+"PCG","Pontine central gray","Control",449.375,96.4009368471075,272.663024629303,74345.125
+"PCG","Pontine central gray","No Trauma",252.8,26.9818045685936,85.3239578182926,7280.17777777778
+"PCG","Pontine central gray","Trauma",561.2,83.6000797447785,264.366664565208,69889.7333333333
+"PG","Pontine gray","Control",1508.875,285.284972658919,806.907754950961,651100.125
+"PG","Pontine gray","No Trauma",1794.6,208.243938153738,658.525153489051,433655.377777778
+"PG","Pontine gray","Trauma",1796,296.516853558857,937.668621872591,879222.444444444
+"PRNc","Pontine reticular nucleus, caudal part","Control",298.625,53.5596921667778,151.48968611757,22949.125
+"PRNc","Pontine reticular nucleus, caudal part","No Trauma",357.3,78.2072815592569,247.313139337337,61163.7888888889
+"PRNc","Pontine reticular nucleus, caudal part","Trauma",364.6,67.4036266746003,213.148982847418,45432.4888888889
+"SG","Supragenual nucleus","Control",21.125,4.74129842071618,13.4104170596699,179.839285714286
+"SG","Supragenual nucleus","No Trauma",10.6,2.77368587502863,8.77116487892762,76.9333333333333
+"SG","Supragenual nucleus","Trauma",11.4,4.32100811282635,13.6642274245971,186.711111111111
+"SUT","Supratrigeminal nucleus","Control",53.125,11.0136887229354,31.1514159274617,970.410714285714
+"SUT","Supratrigeminal nucleus","No Trauma",63.9,16.2312798153579,51.3278135560482,2634.54444444444
+"SUT","Supratrigeminal nucleus","Trauma",66.5,12.5195402826497,39.5902625514013,1567.38888888889
+"TRN","Tegmental reticular nucleus","Control",313.875,57.3499400609974,162.210126071093,26312.125
+"TRN","Tegmental reticular nucleus","No Trauma",381.6,45.7435362768458,144.653762865371,20924.7111111111
+"TRN","Tegmental reticular nucleus","Trauma",446.7,71.8234022524073,227.125540420075,51586.0111111111
+"NLL","Nucleus of the lateral lemniscus","Control",219.125,25.7636492950824,72.8706044986591,5310.125
+"NLL","Nucleus of the lateral lemniscus","No Trauma",301.1,33.6258663663687,106.334326014175,11306.9888888889
+"NLL","Nucleus of the lateral lemniscus","Trauma",302.8,39.9134619451188,126.21744904903,15930.8444444444
+"PB","Parabrachial nucleus","Control",193.875,23.4706788963835,66.3851048267391,4406.98214285714
+"PB","Parabrachial nucleus","No Trauma",355.4,51.4650258805812,162.746701622149,26486.4888888889
+"PB","Parabrachial nucleus","Trauma",376.5,49.6447938414045,156.990622508338,24646.0555555556
+"PSV","Principal sensory nucleus of the trigeminal","Control",55.875,17.748679528348,50.2008466064069,2520.125
+"PSV","Principal sensory nucleus of the trigeminal","No Trauma",87.2,19.1019487080362,60.405665665105,3648.84444444444
+"PSV","Principal sensory nucleus of the trigeminal","Trauma",67.8,12.7939221681408,40.4579342582446,1636.84444444444
+"APN","Anterior pretectal nucleus","Control",160.25,34.818278245772,98.4809626273017,9698.5
+"APN","Anterior pretectal nucleus","No Trauma",278.1,77.4779466830544,245.00677995154,60028.3222222222
+"APN","Anterior pretectal nucleus","Trauma",158.6,13.7713067240872,43.5486956049075,1896.48888888889
+"MPT","Medial pretectal area","Control",196.875,26.4578083937427,74.8339829221992,5600.125
+"MPT","Medial pretectal area","No Trauma",182.3,22.3845432782931,70.7861411420186,5010.67777777778
+"MPT","Medial pretectal area","Trauma",157.2,14.0750370040958,44.5091750840955,1981.06666666667
+"NOT","Nucleus of the optic tract","Control",59,17.1068073334231,48.3853578796608,2341.14285714286
+"NOT","Nucleus of the optic tract","No Trauma",79.5,17.716439321213,56.0243002832005,3138.72222222222
+"NOT","Nucleus of the optic tract","Trauma",56.3,7.47744757402031,23.6457654184047,559.122222222222
+"NPC","Nucleus of the posterior commissure","Control",135.75,18.1036203956162,51.2047709830693,2621.92857142857
+"NPC","Nucleus of the posterior commissure","No Trauma",127,20.4423308086159,64.644326037858,4178.88888888889
+"NPC","Nucleus of the posterior commissure","Trauma",128.7,17.3979883894662,55.0172700158777,3026.9
+"OP","Olivary pretectal nucleus","Control",51.875,11.5811384525505,32.7564061346348,1072.98214285714
+"OP","Olivary pretectal nucleus","No Trauma",67.2,15.8624644295197,50.1615169006857,2516.17777777778
+"OP","Olivary pretectal nucleus","Trauma",46.1,8.73873878517693,27.634318438412,763.655555555556
+"PPT","Posterior pretectal nucleus","Control",42.125,6.58308845234732,18.6197859432226,346.696428571429
+"PPT","Posterior pretectal nucleus","No Trauma",36.8,7.00285656000464,22.1449768570663,490.4
+"PPT","Posterior pretectal nucleus","Trauma",39.1,8.5873938615469,27.1557237674368,737.433333333333
+"PAR","Parasubiculum","Control",604.75,101.484824692449,287.042430910235,82393.3571428571
+"PAR","Parasubiculum","No Trauma",661.2,85.8929307658992,271.617296127392,73775.9555555556
+"PAR","Parasubiculum","Trauma",620.9,145.989074933709,461.657990291514,213128.1
+"POST","Postsubiculum","Control",510,95.557574268082,270.277635034792,73050
+"POST","Postsubiculum","No Trauma",1370.8,329.24144467076,1041.15286528391,1083999.28888889
+"POST","Postsubiculum","Trauma",922.7,215.72559988199,682.184245233239,465375.344444444
+"PRE","Presubiculum","Control",862.125,131.58354726452,372.174474253292,138513.839285714
+"PRE","Presubiculum","No Trauma",1573.5,277.543239874438,877.66878718569,770302.5
+"PRE","Presubiculum","Trauma",1247.1,257.67466352403,814.838832053445,663962.322222222
+"SUB","Subiculum","Control",1647.375,271.186542116308,767.03137158789,588337.125
+"SUB","Subiculum","No Trauma",2590,416.140681340657,1315.95238009081,1731730.66666667
+"SUB","Subiculum","Trauma",2468.7,372.70155024571,1178.58578625213,1389064.45555556
+"VISrl6b","Rostrolateral area, layer 6b","Control",229.5,55.339536370612,156.523845741517,24499.7142857143
+"VISrl6b","Rostrolateral area, layer 6b","No Trauma",658,267.699707383728,846.540804293174,716631.333333333
+"VISrl6b","Rostrolateral area, layer 6b","Trauma",438.4,98.0089791804812,309.931605358344,96057.6
+"MOp","Primary motor area","Control",76.625,26.826783990738,75.8776035091101,5757.41071428571
+"MOp","Primary motor area","No Trauma",271.3,135.984316906195,430.020167485717,184917.344444444
+"MOp","Primary motor area","Trauma",115.5,48.5432796584656,153.507328815272,23564.5
+"sAMY","Striatum-like amygdalar nuclei","Control",189,17.490813915555,49.4714925126438,2447.42857142857
+"sAMY","Striatum-like amygdalar nuclei","No Trauma",242.6,21.6672820425431,68.5179619597016,4694.71111111111
+"sAMY","Striatum-like amygdalar nuclei","Trauma",279.1,29.5444862312186,93.4278687901349,8728.76666666667
+"CP","Caudoputamen","Control",2067.375,383.841389187736,1085.66739677885,1178673.69642857
+"CP","Caudoputamen","No Trauma",2978.7,601.27573726388,1901.40083155084,3615325.12222222
+"CP","Caudoputamen","Trauma",2192,214.156017893497,677.220791175227,458628
+"FS","Fundus of striatum","Control",181.75,31.5196933904594,89.1511557492586,7947.92857142857
+"FS","Fundus of striatum","No Trauma",287.7,49.9272915793,157.883958793933,24927.3444444444
+"FS","Fundus of striatum","Trauma",315.7,28.7104510588043,90.7904179966146,8242.9
+"ACB","Nucleus accumbens","Control",1166.75,273.190262716037,772.698749282576,597063.357142857
+"ACB","Nucleus accumbens","No Trauma",1959.5,310.635701246474,982.316338502465,964945.388888889
+"ACB","Nucleus accumbens","Trauma",1833.4,194.564596528305,615.267277061134,378553.822222222
+"OT","Olfactory tubercle","Control",626.75,131.857844178602,372.950303085315,139091.928571429
+"OT","Olfactory tubercle","No Trauma",1555.9,388.6706246225,1229.08443340742,1510648.54444444
+"OT","Olfactory tubercle","Trauma",1149.4,153.726611590548,486.12622960617,236318.711111111
+"AAA","Anterior amygdalar area","Control",717,62.9985827504987,178.186900272078,31750.5714285714
+"AAA","Anterior amygdalar area","No Trauma",908.1,73.7270416242688,233.14537667873,54356.7666666667
+"AAA","Anterior amygdalar area","Trauma",943.4,100.349743951398,317.333753501122,100700.711111111
+"BA","Bed nucleus of the accessory olfactory tract","Control",84.375,5.59316387591649,15.8198564197927,250.267857142857
+"BA","Bed nucleus of the accessory olfactory tract","No Trauma",131,9.29635531927552,29.3976567471325,864.222222222222
+"BA","Bed nucleus of the accessory olfactory tract","Trauma",151.4,16.3816971037802,51.8034747869291,2683.6
+"CEA","Central amygdalar nucleus","Control",1103,108.036204249184,305.572530553012,93374.5714285714
+"CEA","Central amygdalar nucleus","No Trauma",1546,191.276065761855,604.868029683611,365865.333333333
+"CEA","Central amygdalar nucleus","Trauma",1607,125.494400052132,396.848137761089,157488.444444444
+"IA","Intercalated amygdalar nucleus","Control",180.75,18.7842544245364,53.1298947324923,2822.78571428571
+"IA","Intercalated amygdalar nucleus","No Trauma",242.8,30.1561860246875,95.3622333817511,9093.95555555556
+"IA","Intercalated amygdalar nucleus","Trauma",271.1,32.1456580790211,101.6534964147,10333.4333333333
+"MEA","Medial amygdalar nucleus","Control",1820,90.6194949066858,256.310637424869,65695.1428571429
+"MEA","Medial amygdalar nucleus","No Trauma",2576.6,147.525154163997,466.515499325704,217636.711111111
+"MEA","Medial amygdalar nucleus","Trauma",2731.7,230.091240356709,727.612389180454,529419.788888889
+"RT","Reticular nucleus of the thalamus","Control",202.625,42.1197008112424,119.132504260712,14192.5535714286
+"RT","Reticular nucleus of the thalamus","No Trauma",139.6,26.0402252934442,82.3464227112103,6780.93333333333
+"RT","Reticular nucleus of the thalamus","Trauma",115.3,17.1451645272557,54.217770764452,2939.56666666667
+"PP","Peripeduncular nucleus","Control",28.75,4.19502256081112,11.8653155999204,140.785714285714
+"PP","Peripeduncular nucleus","No Trauma",43.3,7.4908091834075,23.6880185372737,561.122222222222
+"PP","Peripeduncular nucleus","Trauma",57,6.6716647930716,21.0976565312622,445.111111111111
+"SPA","Subparafascicular area","Control",8.75,3.22794715835666,9.13001329994337,83.3571428571429
+"SPA","Subparafascicular area","No Trauma",10.4,3.85054108751831,12.1764800606196,148.266666666667
+"SPA","Subparafascicular area","Trauma",8.3,2.96291898115505,9.36957250299547,87.7888888888889
+"VAL","Ventral anterior-lateral complex of the thalamus","Control",5.875,1.71586608701595,4.85320218294802,23.5535714285714
+"VAL","Ventral anterior-lateral complex of the thalamus","No Trauma",13.5,4.16132991562393,13.1592806287679,173.166666666667
+"VAL","Ventral anterior-lateral complex of the thalamus","Trauma",10.5,2.92593764648379,9.25262725452134,85.6111111111111
+"VM","Ventral medial nucleus of the thalamus","Control",76.625,37.3204929821214,105.558294659532,11142.5535714286
+"VM","Ventral medial nucleus of the thalamus","No Trauma",104.4,38.637402719242,122.182195465988,14928.4888888889
+"VM","Ventral medial nucleus of the thalamus","Trauma",52,9.89949493661167,31.3049516849971,980
+"VPL","Ventral posterolateral nucleus of the thalamus","Control",8.5,6.36957051703084,18.0158660233537,324.571428571429
+"VPL","Ventral posterolateral nucleus of the thalamus","No Trauma",34.2,23.9489271390413,75.7331572767907,5735.51111111111
+"VPL","Ventral posterolateral nucleus of the thalamus","Trauma",3.4,0.819213715162967,2.59058123036339,6.71111111111111
+"VPM","Ventral posteromedial nucleus of the thalamus","Control",6.125,2.40859695377086,6.81254095662656,46.4107142857143
+"VPM","Ventral posteromedial nucleus of the thalamus","No Trauma",16.6,12.0896650077659,38.2308775729776,1461.6
+"VPM","Ventral posteromedial nucleus of the thalamus","Trauma",5.9,3.0530494773441,9.65459015759401,93.2111111111111
+"VPMpc","Ventral posteromedial nucleus of the thalamus, parvicellular part","Control",1.375,0.730398619150627,2.0658792662828,4.26785714285714
+"VPMpc","Ventral posteromedial nucleus of the thalamus, parvicellular part","No Trauma",5.6,2.36737078727529,7.48628375393589,56.0444444444444
+"VPMpc","Ventral posteromedial nucleus of the thalamus, parvicellular part","Trauma",3.8,0.904310664416702,2.85968141193696,8.17777777777778
+"FF","Fields of Forel","Control",15.375,4.55889045085064,12.8944894099323,166.267857142857
+"FF","Fields of Forel","No Trauma",29.8,6.5299310869258,20.6494551986245,426.4
+"FF","Fields of Forel","Trauma",17,2.85579333208052,9.03081145609604,81.5555555555556

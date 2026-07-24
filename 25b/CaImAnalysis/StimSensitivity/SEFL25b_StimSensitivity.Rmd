@@ -1,0 +1,1372 @@
+---
+title: "SEFL25b_StimSensitivity"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE,message=FALSE)
+```
+
+
+
+# Load Packages 
+```{r}
+
+library(arrow)
+library(ggplot2)
+library(ggrepel)
+library(ez)
+library(knitr)
+library(dplyr)
+library(purrr)
+library(scales)
+library(tidyr)
+library(ggh4x)
+library(factoextra)
+
+```
+
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load group info
+groups = read.csv('../SEFL25b_groups.csv',header=TRUE)
+
+#stim info
+stiminfo = read.csv('stiminfo.csv')
+
+#load average cell response
+dfiles = dir('UnitClassification//')
+data = list()
+for (f in dfiles) {data[[f]] = read_feather(paste('UnitClassification/',f,sep=''))}
+units = do.call('rbind', data)
+
+#load average cell response
+dfiles = dir('BinnedUnitResponses//')
+data = list()
+for (f in dfiles) {data[[f]] = read_feather(paste('BinnedUnitResponses/',f,sep=''))}
+data = do.call('rbind', data)
+
+#factorize as necessary
+groups$Animal = factor(groups$Animal)
+units$Animal = factor(as.numeric(units$Animal))
+data$Animal = factor(as.numeric(data$Animal))
+groups$Group = recode_factor(groups$Group, 'NT'='NS', 'T'='S')
+
+#give each unit a unique id
+units$uniqID = factor(paste(units$Animal, units$unit_id, sep="_"))
+data$uniqID = factor(paste(data$Animal, data$unit_id, sep="_"))
+
+#add group info to data files
+units = droplevels(inner_join(x=groups, y=units, by="Animal"))
+data = droplevels(inner_join(x=groups, y=data, by="Animal"))
+
+#factor as necessary
+data$amp = factor(data$amp, levels=c('high','low'))
+data$type = factor(data$type, levels=c('shock','sound'))
+
+```
+
+
+# Drop subjects
+```{r}
+
+data = data[data$StimulusSensitivity==1,]
+units = units[units$StimulusSensitivity==1,]
+
+data = droplevels(data[data$Animal!=39,]) #this mouse was run twice. remove if comparining S/NS
+units = droplevels(units[units$Animal!=39,]) #this mouse was run twice. remove if comparining S/NS
+
+```
+
+
+# Add unit categories and prepost
+```{r}
+
+unitClass = pivot_wider(
+  units[,c('uniqID','Group','type','pct_shuff')],
+  id_cols = c('uniqID','Group'),
+  names_from = 'type',
+  values_from = 'pct_shuff'
+)
+
+#here cells are classified only if they display an increase at p=.05, one-tailed
+unitClass$ShockResp = unitClass$shock>=95
+unitClass$SoundResp = unitClass$sound>=95
+unitClass = mutate(
+  unitClass, 
+  class = case_when(
+    (ShockResp & !SoundResp) ~ 'shock',
+    (!ShockResp & SoundResp) ~ 'sound',
+    (ShockResp & SoundResp) ~ 'both',
+    (!ShockResp & !SoundResp) ~ 'neither'
+  )
+)
+unitClass$class = factor(unitClass$class, levels=c('neither','sound','shock','both'))
+
+#add classification to data
+data = inner_join(data, unitClass[,c('uniqID','ShockResp','SoundResp','class')], by='uniqID')
+
+```
+
+
+
+# Add unit categories and tabulate
+```{r}
+
+#tabulate
+# all cells
+UnitClassTbl = table(unitClass[,c('class')])
+UnitClassTblProp = as.data.frame(prop.table(UnitClassTbl))
+# by group
+UnitClassTbl.bygrp = table(unitClass[,c('Group','class')])
+UnitClassTblProp.bygrp = as.data.frame(prop.table(UnitClassTbl.bygrp, margin=1))
+
+fisher.test(
+  UnitClassTbl.bygrp
+)
+
+```
+
+
+
+
+# Get mean activity response, separated by group and amplitude (cells are 'subjects' here)
+```{r}
+
+sem = function(x){sd(x)/sqrt(length(x[!is.na(x)]))}
+
+#get average of each cell across trials
+data.unit.collapsed = summarise_at(
+  .tbl = group_by(
+    .data = data,
+    Animal, uniqID, ShockResp, SoundResp, class, Group, type, amp, bin),
+  .funs = list(sig=mean),
+  .vars = 'sig'
+)
+
+#get statistics, separated by classificataion (responsive/nonresponsive) but collapsed across groups (NS/S)
+#shock
+data.shock.stats = summarise_at(
+  .tbl = group_by(
+    .data = data[data$type=='shock',],
+    type, ShockResp, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+#sound
+data.sound.stats = summarise_at(
+  .tbl = group_by(
+    .data = data[data$type=='sound',],
+    type, SoundResp, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+#get statistics, separated by classificataion (responsive/nonresponsive) and group (NS/S)
+#shock
+data.shock.bygroupandclass.stats = summarise_at(
+  .tbl = group_by(
+    .data = data[data$type=='shock',],
+    Group, type, ShockResp, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+data.sound.bygroupandclass.stats = summarise_at(
+  .tbl = group_by(
+    .data = data[data$type=='sound',],
+    Group, type, SoundResp, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+#get statistics, separated by group (NS/S) but collapsed across classificataion (responsive/nonresponsive) 
+#shock
+data.bygroup.stats = summarise_at(
+  .tbl = group_by(
+    .data = data,
+    Group, type, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+```
+
+
+# Define average post activity for each unit
+```{r}
+
+data.unit.post = summarise_at(
+  .tbl = group_by(
+    .data = data.unit.collapsed[
+      data.unit.collapsed$bin>0 & data.unit.collapsed$bin<=5000
+      ,],
+    uniqID, Group, ShockResp, SoundResp, class, type, amp),
+  .funs = list(sig = mean),
+  .vars = c('sig'))
+
+```
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '25b'
+
+#list of plotting parameters
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+##Plot dimensions
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(1.5, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 16,
+  axis_title = 16,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .2
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .3,
+  error = .5
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+#Plot colors
+p$cols = list(
+  fill_shk = c('orangered3', 'orange2'),
+  fill_snd = c('blue3','cornflowerblue'),
+  fill_grp = c('gray80','red4')
+)
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"),
+    axis.title = element_text(
+      size=p$textsize$axis_title, 
+      face="plain"),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black",
+      face = 'plain'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      colour="black",
+      face = 'plain'),
+    legend.position = c(.1,.9),
+    legend.title = element_blank(),
+    legend.text = element_text(size=p$textsize$legend, face="plain"),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+
+```
+
+
+# Make Plots
+
+## Groups collapsed
+### Shock responsive
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.SHKresponsive.LOWvsHIGH = ggplot(
+  data = data.shock.stats[data.shock.stats$ShockResp,],
+  aes(x = bin,
+      y = mean,
+      fill = amp,
+      group = amp))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.1
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.SHKresponsive.LOWvsHIGH  +
+  
+  #geom_rect(aes(xmin = 0, xmax = 2000, ymin = -Inf, ymax = Inf), fill = "lightsteelblue1") +
+  #geom_hline(yintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  scale_fill_manual(values=p$cols$fill_shk) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = c(.8, .9),
+    legend.key.size = unit(.5, 'cm'),
+    panel.spacing.x = unit(.25,'cm'),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1., "in")
+    ) 
+  
+  if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_ShkResponsive_LOWvsHIGH", p$savetype, sep = ''))}
+
+```
+
+### Sound responsive
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.SNDresponsive.LOWvsHIGH = ggplot(
+  data = data.sound.stats[data.sound.stats$SoundResp,],
+  aes(x = bin,
+      y = mean,
+      fill = amp,
+      group = amp))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.SNDresponsive.LOWvsHIGH  +
+  
+  # geom_rect(aes(xmin = 0, xmax = 2000, ymin = -Inf, ymax = Inf), fill = "lightsteelblue1") +
+  # 
+  # geom_hline(yintercept = 0, linetype = 'dashed') +
+  
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  scale_fill_manual(values=p$cols$fill_snd) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = c(.8, .9),
+    legend.key.size = unit(.5, 'cm'),
+    panel.spacing.x = unit(.25,'cm'),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1., "in")
+    ) 
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_SndResponsive_LOWvsHIGH", p$savetype, sep = ''))}
+
+```
+
+
+## Groups separated
+### All cells
+#### Shock
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.all.bygroup = ggplot(
+  data = data.bygroup.stats[data.bygroup.stats$type=='shock',],
+  aes(x = bin,
+      y = mean,
+      fill = Group,
+      group = Group))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.2
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.all.bygroup  +
+  
+  #geom_rect(aes(xmin = 0, xmax = 2000, ymin = -Inf, ymax = Inf), fill = "lightsteelblue1") +
+  #geom_hline(yintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+
+  facet_grid(~factor(amp, levels=c('low','high'))) +
+  
+  scale_fill_manual(values=p$cols$fill_grp) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = c(.175, .9),
+    legend.key.size = unit(.5, 'cm'),
+    panel.spacing.x = unit(.25,'cm'),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1, "in")
+    ) 
+  
+  if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_All_Shk_SvsNS", p$savetype, sep = ''))}
+
+```
+
+#### Sound
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.all.bygroup = ggplot(
+  data = data.bygroup.stats[data.bygroup.stats$type=='sound',],
+  aes(x = bin,
+      y = mean,
+      fill = Group,
+      group = Group))
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.2
+p.ymax = 2
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.all.bygroup  +
+  
+  #geom_rect(aes(xmin = 0, xmax = 2000, ymin = -Inf, ymax = Inf), fill = "lightsteelblue1") +
+  #geom_hline(yintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  facet_grid(~factor(amp, levels=c('low','high'))) +
+  
+  scale_fill_manual(values=p$cols$fill_grp) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = c(.175, .9),
+    legend.key.size = unit(.5, 'cm'),
+    panel.spacing.x = unit(.25,'cm'),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1., "in")
+    ) 
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1.5, "in")
+    ) 
+  
+  if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_All_Snd_SvsNS", p$savetype, sep = ''))}
+
+```
+
+### Shock responsive
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.SHKresponsive.bygroup = ggplot(
+  data = data.shock.bygroupandclass.stats[
+    data.shock.bygroupandclass.stats$ShockResp,
+  ],
+  aes(x = bin,
+      y = mean,
+      fill = Group,
+      group = Group))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.2
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.SHKresponsive.bygroup  +
+  
+  #geom_rect(aes(xmin = 0, xmax = 2000, ymin = -Inf, ymax = Inf), fill = "lightsteelblue1") +
+  #geom_hline(yintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  facet_grid(~factor(amp, levels=c('low','high'))) +
+  
+  scale_fill_manual(values=p$cols$fill_grp) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = c(.175, .9),
+    legend.key.size = unit(.5, 'cm'),
+    panel.spacing.x = unit(.25,'cm'),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1., "in")
+    ) 
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_ShkResponsive_SvsNS", p$savetype, sep = ''))}
+
+```
+
+
+### Sound responsive
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.SNDresponsive.bygroup = ggplot(
+  data = data.sound.bygroupandclass.stats[
+    data.sound.bygroupandclass.stats$SoundResp,
+  ],
+  aes(x = bin,
+      y = mean,
+      fill = Group,
+      group = Group))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.2
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.SNDresponsive.bygroup  +
+  
+  #geom_rect(aes(xmin = 0, xmax = 2000, ymin = -Inf, ymax = Inf), fill = "lightsteelblue1") +
+  #geom_hline(yintercept = 0, linetype = 'dashed') +
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  facet_grid(~factor(amp, levels=c('low','high'))) +
+  
+  scale_fill_manual(values=p$cols$fill_grp) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = c(.175, .9),
+    legend.key.size = unit(.5, 'cm'),
+    panel.spacing.x = unit(.25,'cm'),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1., "in")
+    ) 
+
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_SndResponsive_SvsNS", p$savetype, sep = ''))}
+
+```
+
+
+## Bar Chart
+### All cells
+```{r}
+
+
+P.bar = ggplot(
+  UnitClassTblProp, 
+  aes(x = 1, y = Freq, fill = class, label=class)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    width = 2,
+    colour = 'gray10',
+    #linewidth = ,
+    show.legend = FALSE
+  ) + 
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1, "in")
+  ) +
+  
+  geom_text(
+    aes(
+      x=2.3
+    ),
+    size = 5,
+    fontface = 'plain',
+    angle = 35,
+    position = position_stack(vjust = 0.5),
+    vjust = .5,
+    hjust = 0
+  ) +
+  
+  labs(
+    x = '',
+    y = "% Responsive Neurons"
+  ) +
+  
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005)
+  ) +
+  scale_x_continuous(breaks=c(), limits=c(0,5)) +
+  scale_fill_manual(values=c('gray90','blue2','orangered3','purple2')) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    axis.line.x = element_blank()
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"StimSensitivity_BarClass_ALL", p$savetype, sep = ''))}
+
+```
+
+### By Group
+```{r}
+
+
+P.bar = ggplot(
+  UnitClassTblProp.bygrp, 
+  aes(x = Group, y = Freq, fill = class, label=class)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    #width = 2,
+    colour = 'gray10',
+    #linewidth = ,
+    show.legend = TRUE
+  ) + 
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1, "in")
+  ) +
+  
+  labs(
+    x = '',
+    y = "% Responsive Neurons"
+  ) +
+  
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005)
+  ) +
+
+  scale_fill_manual(values=c('gray90','blue2','orangered3','purple2')) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    axis.text.x = element_text(size=p$textsize$axis_title),
+    axis.line.x = element_blank(),
+    legend.title = element_blank(),
+    legend.position = 'right'
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"StimSensitivity_BarClass_byGrp", p$savetype, sep = ''))}
+
+```
+
+
+
+## Raster
+### Shock resp
+```{r}
+
+pdata = droplevels(data.unit.collapsed[data.unit.collapsed$type=='shock' & data.unit.collapsed$ShockResp,])
+pdata$amp = factor(pdata$amp, levels = c('low','high'))
+
+
+#Define plot specific parameters
+p.xmin = -5000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+P.raster.shock = ggplot(
+  data = pdata, 
+  aes(x = bin, y = uniqID, fill = sig)
+) 
+
+P.raster.shock +
+  
+  geom_raster() +
+  
+  geom_vline(xintercept = 0, linetype='dashed', color='red') +
+  geom_vline(xintercept = 2000, linetype='dashed', color='red') +
+  
+  facet_grid(cols=vars(amp)) +
+  
+  scale_fill_gradient(
+    low = 'gray93',
+    high = 'black',
+    limits=c(0,3),
+    oob=scales::squish,
+    name = 'z'
+  ) +
+  
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(xlim=c(-2000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "neuron",
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.title = element_text(
+      size=p$textsize$axis_text, 
+      vjust = 1
+    ),
+    legend.position = 'bottom',
+    legend.key.size = unit(.4, 'cm'),
+    legend.text = element_text(face='plain', size=p$textsize$axis_text-2),
+    panel.spacing.x = unit(.5, 'cm'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      hjust=.5
+    ),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size=p$textsize$axis_text-2),
+    axis.title.x = element_text(margin = margin(t=0, b=0))
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(.45, "in")
+    ) 
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Raster_ShkResponsive", p$savetype, sep = ''))}
+
+```
+
+
+### Sound resp
+```{r}
+
+pdata = droplevels(data.unit.collapsed[data.unit.collapsed$type=='sound' & data.unit.collapsed$SoundResp,])
+pdata$amp = factor(pdata$amp, levels = c('low','high'))
+
+
+#Define plot specific parameters
+p.xmin = -5000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+P.raster.sound = ggplot(
+  data = pdata, 
+  aes(x = bin, y = uniqID, fill = sig)
+) 
+
+P.raster.sound +
+  
+  geom_raster() +
+  
+  geom_vline(xintercept = 0, linetype='dashed', color='red') +
+  geom_vline(xintercept = 2000, linetype='dashed', color='red') +
+  
+  facet_grid(cols=vars(amp)) +
+  
+  scale_fill_gradient(
+    low = 'gray93',
+    high = 'black',
+    limits=c(0,3),
+    oob=scales::squish,
+    name = 'z'
+  ) +
+  
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(xlim=c(-2000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "neuron",
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.title = element_text(
+      size=p$textsize$axis_text, 
+      vjust = 1
+    ),
+    legend.position = 'bottom',
+    legend.key.size = unit(.4, 'cm'),
+    legend.text = element_text(face='plain', size=p$textsize$axis_text-2),
+    panel.spacing.x = unit(.5, 'cm'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      hjust=.5
+    ),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size=p$textsize$axis_text-2),
+    axis.title.x = element_text(margin = margin(t=0, b=0))
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(.45, "in")
+  ) 
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Raster_SndResponsive", p$savetype, sep = ''))}
+
+```
+
+
+## PCA
+### Compute
+```{r}
+
+pcdata = pivot_wider(
+  data = data[,c('uniqID','trial','type','amp','bin','sig')],
+  values_from = 'sig',
+  names_from = "uniqID"
+)
+pcdata = pcdata[complete.cases(pcdata),]
+
+pca = prcomp(pcdata[,-(1:4)])
+
+pcdataX = cbind(pcdata, as.data.frame(pca$x))
+pcdataX = mutate(
+  pcdataX,
+  case = case_when(
+    bin <= 0 ~ 'pre-stimulus',
+    bin > 0 & type=='sound' & amp=='low' ~ 'low sound',
+    bin > 0 & type=='sound' & amp=='high' ~ 'high sound',
+    bin > 0 & type=='shock' & amp=='low' ~ 'low shock',
+    bin > 0 & type=='shock' & amp=='high' ~ 'high shock'
+  )
+)
+pcdataX$case = factor(
+  pcdataX$case, 
+  levels = c(
+    'pre-stimulus','low sound','high sound','low shock','high shock'
+  )
+)
+
+pcdataXmean = summarise_at(
+  .tbl = group_by(
+    .data = pcdataX,
+    case),
+  .funs = list(mean),
+  .vars = c('PC1','PC2','PC3','PC4','PC5')
+)
+
+
+```
+
+
+### scree plot
+```{r}
+
+pca_summary = as.data.frame(t(summary(pca)$importance))
+names(pca_summary) = c('stdev','proportion','cumprop')
+
+p.eigen = ggplot(
+  data = pca_summary,
+  aes(y = proportion, x=1:nrow(pca_summary)))
+
+p.eigen +
+  geom_line() +
+  scale_x_continuous(limits = c(1,10), breaks=1:10)
+
+```
+
+### plot
+```{r}
+
+
+p.pca_data = ggplot(
+  data = pcdataXmean,
+  aes(x=PC1, y=PC2, color=case)
+)
+
+#Define plot specific parameters
+p.xmin = -5
+p.xmax = 18
+p.xint = 5
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+p.ymin = -5
+p.ymax = 18
+p.yint = 5
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+p.pca_data +
+  
+  
+  geom_hline(yintercept=0, linetype='dashed', color='gray80') +
+  geom_vline(xintercept=0, linetype='dashed', color='gray80') +
+  
+  geom_point(size=4, alpha=1) +
+  
+  scale_x_continuous(
+    breaks=p.xbreaks, labels=p.xbreaks, 
+    limits = c(p.xmin,p.xmax), expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks=p.ybreaks, labels=p.ybreaks, 
+    limits = c(p.ymin,p.ymax), expand = c(0, 0)) +
+  scale_color_manual(
+    values=c('gray50','cornflowerblue','blue3','orange2','orangered3')
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = 'right',
+    legend.title = element_blank(),
+    legend.text = element_text(
+      size=p$textsize$axis_text-4,
+      face='plain'
+    )
+  ) +
+  
+  force_panelsizes(
+      rows = unit(1.5, "in"),
+      cols = unit(1.5, "in")
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"PCAplot", p$savetype, sep = ''))}
+
+```
+
+
+
+# Stats
+## S/NS collapsed
+### Shock response (shock responsive)
+```{r}
+
+anova.shock.shockresp = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$ShockResp &data.unit.post$type == 'shock',
+  ],
+  wid = uniqID,
+  dv = sig,
+  within = c(amp),
+  white.adjust = TRUE,
+  type = 3
+)
+anova.shock.shockresp
+
+```
+### Sound response (sound responsive )
+```{r}
+
+anova.sound.soundresp = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$SoundResp & data.unit.post$type == 'sound',
+  ],
+  wid = uniqID,
+  dv = sig,
+  within = c(amp),
+  white.adjust = TRUE,
+  type = 3
+)
+anova.sound.soundresp
+
+```
+
+## Group (S/NS) comparison
+### All neurons
+#### Shock
+```{r}
+
+anova.shock.all.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$type == 'shock',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  within = c(amp),
+  white.adjust = TRUE,
+  type = 3
+)
+anova.shock.all.bygroup
+
+anova.shock.low.all.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$type == 'shock' &
+      data.unit.post$amp == 'low',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  white.adjust = TRUE,
+  type = 3
+)
+anova.shock.low.all.bygroup
+
+anova.shock.high.all.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$type == 'shock' &
+      data.unit.post$amp == 'high',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  white.adjust = TRUE,
+  type = 3
+)
+anova.shock.high.all.bygroup
+
+```
+
+#### Sound
+```{r}
+
+anova.sound.all.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$type == 'sound',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  within = c(amp),
+  white.adjust = TRUE,
+  type = 3
+)
+anova.sound.all.bygroup
+
+anova.sound.low.all.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$type == 'sound' &
+      data.unit.post$amp == 'low',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  white.adjust = TRUE,
+  type = 3
+)
+anova.sound.low.all.bygroup
+
+anova.sound.high.all.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$type == 'sound' &
+      data.unit.post$amp == 'high',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  white.adjust = TRUE,
+  type = 3
+)
+anova.sound.high.all.bygroup
+
+```
+
+
+### Responsive neurons
+#### Shock
+```{r}
+
+anova.shock.shockresp.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$ShockResp &
+      data.unit.post$type == 'shock',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  within = c(amp),
+  white.adjust = TRUE,
+  type = 3
+)
+anova.shock.shockresp.bygroup
+
+```
+
+#### Sound
+```{r}
+
+anova.sound.soundresp.bygroup = ezANOVA(
+  data = data.unit.post[
+    data.unit.post$SoundResp &
+      data.unit.post$type == 'sound',
+  ],
+  wid = uniqID,
+  dv = sig,
+  between = Group,
+  within = c(amp),
+  white.adjust = TRUE,
+  type = 3
+)
+anova.sound.soundresp.bygroup
+
+```
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+# export unit classification info
+unit_export = unitClass[,
+  c('Group','uniqID','shock','sound','class')
+]
+unit_export = left_join(
+  unique(data[,c('Animal','Sex','uniqID')]),
+  unit_export,
+  by = 'uniqID'
+)
+unit_export = unit_export[,c('Group','uniqID','Animal','Sex','shock','sound','class')]
+
+names(unit_export)[names(unit_export)=='uniqID'] = 'unit'
+names(unit_export)[names(unit_export)=='shock'] = 'shock_pct'
+names(unit_export)[names(unit_export)=='sound'] = 'sound_pct'
+
+
+# export mean unit responses
+unitresponse_export = data.unit.collapsed
+names(unitresponse_export)[names(unitresponse_export)=='uniqID'] = 'unit'
+names(unitresponse_export)[names(unitresponse_export)=='sig'] = 'signal'
+names(unitresponse_export)[names(unitresponse_export)=='type'] = 'stimulus'
+names(unitresponse_export)[names(unitresponse_export)=='amp'] = 'amplitude'
+unitresponse_export$second = unitresponse_export$bin/1000
+unitresponse_export = left_join(
+  unitresponse_export,
+  unit_export[,c('unit','Sex')],
+  by = 'unit'
+)
+unitresponse_export = unitresponse_export[
+  ,
+  c('unit','Animal','Sex','Group','class','stimulus','amplitude','second','signal')
+]
+
+pcdata_export = pcdata
+names(pcdata_export)[names(pcdata_export)=='bin'] = 'second'
+pcdata_export$second = pcdata_export$second/1000
+
+if (export){
+  write.csv(unit_export, 'Fig2g_units.csv', row.names=FALSE)
+  write.csv(unitresponse_export, 'Fig2hi_unitresponse.csv', row.names=FALSE)
+  write.csv(pcdata_export, 'Fig2j_unitresponse.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+

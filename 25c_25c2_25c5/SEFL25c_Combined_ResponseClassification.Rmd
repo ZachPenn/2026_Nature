@@ -1,0 +1,747 @@
+---
+title: "SEFL25c_combined_CaAnalysis"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE, message=FALSE)
+
+```
+
+
+
+# Load Packages 
+```{r}
+
+library(ggplot2)
+library(svglite)
+library(ez)
+library(knitr)
+library(tidyr)
+library(dplyr)
+library(purrr)
+library(ggh4x)
+library(stringr)
+library(arrow)
+
+
+```
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load animal data
+groups = read.csv('SEFL_25c_25c2_25c5_AllAnimals.csv')
+
+#load unit classifications and unit responses
+rew_class = list()
+shk_class = list()
+sig = list()
+for (f in dir('UnitClassification/Reward/')){
+  rew_class[[f]] = read_feather(paste('UnitClassification/Reward/',f,sep=''))
+}
+for (f in dir('UnitClassification/Shock/')){
+  shk_class[[f]] = read_feather(paste('UnitClassification/Shock/',f,sep=''))
+}
+for (f in dir('BinnedUnitResponses/')){
+  sig[[f]] = read_feather(paste('BinnedUnitResponses/',f,sep=''))
+}
+rew_class = do.call('rbind', rew_class)
+shk_class = do.call('rbind', shk_class)
+sig = do.call('rbind', sig)
+
+#code reward locations with correponding locations
+rew_class = mutate(
+  rew_class, reward = case_when(
+    location == "4" ~ 'sucrose',
+    location == "3" ~ 'water',
+    location == "5" ~ 'quinine'
+  )
+)
+rew_class$reward = factor(rew_class$reward, levels=c('sucrose','water','quinine'))
+
+sig$event = recode_factor(
+  sig$event,
+  "4" = "sucrose",
+  "3" = "water",
+  "5" = "quinine",
+  "low" = "low shock",
+  "high" = "high shock"
+)
+
+```
+
+
+# Make exclusions
+```{r}
+
+#For 25c5, mouse 1, sucrose port was delivering half volume
+rew_class = rew_class[!(rew_class$Experiment=='25c5' & rew_class$Animal=='01'),]
+shk_class = shk_class[!(shk_class$Experiment=='25c5' & shk_class$Animal=='01'),]
+sig = sig[!(sig$Experiment=='25c5' & sig$Animal=='01'),]
+
+#For 25c5, mouse 8, units 0 and 1 are lens artifact
+rew_class = rew_class[
+  !(rew_class$Experiment=='25c5' & rew_class$Animal=='08' & (rew_class$unit_id==0|rew_class$unit_id==1)),
+]
+shk_class = shk_class[
+  !(shk_class$Experiment=='25c5' & shk_class$Animal=='08' & (shk_class$unit_id==0|shk_class$unit_id==1)),
+]
+sig = sig[
+  !(sig$Experiment=='25c5' & sig$Animal=='08' & (sig$unit_id==0|sig$unit_id==1)),
+]
+
+
+```
+
+# Pre-process data
+## Define classifications and add to signal data
+```{r}
+
+thresh = 95
+rew_class$rew_responsive = rew_class$loc_pct_shuff>=thresh
+shk_class$shk_responsive = shk_class$shock_pct_shuff>=thresh
+
+#add shock classification to reward classification
+rew_class = left_join(
+  rew_class,
+  shk_class[,c('Animal','Experiment','unit_id','shk_responsive')],
+  by = c('Animal','Experiment','unit_id')
+)
+
+#add shock classification to activity data
+sig = left_join(
+  sig, shk_class[,c('Animal','Experiment','unit_id','shk_responsive')],
+  by = c('Animal','Experiment','unit_id')
+)
+
+```
+
+
+## Give each unit unique id
+```{r}
+
+sig = mutate(sig, uniqID = paste(Animal,Experiment,unit_id))
+rew_class = mutate(rew_class, uniqID = paste(Animal,Experiment,unit_id))
+shk_class = mutate(shk_class, uniqID = paste(Animal,Experiment,unit_id))
+
+```
+
+
+## Get Average Unit Response for each event (water, sucrose, quinine, low shock, high shock)
+```{r}
+
+sig = sig[!is.na(sig$sig),]
+sig_avg = summarise_at(
+  .tbl = group_by(sig, uniqID, shk_responsive, event, bin),
+  .funs = list(sig=mean),
+  .vars = c('sig')
+)
+
+#Define average post-event response for each unit
+period = c(0, 5000) 
+sig_avg_post = summarise_at(
+  .tbl = group_by(
+      sig[sig$bin>period[1] & sig$bin<=period[2],], 
+      uniqID, shk_responsive, event
+    ),
+  .funs = list(sig=mean),
+  .vars = c('sig')
+)
+
+
+```
+
+
+# Get summary statistics for plotting
+Calculate relevant means and std. errors.
+```{r}
+
+sem = function(x) {sd(x)/sqrt(length(x))}
+
+rew_stats = summarise_at(
+  .tbl = group_by(rew_class, shk_responsive, reward),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('pre','post','diff')
+)
+rew_stats_all = summarise_at(
+  .tbl = group_by(rew_class, reward),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('pre','post','diff')
+)
+
+shk_stats = summarise_at(
+  .tbl = group_by(shk_class, shk_responsive),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('pre','post','diff')
+)
+shk_stats_all = summarise_at(
+  .tbl = group_by(shk_class),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('pre','post','diff')
+)
+
+sig_stats = summarise_at(
+  .tbl = group_by(sig_avg, shk_responsive, event, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig')
+)
+sig_stats_all = summarise_at(
+  .tbl = group_by(sig_avg, event, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig')
+)
+
+sig_post_stats = summarise_at(
+  .tbl = group_by(sig_avg_post, shk_responsive, event),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig')
+)
+
+```
+
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '25c_collapsed_Ca2'
+
+#list of plotting parameters
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+##Plot dimensions
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(1.5, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 14,
+  axis_title = 15,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .3
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .2,
+  error = .5
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+#Plot colors
+p$cols = list(
+  color = c("forestgreen","gray100","yellow2","orange","red2"),
+  fill = c("forestgreen","gray100","yellow2","orange","red2"),
+  rec = 'slategray1'
+)
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"),
+    axis.title = element_text(
+      size=p$textsize$axis_title, 
+      face="plain"),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black",
+      face = 'plain'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      colour="black",
+      face = 'plain'),
+    legend.position = c(.1,.9),
+    legend.title = element_blank(),
+    legend.text = element_text(size=p$textsize$legend, face="plain"),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+
+
+
+
+```
+
+
+## Make Plots
+### Response Magnitudes
+#### Shock Responsive neurons
+##### Avg Post Response for Shock Responsive neurons
+```{r, fig.width=4.5, fig.height=4.5}
+
+sig_post_stats$shock = sig_post_stats$event!='low shock' & sig_post_stats$event!='high shock'
+
+#Create base layer from group level data
+P.PostResp = ggplot(
+  data = sig_post_stats[sig_post_stats$shk_responsive==TRUE,],
+  aes(x=event,
+      y=mean,
+      fill=event,
+      group=1))
+
+#Define plot specific parameters
+p.ymin = -.1
+p.ymax = 1.5#1.5
+p.yint = .5
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.PostResp  +
+  
+  geom_hline(yintercept = 0, linetype='dashed') +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    aes(ymin = mean - sem,
+        ymax = mean + sem,
+        width = p$width$error*.3
+        )) +
+  
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    stroke = p$points$grp$stroke,
+    shape = p$points$grp$shape,
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(values = p$cols$fill) +
+  scale_x_discrete(expand = c(.3,.3)) +
+  
+  facet_grid(rows = vars(shock), scales = 'free_y') +
+  facetted_pos_scales(
+    y = list(
+      scale_y_continuous(limits=c(.2, 2.5), breaks=seq(.5,2.5,.5)),
+      scale_y_continuous(limits=c(-.11, .05), breaks=seq(-.2,.1,.1))
+    )
+  ) +
+  
+  force_panelsizes(
+    rows = c(.7, .3),
+    cols = unit(1.3, "in"),
+    total_height = p$dim$panel_h
+  ) +
+  
+  labs(
+    x = "",
+    y = "calcium (z)\n[0-5 sec post]"
+  ) +
+  
+  p$theme +
+  theme(
+    strip.text = element_blank(),
+    axis.text.x= element_text(
+      face = 'plain',
+      size = p$textsize$axis_title-2,
+      angle = -90, 
+      hjust = 0, 
+      vjust = .5,
+      margin = margin(b=2, t=3)
+    )
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AvgPostResp_ShkNeurons", p$savetype, sep = ''))}
+
+```
+
+
+
+##### All Responses (faceting)
+```{r, fig.width=4.5, fig.height=4.5}
+
+pdata = sig_stats[sig_stats$shk_responsive==TRUE,]
+pdata = droplevels(rbind(
+  mutate(pdata, facet = 1),
+  mutate(pdata, facet = 2)
+))
+
+
+#Create base layer from group level data
+P.AllResp.ShkNeurons = ggplot(
+  data = pdata,
+  aes(x = bin,
+      y = mean,
+      fill = event,
+      group = event))
+
+#Define plot specific parameters
+p.ymin = -.2
+p.ymax = 2.5
+p.yint = .5
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+
+#Create plot
+P.AllResp.ShkNeurons  +
+  
+  geom_vline(xintercept=0, linetype='dashed') +
+  geom_hline(yintercept=0, linetype='dashed') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    color = 'black',
+    aes(ymin = mean - sem,
+        ymax = mean + sem
+        )) +
+  
+  scale_fill_manual(values = p$cols$fill) +
+  coord_cartesian(xlim = c(p.xmin,p.xmax)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  
+  facet_grid(rows=vars(facet), scales = 'free_y') +
+  facetted_pos_scales(
+    y = list(
+      scale_y_continuous(limits=c(.2, 2.5), breaks=seq(.5,2.5,.5)),
+      scale_y_continuous(limits=c(-.11, .05), breaks=seq(-.2,.1,.1))
+    )
+  ) +
+  
+  force_panelsizes(
+    rows = c(.7, .3),
+    cols = unit(1, "in"),
+    total_height = p$dim$panel_h
+  ) +
+  
+  labs(
+    x = "sec",
+    y = "calcium (z)"
+  ) +
+  
+  p$theme +
+  theme(
+    strip.text = element_blank(),
+    axis.text.x= element_text(face = 'plain',size = p$textsize$axis_text),
+    legend.title = element_blank(),
+    legend.position = 'right'
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AllResp_ShkNeurons_facet", p$savetype, sep = ''))}
+
+```
+
+
+
+### Response proportions
+#### calculate proportions
+```{r}
+
+#bind reward and shock response classifications
+resp_class = bind_rows(
+  rew_class[,c('uniqID','reward','rew_responsive')], 
+  shk_class[,c('uniqID','shk_responsive')]
+)
+
+#define stimulus column
+names(resp_class)[names(resp_class)=='reward']='stimulus'
+resp_class$stimulus = factor(
+  resp_class$stimulus, 
+  levels=c('sucrose','water','quinine','shock')
+)
+resp_class$stimulus[is.na(resp_class$stimulus)]='shock'
+
+#define response classification column
+resp_class = mutate(
+  resp_class,
+  responsive = case_when(
+    !is.na(rew_responsive) ~ rew_responsive,
+    !is.na(shk_responsive) ~ shk_responsive
+  )
+)
+
+#create table
+resp_table = table(resp_class[,c('responsive','stimulus')])
+resp_prop = as.data.frame(prop.table(resp_table,margin=2))
+
+```
+
+
+
+#### plot percentages
+```{r}
+
+P.percent = ggplot(
+  data = resp_prop[resp_prop$responsive==TRUE,],
+  aes(x = stimulus,
+      y = Freq,
+      fill = stimulus,
+      group = stimulus))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 1
+p.yint = .2
+p.ybreaks = seq(p.ymin, p.ymax, p.yint)
+
+P.percent +
+  
+  geom_bar(
+    stat = 'identity',
+    position = position_dodge(),
+    linewidth = p$linesize$bar,
+    color = 'black',
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(
+    values = append(
+      p$cols$fill[1:(length(p$cols$fill)-2)], 'red'
+    )
+  ) +
+  
+  scale_y_continuous(
+    limits = c(p.ymin,p.ymax),
+    breaks = p.ybreaks, 
+    labels = p.ybreaks*100, 
+    expand = c(0,0)
+  ) +
+  
+  labs(
+    x = "",
+    y = "% Responsive Neurons"
+  ) +
+  
+  p$theme +
+  theme(
+    axis.text.x= element_text(
+      angle = -90,
+      hjust = 0,
+      vjust = .5
+    )
+  ) +
+  
+  force_panelsizes(
+    cols = unit(1, "in"),
+    total_height = p$dim$panel_h
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"PrcntResponsive", p$savetype, sep = ''))}
+  
+  
+
+```
+
+
+
+# Stats
+## Post Response
+```{r}
+
+post.anova = ezANOVA(
+  data = sig_avg_post[sig_avg_post$shk_responsive,],
+  dv = sig,
+  wid = uniqID,
+  within = event,
+  type = 3,
+  white.adjust = TRUE
+)
+post.anova
+
+```
+
+### posthoc
+```{r}
+
+comparisons = list(
+  c('high shock','low shock'),
+  c('low shock','quinine'),
+  c('quinine', 'water'),
+  c('water', 'sucrose'),
+  c('quinine', 'sucrose')
+)
+
+posthoc = list()
+for (comparison in comparisons) {
+  print (comparison)
+  posthoc[[paste(comparison[1],comparison[2],sep=' VS ')]] = ezANOVA(
+    data = sig_avg_post[
+      sig_avg_post$shk_responsive & (
+        sig_avg_post$event==comparison[1] | sig_avg_post$event==comparison[2]
+      ),
+    ],
+    dv = sig,
+    wid = uniqID,
+    within = event,
+    type = 3,
+    white.adjust = TRUE
+  )
+}
+
+posthoc[['sucrose vs 0']] = t.test(
+  sig_avg_post$sig[
+    sig_avg_post$shk_responsive & sig_avg_post$event=='sucrose'
+  ],
+  mu = 0
+)
+
+posthoc[['water vs 0']] = t.test(
+  sig_avg_post$sig[
+    sig_avg_post$shk_responsive & sig_avg_post$event=='water'
+  ],
+  mu = 0
+)
+
+posthoc[['quinine vs 0']] = t.test(
+  sig_avg_post$sig[
+    sig_avg_post$shk_responsive & sig_avg_post$event=='quinine'
+  ],
+  mu = 0
+)
+
+posthoc
+
+```
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+# export unit classification info
+unit_export = resp_class
+unit_export = unit_export[,c('uniqID','stimulus','responsive')]
+
+#extract prob. relative to shuffled distribition
+pshuff = pivot_wider(
+  rew_class[,c('uniqID','loc_pct_shuff', 'reward')],
+  names_from = 'reward',
+  values_from = 'loc_pct_shuff',
+  id_cols = 'uniqID'
+)
+pshuff = left_join(pshuff, shk_class[,c('uniqID','shock_pct_shuff')], by='uniqID')
+names(pshuff) = c('uniqID','water_pct','sucrose_pct','quinine_pct','shock_pct')
+unit_export = left_join(unit_export, pshuff, by='uniqID')
+
+unit_export$Animal = as.integer(sapply(unit_export$uniqID, function(x){str_split(x," ")[[1]][1]}))
+unit_export$Experiment = sapply(unit_export$uniqID, function(x){str_split(x," ")[[1]][2]})
+names(unit_export)[names(unit_export)=='uniqID'] = 'unit'
+unit_export = left_join(
+  unit_export,
+  groups[,c('Animal','Experiment','Sex',"Exclude")],
+  by = c('Animal','Experiment')
+)
+unit_export = unit_export[,c('unit','Animal','Sex','stimulus','responsive','water_pct','sucrose_pct','quinine_pct','shock_pct')]
+unit_export$water_pct[unit_export$stimulus!='water']=NA
+unit_export$sucrose_pct[unit_export$stimulus!='sucrose']=NA
+unit_export$quinine_pct[unit_export$stimulus!='quinine']=NA
+unit_export$shock_pct[unit_export$stimulus!='shock']=NA
+
+# export unit response info
+unitresponse_export = sig_avg
+unitresponse_export$bin = unitresponse_export$bin/1000
+unitresponse_export$Animal = as.integer(sapply(unitresponse_export$uniqID, function(x){str_split(x," ")[[1]][1]}))
+unitresponse_export$Experiment = sapply(unitresponse_export$uniqID, function(x){str_split(x," ")[[1]][2]})
+names(unitresponse_export)[names(unitresponse_export)=='uniqID'] = 'unit'
+unitresponse_export = left_join(
+  unitresponse_export,
+  groups[,c('Animal','Experiment','Sex')],
+  by = c('Animal','Experiment')
+)
+unitresponse_export = unitresponse_export[,
+  c('unit','Experiment','Animal','Sex','shk_responsive','event','bin','sig')
+]
+names(unitresponse_export)[names(unitresponse_export)=='event'] = 'stimulus'
+names(unitresponse_export)[names(unitresponse_export)=='bin'] = 'second'
+names(unitresponse_export)[names(unitresponse_export)=='sig'] = 'signal'
+
+if (export){
+  write.csv(unit_export, 'Fig2m_classification.csv', row.names=FALSE)
+  write.csv(unitresponse_export, 'Fig2n_response.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+

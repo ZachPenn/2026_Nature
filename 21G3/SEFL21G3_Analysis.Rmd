@@ -1,0 +1,818 @@
+---
+title: "SEFL21g3_Analysis"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+knitr::opts_chunk$set(
+  fig.width=4.5, 
+  fig.height=4.5, 
+  echo=TRUE, 
+  warning=FALSE,
+  message=FALSE
+  )
+```
+
+
+
+# Load Packages 
+```{r}
+library(ggplot2)
+library(ez)
+library(knitr)
+library(tidyr)
+library(lmtest)
+library(car)
+library(dplyr)
+library(purrr)
+library(ggh4x)
+```
+
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load data
+groups = read.csv('SEFL21g3_groups.csv', header=TRUE)
+data_vf = read.csv('SEFL21g3_vfdata.csv', header=TRUE)
+data_ld = read.csv('SEFL21g3_lddata.csv', header=TRUE)
+
+#factorize animal to allow joing
+groups$Virus = factor(groups$Virus, levels=c('mCherry','HM3DQ'))
+groups$Virus = recode_factor(groups$Virus, 'mCherry' = 'mCherry', 'HM3DQ' = 'HM3Dq')
+groups$Animal = factor(groups$Animal)
+data_vf$Animal = factor(data_vf$Animal)
+data_ld$Animal = factor(data_ld$Animal)
+
+#add group info
+data_vf = right_join(x=groups,y=data_vf,by="Animal")
+data_ld = right_join(x=groups,y=data_ld,by="Animal")
+
+```
+
+
+
+# Drop excluded subjects
+See `groups` dataframe for exclusion rationale.
+```{r}
+
+data_vf = data_vf[data_vf$Exclude!=1,]
+data_ld = data_ld[data_ld$Exclude!=1,]
+
+```
+
+
+
+# Subset data
+Separate phases (trauma, trauma recall, etc) are placed in unique dataframes for ease of analysis.
+```{r}
+
+#Collapse ld data
+data_ld = data_ld[data_ld$bin<5,]
+data_ld$drug = data_ld$LD1
+data_ld$drug[data_ld$testnum==2] = data_ld$LD2[data_ld$testnum==2]
+data_ld$drug = factor(data_ld$drug, levels = c("veh","cno"))
+ld.collapsed = summarize_at(
+  .tbl = group_by(data_ld, Animal, Virus, drug, testnum, Sex),
+  .funs = list(mean),
+  .vars = c('dark','Distance_in'))
+
+
+#mild stressor data
+##prepost startle stimulus
+mildstressor.prepost = data_vf[data_vf$phase=='mildstressor' & data_vf$subphase=='prepost',]
+mildstressor.prepost$component = factor(mildstressor.prepost$component, levels=c('bl','post'))
+
+##startle response
+mildstressor.startle = data_vf[data_vf$phase=='mildstressor' & data_vf$subphase=='startle',]
+mildstressor.startle$component = factor(
+  mildstressor.startle$component,
+  levels=c('startle_pre','startle_startle','startle_post'))
+
+
+#mild stressor test data
+mildstressortest = data_vf[data_vf$phase=='mildstressortest' & data_vf$subphase=='avg',]
+
+#trauma data
+trauma.freezing = data_vf[data_vf$phase=='trauma' & data_vf$subphase!="shock",]
+
+```
+
+
+
+# Get summary statistics for plotting
+Calculate relevant means and std. errors.
+```{r}
+
+
+#ld stats
+ld.stats = summarise_at(
+  .tbl = group_by(
+    .data = ld.collapsed,
+    Virus, drug),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('dark','Distance_in'))
+
+
+#mild stressor
+#mild stressor pre/post
+mildstressor.prepost.stats = summarise_at(
+  .tbl = group_by(
+    .data = mildstressor.prepost,
+    component,Virus),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('freezing','motion')
+)
+
+
+#mildstressor test
+mildstressortest.stats = summarise_at(
+  .tbl = group_by(
+    .data = mildstressortest,
+    Virus),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('freezing','motion')
+)
+
+
+#trauma 
+#trauma session freezing
+trauma.freezing.stats = summarise_at(
+  .tbl = group_by(
+    .data = trauma.freezing,
+    component, Virus),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('motion','freezing')
+)
+trauma.freezing.stats$subphase = 'postshock'
+trauma.freezing.stats$subphase[trauma.freezing.stats$component=='baseline'] = 'baseline'
+
+
+```
+
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '21g3'
+
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+##Plot dimensions
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(1, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 14,
+  axis_title = 16,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .2
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .3,
+  error = .3
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"
+    ),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"
+    ),
+    axis.title = element_text(
+      size=p$textsize$axis_title, 
+      face="plain"
+    ),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black"
+    ),
+    legend.position = c(.3,.85),
+    legend.title = element_blank(),
+    legend.text = element_text(
+      size=p$textsize$legend, 
+      face="plain"
+    ),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+#Plot colors
+p$cols = list(
+  color = c("white","red4"),
+  fill = c("white","red4"),
+  rec = 'slategray1'
+)
+
+#predefine partial function for saving plots
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in", 
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+```
+
+
+
+### Light Dark, Pre-trauma
+#### Dark
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+#Create base layer from group level data
+P.LD.dark = ggplot(
+  data = ld.stats,
+  aes(x = drug,
+      y = dark_mean,
+      fill = Virus,
+      group = Virus))
+
+#Define plot specific parameters
+p.ymin = .4
+p.ymax = 1
+p.yint = .2
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.LD.dark  +
+
+  geom_hline(yintercept=.5, linetype='dashed') +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = dark_mean - dark_sem,
+        ymax = dark_mean + dark_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat = "identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = TRUE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks*100, expand = c(0, 0)) +
+  
+  labs(
+    x = '',
+    y = "% Time in Dark"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    axis.text.x = element_text(angle=-45, hjust=0, vjust=1),
+    legend.position = c(.5, -.4),
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w
+  ) 
+
+if (p$save == TRUE) {
+  saveplot(filename = paste(f_pfx,'_',"LD_Dark", p$savetype, sep = ''))
+}
+
+```
+
+
+#### Distance 
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+#Create base layer from group level data
+P.LD.dist = ggplot(
+  data = ld.stats,
+  aes(x = drug,
+      y = Distance_in_mean,
+      fill = Virus,
+      group = Virus))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 200
+p.yint = 50
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.LD.dist  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = Distance_in_mean - Distance_in_sem,
+        ymax = Distance_in_mean + Distance_in_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat = "identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  
+  labs(
+    x = '',
+    y = "Distance (in/min)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  theme(
+    axis.text.x = element_text(angle=-45, hjust=0, vjust=1),
+    legend.position = c(.5, -.4),
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w
+  ) 
+
+if (p$save == TRUE) {
+  saveplot(filename = paste(f_pfx,'_',"LD_Dist", p$savetype, sep = ''))
+}
+
+```
+
+
+### Mild Stressor
+#### Pre-Post
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+
+#Create base layer from group level data
+P.MildSts.prepost = ggplot(
+  data = mildstressor.prepost.stats,
+  aes(x = component,
+      y = freezing_mean,
+      fill = Virus,
+      group = Virus))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 75
+p.yint = 25
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.MildSts.prepost  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat="identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = TRUE   
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_x_discrete(labels=c('pre','post')) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  
+  labs(
+    x = '',
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  theme(
+    axis.text.x = element_text(angle=-45, hjust=0, vjust=1),
+    legend.position = c(.5, -.4),
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w
+  ) 
+
+if (p$save == TRUE) {
+  saveplot(filename = paste(f_pfx,'_',"S2_PrePost", p$savetype, sep = ''))
+}
+
+```
+
+
+
+
+### Mild Stressor Test
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.MSTest = ggplot(
+  data = mildstressortest.stats,
+  aes(x = Virus,
+      y = freezing_mean,
+      fill = Virus,
+      group = Virus)) 
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 40
+p.yint = 10
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.MSTest  +
+  
+  geom_crossbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem),
+    width = p$width$bar,
+    show.legend = FALSE) +
+  
+  
+  geom_jitter(
+    data = mildstressortest,
+    aes(x = Virus,
+        y = freezing),
+    width = p$width$bar * p$width$jitter,
+    height = 0,
+    shape = p$points$ind$shape,
+    size = p$points$ind$size,
+    colour = 'black',
+    fill = NA,
+    alpha = p$points$ind$alpha,
+    show.legend=FALSE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  
+  labs(
+    x = "",
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  theme(
+    axis.text.x = element_text(angle=-45, hjust=0, vjust=1),
+    legend.position = c(.5, -.4),
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w
+  ) 
+
+# if (p$save == TRUE) {
+#   saveplot(filename = paste(f_pfx,'_',"S2_Stl", p$savetype, sep = ''))
+# }
+
+
+```
+
+
+### Trauma
+#### Freezing
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+#Create base layer from group level data
+P.Trauma.Freezing = ggplot(
+  data = trauma.freezing.stats,
+  aes(x = component,
+      y = freezing_mean,
+      fill = Virus,
+      shape = Virus,
+      group = interaction(subphase,Virus)))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 100
+p.yint = 25
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.Trauma.Freezing  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat = "identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = TRUE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, expand = c(0, 0)) +
+  scale_x_discrete(labels=c('bl','1','2','3','4','5','6','7','8','9','10')) +
+  
+  labs(
+    x = "Shock",
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  theme(
+    axis.text.x = element_text(size=p$textsize$axis_text-4),
+    #axis.title.x = element_text(margin=margin(t=-5)),
+    legend.title = element_blank(),
+    legend.position = c(.45, 1.02),
+    legend.box.margin = margin(t=-0)
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1.35, "in")
+  ) 
+
+# if (p$save == TRUE) {
+#   saveplot(filename = paste(f_pfx,'_',"Trauma", p$savetype, sep = ''))
+# }
+
+```
+
+
+# Stats
+
+## Light Dark Stats
+### Dark side time
+```{r}
+
+
+#comparison of time in dark side
+ld.dark.anova = ezANOVA(
+  data = ld.collapsed,
+  dv = dark,
+  wid = Animal,
+  between = Virus,
+  within = drug,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+ld.dark.anova
+
+```
+
+
+### Distance travelled
+```{r}
+
+#comparison of time in dark side
+ld.dist.anova = ezANOVA(
+  data = ld.collapsed,
+  dv = Distance_in,
+  wid = Animal,
+  between = Virus,
+  within = drug,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+ld.dist.anova
+
+```
+
+
+## Mild Stressor 
+```{r}
+
+ms.anova = ezANOVA(
+  data = mildstressor.prepost,
+  dv = freezing,
+  wid = Animal,
+  within = component,
+  between = Virus,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+ms.anova
+
+ms.bl.anova = ezANOVA(
+  data = mildstressor.prepost[mildstressor.prepost$component=='bl',],
+  dv = freezing,
+  wid = Animal,
+  between = Virus,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+ms.bl.anova
+
+ms.post.anova = ezANOVA(
+  data = mildstressor.prepost[mildstressor.prepost$component=='post',],
+  dv = freezing,
+  wid = Animal,
+  between = Virus,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+ms.post.anova
+
+
+
+```
+
+
+## Mild Stressor Test 
+```{r}
+
+mstest.anova = ezANOVA(
+  data = mildstressortest,
+  dv = freezing,
+  wid = Animal,
+  between = Virus,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+mstest.anova
+
+```
+
+
+## Trauma
+### full session
+```{r}
+
+trauma.fz.anova = ezANOVA(
+  data = trauma.freezing,
+  dv = freezing,
+  wid = Animal,
+  within = component,
+  white.adjust = TRUE,
+  between = Virus,
+  type = 3,
+  detailed = TRUE
+)
+trauma.fz.anova
+
+```
+### post shock 1
+```{r}
+
+trauma.s1.fz.comparison = t.test(freezing ~ Virus, data=trauma.freezing[trauma.freezing$component=='postshock01',], var.equal = TRUE)
+
+```
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+#export S1 data
+S_export = mildstressor.prepost[,c('Animal','Sex','Virus','component','freezing')]
+
+#export light-dark data
+ld_export = ld.collapsed[,c('Animal','Sex','Virus','drug','dark','Distance_in')]
+ld_export$dark = ld_export$dark*100
+
+if (export){
+  write.csv(S_export, 'Fig3o.csv', row.names=FALSE)
+  write.csv(ld_export, 'ExtFig4l.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+
+
+
+

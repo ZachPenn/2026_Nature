@@ -1,0 +1,610 @@
+---
+title: "SEFL25b_NovStress"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE,message=FALSE)
+```
+
+
+
+# Load Packages 
+```{r}
+
+library(arrow)
+library(ggplot2)
+library(ggrepel)
+library(ez)
+library(knitr)
+library(dplyr)
+library(purrr)
+library(scales)
+library(tidyr)
+library(ggh4x)
+
+```
+
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load group info
+groups = read.csv('../SEFL25b_groups.csv',header=TRUE)
+
+#load average cell response
+dfiles = dir('UnitClassification//')
+data = list()
+for (f in dfiles) {data[[f]] = read_feather(paste('UnitClassification/',f,sep=''))}
+units = do.call('rbind', data)
+
+#load average cell response
+dfiles = dir('BinnedUnitResponses//')
+data = list()
+for (f in dfiles) {data[[f]] = read_feather(paste('BinnedUnitResponses/',f,sep=''))}
+data = do.call('rbind', data)
+
+#factorize as necessary
+groups$Animal = factor(groups$Animal)
+units$Animal = factor(as.numeric(units$Animal))
+data$Animal = factor(as.numeric(data$Animal))
+groups$Group = recode_factor(groups$Group, 'NT'='NS', 'T'='S')
+
+#give each unit a unique id
+units$uniqID = paste(units$Animal, units$unit_id, sep="_")
+data$uniqID = paste(data$Animal, data$unit_id, sep="_")
+
+#add group info to data files
+units = droplevels(inner_join(x=groups, y=units, by="Animal"))
+data = droplevels(inner_join(x=groups, y=data, by="Animal"))
+
+```
+
+
+# Add unit categories and prepost
+```{r}
+
+#here cells are classified only if they display an increase at p=.05, one-tailed
+units = mutate(
+  units, 
+  class = ifelse(rand_pct>=95, 'responsive', 'nonresponsive')
+)
+units$class = factor(units$class, levels=c('nonresponsive','responsive'))
+
+#add classification to data
+data = inner_join(data, units[,c('uniqID','class')], by='uniqID')
+
+```
+
+
+
+# Exclude animals
+```{r}
+
+#had to re-run mouse 16 re-ran because cable had gotten stuck in door.
+#first round, animal only received single noise
+data = droplevels(data[data$Exclude!=1,])
+units = droplevels(units[units$Exclude!=1,])
+
+```
+
+
+# Tabulate Unit
+```{r}
+
+#Table of all cells
+UnitClassTbl = table(droplevels(units[,c('Group','class')])) 
+UnitClassProp = as.data.frame(prop.table(UnitClassTbl, margin = 1))
+
+```
+
+
+
+# Get mean activity response, separated by group and cell classification
+```{r}
+
+sem = function(x){sd(x)/sqrt(length(x[!is.na(x)]))}
+
+#get average of each cell across trials
+data.unit.collapsed = summarise_at(
+  .tbl = group_by(
+    .data = data,
+    Animal, uniqID, class, Group, bin),
+  .funs = list(sig=mean),
+  .vars = 'sig'
+)
+
+#
+#units as subjects stats
+#
+
+#response by classification and time
+data.unit.stats = summarise_at(
+  .tbl = group_by(
+    .data = data.unit.collapsed,
+    bin, Group),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+#response by classification and time
+data.unit.byclass.stats = summarise_at(
+  .tbl = group_by(
+    .data = data.unit.collapsed,
+    bin, class, Group),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+
+```
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '25b'
+
+p = list()
+
+#list of plotting parameters
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+##Plot dimensions
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(1.5, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 16,
+  axis_title = 16,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .2
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .3,
+  error = .5
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"),
+    axis.title = element_text(size=p$textsize$axis_title, face="plain"),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black",
+      face = 'plain'),
+    legend.position = c(.1,.9),
+    legend.title = element_text(size=p$textsize$axis_title, face="plain"),
+    legend.text = element_text(size=p$textsize$legend, face="plain"),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+
+#
+# Plot features unique to experiment
+#
+
+#Plot colors
+p$cols = list(
+  color = c('royalblue3','red3'),
+  fill = c('gray80','red4')
+)
+
+#predefine partial function for saving plots
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+```
+
+
+# Make Plots
+
+## Unit Response
+
+### All cells
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.all.NTvsT = ggplot(
+  data = data.unit.stats,
+  aes(x = bin,
+      y = mean,
+      fill = Group,
+      group = Group))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = .8
+p.yint = .2
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.all.NTvsT  +
+  
+  geom_vline(xintercept = c(0,3000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.title = element_blank(),
+    legend.position = c(.935, .9),
+    legend.key.size = unit(.5, 'cm'),
+    axis.text.x = element_text(margin = margin(t=5,b=5)),
+    axis.title.x = element_text(margin = margin(t=0, b=0))
+  ) +
+  
+  force_panelsizes(
+    rows = p$dim$panel_h,
+    cols = unit(1.25, "in")
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_All_NSvsS", p$savetype, sep = ''))}
+
+```
+
+
+
+### Responsive cells
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.unit.responsive.NTvsT = ggplot(
+  data = data.unit.byclass.stats[data.unit.byclass.stats$class=='responsive',],
+  aes(x = bin,
+      y = mean,
+      fill = Group,
+      group = Group))
+
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = 2
+p.yint = .5
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.unit.responsive.NTvsT  +
+  
+  geom_vline(xintercept = c(0,3000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$data_ind*.9,
+    colour = 'black',
+    show.legend = TRUE,
+    aes(ymin = mean - sem,
+        ymax = mean + sem)) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 't (sec)',
+    y = "calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.title = element_blank(),
+    legend.position = c(.935, .9),
+    legend.key.size = unit(.5, 'cm'),
+    axis.text.x = element_text(margin = margin(t=5,b=5)),
+    axis.title.x = element_text(margin = margin(t=0, b=0))
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1.25, "in")
+    ) 
+  
+  if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"UnitsAsSubjs_Responsive_NSvsS", p$savetype, sep = ''))}
+
+```
+
+
+
+
+## Pie Charts
+### NS
+```{r}
+
+propdf = UnitClassProp[UnitClassProp$Group=='NS',]
+
+brks = cumsum(rev(propdf$Freq)) - rev(propdf$Freq)/2
+propdf$labels = as.factor(sapply(round(propdf$Freq*100, 1), function(x){paste(as.character(x), '%', sep=' ')}))
+
+P.pie.ns = ggplot(
+  propdf, 
+  aes(x = 1, y = Freq, fill = class)
+) 
+
+P.pie.ns +
+  
+  geom_col(
+    width = .1,
+    colour = 'gray10',
+    linewidth = 1.5,
+    show.legend = TRUE,
+    linejoin = 'bevel'
+  ) + 
+  
+  scale_y_continuous(
+    breaks = c()
+  ) +
+  
+  geom_text(
+    aes(label = labels, x=1.095),
+    position = position_stack(vjust = 0.5),
+    size = 7.5,
+    fontface = 'plain',
+    vjust = .5
+  ) +
+  
+  guides(fill=guide_legend(title="Class.", nrow=2)) +
+  
+  scale_x_continuous(breaks=c()) +
+  scale_fill_manual(values=c('gray90','blue3')) +
+  coord_polar(theta = "y", direction=1, clip='off') +
+  
+  theme_void() +
+  theme(
+    axis.line = element_blank(),
+    axis.title = element_blank(),
+    axis.text.x = element_text(size=20, margin = margin(r=1) ),
+    legend.position = c(.5, .1),
+    legend.title = element_blank(),
+    legend.key.size = unit(.85, 'cm'),
+    legend.text = element_text(size=20, face='plain'),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+    plot.margin = unit(c(-1, 0, 2, 0), "cm")
+  ) +
+
+  force_panelsizes(
+    rows = unit(4, "in"),
+    cols = unit(4, "in")
+  )
+  
+  if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Stressor2_Pie_NS", p$savetype, sep = ''))}
+
+```
+
+### S
+```{r}
+
+propdf = UnitClassProp[UnitClassProp$Group=='S',]
+
+brks = cumsum(rev(propdf$Freq)) - rev(propdf$Freq)/2
+propdf$labels = as.factor(sapply(round(propdf$Freq*100, 1), function(x){paste(as.character(x), '%', sep=' ')}))
+
+P.pie.ns = ggplot(
+  propdf, 
+  aes(x = 1, y = Freq, fill = class)
+) 
+
+P.pie.ns +
+  
+  geom_col(
+    width = .1,
+    colour = 'gray10',
+    linewidth = 1.5,
+    show.legend = TRUE,
+    linejoin = 'bevel'
+  ) + 
+  
+  scale_y_continuous(
+    breaks = c()
+  ) +
+  
+  geom_text(
+    aes(label = labels, x=1.095),
+    position = position_stack(vjust = 0.5),
+    size = 7.5,
+    fontface = 'plain',
+    vjust = .5
+  ) +
+  
+  guides(fill=guide_legend(title="Class.", nrow=2)) +
+  
+  scale_x_continuous(breaks=c()) +
+  scale_fill_manual(values=c('gray90','blue3')) +
+  coord_polar(theta = "y", direction=1, clip='off') +
+  
+  theme_void() +
+  theme(
+    axis.line = element_blank(),
+    axis.title = element_blank(),
+    axis.text.x = element_text(size=20, margin = margin(r=1) ),
+    legend.position = c(.5, .1),
+    legend.title = element_blank(),
+    legend.key.size = unit(.85, 'cm'),
+    legend.text = element_text(size=20, face='plain'),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+    plot.margin = unit(c(-1, 0, 2, 0), "cm")
+  )
+  
+  if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Stressor2_Pie_S", p$savetype, sep = ''))}
+
+```
+
+
+# ANOVA
+## Sound response (unit level stats)
+```{r}
+
+#repeated measures for first 5 seconds for all neurons
+adata = data.unit.collapsed[data.unit.collapsed$bin>0 & data.unit.collapsed$bin<=5000,]
+adata$bin = factor(adata$bin)
+rmanova.unit.sound = ezANOVA(
+  data = adata,
+  wid = uniqID,
+  dv = sig,
+  within = bin,
+  between = Group,
+  type = 3,
+  white.adjust = TRUE
+)
+rmanova.unit.sound
+
+#repeated measures for first 5 seconds for responsive neurons
+adata = data.unit.collapsed[
+  data.unit.collapsed$class=='responsive' & data.unit.collapsed$bin>0 & data.unit.collapsed$bin<=5000
+  ,]
+adata$bin = factor(adata$bin)
+rmanova.responsiveunit.sound = ezANOVA(
+  data = adata,
+  wid = uniqID,
+  dv = sig,
+  within = bin,
+  between = Group,
+  type = 3,
+  white.adjust = TRUE
+)
+rmanova.responsiveunit.sound
+
+
+```
+
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+# export unit classification info
+unit_export = units[,
+  c('Group','uniqID','Animal','Sex','pre','post','dif','rand_pct','class')
+]
+names(unit_export)[names(unit_export)=='uniqID'] = 'unit'
+
+# export mean unit responses
+unitresponse_export = data.unit.collapsed
+names(unitresponse_export)[names(unitresponse_export)=='uniqID'] = 'unit'
+names(unitresponse_export)[names(unitresponse_export)=='sig'] = 'signal'
+unitresponse_export$second = unitresponse_export$bin/1000
+unitresponse_export = left_join(
+  unitresponse_export,
+  unit_export[,c('unit','Sex')],
+  by = 'unit'
+)
+unitresponse_export = unitresponse_export[,c('unit','Animal','Sex','Group','class','second','signal')]
+
+
+if (export){
+  write.csv(unit_export, 'Fig2c_units.csv', row.names=FALSE)
+  write.csv(unitresponse_export, 'Fig2de_unitresponse.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+

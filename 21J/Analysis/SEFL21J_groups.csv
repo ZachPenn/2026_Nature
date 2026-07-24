@@ -1,0 +1,61 @@
+Animal,Exclude,Notes,Histology,Sex,DOB,SurgeryDate,Virus,Source,Group,Target,LD1,LD2,LD3,LD4,Trec1,Trec2,NS
+1,0,,,M,2/6/14,4/20/24,mCherry,LS,mCherry,AHN,veh,cno,cno,veh,cno,veh,cno
+2,1,Fell on floor right before being put in box for final sefl test,Great,M,2/6/14,4/21/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,cno,veh,cno
+3,0,,,M,2/6/14,4/21/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,cno,veh,cno
+4,1,Only received 4 shocks during trauma,,M,2/6/14,4/21/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,cno,veh,cno
+5,0,,,M,2/6/14,4/20/24,mCherry,vHC,mCherry,AHN,veh,cno,cno,veh,cno,veh,cno
+6,0,,,M,2/6/14,4/20/24,mCherry,BLA,mCherry,AHN,veh,cno,cno,veh,veh,cno,cno
+7,0,,,M,2/6/14,4/21/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,veh,cno,cno
+8,0,,,M,2/6/14,4/20/24,mCherry,vHC,mCherry,AHN,cno,veh,veh,cno,veh,cno,cno
+9,0,,,M,2/6/14,4/21/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,veh,cno,cno
+10,0,,,M,2/6/14,4/21/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,cno,veh,cno
+11,0,,,M,2/6/14,4/21/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,veh,cno,cno
+12,0,,,M,2/6/14,4/20/24,mCherry,LS,mCherry,AHN,cno,veh,veh,cno,veh,cno,cno
+13,0,,,M,2/6/14,4/21/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,veh,cno,cno
+14,0,,,M,2/6/14,4/21/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,veh,cno,cno
+15,1,Cage was dropped on floor immediately after mild stressor and animal had to be euthanized,Mineral oil or lesion in AHN?  Lighter mCherry in BLA on one side.,M,2/6/14,4/21/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,cno,veh,cno
+16,0,,,M,2/6/14,4/21/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,cno,veh,cno
+17,0,,,M,2/6/14,4/21/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,cno,veh,cno
+18,0,,,M,2/6/14,4/20/24,mCherry,vHC,mCherry,AHN,veh,cno,cno,veh,veh,cno,cno
+19,0,,,M,2/6/14,4/22/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,cno,veh,cno
+20,1,,no HM4D,M,2/6/14,4/22/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,veh,cno,cno
+21,0,,,M,2/6/14,4/22/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,cno,veh,cno
+22,1,,expression in septum nearly unilateral,M,2/6/14,4/22/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,veh,cno,cno
+23,1,,"GFP substantially lighter on one side, with only light mCherry on same side.",M,2/6/14,4/22/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,veh,cno,cno
+24,0,,,M,2/6/14,4/20/24,mCherry,BLA,mCherry,AHN,cno,veh,veh,cno,veh,cno,cno
+25,0,,,M,2/6/14,4/22/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,veh,cno,cno
+26,0,,,M,2/6/14,4/22/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,veh,cno,cno
+27,0,,,M,2/6/14,4/20/24,mCherry,BLA,mCherry,AHN,veh,cno,cno,veh,cno,veh,cno
+28,0,,,M,2/6/14,4/22/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,veh,cno,cno
+29,0,,,M,2/6/14,4/22/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,cno,veh,cno
+30,1,Died during surgery,,M,2/6/14,4/22/24,HM4D,BLA,HM4D: BLA,AHN,,,,,,,
+31,0,,,M,2/6/14,4/22/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,cno,veh,cno
+32,0,,,M,2/6/14,4/23/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,cno,veh,cno
+33,1,,AHN gfp almost entirely unilateral,M,2/6/14,4/23/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,veh,cno,cno
+34,0,,,M,2/6/14,4/20/24,mCherry,LS,mCherry,AHN,veh,cno,cno,veh,cno,veh,cno
+35,0,,,M,2/6/14,4/23/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,cno,veh,cno
+36,0,,,M,2/6/14,4/23/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,cno,veh,cno
+37,0,,,M,2/6/14,4/20/24,mCherry,vHC,mCherry,AHN,cno,veh,veh,cno,veh,cno,cno
+38,0,,,M,2/6/14,4/23/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,veh,cno,cno
+39,1,,Unliateral GFP and HM4D.  Exclude,M,2/6/14,4/23/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,cno,veh,cno
+40,1,,unilateral in AHN,M,2/6/14,4/23/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,cno,veh,cno
+41,0,,,M,2/6/14,4/23/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,veh,cno,cno
+42,0,,,M,2/6/14,4/23/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,veh,cno,cno
+43,0,,,M,2/6/14,4/20/24,mCherry,LS,mCherry,AHN,cno,veh,veh,cno,veh,cno,cno
+44,0,,,M,2/6/14,4/23/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,cno,veh,cno
+45,0,,,M,2/6/14,4/23/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,cno,veh,cno
+46,0,,,M,2/6/14,4/23/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,veh,cno,cno
+47,0,,,M,2/6/14,4/23/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,veh,cno,cno
+48,0,,,M,2/6/14,4/20/24,mCherry,BLA,mCherry,AHN,cno,veh,veh,cno,cno,veh,cno
+49,1,,Expression all but non-existant on one side,M,2/6/14,4/23/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,veh,cno,cno
+50,0,,,M,2/6/14,4/24/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,cno,veh,cno
+51,1,,unlateral expression,M,2/6/14,4/24/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,veh,cno,cno
+52,0,,,M,2/6/14,4/24/24,HM4D,vHC,HM4D: vHC,AHN,veh,cno,cno,veh,cno,veh,cno
+53,0,,,M,2/6/14,4/24/24,mCherry,BLA,mCherry,AHN,cno,veh,veh,cno,cno,veh,cno
+54,0,,,M,2/6/14,4/24/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,veh,cno,cno
+55,1,,Unilateral,M,2/6/14,4/24/24,HM4D,LS,HM4D: LS,AHN,cno,veh,veh,cno,cno,veh,cno
+56,1,,Expression all but non-existant on one side,M,2/6/14,4/24/24,HM4D,BLA,HM4D: BLA,AHN,cno,veh,veh,cno,cno,veh,cno
+57,1,,Expression all but non-existant on one side,M,2/6/14,4/24/24,HM4D,BLA,HM4D: BLA,AHN,veh,cno,cno,veh,veh,cno,cno
+58,0,,,M,2/6/14,4/24/24,mCherry,vHC,mCherry,AHN,veh,cno,cno,veh,cno,veh,cno
+59,0,,,M,2/6/14,4/24/24,HM4D,LS,HM4D: LS,AHN,veh,cno,cno,veh,cno,veh,cno
+60,1,,unilateral in vHC,M,2/6/14,4/24/24,HM4D,vHC,HM4D: vHC,AHN,cno,veh,veh,cno,cno,veh,cno

@@ -1,0 +1,407 @@
+---
+title: "SEFL25c_Combined_Lick_Analysis"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE, message=FALSE)
+
+```
+
+
+
+# Load Packages 
+```{r}
+
+library(ggplot2)
+library(svglite)
+library(ez)
+library(knitr)
+library(tidyr)
+library(dplyr)
+library(purrr)
+library(ggh4x)
+library(stringr)
+
+```
+
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load lick data
+licks = bind_rows(
+  read.csv('SEFL_25c25c2_AllTestData.csv'),
+  read.csv('SEFL_25c5_AllTestData.csv')
+)
+
+#combine animal and experiment info
+licks = mutate(licks, Animal = paste(Experiment,Animal,sep='_'))
+licks$Animal = factor(licks$Animal)
+
+#add solution info
+licks = mutate(
+  licks,
+  port = case_when(
+    din == 3 ~ 'water',
+    din == 4 ~ 'sucrose',
+    din == 5 ~ 'quinine'
+  ))
+licks$port = factor(licks$port, levels=c('sucrose','water','quinine'))
+
+#define time relative to start time
+licks = licks[order(licks$Animal, licks$time),]
+licks$reltime = unlist(sapply(
+  split(licks$time, licks$Animal), 
+  function (x) {x-min(x)}
+))
+
+#remove data after the first 15 minutes, when shock occurs
+licks = licks[licks$reltime<60*15,]
+
+```
+
+
+# Process lick and reward data to get licks/rewrds per port for each animal
+```{r}
+
+#get rid of rows with NA
+licks = licks[!is.na(licks$Animal),]
+
+#isolate lick/reward data
+licks = licks[licks$state==1,]
+rewards = licks[licks$rewarded==1,]
+
+#get summary
+lick_summ = as.data.frame(table(licks[,c('Animal','port')]))
+reward_summ = as.data.frame(table(rewards[,c('Animal','port')]))
+
+#join licks and rewards
+behav_summ  = left_join(
+  lick_summ,
+  reward_summ,
+  by = c('Animal','port'),
+  suffix = c('_licks','_rewards')
+)
+behav_summ = mutate(
+  behav_summ,
+  licksperreward = Freq_licks/Freq_rewards
+)
+
+
+```
+
+# Make exclusions
+```{r}
+
+#For 25c5, mouse 1, sucrose port was delivering half volume
+lick_summ = lick_summ[lick_summ$Animal!='25c5_1',]
+reward_summ = reward_summ[reward_summ$Animal!='25c5_1',]
+behav_summ = behav_summ[behav_summ$Animal!='25c5_1',]
+
+```
+
+
+# Get summary statistics for plotting
+Calculate relevant means and std. errors.
+```{r}
+
+sem = function(x) {sd(x)/sqrt(length(x))}
+
+behav_stats = summarise_at(
+  .tbl = group_by(behav_summ, port),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('licksperreward','Freq_licks','Freq_rewards')
+)
+
+
+```
+
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '25c_Combined_Behav'
+
+#list of plotting parameters
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+##Plot dimensions
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(1.5, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 14,
+  axis_title = 15,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .3
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .2,
+  error = .5
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"),
+    axis.title = element_text(
+      size=p$textsize$axis_title, 
+      face="plain"),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black",
+      face = 'plain'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      colour="black",
+      face = 'plain'),
+    legend.position = c(.1,.9),
+    legend.title = element_blank(),
+    legend.text = element_text(size=p$textsize$legend, face="plain"),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+
+#
+# Plot features unique to experiment
+#
+
+#Plot colors
+p$cols = list(
+  color = c("forestgreen","gray100","yellow2","orange","red2"),
+  fill = c("forestgreen","gray100","yellow2","orange","red2"),
+  rec = 'slategray1'
+)
+
+#predefine partial function for saving plots
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+```
+
+
+## Make Plots
+### Licks
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.licksperreward = ggplot(
+  data = behav_stats,
+  aes(x=port,
+      y=licksperreward_mean,
+      fill=port,
+      group=1))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 30
+p.yint = 10
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.licksperreward  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    aes(ymin = licksperreward_mean - licksperreward_sem,
+        ymax = licksperreward_mean + licksperreward_sem,
+        width = p$width$error*.3
+        )) +
+  
+  geom_line(
+    stat="identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_line(
+    data = behav_summ,
+    aes(
+      x = port,
+      y = licksperreward,
+      group = Animal
+    ),
+    linewidth = p$linesize$data_ind,
+    alpha = p$linealpha$data_ind*.5
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    stroke = p$points$grp$stroke,
+    shape = p$points$grp$shape,
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(values = p$cols$fill) +
+  coord_cartesian(ylim = c(p.ymin, p.ymax)) +
+  scale_y_continuous(breaks = p.breaks, expand = c(0, 0)) +
+  scale_x_discrete(
+    expand = c(.3,.3)
+  ) +
+  
+  labs(
+    x = "",
+    y = "# Licks / Reward"
+  ) +
+  
+  p$theme +
+  theme(
+    strip.text = element_text(face='bold', size=p$textsize$axis_title, hjust=.5),
+    strip.background = element_blank(),
+    strip.placement = 'outside',
+    axis.text.x= element_text(
+      face = 'plain',
+      size = p$textsize$axis_title-2,
+      angle = -90, 
+      hjust = 0, 
+      vjust = .5,
+      margin = margin(b=2, t=3)
+    )
+  ) +
+  
+  force_panelsizes(
+    rows = p$dim$panel_h,
+    cols = unit(1, "in")
+  )
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"LicksPerReward", p$savetype, sep = ''))}
+
+```
+
+#stats
+```{r}
+
+anova.omni.licks = ezANOVA(
+  data = behav_summ,
+  dv = licksperreward,
+  wid = Animal,
+  within = port,
+  type = 3
+)
+anova.omni.licks
+
+comparisons = list(
+  c('sucrose','water'),
+  c('water','quinine'),
+  c('sucrose','quinine')
+)
+posthoc = list()
+for (comparison in comparisons){
+  posthoc[[paste(comparison[1],comparison[2], sep='VS')]] = ezANOVA(
+    data = behav_summ[
+      behav_summ$port==comparison[1] | behav_summ$port==comparison[2],
+    ],
+    dv = licksperreward,
+    wid = Animal,
+    within = port,
+    type = 3
+  )
+}
+posthoc
+
+```
+
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+# export unit classification info
+behav_export = behav_summ
+
+if (export){
+  write.csv(unit_export, 'Fig2l_licks.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+
+
+

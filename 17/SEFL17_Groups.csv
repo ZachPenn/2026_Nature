@@ -1,0 +1,29 @@
+animal,Animal,DOB,Sex,Trauma,MildStressor,group
+ms_01,1,4/21/20,M,Trauma,None,No Stim
+ms_02,2,4/21/20,M,No Trauma,None,No Stim
+ms_03,3,4/21/20,M,Trauma,None,No Stim
+ms_04,4,4/21/20,M,No Trauma,None,No Stim
+ms_05,5,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_06,6,4/21/20,M,Trauma,Stressor,Trauma
+ms_07,7,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_08,8,4/21/20,M,Trauma,Stressor,Trauma
+ms_09,9,4/21/20,M,Trauma,Stressor,Trauma
+ms_10,10,4/21/20,M,Trauma,Stressor,Trauma
+ms_11,11,4/21/20,M,Trauma,Stressor,Trauma
+ms_12,12,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_13,13,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_14,14,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_15,15,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_16,16,4/21/20,M,Trauma,Stressor,Trauma
+ms_17,17,4/21/20,M,Trauma,Stressor,Trauma
+ms_18,18,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_19,19,4/21/20,M,Trauma,Stressor,Trauma
+ms_20,20,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_21,21,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_22,22,4/21/20,M,Trauma,Stressor,Trauma
+ms_23,23,4/21/20,M,No Trauma,Stressor,No Trauma
+ms_24,24,4/21/20,M,Trauma,Stressor,Trauma
+ms_25,25,4/21/20,M,No Trauma,None,No Stim
+ms_26,26,4/21/20,M,Trauma,None,No Stim
+ms_27,27,4/21/20,M,No Trauma,None,No Stim
+ms_28,28,4/21/20,M,Trauma,None,No Stim

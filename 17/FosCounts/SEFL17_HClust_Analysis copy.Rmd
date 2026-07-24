@@ -1,0 +1,1885 @@
+---
+title: 'SEFL17_HierarchicalClusterAnalysis'
+author: 'Zach'
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: readable
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+#Set Global Options
+```{r global_options}
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE,message=FALSE)
+```
+
+
+#Load Packages 
+```{r}
+
+library(ggplot2)
+library(ggsci)
+library(ggrepel)
+library(factoextra)
+library(ez)
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(stats)
+library(MASS)
+library(reshape2)
+library(multcomp)
+library(Hmisc)
+library(dendextend)
+library(circlize)
+library(psych)
+library(purrr)
+library(cocor)
+library(ggh4x)
+
+#function to return top off correlation matrix, excluding off diagonal
+cormat_returntop = function(cmat) {
+  rvec = vector()
+  cmatL = nrow(cmat)
+  for (x in 1:(cmatL-1)) {rvec = c(rvec, unlist(cmat[x, (x+1):cmatL]))}
+  return(rvec)
+}
+
+```
+
+
+# Set plotting functions
+```{r}
+
+#set figure file prefix
+f_pfx = 'SEFL17'
+
+#ggsave
+p.save = FALSE
+p.savetype = '.svg'
+p.savetype.corr = '.tiff'
+# note that all correlation matrices tiffs. too cumbersome as svg.
+
+#plot dims
+p.dim.width = 5
+p.dim.height = 5
+p.dim.dpi = 500
+
+#predefine partial function for saving plots
+saveplot = partial(
+  ggsave,
+  width = p.dim.width,
+  height = p.dim.height,
+  units = "in",
+  dpi = p.dim.dpi,
+  bg = 'transparent'
+)
+
+```
+
+
+# Initial Processing
+
+## Import Data 
+```{r}
+
+#load counts of all regions at the lowest order of Allen Brain Atlas
+counts = read.csv('countsummary_cleaned.csv')
+counts = counts[counts$parcellation_group != 'cerebellum',]
+counts$graph_order = factor(counts$graph_order)
+
+#load all label info
+labels = read.csv('allgraylabels.csv')
+labels$parcellation_group = factor(
+  labels$parcellation_group, levels = c(
+    'cortical_plate', 'cortical_subplate','cerebral_nuclei','diencephalon','midbrain','hindbrain'
+  )
+)
+labels$annotation_graph_order = factor(labels$annotation_graph_order)
+labels = labels[order(labels$annotation_graph_order),]
+
+```
+
+
+
+## Restructure counts
+```{r}
+
+#pivot data to wide
+counts_wide = pivot_wider(
+  data = counts[order(counts$graph_order),],
+  id_cols = c(animal,group),
+  names_from = annotation_abrv,
+  values_from = count
+)
+counts_wide = column_to_rownames(counts_wide, var = 'animal')
+
+#z score all counts by region
+counts_wide[,-1] = scale(counts_wide[,-1])
+
+#Select each group's counts and re-center 
+counts_wide.ctrl = counts_wide[counts_wide$group=='Control', -1]
+counts_wide.t = counts_wide[counts_wide$group=='Trauma', -1]
+counts_wide.nt = counts_wide[counts_wide$group=='No Trauma', -1]
+counts_wide.ctrl[] = scale(counts_wide.ctrl)
+counts_wide.t[] = scale(counts_wide.t)
+counts_wide.nt[] = scale(counts_wide.nt)
+
+```
+
+
+## Get Correlation Matrix, Convert to Adjacency Matrix, and Define Distance
+```{r}
+
+rtype = 'pearson'
+
+#control
+cmat.ctrl = rcorr(as.matrix(counts_wide.ctrl), type=rtype)
+cor.ctrl.orig = as.data.frame(cmat.ctrl$r)
+cor.ctrl.orig.p = as.data.frame(cmat.ctrl$P)
+cor.ctrl.adj = 1 - cor.ctrl.orig
+cor.ctrl.dist = as.dist(cor.ctrl.adj)
+distances.ctrl = as.vector(cor.ctrl.dist)
+
+#trauma
+cmat.t = rcorr(as.matrix(counts_wide.t), type=rtype)
+cor.t.orig = as.data.frame(cmat.t$r)
+cor.t.orig.p = as.data.frame(cmat.t$P)
+cor.t.adj = 1 - cor.t.orig
+cor.t.dist = as.dist(cor.t.adj)
+distances.t = as.vector(cor.t.dist)
+
+#no trauma
+cmat.nt = rcorr(as.matrix(counts_wide.nt), type=rtype)
+cor.nt.orig = as.data.frame(cmat.nt$r)
+cor.nt.orig.p = as.data.frame(cmat.nt$P)
+cor.nt.adj = 1 - cor.nt.orig
+cor.nt.dist = as.dist(cor.nt.adj)
+distances.nt = as.vector(cor.nt.dist)
+
+```
+
+## Define AHN correlations
+```{r}
+
+#isolate ahn correlations and sort factors by r
+ahn_idx =  which(names(cor.t.orig)=='AHN')
+
+#create df for control with region, r, and p
+cor.ctrl.ahn = cor.ctrl.orig[-ahn_idx,'AHN', drop=FALSE]
+cor.ctrl.ahn$p = cor.ctrl.orig.p[-ahn_idx,'AHN']
+cor.ctrl.ahn = cbind(rownames(cor.ctrl.ahn), cor.ctrl.ahn)
+cor.ctrl.ahn$p_fdr = p.adjust(cor.ctrl.ahn$p, 'fdr')
+rownames(cor.ctrl.ahn) = NULL
+names(cor.ctrl.ahn) = c('abrv','r','p','p_fdr')
+cor.ctrl.ahn$group = 'Control'
+
+#create df for trauma with region, r, and p
+cor.t.ahn = cor.t.orig[-ahn_idx,'AHN', drop=FALSE]
+cor.t.ahn$p = cor.t.orig.p[-ahn_idx,'AHN']
+cor.t.ahn = cbind(rownames(cor.t.ahn), cor.t.ahn)
+cor.t.ahn$p_fdr = p.adjust(cor.t.ahn$p, 'fdr')
+rownames(cor.t.ahn) = NULL
+names(cor.t.ahn) = c('abrv','r','p','p_fdr')
+cor.t.ahn$group = 'Trauma'
+
+#create df for no trauma with region, r, and p
+cor.nt.ahn = cor.nt.orig[-ahn_idx,'AHN', drop=FALSE]
+cor.nt.ahn$p = cor.nt.orig.p[-ahn_idx,'AHN']
+cor.nt.ahn = cbind(rownames(cor.nt.ahn), cor.nt.ahn)
+cor.nt.ahn$p_fdr = p.adjust(cor.nt.ahn$p, 'fdr')
+rownames(cor.nt.ahn) = NULL
+names(cor.nt.ahn) = c('abrv','r','p','p_fdr')
+cor.nt.ahn$group = 'No Trauma'
+
+#define abrv factor and order by group corr values
+cor.ctrl.ahn$abrv = factor(
+  cor.ctrl.ahn$abrv, 
+  levels=cor.ctrl.ahn$abrv[order(cor.ctrl.ahn$r, decreasing=FALSE)])
+cor.ctrl.ahn$sig = cor.ctrl.ahn$p<.05
+cor.ctrl.ahn$sig_fdr = cor.ctrl.ahn$p_fdr<.05
+
+cor.t.ahn$abrv = factor(
+  cor.t.ahn$abrv, 
+  levels=cor.t.ahn$abrv[order(cor.t.ahn$r, decreasing=FALSE)])
+cor.t.ahn$sig = cor.t.ahn$p<.05
+cor.t.ahn$sig_fdr = cor.t.ahn$p_fdr<.05
+
+cor.nt.ahn$abrv = factor(
+  cor.nt.ahn$abrv, 
+  levels=cor.nt.ahn$abrv[order(cor.nt.ahn$r, decreasing=FALSE)])
+cor.nt.ahn$sig = cor.nt.ahn$p<.05
+cor.nt.ahn$sig_fdr = cor.nt.ahn$p_fdr<.05
+
+```
+
+
+## Compare AHN corrs
+```{r}
+
+
+#compare proportion of sig corrs using fisher's exact test
+cor.ahn.ntVSt.fish = fisher.test(
+  rbind(
+    table(cor.t.ahn$sig & cor.t.ahn$r>0),
+    table(cor.nt.ahn$sig & cor.nt.ahn$r>0)
+  )
+)
+cor.ahn.ntVSt.fish
+
+cor.ahn.ctrlVSnt.fish = fisher.test(
+  rbind(
+    table(cor.ctrl.ahn$sig & cor.ctrl.ahn$r>0),
+    table(cor.nt.ahn$sig & cor.nt.ahn$r>0)
+  )
+)
+cor.ahn.ctrlVSnt.fish
+
+#compare proportion of sig corrs using fisher's exact on fdr corrected corrs
+cor.ahn.ntVSt.fish.fdr = fisher.test(
+  rbind(
+    table(cor.t.ahn$sig_fdr & cor.t.ahn$r>0),
+    table(cor.nt.ahn$sig_fdr & cor.nt.ahn$r>0)
+  )
+)
+cor.ahn.ntVSt.fish.fdr
+
+```
+
+## plot AHN corrs
+### set abrvs to display
+```{r}
+
+#define which regions to show
+corahn_abrv_display = c(
+      'LHA',
+    #'CA3',
+    'CA1',
+    #'SUB',
+    #'ENTm',
+    #'ACAd2/3',
+    #'DG-po',
+    #'MEA',
+    #'PAG',
+    'BLAv',
+    #'sAMY',
+    'BLAa',
+    #'BMA',
+    #'PB',
+    'ILA2/3'
+    #'PB'
+    #'DG-mo'
+    #'ACAv2/3'
+)
+
+cor.ctrl.ahn$abrv_dis = cor.ctrl.ahn$abrv %in% c(corahn_abrv_display)
+cor.t.ahn$abrv_dis = cor.t.ahn$abrv %in% c(corahn_abrv_display)
+cor.nt.ahn$abrv_dis = cor.nt.ahn$abrv %in% c(corahn_abrv_display)
+
+
+```
+
+
+#### plot CTRL
+```{r}
+
+labeldata = cor.ctrl.ahn[cor.ctrl.ahn$abrv_dis,]
+
+cor.ctrl.ahn.plot = ggplot(
+  data = cor.ctrl.ahn,
+  aes(x=abrv, y=r, color=sig)
+)
+
+cor.ctrl.ahn.plot +
+  
+  geom_bar(
+    stat='identity',
+    position = position_dodge(width=1),
+    show.legend = FALSE
+  ) +
+  
+  geom_point(
+    data = labeldata,
+    size = 1.5,
+    color = 'black',
+    show.legend = FALSE
+  ) +
+  
+  geom_text_repel(
+    data = labeldata,
+    aes(label=abrv),
+    force_pull = 4,
+    min.segment.length = 0.5,
+    fontface = 'plain',
+    color = 'black',
+    size = 6,
+  ) +
+  
+  geom_hline(yintercept=0, linetype='dashed') +
+
+  scale_color_manual(values=c('gray75','red2')) +
+  
+  coord_cartesian(ylim=c(-1,1)) +
+  scale_y_continuous(breaks=seq(-1,1,1), labels=seq(-1,1,1), expand = c(0, .2)) +
+  scale_x_discrete(expand = c(.05, .1)) +
+  
+  labs(
+    x = 'Brain Region',
+    y = 'R (AHN x Region)',
+    title = 'CTRL'
+  ) +
+  
+  theme_classic() +
+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=20,face='plain', hjust=.5),
+    axis.title.x = element_text(margin = margin(t=10)),
+    axis.text.y = element_text(size=16, face='plain', color='black'),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    plot.margin = margin(c(1.75, 1, 1.75, 1), unit='cm'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+  ) 
+  
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHN_corrs_CTRL", p.savetype, sep = ''))}
+
+```
+
+
+#### plot T
+```{r}
+
+labeldata = cor.t.ahn[cor.t.ahn$abrv_dis,]
+
+cor.t.ahn.plot = ggplot(
+  data = cor.t.ahn,
+  aes(x=abrv, y=r, color=sig)
+)
+
+cor.t.ahn.plot +
+  
+  geom_bar(
+    stat='identity',
+    position = position_dodge(width=1),
+    show.legend = FALSE
+  ) +
+  
+  geom_point(
+    data = labeldata,
+    size = 1.5,
+    color = 'black',
+    show.legend = FALSE
+  ) +
+  
+  geom_text_repel(
+    data = labeldata,
+    aes(label=abrv),
+    force_pull = 4,
+    min.segment.length = 0.5,
+    fontface = 'plain',
+    color = 'black',
+    size = 6,
+  ) +
+  
+  geom_hline(yintercept=0, linetype='dashed') +
+
+  scale_color_manual(values=c('gray75','red2')) +
+  
+  coord_cartesian(ylim=c(-1,1)) +
+  scale_y_continuous(breaks=seq(-1,1,1), labels=seq(-1,1,1), expand = c(0, .2)) +
+  scale_x_discrete(expand = c(.05, .1)) +
+  
+  labs(
+    x = 'Brain Region',
+    y = 'R (AHN x Region)',
+    title = 'S'
+  ) +
+  
+  theme_classic() +
+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=20,face='plain', hjust=.5),
+    axis.title.x = element_text(margin = margin(t=10)),
+    axis.text.y = element_text(size=16, face='plain', color='black'),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    plot.margin = margin(c(1.75, 1, 1.75, 1), unit='cm'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+  ) 
+  
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHN_corrs_T", p.savetype, sep = ''))}
+
+```
+
+
+#### plot NT
+```{r}
+
+labeldata = cor.nt.ahn[cor.nt.ahn$abrv_dis,]
+
+cor.nt.ahn.plot = ggplot(
+  data = cor.nt.ahn,
+  aes(x=abrv, y=r, color=sig)
+)
+
+cor.nt.ahn.plot +
+  
+  geom_bar(
+    stat='identity',
+    position = position_dodge(width=1),
+    show.legend = FALSE
+  ) +
+  
+  geom_point(
+    data = labeldata,
+    size = 1.5,
+    color = 'black',
+    show.legend = FALSE
+  ) +
+  
+  geom_text_repel(
+    data = labeldata,
+    aes(label=abrv),
+    force_pull = 4,
+    min.segment.length = 0.5,
+    fontface = 'plain',
+    color = 'black',
+    size = 6,
+  ) +
+  
+  geom_hline(yintercept=0, linetype='dashed') +
+
+  scale_color_manual(values=c('gray75','red2')) +
+  
+  coord_cartesian(ylim=c(-1,1)) +
+  scale_y_continuous(breaks=seq(-1,1,1), labels=seq(-1,1,1), expand = c(0, .2)) +
+  scale_x_discrete(expand = c(.05, .1)) +
+  
+  labs(
+    x = 'Brain Region',
+    y = 'R (AHN x Region)',
+    title = 'NS'
+  ) +
+  
+  theme_classic() +
+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=20,face='plain', hjust=.5),
+    axis.title.x = element_text(margin = margin(t=10)),
+    axis.text.y = element_text(size=16, face='plain', color='black'),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    plot.margin = margin(c(1.75, 1, 1.75, 1), unit='cm'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+  ) 
+  
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHN_corrs_NT", p.savetype, sep = ''))}
+
+```
+
+
+
+## Define ID info for used regions
+```{r}
+
+id_labels = as.data.frame(list('annotation_abrv' = names(counts_wide.t)))
+
+id_labels = left_join(
+  id_labels,
+  labels[,c('annotation_abrv','annotation_graph_order','parcellation_group')],
+  by = 'annotation_abrv'
+)
+
+#Set colors for parcellation groups
+id_labels$color = recode_factor(
+  id_labels$parcellation_group,
+  cortical_plate = 'red',
+  cortical_subplate = 'blue',
+  cerebral_nuclei = 'yellow',
+  diencephalon = 'green4',
+  midbrain = 'steelblue3',
+  hindbrain = 'gray'
+)
+
+```
+
+
+# Clustering
+## Perform initial clustering and view by higher-order parcellation
+```{r}
+
+hclust = hclust(cor.t.dist, method = 'average')
+dend = as.dendrogram(hclust)
+
+par(mar = c(10,5,5,5))
+
+dend %>% 
+  set('labels','') %>% 
+  set('branches_lwd', 1.2) %>%
+  set('branches_col', 'black') %>%
+  hang.dendrogram(hang=1) %>%
+  plot(
+    main='Heirarchical Clustering of Regions',
+    cex.main=1.5,
+    ylim=c(0,1.1), 
+    yaxt='n')
+
+mtext(
+  text='Subdivision',
+  line = 1,
+  side=1,
+  padj = 2,
+  cex=1.5, col='black')
+
+colored_bars(
+  id_labels$color, dend,
+  y_scale=.2,
+  y_shift = 0,
+  text_shift = -100)
+
+```
+
+
+## Examine impact of cluster height on number of clusters
+```{r}
+
+potential_cut = .5
+cutoffs = seq(0, 1, .02)
+num_groups = vector()
+
+for (cut in cutoffs){
+  Hcut <- cutree(hclust, h = 1 - cut)
+  num_groups = append(num_groups, length(unique(Hcut)))
+}
+
+cutoff_impact = data.frame(cutoffs,num_groups)
+
+ggplot(cutoff_impact, aes(x=cutoffs, y=num_groups)) + 
+  geom_line() +
+  coord_cartesian(expand = FALSE) +
+  scale_x_continuous(breaks = seq(0,1,.1)) +
+  geom_vline(xintercept = potential_cut, color = 'red') +
+  labs(
+    title = 'Impact of clustering cutoff on number of clusters',
+    x = 'R cutoff',
+    y = '# clusters'
+  )
+
+```
+
+
+## Examine cluster membership with 'elbow method' 
+```{r}
+
+testclusts = 150
+
+wss = fviz_nbclust(cor.t.adj, FUNcluster=hcut, method='wss', k.max = testclusts)
+wss = wss$data
+
+ggplot(wss, aes(x=clusters, y=y, group=1)) + 
+  geom_line(size=1.5) +
+  geom_vline(xintercept = 26, color='red') +
+  scale_x_discrete(breaks = seq(0, testclusts, 25)) +
+  scale_y_continuous(breaks = seq(0, 22000, 5000), limits=c(0,22500)) +
+  labs(
+    x = '# of Clusters',
+    y = 'Within-Cluster\nVariance',
+    title = 'Cluster Selection'
+  ) +
+  
+  theme_classic() +
+  
+  theme(
+    plot.title = element_text(size=28,face='bold', hjust=.5),
+    axis.title = element_text(size=18,face='bold', hjust=.5),
+    axis.text.x = element_text(size=12, face='bold', color='black'),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.margin = margin(c(2, 2, 2, 2), unit='cm'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+  ) 
+  
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"ClusterElbow", p.savetype, sep = ''))}
+
+```
+
+
+## Define cutoff for clusters
+```{r}
+
+cor_cutoff = .5
+
+```
+
+
+## Cut cluster tree and visualize
+```{r}
+
+dist_cut = 1 - cor_cutoff
+
+hclust = hclust(cor.t.dist, method = 'average')
+Hcut <- cutree(hclust, h = dist_cut)
+id_labels$cluster = Hcut
+dend = as.dendrogram(hclust)
+
+num_regions = nrow(cor.t.orig)
+num_clust = length(unique(Hcut))
+reduction = ((num_regions-num_clust)/num_regions)*100
+to_print = c(
+  paste('r cutoff: ', cor_cutoff),
+  paste('number of regions reduced from ', num_regions, ' to ', num_clust),
+  paste('percent reduction: ', reduction)
+)
+
+par(mar = c(5,5,5,5))
+dend %>% 
+  hang.dendrogram(hang=.01) %>%
+  set('labels','') %>% 
+  plot(
+    main='Clustering Dendrogram\n Combine Clusters Below Line',
+    ylim=c(0,1.1),yaxt='n')
+mtext(
+  text='Subdivision', 
+  line = .5,
+  side=1,
+  cex=1, col='black')
+abline(h = dist_cut, lwd=2, col = 'red')
+
+print(to_print)
+
+```
+
+
+## Create Circular dendrogram
+manually export at 5 by 5 inch
+```{r}
+
+#implement clustering and cut tree
+hc = hclust(cor.t.dist, method = 'average')
+ct = cutree(hc, h=1-cor_cutoff)
+dend = as.dendrogram(hc)
+dend_height = attr(dend, 'height')
+lbls = labels(dend)
+n = length(lbls)
+
+#define plot colors
+set.seed = NULL
+set.seed(1)
+cols = sample(
+  #Earth, Cividis, 
+  attr(colorRamp2(breaks=seq(1:max(ct)), hcl_palette = 'OrRd'),'colors'),
+  #attr(colorRamp2(breaks=seq(1:max(ct)), hcl_palette = 'cividis'),'colors'),
+  size=max(ct), 
+  replace=FALSE
+)
+
+#define cluster bounds
+start = vector()
+stop = vector()
+ct.df = left_join(
+  as.data.frame(list('annotation_abrv'=names(ct),'cluster'=ct)), 
+  as.data.frame(list('annotation_abrv'=lbls, 'i' = 1:length(lbls))),
+  by='annotation_abrv'
+)
+for (c in seq(max(ct))){
+  start[c] = min(ct.df$i[ct.df$cluster==c])
+  stop[c] = max(ct.df$i[ct.df$cluster==c])
+}
+clstr_bnds = as.data.frame(list('start'=start,'stop'=stop))
+clstr_bnds$cluster = rownames(clstr_bnds)
+
+#give each cluster color based upon start
+clstr_bnds = clstr_bnds[order(clstr_bnds$start),]
+clstr_bnds$cols = cols
+
+#set labels to highlight
+tlbls = rep('', length(lbls))
+cluster3_highlit_regions = c(
+  'CA1','CA3','ENTm','SUB',#'ENTl',
+  'BLAa','BLAp','BMA','CEA','MEA',
+  'COAp', 'COAa',
+  'MEPO','AHN','LHA',
+  #'SNc','SNr',
+  'PB',
+  'PAG'#,'PCG
+  )
+lbls_cluster3_highlit = sapply(lbls, FUN=function(x){x %in% cluster3_highlit_regions})
+tlbls[lbls_cluster3_highlit] = lbls[lbls_cluster3_highlit]
+
+#initialize
+par(mar = c(0,0,0,0))
+circos.par(cell.padding = c(0, 0, 0, 0))
+circos.initialize('a', xlim = c(0, n)) # only one sector
+
+#labels
+circos.labels(
+  niceFacing = FALSE,
+  sectors = 'a',
+  x = which(tlbls!=''),
+  labels = tlbls[which(tlbls!='')],
+  side = 'outside',
+  cex = 1,
+  font = 2
+)
+
+#rectangular track
+circos.track(
+    ylim=c(0,1), 
+    bg.border=NA, 
+    track.height=.15,
+    panel.fun = function(x,y) {
+      for (i in 1:nrow(clstr_bnds)){
+        circos.rect(
+          clstr_bnds$start[clstr_bnds$cluster==i], 0, 
+          clstr_bnds$stop[clstr_bnds$cluster==i], 1,
+          col=clstr_bnds$cols[clstr_bnds$cluster==i])
+      }
+    }
+)
+
+#dendrogram
+dend = color_branches(
+  dend %>% set('branches_lwd', 1.1),
+  h=1-cor_cutoff, 
+  col=cols
+)
+circos.track(
+  #ylim = c(.3, dend_height), 
+  ylim = c(0, dend_height), 
+  bg.border = NA, 
+  track.height = .45, 
+  panel.fun = function(x, y) {
+    circos.dendrogram(dend)
+  }
+)
+
+circos.clear()
+
+```
+
+
+# Extract AHN cluster Correlations
+```{r}
+
+ahn_clust = 3 #note that cluster number is arbitrary and renamed to 1 for manuscript.
+ahn_clust_regions = id_labels$annotation_abrv[id_labels$cluster==3]
+
+cor.ctrl.clusterAHN = cor.ctrl.orig[ahn_clust_regions, ahn_clust_regions]
+cor.t.clusterAHN = cor.t.orig[ahn_clust_regions, ahn_clust_regions]
+cor.nt.clusterAHN = cor.nt.orig[ahn_clust_regions, ahn_clust_regions]
+
+cor.ctrl.clusterAHN.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.ctrl.clusterAHN)), cor.ctrl.clusterAHN),
+  cols = names(cor.ctrl.clusterAHN),
+  names_to = 'Reg2',
+  values_to = 'R'
+)
+cor.t.clusterAHN.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.t.clusterAHN)), cor.t.clusterAHN),
+  cols = names(cor.t.clusterAHN),
+  names_to = 'Reg2',
+  values_to = 'R'
+)
+cor.nt.clusterAHN.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.nt.clusterAHN)), cor.nt.clusterAHN),
+  cols = names(cor.nt.clusterAHN),
+  names_to = 'Reg2',
+  values_to = 'R'
+)
+
+## add p values so they can be thresholded and plotted
+## get p values
+cor.ctrl.clusterAHN.p = cor.ctrl.orig.p[ahn_clust_regions, ahn_clust_regions]
+cor.t.clusterAHN.p = cor.t.orig.p[ahn_clust_regions, ahn_clust_regions]
+cor.nt.clusterAHN.p = cor.nt.orig.p[ahn_clust_regions, ahn_clust_regions]
+##
+cor.ctrl.clusterAHN.p.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.ctrl.clusterAHN.p)), cor.ctrl.clusterAHN.p),
+  cols = names(cor.ctrl.clusterAHN.p),
+  names_to = 'Reg2',
+  values_to = 'p'
+)
+cor.t.clusterAHN.p.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.t.clusterAHN.p)), cor.t.clusterAHN.p),
+  cols = names(cor.t.clusterAHN.p),
+  names_to = 'Reg2',
+  values_to = 'p'
+)
+cor.nt.clusterAHN.p.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.nt.clusterAHN.p)), cor.nt.clusterAHN.p),
+  cols = names(cor.nt.clusterAHN.p),
+  names_to = 'Reg2',
+  values_to = 'p'
+)
+
+#combine p with r values and define color dummy strategy
+cor.ctrl.clusterAHN.long = left_join(
+  cor.ctrl.clusterAHN.long, 
+  cor.ctrl.clusterAHN.p.long, by=c('Reg1','Reg2')
+)
+cor.ctrl.clusterAHN.long$p[is.na(cor.ctrl.clusterAHN.long$p)]=0
+cor.ctrl.clusterAHN.long$sig = cor.ctrl.clusterAHN.long$p<0.05
+cor.ctrl.clusterAHN.long = mutate(
+  cor.ctrl.clusterAHN.long, sigcode = case_when(
+    sig == TRUE & R>0 ~ 1,
+    sig == TRUE & R<0 ~ -1,
+    sig == FALSE ~ 0,
+  )
+)
+
+cor.t.clusterAHN.long = left_join(
+  cor.t.clusterAHN.long, 
+  cor.t.clusterAHN.p.long, by=c('Reg1','Reg2')
+)
+cor.t.clusterAHN.long$sig = cor.t.clusterAHN.long$p<0.05
+cor.t.clusterAHN.long$p[is.na(cor.t.clusterAHN.long$p)]=0
+cor.t.clusterAHN.long$sig = cor.t.clusterAHN.long$p<0.05
+cor.t.clusterAHN.long = mutate(
+  cor.t.clusterAHN.long, sigcode = case_when(
+    sig == TRUE & R>0 ~ 1,
+    sig == TRUE & R<0 ~ -1,
+    sig == FALSE ~ 0,
+  )
+)
+
+cor.nt.clusterAHN.long = left_join(
+  cor.nt.clusterAHN.long, 
+  cor.nt.clusterAHN.p.long, by=c('Reg1','Reg2')
+)
+cor.nt.clusterAHN.long$sig = cor.nt.clusterAHN.long$p<0.05
+cor.nt.clusterAHN.long$p[is.na(cor.nt.clusterAHN.long$p)]=0
+cor.nt.clusterAHN.long$sig = cor.nt.clusterAHN.long$p<0.05
+cor.nt.clusterAHN.long = mutate(
+  cor.nt.clusterAHN.long, sigcode = case_when(
+    sig == TRUE & R>0 ~ 1,
+    sig == TRUE & R<0 ~ -1,
+    sig == FALSE ~ 0,
+  )
+)
+
+
+#this is used to sort original correlation matrices by ahn cluster membership
+id_labels$clusterAHN = id_labels$cluster == ahn_clust
+id_labels$annotation_abrv = factor(
+  id_labels$annotation_abrv,
+  levels = id_labels$annotation_abrv[order(
+    id_labels$clusterAHN,
+    id_labels$cluster,
+    id_labels$annotation_abrv
+  )]
+)
+id_labels = id_labels[order(id_labels$annotation_abrv),]
+
+
+#factor regions
+cor.ctrl.clusterAHN.long$Reg1 = factor(
+  cor.ctrl.clusterAHN.long$Reg1,
+  levels = id_labels$annotation_abrv[id_labels$clusterAHN]
+)
+cor.ctrl.clusterAHN.long$Reg2 = factor(
+  cor.ctrl.clusterAHN.long$Reg2,
+  levels = id_labels$annotation_abrv[id_labels$clusterAHN]
+)
+
+```
+
+
+## Plot AHN cluster correlations
+### Control
+#### R
+```{r}
+
+p.clusterAHNcor.ctrl = ggplot(
+  data = cor.ctrl.clusterAHN.long,
+  aes(x=Reg1, y=Reg2, fill=R)
+)
+
+p.clusterAHNcor.ctrl +
+  geom_tile() +
+  scale_fill_gradient2(
+    low='blue2', high='red3', midpoint=0, breaks=seq(-1,1,1),
+    limits=c(-1,1)
+  ) +
+  labs(
+    title = 'CTRL',
+    x = 'C1 Region',
+    y = 'C1 Region',
+  )+
+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_text(size = 24, face = 'bold'),
+    line = element_line(size=5),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+#if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_CTRL", p.savetype.corr, sep = ''))}
+
+```
+
+
+#### Sig
+```{r}
+
+cor.ctrl.clusterAHN.long$sigcodeF = recode_factor(
+  factor(cor.ctrl.clusterAHN.long$sigcode,levels = c(1,0,-1)),
+  '1' = 'pos.',
+  '0' = 'none',
+  '-1' = 'neg.'
+)
+
+p.clusterAHNcorsig.ctrl = ggplot(
+  data = cor.ctrl.clusterAHN.long,
+  aes(x=Reg1, y=Reg2, fill=sigcodeF)
+)
+
+p.clusterAHNcorsig.ctrl +
+  geom_tile(show.legend = FALSE) +
+  scale_fill_manual(values=c('red3','white','blue2')) +
+  labs(
+    title = 'CTRL',
+    x = 'C1 Region',
+    y = 'C1 Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='plain', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+if (p.save == TRUE) {
+  saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_sig_CTRL", p.savetype.corr, sep = ''))
+  #saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_sig_CTRL", p.savetype.corr, sep = ''))
+}
+
+```
+
+### Trauma
+#### R
+```{r}
+
+p.clusterAHNcor.t = ggplot(
+  data = cor.t.clusterAHN.long,
+  aes(x=Reg1, y=Reg2, fill=R)
+)
+
+p.clusterAHNcor.t +
+  geom_tile() +
+  scale_fill_gradient2(
+    low='blue2', high='red3', midpoint=0, breaks=seq(-1,1,1),
+    limits=c(-1,1)
+  ) +
+  labs(
+    title = 'S',
+    x = 'C1 Region',
+    y = 'C1 Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_text(size = 24, face = 'bold'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+#if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_T", p.savetype.corr, sep = ''))}
+
+```
+
+#### Sig
+```{r}
+
+cor.t.clusterAHN.long$sigcodeF = recode_factor(
+  factor(cor.t.clusterAHN.long$sigcode,levels = c(1,0,-1)),
+  '1' = 'pos.',
+  '0' = 'none',
+  '-1' = 'neg.'
+)
+
+p.clusterAHNcorsig.t = ggplot(
+  data = cor.t.clusterAHN.long,
+  aes(x=Reg1, y=Reg2, fill=sigcodeF)
+)
+
+p.clusterAHNcorsig.t +
+  geom_tile(show.legend = FALSE) +
+  scale_fill_manual(values=c('red3','white','blue2')) +
+  labs(
+    title = 'S',
+    x = 'C1 Region',
+    y = 'C1 Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='plain', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+if (p.save == TRUE) {
+  saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_sig_T", p.savetype.corr, sep = ''))
+  saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_sig_T", p.savetype, sep = ''))
+}
+#save both ways for plotting in fig1
+
+```
+
+### No Trauma
+#### R
+```{r}
+
+p.clusterAHNcor.nt = ggplot(
+  data = cor.nt.clusterAHN.long,
+  aes(x=Reg1, y=Reg2, fill=R)
+)
+
+p.clusterAHNcor.nt +
+  geom_tile() +
+  scale_fill_gradient2(
+    low='blue2', high='red3', midpoint=0, breaks=seq(-1,1,1),
+    limits=c(-1,1)
+  ) +
+  labs(
+    title = 'NS',
+    x = 'C1 Region',
+    y = 'C1 Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_text(size = 24, face = 'bold'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+#if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_NT", p.savetype.corr, sep = ''))}
+
+```
+
+#### Sig
+```{r}
+
+cor.nt.clusterAHN.long$sigcodeF = recode_factor(
+  factor(cor.nt.clusterAHN.long$sigcode,levels = c(1,0,-1)),
+  '1' = 'pos.',
+  '0' = 'none',
+  '-1' = 'neg.'
+)
+
+p.clusterAHNcorsig.nt = ggplot(
+  data = cor.nt.clusterAHN.long,
+  aes(x=Reg1, y=Reg2, fill=sigcodeF)
+)
+
+p.clusterAHNcorsig.nt +
+  geom_tile(show.legend = FALSE) +
+  scale_fill_manual(values=c('red3','white','blue2')) +
+  labs(
+    title = 'NS',
+    x = 'C1 Region',
+    y = 'C1 Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='plain', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_blank(),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+if (p.save == TRUE) {
+  saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_sig_NT", p.savetype.corr, sep = ''))
+  saveplot(filename = paste(f_pfx,'_',"AHNclstr_corrs_sig_NT", p.savetype, sep = ''))
+}
+#save both ways for plotting in fig1
+
+```
+
+## Plot all correlations
+### Ctrl
+#### Prep Data
+```{r}
+
+#pivot to long and add p values
+cor.ctrl.orig.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.ctrl.orig)), cor.ctrl.orig),
+  cols = names(cor.ctrl.orig),
+  names_to = 'Reg2',
+  values_to = 'R'
+)
+cor.ctrl.orig.p.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.ctrl.orig.p)), cor.ctrl.orig.p),
+  cols = names(cor.ctrl.orig.p),
+  names_to = 'Reg2',
+  values_to = 'p'
+)
+cor.ctrl.orig.long = left_join(cor.ctrl.orig.long, cor.ctrl.orig.p.long, by=c('Reg1','Reg2'))
+
+#define significance coding variable
+cor.ctrl.orig.long$p[is.na(cor.ctrl.orig.long$p)]=0
+cor.ctrl.orig.long$sig = cor.ctrl.orig.long$p<0.05
+cor.ctrl.orig.long = mutate(
+  cor.ctrl.orig.long, sigcode = case_when(
+    sig == TRUE & R>0 ~ 1,
+    sig == TRUE & R<0 ~ -1,
+    sig == FALSE ~ 0,
+  )
+)
+
+#sort Reg 1 and Reg2 by ahn cluster membership
+cor.ctrl.orig.long$Reg1 = factor(cor.ctrl.orig.long$Reg1, levels=id_labels$annotation_abrv)
+cor.ctrl.orig.long$Reg2 = factor(cor.ctrl.orig.long$Reg2, levels=id_labels$annotation_abrv)
+
+```
+
+#### R
+```{r}
+
+p.ALLcor.ctrl = ggplot(
+  data = cor.ctrl.orig.long,
+  aes(x=Reg1, y=Reg2, fill=R)
+)
+
+p.ALLcor.ctrl +
+  geom_tile() +
+  scale_fill_gradient2(
+    low='blue2', high='red3', midpoint=0, breaks=seq(-1,1,1),
+    limits=c(-1,1)
+  ) +
+  labs(
+    title = 'CTRL',
+    x = 'Brain Region',
+    y = 'Brain Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_text(size = 24, face = 'bold'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+#if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Allcorrs_CTRL", p.savetype.corr, sep = ''))}
+
+```
+#### Sig
+```{r}
+
+cor.ctrl.orig.long$sigcodeF = recode_factor(
+  factor(cor.ctrl.orig.long$sigcode,levels = c(1,0,-1)),
+  '1' = 'pos.',
+  '0' = 'none',
+  '-1' = 'neg.'
+)
+
+p.ALLcorsig.ctrl = ggplot(
+  data = cor.ctrl.orig.long,
+  aes(x=Reg1, y=Reg2, fill=sigcodeF)
+)
+
+p.ALLcorsig.ctrl +
+  geom_tile(show.legend = FALSE) +
+  geom_rect(
+    xmin = id_labels$annotation_abrv[id_labels$clusterAHN][1],
+    xmax = id_labels$annotation_abrv[id_labels$clusterAHN][sum(id_labels$clusterAHN)],
+    ymin = id_labels$annotation_abrv[id_labels$clusterAHN][1],
+    ymax = id_labels$annotation_abrv[id_labels$clusterAHN][sum(id_labels$clusterAHN)],
+    color = 'green3', fill = NA, linetype = 'solid', linewidth = 3
+  ) +
+  scale_fill_manual(values=c('red3','white','blue2')) +
+  labs(
+    title = 'CTRL',
+    x = 'Brain Region',
+    y = 'Brain Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_blank(),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Allcorrs_sig_CTRL", p.savetype.corr, sep = ''))}
+
+```
+
+
+### Trauma
+#### Prep Data
+```{r}
+
+cor.t.orig.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.t.orig)), cor.t.orig),
+  cols = names(cor.t.orig),
+  names_to = 'Reg2',
+  values_to = 'R'
+)
+cor.t.orig.p.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.t.orig.p)), cor.t.orig.p),
+  cols = names(cor.t.orig.p),
+  names_to = 'Reg2',
+  values_to = 'p'
+)
+cor.t.orig.long = left_join(cor.t.orig.long, cor.t.orig.p.long, by=c('Reg1','Reg2'))
+
+cor.t.orig.long$p[is.na(cor.t.orig.long$p)]=0
+cor.t.orig.long$sig = cor.t.orig.long$p<0.05
+cor.t.orig.long = mutate(
+  cor.t.orig.long, sigcode = case_when(
+    sig == TRUE & R>0 ~ 1,
+    sig == TRUE & R<0 ~ -1,
+    sig == FALSE ~ 0,
+  )
+)
+
+#sort Reg 1 and Reg2 by ahn cluster membership
+cor.t.orig.long$Reg1 = factor(cor.t.orig.long$Reg1, levels=id_labels$annotation_abrv)
+cor.t.orig.long$Reg2 = factor(cor.t.orig.long$Reg2, levels=id_labels$annotation_abrv)
+
+```
+#### R
+```{r}
+
+p.ALLcor.t = ggplot(
+  data = cor.t.orig.long,
+  aes(x=Reg1, y=Reg2, fill=R)
+)
+
+p.ALLcor.t +
+  geom_tile() +
+  scale_fill_gradient2(
+    low='blue2', high='red3', midpoint=0, breaks=seq(-1,1,1),
+    limits=c(-1,1)
+  ) +
+  labs(
+    title = 'S',
+    x = 'Brain Region',
+    y = 'Brain Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_text(size = 24, face = 'bold'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+#if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Allcorrs_T", p.savetype.corr, sep = ''))}
+
+```
+
+#### Sig
+```{r}
+
+cor.t.orig.long$sigcodeF = recode_factor(
+  factor(cor.t.orig.long$sigcode,levels = c(1,0,-1)),
+  '1' = 'pos.',
+  '0' = 'none',
+  '-1' = 'neg.'
+)
+
+p.ALLcorsig.t = ggplot(
+  data = cor.t.orig.long,
+  aes(x=Reg1, y=Reg2, fill=sigcodeF)
+)
+
+p.ALLcorsig.t +
+  geom_tile(show.legend = FALSE) +
+  geom_rect(
+    xmin = id_labels$annotation_abrv[id_labels$clusterAHN][1],
+    xmax = id_labels$annotation_abrv[id_labels$clusterAHN][sum(id_labels$clusterAHN)],
+    ymin = id_labels$annotation_abrv[id_labels$clusterAHN][1],
+    ymax = id_labels$annotation_abrv[id_labels$clusterAHN][sum(id_labels$clusterAHN)],
+    color = 'green3', fill = NA, linetype = 'solid', linewidth = 3
+  ) +
+  scale_fill_manual(values=c('red3','white','blue2')) +
+  labs(
+    title = 'S',
+    x = 'Brain Region',
+    y = 'Brain Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_blank(),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Allcorrs_sig_T", p.savetype.corr, sep = ''))}
+
+```
+
+### No Trauma
+#### Prep Data
+```{r}
+
+cor.nt.orig.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.nt.orig)), cor.nt.orig),
+  cols = names(cor.nt.orig),
+  names_to = 'Reg2',
+  values_to = 'R'
+)
+cor.nt.orig.p.long = pivot_longer(
+  data = cbind(list('Reg1'=rownames(cor.nt.orig.p)), cor.nt.orig.p),
+  cols = names(cor.nt.orig.p),
+  names_to = 'Reg2',
+  values_to = 'p'
+)
+cor.nt.orig.long = left_join(cor.nt.orig.long, cor.nt.orig.p.long, by=c('Reg1','Reg2'))
+
+cor.nt.orig.long$p[is.na(cor.nt.orig.long$p)]=0
+cor.nt.orig.long$sig = cor.nt.orig.long$p<0.05
+cor.nt.orig.long = mutate(
+  cor.nt.orig.long, sigcode = case_when(
+    sig == TRUE & R>0 ~ 1,
+    sig == TRUE & R<0 ~ -1,
+    sig == FALSE ~ 0,
+  )
+)
+
+#sort Reg 1 and Reg2 by ahn cluster membership
+cor.nt.orig.long$Reg1 = factor(cor.nt.orig.long$Reg1, levels=id_labels$annotation_abrv)
+cor.nt.orig.long$Reg2 = factor(cor.nt.orig.long$Reg2, levels=id_labels$annotation_abrv)
+
+```
+
+#### R
+```{r}
+
+p.ALLcor.nt = ggplot(
+  data = cor.nt.orig.long,
+  aes(x=Reg1, y=Reg2, fill=R)
+)
+
+p.ALLcor.nt +
+  geom_tile() +
+  scale_fill_gradient2(
+    low='blue2', high='red3', midpoint=0, breaks=seq(-1,1,1),
+    limits=c(-1,1)
+  ) +
+  labs(
+    title = 'NS',
+    x = 'Brain Region',
+    y = 'Brain Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_text(size = 24, face = 'bold'),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+#if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Allcorrs_NT", p.savetype.corr, sep = ''))}
+
+```
+#### Sig
+```{r}
+
+cor.nt.orig.long$sigcodeF = recode_factor(
+  factor(cor.nt.orig.long$sigcode,levels = c(1,0,-1)),
+  '1' = 'pos.',
+  '0' = 'none',
+  '-1' = 'neg.'
+)
+
+p.ALLcorsig.nt = ggplot(
+  data = cor.nt.orig.long,
+  aes(x=Reg1, y=Reg2, fill=sigcodeF)
+)
+
+p.ALLcorsig.nt +
+  geom_tile(show.legend = FALSE) +
+  geom_rect(
+    xmin = id_labels$annotation_abrv[id_labels$clusterAHN][1],
+    xmax = id_labels$annotation_abrv[id_labels$clusterAHN][sum(id_labels$clusterAHN)],
+    ymin = id_labels$annotation_abrv[id_labels$clusterAHN][1],
+    ymax = id_labels$annotation_abrv[id_labels$clusterAHN][sum(id_labels$clusterAHN)],
+    color = 'green3', fill = NA, linetype = 'solid', linewidth = 3
+  ) +
+  scale_fill_manual(values=c('red3','white','blue2')) +
+  labs(
+    title = 'NS',
+    x = 'Brain Region',
+    y = 'Brain Region',
+  )+
+  theme(
+    plot.title = element_text(size=40,face='bold', hjust=.5),
+    axis.title = element_text(size=24,face='bold', hjust=.5),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    legend.text = element_text(size = 12, face = 'bold'),
+    legend.title = element_blank(),
+    plot.background = element_rect(fill = 'transparent',colour = NA),
+    panel.border = element_rect(size=1, fill='transparent')
+  ) +
+  force_panelsizes(
+    cols = unit(3, "in"),
+    rows = unit(3, "in")
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Allcorrs_sig_NT", p.savetype.corr, sep = ''))}
+
+```
+
+## define mean correlation difference
+```{r}
+
+#obtain off diagonal correlations in vector, avoiding duplicates
+cor.ctrl.clusterAHN.vec = cormat_returntop(cor.ctrl.clusterAHN)
+cor.t.clusterAHN.vec = cormat_returntop(cor.t.clusterAHN)
+cor.nt.clusterAHN.vec = cormat_returntop(cor.nt.clusterAHN)
+cor.ctrl.orig.vec = cormat_returntop(cor.ctrl.orig)
+cor.t.orig.vec = cormat_returntop(cor.t.orig)
+cor.nt.orig.vec = cormat_returntop(cor.nt.orig)
+
+print(paste('ctrl, mean intracluster correlation:', mean(cor.ctrl.clusterAHN.vec)))
+print(paste('trauma, mean intracluster correlation:', mean(cor.t.clusterAHN.vec)))
+print(paste('no trauma, mean intracluster correlation:', mean(cor.nt.clusterAHN.vec)))
+print(paste('ctrl, mean correlation:', mean(cor.ctrl.orig.vec)))
+print(paste('trauma, mean correlation:', mean(cor.t.orig.vec)))
+print(paste('no trauma, mean correlation:', mean(cor.nt.orig.vec)))
+
+```
+
+# Test difference in cluster correlational strength between groups
+
+## fisher exact of number of significant positive correltaions
+```{r}
+
+cor.ctrl.orig.p.vec = cormat_returntop(cor.ctrl.orig.p)
+cor.nt.orig.p.vec = cormat_returntop(cor.nt.orig.p)
+cor.t.orig.p.vec = cormat_returntop(cor.t.orig.p)
+
+cor.ctrl.clusterAHN.p.vec = cormat_returntop(cor.ctrl.orig.p[ahn_clust_regions,ahn_clust_regions])
+cor.nt.clusterAHN.p.vec = cormat_returntop(cor.nt.orig.p[ahn_clust_regions,ahn_clust_regions])
+cor.t.clusterAHN.p.vec = cormat_returntop(cor.t.orig.p[ahn_clust_regions,ahn_clust_regions])
+
+#
+#compare proportion of sig pos corrs using chi square for ahn cluster
+#
+cor.ahncluster.ntVSt.fish = fisher.test(
+  rbind(
+    table(cor.nt.clusterAHN.p.vec<.05 & cor.nt.clusterAHN.vec>0),
+    table(cor.t.clusterAHN.p.vec<.05 & cor.t.clusterAHN.vec>0)
+  )
+)
+cor.ahncluster.ntVSt.fish
+
+cor.ahncluster.ctrlVSnt.fish = fisher.test(
+  rbind(
+    table(cor.ctrl.clusterAHN.p.vec<.05 & cor.ctrl.clusterAHN.vec>0),
+    table(cor.nt.clusterAHN.p.vec<.05 & cor.nt.clusterAHN.vec>0)
+  )
+)
+cor.ahncluster.ctrlVSnt.fish
+
+#
+#compare proportion of sig corrs using chi square for all correlations
+#
+cor.all.ntVSt.fish = fisher.test(
+  rbind(
+    table(cor.nt.orig.p.vec<.05 & cor.nt.orig.vec>0),
+    table(cor.t.orig.p.vec<.05 & cor.t.orig.vec>0)
+  )
+)
+cor.all.ntVSt.fish
+
+cor.all.ctrlVSnt.fish = fisher.test(
+  rbind(
+    table(cor.ctrl.orig.p.vec<.05 & cor.ctrl.orig.vec>0),
+    table(cor.nt.orig.p.vec<.05 & cor.nt.orig.vec>0)
+  )
+)
+cor.all.ctrlVSnt.fish
+
+
+```
+
+## Plot proportion of significant corrs 
+### AHN cluster
+```{r}
+
+cor.clusterAHN.props = as.data.frame(prop.table(
+  rbind(
+      table(cor.ctrl.clusterAHN.p.vec <.05 & cor.ctrl.clusterAHN.vec >0),
+      table(cor.nt.clusterAHN.p.vec <.05 & cor.nt.clusterAHN.vec >0),
+      table(cor.t.clusterAHN.p.vec <.05 & cor.t.clusterAHN.vec >0)
+  ),
+  margin = 1
+))
+cor.clusterAHN.props$group = factor(c('Ctrl','NS','S'))
+cor.clusterAHN.props = pivot_longer(
+  cor.clusterAHN.props,
+  cols = c('FALSE','TRUE'),
+  names_to = 'sig'
+)
+
+```
+
+#### No Ctrl
+```{r}
+
+P.bar = ggplot(
+  cor.clusterAHN.props[cor.clusterAHN.props$group!='Ctrl',], 
+  aes(x = group, y = value, fill = sig, label=sig)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    colour = 'gray10',
+    show.legend = FALSE
+  ) + 
+  
+  force_panelsizes(
+      rows = unit(2, 'in'),
+      cols = unit(.6, "in")
+  ) +
+
+  labs(
+    x = '',
+    y = "% Significant R(+)"
+  ) +
+
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005),
+    position = 'right'
+  ) +
+
+  scale_fill_manual(values=c('gray90','red3')) +
+  theme_bw() +
+  theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.text = element_text(size = 14, color='black'),
+    axis.title = element_text(size = 14, color='black'),
+    axis.line = element_line(linewidth=.5,color="black"),
+    axis.line.x = element_blank(),
+    plot.background = element_rect(fill = "transparent", colour = NA)
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHNclstr_ProportionR_noCtrl", p.savetype, sep = ''))}
+
+```
+
+#### with Ctrl
+```{r}
+
+P.bar = ggplot(
+  cor.clusterAHN.props[,], 
+  aes(x = group, y = value, fill = sig, label=sig)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    colour = 'gray10',
+    show.legend = FALSE
+  ) + 
+  
+  force_panelsizes(
+      rows = unit(2, 'in'),
+      cols = unit(1, "in")
+  ) +
+
+  labs(
+    x = '',
+    y = "% Significant R(+)"
+  ) +
+
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005),
+    position = 'right'
+  ) +
+
+  scale_fill_manual(values=c('gray90','red3')) +
+  theme_bw() +
+  theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.text = element_text(size = 14, color='black'),
+    axis.title = element_text(size = 14, color='black'),
+    axis.line = element_line(linewidth=.5,color="black"),
+    axis.line.x = element_blank(),
+    plot.background = element_rect(fill = "transparent", colour = NA)
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AHNclstr_ProportionR_wCtrl", p.savetype, sep = ''))}
+
+```
+
+
+### All regions
+```{r}
+
+cor.orig.props = as.data.frame(prop.table(
+  rbind(
+      table(cor.ctrl.orig.p.vec <.05 & cor.ctrl.orig.vec >0),
+      table(cor.nt.orig.p.vec <.05 & cor.nt.orig.vec >0),
+      table(cor.t.orig.p.vec <.05 & cor.t.orig.vec >0)
+  ),
+  margin = 1
+))
+cor.orig.props$group = factor(c('Ctrl','NS','S'))
+cor.orig.props = pivot_longer(
+  cor.orig.props,
+  cols = c('FALSE','TRUE'),
+  names_to = 'sig'
+)
+
+```
+
+#### No Ctrl
+```{r}
+
+P.bar = ggplot(
+  cor.orig.props[cor.orig.props$group!='Ctrl',], 
+  aes(x = group, y = value, fill = sig, label=sig)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    colour = 'gray10',
+    show.legend = FALSE
+  ) + 
+  
+  force_panelsizes(
+      rows = unit(2, 'in'),
+      cols = unit(.6, "in")
+  ) +
+
+  labs(
+    x = '',
+    y = "% Significant R(+)"
+  ) +
+
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005),
+    position = 'right'
+  ) +
+
+  scale_fill_manual(values=c('gray90','red3')) +
+  theme_bw() +
+  theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.text = element_text(size = 14, color='black'),
+    axis.title = element_text(size = 14, color='black'),
+    axis.line = element_line(linewidth=.5,color="black"),
+    axis.line.x = element_blank(),
+    plot.background = element_rect(fill = "transparent", colour = NA)
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AllCor_ProportionR_noCtrl", p.savetype, sep = ''))}
+
+```
+
+#### with Ctrl
+```{r}
+
+P.bar = ggplot(
+  cor.orig.props, 
+  aes(x = group, y = value, fill = sig, label=sig)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    colour = 'gray10',
+    show.legend = FALSE
+  ) + 
+  
+  force_panelsizes(
+      rows = unit(2, 'in'),
+      cols = unit(1, "in")
+  ) +
+
+  labs(
+    x = '',
+    y = "% Significant R(+)"
+  ) +
+
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005),
+    position = 'right'
+  ) +
+
+  scale_fill_manual(values=c('gray90','red3')) +
+  theme_bw() +
+  theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.text = element_text(size = 14, color='black'),
+    axis.title = element_text(size = 14, color='black'),
+    axis.line = element_line(linewidth=.5,color="black"),
+    axis.line.x = element_blank(),
+    plot.background = element_rect(fill = "transparent", colour = NA)
+  )
+
+if (p.save == TRUE) {saveplot(filename = paste(f_pfx,'_',"AllCor_ProportionR_wCtrl", p.savetype, sep = ''))}
+
+```
+
+
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+#export correlations between AHN and every other region
+ahn_corrs_export = bind_rows(
+  cor.ctrl.ahn, cor.nt.ahn, cor.t.ahn
+)
+ahn_corrs_export$group = recode_factor(
+  factor(ahn_corrs_export$group),
+  'Control' = 'Ctrl',
+  'No Trauma' = 'NS',
+  'Trauma' = 'S'
+)
+ahn_corrs_export = ahn_corrs_export[,c('group','abrv','r','p','p_fdr','sig','sig_fdr')]
+
+#export cluster membership
+cluster_membership_export = id_labels[,c('cluster','annotation_abrv','clusterAHN')]
+cluster_membership_export$cluster = factor(cluster_membership_export$cluster)
+cluster_membership_export$cluster = recode_factor(
+  cluster_membership_export$cluster,
+  '3'='1',
+  '1'='3'
+)
+
+#export every correlation,
+all_corrs_export = bind_rows(
+  'Ctrl' = cor.ctrl.orig.long, 
+  'NS' = cor.nt.orig.long, 
+  'S' = cor.t.orig.long,
+  .id = "group"
+)
+all_corrs_export = all_corrs_export[,c('group','Reg1','Reg2','R','p')]
+
+#export cluster selection
+wss_export = wss
+names(wss_export) = c('# of clusters', 'within-cluster variance')
+
+if (export){
+  write.csv(ahn_corrs_export, 'Fig1e_AHNcorrs.csv', row.names=FALSE)
+  write.csv(all_corrs_export, 'Fig1f_Allcorrs.csv', row.names=FALSE)
+  write.csv(cluster_membership_export, 'Fig1f_ClusterMembership.csv', row.names=FALSE)
+  write.csv(wss_export, 'ExtFig2d_ClusterSelection.csv', row.names=FALSE)
+}
+
+```

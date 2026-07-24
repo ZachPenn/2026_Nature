@@ -1,0 +1,526 @@
+---
+title: "SEFL17_CountAnalysis"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: readable
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE,message=FALSE)
+
+```
+
+
+# Load Packages 
+```{r}
+
+library(ggplot2)
+library(dplyr)
+library(stats)
+library(MASS)
+library(multcomp)
+library(ggh4x)
+
+```
+
+
+# Import Data 
+```{r}
+
+# load files
+counts = read.csv('countsummary_cleaned.csv',header=TRUE)
+group = read.csv('../SEFL17_Groups.csv', header=TRUE)
+behav = read.csv('../Behavior/SEFL17_MildStressor.csv', header=TRUE)
+labels = read.csv('allgraylabels.csv', header=TRUE)
+
+# factorize as necessary
+counts$group = factor(counts$group,levels=c("Control","No Trauma","Trauma"))
+counts$graph_order = factor(counts$graph_order)
+counts$annotation_abrv = factor(counts$annotation_abrv)
+
+# get summary of behavior data for first 3 minutes after auditory stressor
+behav = left_join(group, behav, by="Animal")
+poststl = behav[behav$phase=='min' & behav$subphase=='post' & behav$t<3,]
+poststl = summarise_at(
+  .tbl = group_by(poststl, Animal, group),
+  .funs = list(~mean(.)),
+  .vars = c('Motion','Freezing')
+)
+poststl.stats = summarise_at(
+  .tbl = group_by(poststl, group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('Motion','Freezing')
+)
+
+```
+
+
+# Drop regions
+Cerebellum excluded because several had cut in middle during extraction
+```{r}
+
+#drop cerebellum
+counts = counts[counts$parcellation_group!='cerebellum',]
+counts$annotation_abrv = droplevels(counts$annotation_abrv)
+
+```
+
+
+
+# Stats
+
+## fit GLM and contrasts
+```{r}
+
+#Note that MLE failed to converge for ASO and PVi
+region_info = list()
+for (region in levels(counts$annotation_abrv)){
+  
+  data = counts[counts$annotation_abrv==region,]
+  
+  glm=glm.nb(
+    formula = count~group,
+    data = data
+  )
+  pmod = (anova(
+    glm, 
+    glm.nb(formula =  count ~ 1, data =  data)
+    ))$`Pr(Chi)`[[2]]
+  
+  contrast = glht(glm, linfct = matrix(c(0,-1,1),1))
+  
+  coef_p = coef(summary(glm))[,'Pr(>|z|)']
+  coef_z = coef(summary(glm))[,'z value']
+  contrast_p = summary(contrast)$test$pvalues[1]
+  contrast_t = summary(contrast)$test$tstat
+  
+  region_info[region] = list(c(
+    unname(coef_z['groupNo Trauma']),
+    unname(coef_p['groupNo Trauma']),
+    unname(coef_z['groupTrauma']),
+    unname(coef_p['groupTrauma']),
+    contrast_t,
+    contrast_p,
+    pmod
+  ))
+}
+
+glm_results = data.frame(do.call(rbind,region_info))
+names(glm_results) = c(
+  'ControlVnoTrauma_z',
+  'ControlVnoTrauma_p',
+  'ControlVTrauma_z',
+  'ControlVTrauma_p',
+  'TraumaVnoTrauma_t',
+  'TraumaVnoTrauma_p',
+  'Model_p'
+)
+glm_results = cbind(annotation_abrv = rownames(glm_results), glm_results)
+
+```
+
+## calculate fdr and write to file
+```{r}
+
+#assess overall effect of group
+glm_results$Model_padj = p.adjust(glm_results$Model_p, 'fdr')
+glm_results$Model_fdr = glm_results$Model_padj < .05
+
+#assess comparison of NT and T groups
+glm_results$NTvsT_padj = NA
+glm_results$NTvsT_padj[glm_results$Model_fdr] = p.adjust(glm_results$TraumaVnoTrauma_p[glm_results$Model_fdr], 'fdr')
+glm_results$NTvsT_fdr = glm_results$NTvsT_padj < .05
+
+#caclulate count statistics
+counts.stats = summarise_at(
+  .tbl = group_by(
+    .data = counts,
+    annotation_abrv,group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n()), sd=~sd(.), var=~var(.)),
+  .vars = c('count')
+)
+counts.stats = right_join(
+  labels[,c('annotation_abrv','annotation_names')],
+  counts.stats, 
+  by = 'annotation_abrv'
+)
+
+#add parcellation group back to results df
+glm_results = right_join(
+  distinct(counts[c(
+  'annotation_abrv','annotation_names','parcellation_group','graph_order'
+  )]), 
+  glm_results,
+  by='annotation_abrv'
+)
+
+#write.csv(glm_results, 'STable1.csv', row.names=FALSE)
+#write.csv(counts.stats, 'STable2.csv', row.names=FALSE)
+
+```
+
+
+
+
+# Plots
+## Set Global Plot Parameters
+```{r}
+
+p.save = FALSE
+
+```
+
+## Plot T distribution
+### Format data for plotting
+```{r}
+
+# select regions that display differential activation by group
+pdata = glm_results[glm_results$Model_fdr,]
+pdata$graph_order = droplevels(pdata$graph_order)
+pdata$parcellation_group = factor(
+  pdata$parcellation_group, 
+  levels = c('cortical_plate','cortical_subplate','cerebral_nuclei','diencephalon','midbrain','hindbrain')
+)
+
+# add 'significance groups'
+pdata$NTvsT_LiberalSig = pdata$TraumaVnoTrauma_p<.05
+pdata$siggroup = 'NC' #initialize with all being 'no change'
+pdata$siggroup[pdata$NTvsT_LiberalSig & pdata$TraumaVnoTrauma_t>0] = 'lib_up'
+pdata$siggroup[pdata$NTvsT_LiberalSig & pdata$TraumaVnoTrauma_t<0] = 'lib_down'
+pdata$siggroup[pdata$Model_fdr & pdata$NTvsT_fdr & pdata$TraumaVnoTrauma_t>0] = 'fdr_up'
+pdata$siggroup[pdata$Model_fdr & pdata$NTvsT_fdr & pdata$TraumaVnoTrauma_t<0] = 'fdr_down'
+pdata$siggroup = factor(pdata$siggroup, levels=c('NC','lib_down','fdr_down','lib_up','fdr_up'))
+
+# create numeric numeric region ID to allow representation of region as continuous variable
+pdata = pdata[order(pdata$parcellation_group, pdata$graph_order),]
+pdata$graph_num = 1:nrow(pdata)
+
+#define bounds of parcellation regions
+parc_bounds = c()
+parc_mids = c()
+for (group in levels(pdata$parcellation_group)) {
+  parc_mids = c(
+    parc_mids, mean(pdata$graph_num[pdata$parcellation_group==group])
+  )
+  parc_bounds = c(
+    parc_bounds, max(pdata$graph_num[pdata$parcellation_group==group]) + .5
+  )
+}
+
+#define parcellation labels for graph
+parc_labels = c('Cortex','Cortical Subplate','Cerebral Nuclei','Diencephalon','Midbrain','Hindbrain')
+
+```
+
+
+### Plot T values
+```{r}
+
+p.t = ggplot(
+  data = pdata,
+  aes(x=graph_num, y=TraumaVnoTrauma_t, fill=siggroup)
+)
+
+p.t + 
+  
+  geom_bar(stat='identity', show.legend = FALSE) +
+  
+  geom_vline(
+   xintercept = parc_bounds[1:length(parc_bounds)-1],
+   linetype = 'dotted',
+   color = 'black',
+   linewidth = .5,
+   alpha = 1
+  ) +
+  
+  scale_y_continuous(limits = c(-4,4)) +
+  scale_x_continuous(breaks = parc_mids, labels = parc_labels) +
+  
+  coord_flip(expand = FALSE) +
+
+  labs(
+    title = 'T vs. NT cFos',
+    x = element_blank(),
+    y = 't (T-NT)'
+  ) +
+  
+  scale_fill_manual(values = c('gray80','steelblue4','blue3','red3','red3')) +
+  
+  theme_classic() +
+  theme(
+    plot.title = element_text(
+      hjust = .5, 
+      size = 20,
+      face = 'bold'),
+    axis.title = element_text(
+      color = 'black',
+      face =  'bold',
+      size = 12),
+    axis.text.y = element_text(
+      angle = 0,
+      color = 'black',
+      face = 'bold',
+      size = 11),
+    axis.text.x = element_text(
+      color = 'black',
+      size = 10,
+      angle= 0,
+      hjust = .5, 
+      vjust=1),
+    axis.ticks.x = element_blank()
+  )
+
+# if (p.save == TRUE) {
+#   ggsave(
+#     filename="SEFL17_Pvalues_singlecolor.tiff",
+#     width=3.25, height=7, units="in",
+#     dpi=300,
+#     bg='transparent')
+# }
+
+```
+
+
+## Plot means of selected regions
+```{r}
+
+
+regions = c('AHN', 'LA', 'BLAp', 'BMA', 'PL2/3', 'ILA2/3', 'LHA','VMH','MEA','PAG')
+#'LA', 'BLAp', 'BMA', 'PL2/3', 'ILA2/3', 'LHA'
+
+for (region in regions) {
+
+  mx = max(counts$count[counts$annotation_abrv==region])*1.1
+  mxbrk = round(mx, 1-nchar(as.character(round(mx))))
+  brks = seq(0, mxbrk, mxbrk/4)
+  
+  p.region = ggplot(
+    data = counts.stats[counts.stats$annotation_abrv==region,],
+    aes(x=group, y=mean, fill=group)
+  )
+  
+  p.region +
+    
+    geom_crossbar(
+      stat="identity",
+      linewidth = .75,
+      colour = "black",
+      aes(ymin = mean - sem,
+          ymax = mean + sem),
+      width = .7,
+      show.legend = FALSE) +
+    
+    geom_jitter(
+      data = counts[counts$annotation_abrv==region,],
+      aes(x=group, y=count),
+      fill = NA,
+      shape =  21,
+      size = 2.5,
+      alpha = .4,
+      width = .2
+    ) +
+    
+    scale_fill_manual(values=c('white','yellow1','orange')) +
+    coord_cartesian(ylim=c(0, mxbrk)) +
+    scale_y_continuous(expand = c(0, 0), breaks = brks) +
+    scale_x_discrete(labels = c('Ctrl','NS','S')) +
+    
+    labs(
+      title = region,
+      y = "Mean cFos Counts",
+      x = ""
+    ) +
+    
+    theme_bw() + 
+    theme(
+      panel.grid = element_blank(), 
+      panel.border = element_rect(colour = "white"),
+  
+      axis.line = element_line(color="black", linewidth = .5),
+      plot.title = element_text(
+        size = 24, 
+        hjust= .5, margin=margin(b=15,t=10), 
+        face = "bold"),
+      axis.title = element_text(size=16, face="bold"),
+      axis.text= element_text(size=12, colour="black"),
+      axis.text.x= element_text(
+        size = 16,
+        face='bold',
+        angle = 0,
+        hjust = .5,
+        vjust=.5,
+        margin=margin(b=10,t=5)),
+      plot.background = element_rect(fill = "transparent",colour = NA),
+      plot.margin = unit(c(2, 3.75, 2,3.75), "cm")
+    ) 
+  
+  if (p.save) {
+    ggsave(
+      filename = paste('SEFL17_MeanCounts_', gsub('/','',region), ".svg", sep = ''),
+      width = 5, height = 5, units = "in", dpi = 500, bg = 'transparent')
+    }
+
+}
+
+
+```
+
+
+## AHN-Behav Corr
+```{r}
+
+counts$Animal = sapply(
+  counts$animal,
+  function(x){as.numeric(strsplit(x,'_')[[1]][2])}
+)
+
+ahn_fz_cordata = left_join(
+  poststl,
+  counts[counts$annotation_abrv=='AHN',],
+  by = join_by(Animal)
+)
+ahn_fz_cordata = ahn_fz_cordata[ahn_fz_cordata$group.x!='No Stim',]
+ahn_fz_cordata$group.x = recode_factor(
+  ahn_fz_cordata$group.x,
+  'No Trauma' = 'NS',
+  'Trauma' = 'S'
+)
+
+#predict freezing from group
+ahn_fz_lm.g = lm(Freezing ~ group.x, data=ahn_fz_cordata)
+anova(ahn_fz_lm.g)
+summary(ahn_fz_lm.g)
+
+#predict freezing from counts
+ahn_fz_lm.c = lm(Freezing ~ count, data=ahn_fz_cordata)
+anova(ahn_fz_lm.c)
+summary(ahn_fz_lm.c)
+
+#predict freezing from counts and group
+ahn_fz_lm.null = lm(Freezing ~ 1, data=ahn_fz_cordata)
+anova(ahn_fz_lm.null)
+summary(ahn_fz_lm.null)
+
+
+```
+
+### Plot
+```{r}
+
+p.ahn_fz_cor = ggplot(
+  data = ahn_fz_cordata, 
+  aes(x=count, y=Freezing, fill=group.x, color=group.x)
+)
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 100
+p.yint = 25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+p.xmin = 1000
+p.xmax = 3200
+p.xint = 1000
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+
+p.ahn_fz_cor +
+  
+  # geom_abline(
+  #   intercept = ahn_fz_lm.c$coefficients[[1]],
+  #   slope = ahn_fz_lm.c$coefficients[[2]],
+  #   linetype = 'dashed'
+  # ) +
+  
+  geom_smooth(
+    method = "lm", 
+    se = FALSE,
+    linetype = 'solid',
+    linewidth = 1,
+    fullrange = FALSE
+  ) +
+  
+  geom_point(
+    size = 3,
+    shape = 21,
+    color = 'black'
+  ) +
+  
+  labs(
+    x = 'AHN cFos Counts',
+    y = '% Freezing'
+  ) +
+  
+  scale_y_continuous(breaks=p.ybreaks, limits=c(p.ymin,p.ymax), expand=c(0,0)) +
+  scale_x_continuous(breaks=p.xbreaks, limits=c(p.xmin,p.xmax), expand=c(.02,.02)) +
+  
+  scale_fill_manual(values=c('yellow1','orange')) +
+  scale_color_manual(values=c('yellow3','orange')) +
+  
+  theme_classic() +
+  theme(
+    axis.text = element_text(size=12),
+    axis.title = element_text(size=12, face='bold'),
+    legend.title = element_blank(),
+    legend.text = element_text(size=12, face='bold'),
+    legend.position = 'bottom'
+  ) +
+  
+  force_panelsizes(
+    cols = unit(1.5, "in"),
+    total_height = unit(1.5, "in")
+  ) 
+
+if (p.save) {
+  ggsave(
+    filename = paste('SEFL17_Corr_AHNbehav', ".svg", sep = ''),
+    width = 4, height = 4, units = "in", dpi = 500, bg = 'transparent'
+  )
+}
+
+#if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Actxtest", p$savetype, sep = ''))}
+
+
+```
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+#export count data
+count_export = counts[,c('Animal','sex','group','annotation_abrv','annotation_names','count')]
+count_export$group = recode_factor(
+  count_export$group,
+  'Control' = 'Ctrl',
+  'No Trauma' = 'NS',
+  'Trauma' = 'S'
+)
+
+ahn_cordata_export = ahn_fz_cordata[
+  ,c('Animal','sex','group.x','annotation_abrv','annotation_names','count','Freezing')
+]
+names(ahn_cordata_export)[names(ahn_cordata_export)=='group.x'] = 'group'
+
+if (export){
+  write.csv(count_export, 'Fig1d_counts.csv', row.names=FALSE)
+  write.csv(ahn_cordata_export, 'ExtFig1j_ahncountsANDfreezing.csv', row.names=FALSE)
+}
+
+```
+
+
+
+

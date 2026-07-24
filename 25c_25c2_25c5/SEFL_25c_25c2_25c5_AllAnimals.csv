@@ -1,0 +1,13 @@
+Animal,Experiment,Exclude,Notes,Histology,Sex,DOB,SurgeryDate,PriorExperience
+2,25c,0,,Lens looks great! Optic fiber in BLA a bit lateral and on boundary of cortex.,F,8/16/24,12/20/24,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+6,25c,0,,Lens looks great! Optic fiber in BLA on ventral side.,M,9/18/24,12/20/24,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+1,25c2,0,,Lens looks great! Optic fiber in BLA a touch on ventral side. No Virus expression,M,10/9/24,3/24/25,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+2,25c2,0,,"Lens looks great! Fiber in BLA has good placement, but no CHr2 expression",M,10/9/24,3/24/25,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+3,25c2,0,,"Lens looks great! Fiber in BLA has good placement, but no CHr2 expression",M,10/9/24,3/24/25,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+4,25c2,0,,"Lens looks great! Fiber in BLA has good placement, but no CHr2 expression",F,10/9/24,3/24/25,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+5,25c2,0,,Lens slightly anterior but great. Fiber in BLA great. No Chr2 expression,F,10/9/24,3/24/25,"Note that mouse had previously been part of experiment where it had received 12, 0.25 mA, 2 sec, footshocks"
+5,25c5,0,,Great,F,6/19/25,8/26/25,
+7,25c5,0,,"OK, but a touch posterior maybe",F,6/19/25,8/26/25,
+8,25c5,0,Drop units 0 and 1 (lens artifact),Tore and slightly hard to tell whether too ventral,M,6/19/25,8/26/25,
+9,25c5,0,,"Good, but a touch anterior",M,6/19/25,8/26/25,
+10,25c5,0,,Great,M,6/19/25,8/26/25,

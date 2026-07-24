@@ -1,0 +1,942 @@
+---
+title: "SEFL21J_Analysis"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE,message=FALSE)
+```
+
+
+
+# Load Packages 
+```{r}
+library(ggplot2)
+library(ez)
+library(knitr)
+library(tidyr)
+library(lmtest)
+library(car)
+library(dplyr)
+library(purrr)
+library(ggh4x)
+```
+
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load  files
+data_vf = read.csv('SEFL21J_vfdata.csv',header=TRUE)
+data_ld = read.csv('SEFL21J_lddata.csv',header=TRUE)
+groups = read.csv('SEFL21J_groups.csv',header=TRUE)
+
+
+#factorize as necessary
+groups$Group = factor(groups$Group, levels = c("mCherry","HM4D: BLA", "HM4D: vHC","HM4D: LS"))
+groups$Animal = factor(groups$Animal)
+data_vf$Animal = factor(data_vf$Animal)
+data_ld$Animal = factor(data_ld$Animal)
+data_ld$testnum = factor(data_ld$testnum)
+
+
+#get dataframe for drug order
+drug_order = pivot_longer(
+  data = groups[,c('Animal','Trec1','Trec2','LD1','LD2','LD3','LD4')],
+  cols = c('Trec1','Trec2','LD1','LD2','LD3','LD4'),
+  names_to = 'TestName',
+  values_to = 'Drug'
+)
+drug_order$testnum = sapply(drug_order$TestName, function (x) {l = nchar(x); return(as.numeric(substr(x,l,l)))})
+drug_order$testnum = as.factor(drug_order$testnum)
+drug_order$test = sapply(drug_order$TestName,function (x) {l = nchar(x); return(substr(x,1,l-1))})
+drug_order$Drug = factor(drug_order$Drug, levels = c('veh','cno'))
+
+
+#add group info to data files
+data_vf = inner_join(x=groups,y=data_vf,by="Animal")
+data_ld = inner_join(x=groups,y=data_ld,by="Animal")
+data_vf = left_join(x=data_vf, y=drug_order[drug_order$test=='Trec',], by=c('Animal'='Animal','subphase'='testnum'))
+data_ld = left_join(x=data_ld, y=drug_order[drug_order$test=='LD',], by=c('Animal'='Animal','testnum'='testnum'))
+
+
+```
+
+
+# Drop subjects
+See `groups` dataframe for exclusion rationale.
+Note that there was a batch of animals that got HM4D/mCherry in the lateral septum. While very interesting (LS inhibiton increased freezing), animals with HM4Di in LS were not included in final manuscript for sake of simplicity. 
+```{r}
+
+data_vf = data_vf[data_vf$Exclude!=1,]
+data_ld = data_ld[data_ld$Exclude!=1,]
+
+data_vf = data_vf[
+  !(data_vf$Virus=='HM4D' & data_vf$Source=="LS"),
+]
+data_ld = data_ld[
+  !(data_ld$Virus=='HM4D' & data_ld$Source=="LS"),
+]
+
+```
+
+
+# Subset data
+Separate phases (trauma, trauma recall, etc) are placed in unique dataframes for ease of analysis.
+```{r}
+
+#trauma data
+trauma.freezing = data_vf[data_vf$phase=='trauma' & data_vf$subphase!="shock",]
+
+
+#trauma shock reactivity
+trauma.shockreact = summarise_at(
+  .tbl = group_by(
+    .data = data_vf[data_vf$phase=='trauma' & data_vf$subphase!="postshock",],
+    Animal,subphase, Group),
+  .funs = list(motion=mean),
+  .vars = c('motion')
+)
+
+
+#Collapse ld data
+data_ld = data_ld[data_ld$bin<5,]
+ld.collapsed = summarize_at(
+  .tbl = group_by(data_ld, Animal, Group, Sex, Drug, testnum),
+  .funs = list(mean),
+  .vars = c('dark','Distance_in'))
+ld.collapsed$post = as.numeric(ld.collapsed$testnum)>2
+
+#trauma test data
+traumatest = data_vf[data_vf$phase=='trec' & data_vf$component=='avg',]
+
+
+#nov stressor data
+##prepost startle stimulus
+novstressor.prepost = data_vf[data_vf$phase=='mildstressor' & data_vf$subphase=='prepost',]
+novstressor.prepost$component = factor(novstressor.prepost$component, levels=c('bl','post'))
+
+##startle response
+novstressor.startle = data_vf[data_vf$phase=='mildstressor' & data_vf$subphase=='startle',]
+novstressor.startle$component = factor(
+  novstressor.startle$component,
+  levels=c('startle_pre','startle_startle','startle_post'))
+
+
+#novel stressor (sefl) test data
+sefltest = data_vf[data_vf$phase=='sefltest' & data_vf$subphase=='avg',]
+
+```
+
+
+
+# Get summary statistics for plotting
+Calculate relevant means and std. errors.
+```{r}
+
+#trauma session freezing
+trauma.freezing.stats = summarise_at(
+  .tbl = group_by(
+    .data = trauma.freezing,
+    component, Group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('motion','freezing')
+)
+trauma.freezing.stats$subphase = 'postshock'
+trauma.freezing.stats$subphase[trauma.freezing.stats$component=='baseline'] = 'baseline'
+
+#trauma shock reactivity
+trauma.shockreact.stats = summarise_at(
+  .tbl = group_by(
+    .data = trauma.shockreact,
+    subphase, Group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('motion')
+)
+
+
+#trauma test
+traumatest.stats = summarise_at(
+  .tbl = group_by(
+    .data = traumatest,
+    Group, Drug),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('freezing','motion')
+)
+
+
+#novel stressor
+#novel stressor pre/post
+novstressor.prepost.stats = summarise_at(
+  .tbl = group_by(
+    .data = novstressor.prepost,
+    component, Group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('freezing','motion')
+)
+
+#novel stressor startle
+novstressor.startle.stats = summarise_at(
+  .tbl = group_by(
+    .data = novstressor.startle,
+    component,Group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('freezing','motion')
+)
+
+
+#sefl test
+sefltest.stats = summarise_at(
+  .tbl = group_by(
+    .data = sefltest,
+    Virus, Group),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('freezing','motion')
+)
+
+
+#ld stats
+ld.stats = summarise_at(
+  .tbl = group_by(
+    .data = ld.collapsed,
+    Group, Drug, post),
+  .funs = list(mean=~mean(.), sem=~sd(.)/sqrt(n())),
+  .vars = c('dark','Distance_in'))
+
+
+```
+
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '21J'
+
+#list of plotting parameters
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+##Plot dimensions
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(.75, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 16,
+  axis_title = 16,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .2
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .3,
+  error = .5
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+#Plot colors
+p$cols = list(
+  fill = c('white','blue4','red3')
+)
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"),
+    axis.title = element_text(
+      size=p$textsize$axis_title, 
+      face="plain"),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black",
+      face = 'plain'),
+    axis.text.x = element_text(angle=-90, hjust=0),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      #angle = -90,
+      size=p$textsize$axis_title, 
+      colour="black",
+      face = 'plain'),
+    legend.position = c(.1,.9),
+    legend.title = element_blank(),
+    legend.text = element_text(size=p$textsize$legend, face="plain"),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+
+```
+
+
+
+
+## Make Plots
+
+### Trauma
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.Trauma.Freezing = ggplot(
+  data = trauma.freezing.stats,
+  aes(x = component,
+      y = freezing_mean,
+      fill = Group,
+      shape = Group,
+      group = interaction(subphase,Group)))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 100
+p.yint = 25
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.Trauma.Freezing  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat = "identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    stroke = p$points$grp$stroke,
+    shape = p$points$grp$shape,
+    show.legend = TRUE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, expand = c(0, 0)) +
+  scale_x_discrete(
+    labels=c('P','1','2','3','4','5','6','7','8','9','10'),
+    expand = c(.1,.1)
+  ) +
+  
+  labs(
+    x = "Shock",
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  theme(
+    axis.text.x = element_text(
+      size=p$textsize$axis_text-4,
+      hjust = .5,
+      angle = 0
+    ),
+    legend.title = element_blank(),
+    legend.position = c(1, .2),
+    legend.box.margin = margin(t=-0)
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1.35, "in")
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Trauma", p$savetype, sep = ''))}
+
+```
+
+
+
+### Trauma Recall
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.Traumatest = ggplot(
+  data = traumatest.stats,
+  aes(x = Drug,
+      y = freezing_mean,
+      fill = Group,
+      group = Group))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 100
+p.yint = 25
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.Traumatest  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat = "identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = FALSE
+  ) +
+
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  scale_x_discrete(labels=c('Veh','CNO')) +
+  
+  labs(
+    x = '',
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    axis.text.x = element_text(vjust=.5)
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w #unit(.75, 'in')
+  ) 
+
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"TraumaRecall", p$savetype, sep = ''))}
+
+```
+
+
+
+### Novel Stressor
+#### Pre-Post
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+#Create base layer from group level data
+P.NovSts.prepost = ggplot(
+  data = novstressor.prepost.stats[novstressor.prepost.stats$Group!='HM4D: LS',],
+  aes(x = component,
+      y = freezing_mean,
+      fill = Group,
+      group = Group))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 60
+p.yint = 10
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.NovSts.prepost  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat="identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_x_discrete(labels=c('Pre','Post')) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  
+  labs(
+    x = '',
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    axis.text.x = element_text(vjust=.5),
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w 
+  ) 
+
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"NovSts_PrePost", p$savetype, sep = ''))}
+
+
+```
+
+
+#### Startle
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+#Create base layer from group level data
+P.NovSts.startle = ggplot(
+  data = novstressor.startle.stats,
+  aes(x = component,
+      y = motion_mean,
+      fill = Group,
+      group = Group))
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 2500
+p.yint = 500
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.NovSts.startle  +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = motion_mean - motion_sem,
+        ymax = motion_mean + motion_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat="identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_x_discrete(labels=c('Pre','Noise','Post')) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  
+  labs(
+    x = '',
+    y = "Motion (au)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  theme(
+    axis.text.x= element_text(angle=-90, hjust=0),
+  )
+
+#if (p$save == TRUE) {saveplot(filename = paste(f_pfx, "NovSts_Startle.tiff", sep = '_'))}
+
+```
+
+### SEFL Test
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+ p$margins[[4]] = unit(c(2, 3.6, -.4, 3.6), 'cm')
+
+#Create base layer from group level data
+P.sefltest = ggplot(
+  data = sefltest.stats[sefltest.stats$Group!='HM4D: LS',],
+  aes(x = Group,
+      y = freezing_mean,
+      fill = Group,
+      group = Group)) 
+
+#Define plot specific parameters
+p.ymin = 0
+p.ymax = 40
+p.yint = 10
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.sefltest  +
+  
+  geom_crossbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = freezing_mean - freezing_sem,
+        ymax = freezing_mean + freezing_sem),
+    width = p$width$bar,
+    show.legend = FALSE) +
+  
+  
+  geom_jitter(
+    data = sefltest[sefltest$Group!='HM4D: LS',],
+    aes(x = Group,
+        y = freezing),
+    width = p$width$bar * p$width$jitter,
+    height = 0,
+    shape = p$points$ind$shape,
+    size = p$points$ind$size,
+    colour = 'black',
+    fill = NA,
+    alpha = p$points$ind$alpha,
+    show.legend=FALSE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks, expand = c(0, 0)) +
+  
+  labs(
+    x = "",
+    y = "% Freezing"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w*1.3 #unit(.75, 'in')
+  ) 
+
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"SEFLtest", p$savetype, sep = ''))}
+
+```
+
+
+### Light Dark
+```{r, fig.width=4.5, fig.height=4.5}
+
+
+#Create base layer from group level data
+P.LD.dark = ggplot(
+  data = ld.stats[ld.stats$post==TRUE & ld.stats$Group!='HM4D: LS',],
+  aes(x = Drug,
+      y = dark_mean,
+      fill = Group,
+      group = Group))
+
+#Define plot specific parameters
+p.ymin = .4
+p.ymax = 1
+p.yint = .2
+p.breaks = seq(p.ymin,p.ymax,p.yint)
+
+#Create plot
+P.LD.dark  +
+
+  geom_hline(yintercept=.5, linetype='dashed') +
+  
+  geom_errorbar(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    colour = "black",
+    aes(ymin = dark_mean - dark_sem,
+        ymax = dark_mean + dark_sem,
+        width = p$width$error
+        )) +
+  
+  geom_line(
+    stat = "identity",
+    linewidth = p$linesize$data_grp
+  ) +
+  
+  geom_point(
+    stat = "identity",
+    size = p$points$grp$size,
+    shape = p$points$grp$shape,
+    stroke = p$points$grp$stroke,
+    show.legend = FALSE
+  ) +
+  
+  scale_fill_manual(values=p$cols$fill) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax)) +
+  scale_x_discrete(labels=c("Veh","CNO")) +
+  scale_y_continuous(breaks=p.breaks, labels = p.breaks*100, expand = c(0, 0)) +
+  facet_grid(cols=vars(Group)) +
+  
+  labs(
+    x = '',
+    y = "% Time in Dark"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    strip.text = element_blank(),
+    axis.text.x = element_text(vjust=.5)
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = p$dim$panel_w*.5 #unit(.75, 'in')
+  ) 
+
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"LD_Dark", p$savetype, sep = ''))}
+
+```
+
+
+
+# Stats
+
+## trauma
+```{r}
+
+trauma.fz.anova = ezANOVA(
+  data = trauma.freezing[trauma.freezing$component!='baseline',],
+  dv = freezing,
+  wid = Animal,
+  within = component,
+  white.adjust = TRUE,
+  between = Group,
+  type = 3,
+  detailed = TRUE
+)
+trauma.fz.anova
+
+```
+
+## Trauma Test Stats
+```{r}
+
+traumatest.anova = ezANOVA(
+  data = traumatest,
+  dv = freezing,
+  wid = Animal,
+  between = Group,
+  within = Drug,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+traumatest.anova
+
+```
+
+
+## novel stressor
+```{r}
+
+novstressor.anova = ezANOVA(
+  data = novstressor.prepost,
+  dv = freezing,
+  wid = Animal,
+  within = component,
+  white.adjust = TRUE,
+  between = Group,
+  type = 3,
+  detailed = TRUE
+)
+novstressor.anova
+
+
+```
+
+
+## SEFL Test Stats
+```{r}
+
+sefl.anova = ezANOVA(
+  data = sefltest,
+  dv = freezing,
+  wid = Animal,
+  between = Group,
+  white.adjust = TRUE,
+  type = 3,
+  detailed = TRUE
+)
+sefl.anova
+
+
+sefl.posthoc = list()
+for (group in levels(droplevels(sefltest$Group))){
+  if (group != 'mCherry') {
+    sefl.posthoc[[group]] = ezANOVA(
+      data = sefltest[sefltest$Group==group | sefltest$Group=='mCherry',],
+      dv = freezing,
+      wid = Animal,
+      between = Group,
+      white.adjust = TRUE,
+      type = 3,
+      detailed = TRUE
+    )
+  }
+}
+sefl.posthoc
+
+```
+
+
+## Light Dark Stats
+```{r}
+
+ld.dark.anova = ezANOVA(
+  data = ld.collapsed[ld.collapsed$post,],
+  dv = dark,
+  wid = Animal,
+  within = Drug,
+  between = Group,
+  white.adjust = FALSE,
+  type = 3,
+  detailed = TRUE
+)
+ld.dark.anova
+#interaction significant when 
+#HM4D: LS retained.
+
+ld.posthoc = list()
+for (group in levels(droplevels(ld.collapsed$Group))){
+  ld.posthoc[[group]] = ezANOVA(
+    data = ld.collapsed[ld.collapsed$post & ld.collapsed$Group==group,],
+    dv = dark,
+    wid = Animal,
+    within = Drug,
+    white.adjust = TRUE,
+    type = 3,
+    detailed = TRUE
+  )
+}
+ld.posthoc
+
+```
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+#export S1 data
+S1_export = trauma.freezing[,c('Animal','Sex','Group','component','freezing')]
+
+#export S1 recall data
+S1recall_export = traumatest[,c('Animal','Sex','Group','Drug','freezing')]
+
+#export S2 data
+S2_export =  novstressor.prepost[,c('Animal','Sex','Group','component','freezing')]
+S2_export$component = recode_factor(S2_export$component, 'bl'='pre')
+
+#export S2 recall data
+S2recall_export = sefltest[,c('Animal','Sex','Group','component','freezing')]
+
+#export light-dark data
+ld_export = ld.collapsed[ld.collapsed$post,c('Animal','Sex','Group','Drug','dark','Distance_in')]
+ld_export$dark = ld_export$dark*100
+
+if (export){
+  write.csv(S1_export, 'ExtFig6d.csv', row.names=FALSE)
+  write.csv(S1recall_export, 'ExtFig6e.csv', row.names=FALSE)
+  write.csv(S2_export, 'ExtFig6f.csv', row.names=FALSE)
+  write.csv(S2recall_export, 'ExtFig6g.csv', row.names=FALSE)
+  write.csv(ld_export, 'ExtFig6h.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+

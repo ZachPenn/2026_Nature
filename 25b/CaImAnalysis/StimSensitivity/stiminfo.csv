@@ -1,0 +1,17 @@
+stim_n,item,type,amp,stim_times,stim_pair
+0,shock_low,shock,low,180,1
+1,sound_low,sound,low,282,1
+2,shock_high,shock,high,344,1
+3,sound_high,sound,high,426,1
+4,sound_low,sound,low,518,2
+5,shock_high,shock,high,580,2
+6,sound_high,sound,high,672,2
+7,shock_low,shock,low,744,2
+8,shock_high,shock,high,846,3
+9,sound_high,sound,high,918,3
+10,sound_low,sound,low,1010,3
+11,shock_low,shock,low,1082,3
+12,sound_high,sound,high,1184,4
+13,shock_low,shock,low,1266,4
+14,shock_high,shock,high,1328,4
+15,sound_low,sound,low,1410,4

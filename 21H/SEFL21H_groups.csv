@@ -1,0 +1,29 @@
+Animal,Notes,Sex,DOB,SurgeryDate,Virus,Histology,Exclude
+1,,M,11/21/23,2/19/24,mCherry,,0
+2,,M,11/21/23,2/20/24,stGtACR1,,0
+3,,M,11/21/23,2/20/24,stGtACR1,,0
+4,,M,11/21/23,2/19/24,mCherry,,0
+5,,M,11/21/23,2/20/24,stGtACR1,,0
+6,,M,11/21/23,2/19/24,mCherry,,0
+7,,M,11/21/23,2/19/24,mCherry,,0
+8,,M,11/21/23,2/20/24,stGtACR1,Too lateral on one side,1
+9,,M,11/21/23,2/21/24,stGtACR1,,0
+10,,M,11/21/23,2/19/24,mCherry,,0
+11,,M,11/21/23,2/21/24,stGtACR1,,0
+12,,M,11/21/23,2/19/24,mCherry,,0
+13,,M,11/21/23,2/20/24,mCherry,,0
+14,,M,11/21/23,2/21/24,stGtACR1,,0
+15,,M,11/21/23,2/20/24,mCherry,Shifted lateral on one side and medial on the other.,1
+16,,M,11/21/23,2/21/24,stGtACR1,,0
+17,,M,11/21/23,2/21/24,stGtACR1,,0
+18,,M,11/21/23,2/20/24,mCherry,,0
+19,,M,11/21/23,2/21/24,stGtACR1,,0
+20,,M,11/21/23,2/20/24,mCherry,,0
+21,,M,11/21/23,2/21/24,stGtACR1,,0
+22,,M,11/21/23,2/20/24,mCherry,,0
+23,Died after surgery,M,11/21/23,2/20/24,,,1
+24,,M,11/21/23,2/21/24,stGtACR1,,0
+25,,M,11/21/23,2/21/24,stGtACR1,,0
+26,,M,11/21/23,2/21/24,stGtACR1,,0
+27,,M,11/21/23,2/20/24,mCherry,,0
+28,,M,11/21/23,2/21/24,stGtACR1,,0

@@ -1,0 +1,861 @@
+---
+title: "SEFL25d_CaAnalysis"
+author: "Zach"
+output:
+  html_document: 
+    fig_height: 4.5
+    fig_width: 4.5
+    highlight: kate
+    number_sections: yes
+    theme: journal
+    toc: yes
+    toc_depth: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+
+# Set Global Options
+```{r global_options}
+
+knitr::opts_chunk$set(fig.width=4.5, fig.height=4.5, echo=TRUE, warning=FALSE, message=FALSE)
+
+```
+
+
+
+# Load Packages 
+```{r}
+
+library(ggplot2)
+library(svglite)
+library(ez)
+library(knitr)
+library(tidyr)
+library(dplyr)
+library(purrr)
+library(ggh4x)
+library(stringr)
+library(arrow)
+
+
+```
+
+
+
+# Import Data 
+Load  files and factorize as necessary.
+```{r}
+
+#load unit classifications and unit responses
+unit_class = list()
+sig = list()
+for (f in dir('UnitClassification/')){
+  unit_class[[f]] = read_feather(paste('UnitClassification/',f,sep=''))
+}
+for (f in dir('BinnedUnitResponses/')){
+  sig[[f]] = read_feather(paste('BinnedUnitResponses/',f,sep=''))
+}
+unit_class = do.call('rbind', unit_class)
+sig = do.call('rbind', sig)
+
+sig$amp = factor(sig$amp, levels=c('high','low'))
+sig$amp = recode_factor(sig$amp, 'high'='High','low'='Low')
+
+
+```
+
+
+
+# Pre-process data
+## Define classifications and add to signal data
+```{r}
+
+thresh = 95
+
+#pivot wider so each cell has one column
+unit_class_wd = pivot_wider(
+  data = unit_class,
+  id_cols = c('Animal','Experiment','unit_id'),
+  names_from = c('type'),
+  names_prefix = 'pctshuff_',
+  values_from = c('pct_shuff')
+)
+
+#here cells are classified only if they display an increase at p=.05, one-tailed
+unit_class_wd = mutate(unit_class_wd, ShockResp=ifelse(pctshuff_shock>=thresh,TRUE,FALSE))
+unit_class_wd = mutate(unit_class_wd, SoundResp=ifelse(pctshuff_sound>=thresh,TRUE,FALSE))
+unit_class_wd = mutate(
+  unit_class_wd, 
+  Classification=case_when(
+    (ShockResp & !SoundResp) ~ 'shock',
+    (!ShockResp & SoundResp) ~ 'sound',
+    (ShockResp & SoundResp) ~ 'both',
+    (!ShockResp & !SoundResp) ~ 'neither'
+  )
+)
+unit_class_wd$Classification = factor(
+  unit_class_wd$Classification, 
+  levels=c('neither','sound','shock','both')
+)
+
+```
+
+
+## Give each unit unique id and add classification to signal data
+```{r}
+
+sig = mutate(sig, uniqID = paste(Animal,Experiment,unit_id))
+unit_class_wd = mutate(unit_class_wd, uniqID = paste(Animal,Experiment,unit_id))
+sig = left_join(sig, unit_class_wd, by=c('Animal','Experiment','unit_id','uniqID'))
+
+```
+
+
+## Get Average Unit Response for each event (sounds and shocks of both amps)
+```{r}
+
+sig = sig[!is.na(sig$sig),]
+sig_avg = summarise_at(
+  .tbl = group_by(sig,uniqID,ShockResp,SoundResp,Classification,type,amp,bin),
+  .funs = list(sig=mean),
+  .vars = c('sig')
+)
+
+#Define average post-event response for each unit
+period = c(0, 5000) 
+sig_avg_post = summarise_at(
+  .tbl = group_by(
+      sig[sig$bin>period[1] & sig$bin<=period[2],], 
+      uniqID,ShockResp,SoundResp,Classification,type,amp
+    ),
+  .funs = list(sig=mean),
+  .vars = c('sig')
+)
+
+
+```
+
+
+# Get summary statistics for plotting
+Calculate relevant means and std. errors.
+```{r}
+
+sem = function(x) {sd(x)/sqrt(length(x))}
+
+sig_avg.shock.stats = summarise_at(
+  .tbl = group_by(
+    .data = sig_avg[sig_avg$type=='shock',],
+    ShockResp, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+sig_avg.sound.stats = summarise_at(
+  .tbl = group_by(
+    .data = sig_avg[sig_avg$type=='sound',],
+    SoundResp, amp, bin),
+  .funs = list(mean=mean, sem=sem),
+  .vars = c('sig'))
+
+```
+
+
+
+# Plots
+## Global Plot Parameters
+```{r}
+
+#set figure file prefix
+f_pfx = '25d_Ca2'
+
+#list of plotting parameters
+p = list()
+
+#ggsave
+p$save = FALSE
+p$savetype = '.svg'
+
+p$dim = list(
+  width = 4.5, #Plot width (in)
+  height = 4.5, #Plot height (in)
+  panel_w = unit(1.5, 'in'),
+  panel_h = unit(2, 'in'),
+  dpi = 500 #Plot dpi
+)
+
+#Plot text
+p$textsize = list(
+  title = 20,
+  legend = 16,
+  axis_title = 16,
+  axis_text = 14
+)
+
+#Plot line dimensions
+p$linesize = list(
+  data_grp = 1,
+  data_ind = .6,
+  axis = .5,
+  bar = .7,
+  error =.75
+)
+p$linealpha =list(
+  data_ind = .3
+)
+
+#Plot Widths
+p$width = list(
+  bar = .8,
+  jitter = .3,
+  error = .5
+)
+
+#Point/dot sizes
+p$points = list(
+  grp = list(
+    shape = 21,
+    size = 4,
+    stroke = 1,
+    alpha = 1
+  ),
+  ind = list(
+    shape =  21,
+    size = 2.5,
+    alpha = .4
+  )
+)
+
+#Plot colors
+p$cols = list(
+  fill_shk = c('orangered3','orange2'),
+  fill_snd = c('blue3','cornflowerblue'),
+  rec = 'slategray1'
+)
+
+#theme
+p$theme = list(
+  base = theme_bw(),
+  specs = theme(
+    panel.grid = element_blank(), 
+    panel.border = element_rect(colour="white"),
+    axis.line = element_line(
+      linewidth=p$linesize$axis,
+      color="black"),
+    plot.title = element_text(
+      size=p$textsize$title, 
+      hjust=.5, 
+      margin=margin(b=15,t=10), 
+      face="bold"),
+    axis.title = element_text(
+      size=p$textsize$axis_title, 
+      face="plain"),
+    axis.text=element_text(
+      size=p$textsize$axis_text, 
+      colour="black",
+      face = 'plain'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      colour="black",
+      face = 'plain'),
+    legend.position = c(.1,.9),
+    legend.title = element_blank(),
+    legend.text = element_text(size=p$textsize$legend, face="plain"),
+    legend.key = element_rect(colour=NA, fill=NA),
+    legend.background = element_rect(fill=NA),
+    plot.background = element_rect(fill = "transparent", colour = NA),
+  ) 
+)
+
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+#predefine partial function for saving plots
+saveplot = partial(
+  ggsave,
+  width = p$dim$width,
+  height = p$dim$height,
+  units = "in",
+  dpi = p$dim$dpi,
+  bg = 'transparent'
+)
+
+```
+
+
+## Make Plots
+
+##### Shock Responses 
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.ShkResp.ShkNeurons = ggplot(
+  data = sig_avg.shock.stats[sig_avg.shock.stats$ShockResp,],
+  aes(x = bin,
+      y = mean,
+      fill = amp,
+      group = amp))
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.1
+p.ymax = 6
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.ShkResp.ShkNeurons  +
+  
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    color = 'black',
+    aes(ymin = mean - sem,
+        ymax = mean + sem
+        )) +
+  
+  scale_fill_manual(values = p$cols$fill_shk) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 'T (sec)',
+    y = "Calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    strip.text = element_blank(),
+    axis.text.x= element_text(face = 'plain',size = p$textsize$axis_text),
+    legend.title = element_blank(),
+    legend.position = 'right'
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1, "in")
+    ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"ShkResp_ShkNeurons", p$savetype, sep = ''))}
+
+```
+
+
+##### Sound Responses 
+```{r, fig.width=4.5, fig.height=4.5}
+
+#Create base layer from group level data
+P.SndResp.SndNeurons = ggplot(
+  data = sig_avg.sound.stats[sig_avg.sound.stats$SoundResp,],
+  aes(x = bin,
+      y = mean,
+      fill = amp,
+      group = amp))
+
+#Define plot specific parameters
+p.xmin = -2000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(0, p.xmax, p.xint)
+p.ymin = -.1
+p.ymax = 6
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+#Create plot
+P.SndResp.SndNeurons  +
+  
+  geom_vline(xintercept = c(0,2000), linetype='dashed', color='gray50') +
+  
+  geom_ribbon(
+    stat = "identity",
+    linewidth = p$linesize$error,
+    color = 'black',
+    aes(ymin = mean - sem,
+        ymax = mean + sem
+        )) +
+  
+  scale_fill_manual(values = p$cols$fill_snd) +
+  scale_y_continuous(breaks=p.ybreaks, labels = p.ybreaks, expand = c(0, 0)) +
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(ylim=c(p.ymin,p.ymax), xlim=c(-1000,p.xmax)) +
+  
+  labs(
+    x = 'T (sec)',
+    y = "Calcium (z)"
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    strip.text = element_blank(),
+    axis.text.x= element_text(face = 'plain',size = p$textsize$axis_text),
+    legend.title = element_blank(),
+    legend.position = 'right'
+  ) +
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1., "in")
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"SndResp_SndNeurons", p$savetype, sep = ''))}
+
+```
+
+
+### Response proportions
+
+#### Calculate proporptions
+```{r}
+
+#tabulate
+UnitClassTbl = as.data.frame(prop.table(table(unit_class_wd$Classification)))
+names(UnitClassTbl)[1] = 'Class'
+
+```
+
+
+## Bar Chart
+### All cells
+```{r}
+
+
+P.bar = ggplot(
+  UnitClassTbl, 
+  aes(x = 1, y = Freq, fill = Class, label=Class)
+) 
+
+p.ymin = 0
+p.ymax = 1
+p.yint = .25
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+P.bar +
+  
+  geom_col(
+    width = 2,
+    colour = 'gray10',
+    #linewidth = ,
+    show.legend = FALSE
+  ) + 
+  
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(1, "in")
+  ) +
+  
+  geom_text(
+    aes(
+      x=2.3
+    ),
+    size = 5,
+    fontface = 'plain',
+    angle = 35,
+    position = position_stack(vjust = 0.5),
+    vjust = .5,
+    hjust = 0
+  ) +
+  
+  labs(
+    x = '',
+    y = "% Responsive"
+  ) +
+  
+  scale_y_continuous(
+    breaks = p.ybreaks, labels = p.ybreaks*100, expand = c(.005,.005)
+  ) +
+  scale_x_continuous(breaks=c(), limits=c(0,5)) +
+  scale_fill_manual(values=c('gray90','blue2','orangered3','purple2')) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    axis.line.x = element_blank()
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"StimSensitivity_BarClass_ALL", p$savetype, sep = ''))}
+
+```
+
+
+## Raster
+### Shock resp
+```{r}
+
+pdata = droplevels(sig_avg[sig_avg$type=='shock' & sig_avg$ShockResp,])
+pdata$amp = factor(pdata$amp, levels = c('Low','High'))
+
+#Define plot specific parameters
+p.xmin = -5000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+P.raster.shock = ggplot(
+  data = pdata, 
+  aes(x = bin, y = uniqID, fill = sig)
+) 
+
+P.raster.shock +
+  
+  geom_raster() +
+  
+  geom_vline(xintercept = 0, linetype='dashed', color='red') +
+  geom_vline(xintercept = 2000, linetype='dashed', color='red') +
+  
+  facet_grid(cols=vars(amp)) +
+  
+  scale_fill_gradient(
+    low = 'gray93',
+    high = 'black',
+    limits=c(0,3),
+    oob=scales::squish,
+    name = 'z'
+  ) +
+  
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(xlim=c(-2000,p.xmax)) +
+  
+  labs(
+    x = 'T (sec)',
+    y = "Neuron",
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.title = element_text(
+      size=p$textsize$axis_text, 
+      vjust = 1
+    ),
+    legend.position = 'bottom',
+    legend.key.size = unit(.4, 'cm'),
+    legend.text = element_text(face='plain', size=p$textsize$axis_text-2),
+    panel.spacing.x = unit(.5, 'cm'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      hjust=.5
+    ),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size=p$textsize$axis_text-2),
+    axis.title.x = element_text(margin = margin(t=0, b=0))
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(.45, "in")
+    ) 
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Raster_ShkResponsive", p$savetype, sep = ''))}
+
+```
+
+
+### Sound resp
+```{r}
+
+pdata = droplevels(sig_avg[sig_avg$type=='sound' & sig_avg$SoundResp,])
+pdata$amp = factor(pdata$amp, levels = c('Low','High'))
+
+
+#Define plot specific parameters
+p.xmin = -5000
+p.xmax = 10000
+p.xint = 5000
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+p.ymin = -.1
+p.ymax = 3
+p.yint = 1
+p.ybreaks = seq(0,p.ymax,p.yint)
+
+P.raster.sound = ggplot(
+  data = pdata, 
+  aes(x = bin, y = uniqID, fill = sig)
+) 
+
+P.raster.sound +
+  
+  geom_raster() +
+  
+  geom_vline(xintercept = 0, linetype='dashed', color='red') +
+  geom_vline(xintercept = 2000, linetype='dashed', color='red') +
+  
+  facet_grid(cols=vars(amp)) +
+  
+  scale_fill_gradient(
+    low = 'gray93',
+    high = 'black',
+    limits=c(0,3),
+    breaks = 0:3,
+    oob=scales::squish,
+    name = 'z'
+  ) +
+  
+  scale_x_continuous(breaks=p.xbreaks, labels=p.xbreaks/1000) +
+  coord_cartesian(xlim=c(-2000,p.xmax)) +
+  
+  labs(
+    x = 'T (sec)',
+    y = "Neuron",
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.title = element_text(
+      size=p$textsize$axis_text, 
+      vjust = 1
+    ),
+    legend.position = 'bottom',
+    legend.key.size = unit(.4, 'cm'),
+    legend.text = element_text(face='plain', size=p$textsize$axis_text-2),
+    panel.spacing.x = unit(.5, 'cm'),
+    strip.background = element_blank(),
+    strip.text = element_text(
+      size=p$textsize$axis_title, 
+      hjust=.5
+    ),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.text.x = element_text(size=p$textsize$axis_text-2),
+    axis.title.x = element_text(margin = margin(t=0, b=0))
+  ) +
+
+  force_panelsizes(
+      rows = p$dim$panel_h,
+      cols = unit(.45, "in")
+  ) 
+  
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"Raster_SndResponsive", p$savetype, sep = ''))}
+
+```
+
+
+## PCA
+### Compute
+```{r}
+
+
+pcdata = pivot_wider(
+  data = sig[,c('uniqID','trial','type','amp','bin','sig')],
+  values_from = 'sig',
+  names_from = "uniqID"
+)
+pcdata = pcdata[complete.cases(pcdata),]
+
+pca = prcomp(pcdata[,-(1:4)])
+
+pcdataX = cbind(pcdata, as.data.frame(pca$x))
+pcdataX = mutate(
+  pcdataX,
+  case = case_when(
+    bin <= 0 ~ 'pre-stimulus',
+    bin > 0 & type=='sound' & amp=='Low' ~ 'low sound',
+    bin > 0 & type=='sound' & amp=='High' ~ 'high sound',
+    bin > 0 & type=='shock' & amp=='Low' ~ 'low shock',
+    bin > 0 & type=='shock' & amp=='High' ~ 'high shock'
+  )
+)
+pcdataX$case = factor(
+  pcdataX$case, 
+  levels = c(
+    'pre-stimulus','low sound','high sound','low shock','high shock'
+  )
+)
+
+pcdataXmean = summarise_at(
+  .tbl = group_by(
+    .data = pcdataX,
+    case),
+  .funs = list(mean),
+  .vars = c('PC1','PC2','PC3','PC4','PC5')
+)
+
+
+```
+
+
+### scree plot
+```{r}
+
+pca_summary = as.data.frame(t(summary(pca)$importance))
+names(pca_summary) = c('stdev','proportion','cumprop')
+
+p.eigen = ggplot(
+  data = pca_summary,
+  aes(y = proportion, x=1:nrow(pca_summary)))
+
+p.eigen +
+  geom_line() +
+  scale_x_continuous(limits = c(1,10), breaks=1:10)
+
+```
+
+### plot
+```{r}
+
+
+p.pca_data = ggplot(
+  data = pcdataXmean,
+  aes(x=PC1, y=PC2, color=case)
+)
+
+#Define plot specific parameters
+p.xmin = -5
+p.xmax = 18
+p.xint = 5
+p.xbreaks = seq(p.xmin,p.xmax,p.xint)
+p.ymin = -5
+p.ymax = 18
+p.yint = 5
+p.ybreaks = seq(p.ymin,p.ymax,p.yint)
+
+p.pca_data +
+  
+  
+  geom_hline(yintercept=0, linetype='dashed', color='gray80') +
+  geom_vline(xintercept=0, linetype='dashed', color='gray80') +
+  
+  geom_point(size=4, alpha=1) +
+  
+  scale_x_continuous(
+    breaks=p.xbreaks, labels=p.xbreaks, 
+    limits = c(p.xmin,p.xmax), expand = c(0, 0)) +
+  scale_y_continuous(
+    breaks=p.ybreaks, labels=p.ybreaks, 
+    limits = c(p.ymin,p.ymax), expand = c(0, 0)) +
+  scale_color_manual(
+    values=c('gray50','cornflowerblue','blue3','orange2','orangered3')
+  ) +
+  
+  p$theme$base +
+  p$theme$specs +
+  theme(
+    legend.position = 'right',
+    legend.title = element_blank(),
+    legend.text = element_text(
+      size=p$textsize$axis_text-4,
+      face='plain'
+    )
+  ) +
+  
+  force_panelsizes(
+      rows = unit(1.5, "in"),
+      cols = unit(1.5, "in")
+  ) 
+
+if (p$save == TRUE) {saveplot(filename = paste(f_pfx,'_',"PCAplot", p$savetype, sep = ''))}
+
+```
+
+
+
+
+# Stats
+## Post Rresponse
+### Shock
+```{r}
+
+post.shock.anova = ezANOVA(
+  data = sig_avg_post[sig_avg_post$ShockResp & sig_avg_post$type=='shock',],
+  dv = sig,
+  wid = uniqID,
+  within = amp,
+  type = 3,
+  white.adjust = TRUE
+)
+post.shock.anova
+
+```
+### Sound
+```{r}
+
+post.sound.anova = ezANOVA(
+  data = sig_avg_post[sig_avg_post$SoundResp & sig_avg_post$type=='sound',],
+  dv = sig,
+  wid = uniqID,
+  within = amp,
+  type = 3,
+  white.adjust = TRUE
+)
+post.sound.anova
+
+```
+
+
+# Export figure data for publication
+```{r}
+
+export = FALSE
+
+# export unit classification info
+unit_export = unit_class_wd[,
+  c('uniqID','Animal','pctshuff_shock','pctshuff_sound','Classification')
+]
+unit_export$Sex = 'M'
+unit_export = unit_export[,c('uniqID','Animal','Sex','pctshuff_shock','pctshuff_sound','Classification')]
+
+names(unit_export)[names(unit_export)=='uniqID'] = 'unit'
+names(unit_export)[names(unit_export)=='pctshuff_shock'] = 'shock_pct'
+names(unit_export)[names(unit_export)=='pctshuff_sound'] = 'sound_pct'
+names(unit_export)[names(unit_export)=='Classification'] = 'class'
+
+
+# export mean unit responses
+unitresponse_export = sig_avg
+names(unitresponse_export)[names(unitresponse_export)=='uniqID'] = 'unit'
+names(unitresponse_export)[names(unitresponse_export)=='sig'] = 'signal'
+names(unitresponse_export)[names(unitresponse_export)=='type'] = 'stimulus'
+names(unitresponse_export)[names(unitresponse_export)=='amp'] = 'amplitude'
+unitresponse_export$second = unitresponse_export$bin/1000
+unitresponse_export = left_join(
+  unitresponse_export,
+  unit_export[,c('unit','Animal','Sex','class')],
+  by = 'unit'
+)
+unitresponse_export = unitresponse_export[
+  ,
+  c('unit','Animal','Sex','class','stimulus','amplitude','second','signal')
+]
+
+pcdata_export = pcdata
+names(pcdata_export)[names(pcdata_export)=='bin'] = 'second'
+pcdata_export$second = pcdata_export$second/1000
+
+if (export){
+  write.csv(unit_export, 'Fig4e_units.csv', row.names=FALSE)
+  write.csv(unitresponse_export, 'Fig4fg_unitresponse.csv', row.names=FALSE)
+  write.csv(pcdata_export, 'Fig4h_unitresponse.csv', row.names=FALSE)
+}
+
+```
+
+
+
+
+
+
+
+
+
+

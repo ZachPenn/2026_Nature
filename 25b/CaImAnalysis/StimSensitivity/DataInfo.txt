@@ -1,0 +1,5 @@
+Data Info
+
+BinnedUnitResponse contains each unit's activity in the perievent period for each trial (10 sec pre, 10 sec post), smoothed by averaging each 200 ms bin. For each trial, the mean of the pre period is subtracted to standardize the baseline. 
+
+Unit classification contains the classification of each unit's responsiveness. This is based upon unit activity from the entire session and is available upon reasonable request.

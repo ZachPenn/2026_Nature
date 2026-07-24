@@ -1,0 +1,39 @@
+# ClearMap.yml 
+#
+# ClearMap2.0 Toolbox
+# © Christoph Kirst
+# https://github.com/ChristophKirst/ClearMap2
+#
+
+#Updated by Zach Pennington 9/11/2020 to include
+#holoviews, h5py, opencv, simpleitk, dask, and xarray
+
+
+name: clearmap2
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - cython
+  - dask
+  - graph-tool
+  - holoviews
+  - h5py
+  - matplotlib=3.1.1
+  - opencv
+  - natsort
+  - plotly
+  - plotnine
+  - python=3.7
+  - pyopengl
+  - pytorch
+  - pyqtgraph
+  - scipy
+  - scikit-image
+  - scikit-learn
+  - simpleitk
+  - tifffile
+  - vispy
+  - xarray
+  - pip
+

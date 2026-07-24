@@ -1,0 +1,25 @@
+Animal,Exclude,CageID,Punch,Notes,Histology,DOB,Sex,SurgeryDate,Virus,LD1,LD2,MildStressor,Trauma
+1,0,37,LT,,,8/24/22,M,1/13/22,HM3DQ,cno,veh,cno,cno
+2,0,37,LB,,,8/24/22,M,1/16/22,mCherry,veh,cno,cno,cno
+3,0,37,RT,,,8/24/22,M,1/13/22,HM3DQ,veh,cno,cno,cno
+4,0,38,LT,,,9/9/22,F,1/16/22,mCherry,cno,veh,cno,cno
+5,1,38,LB,,Too medial with very thin labeling,9/9/22,F,1/13/22,HM3DQ,veh,cno,cno,cno
+6,0,39,LT,,,9/9/22,M,1/16/22,mCherry,cno,veh,cno,cno
+7,0,39,LB,,,9/9/22,M,1/13/22,HM3DQ,cno,veh,cno,cno
+8,0,39,RT,,,9/9/22,M,1/16/22,mCherry,veh,cno,cno,cno
+9,0,39,RB,,,9/9/22,M,1/13/22,HM3DQ,veh,cno,cno,cno
+10,0,40,LT,,,10/20/22,F,1/16/22,mCherry,veh,cno,cno,cno
+11,1,40,LB,,Quite lateral on both sides,10/20/22,F,1/13/22,HM3DQ,cno,veh,cno,cno
+12,0,40,RT,,,10/20/22,F,1/16/22,mCherry,cno,veh,cno,cno
+13,0,41,LT,,,10/30/22,M,1/16/22,mCherry,cno,veh,cno,cno
+14,0,41,LB,,,10/30/22,M,1/16/22,HM3DQ,cno,veh,cno,cno
+15,0,41,RT,,,10/30/22,M,1/16/22,mCherry,veh,cno,cno,cno
+16,0,42,LT,,,11/10/22,F,1/16/22,mCherry,veh,cno,cno,cno
+17,0,42,LB,"During second light-dark, animal went under light dark floor, but tracking remarkably accurate.",,11/10/22,F,1/16/22,HM3DQ,veh,cno,cno,cno
+18,0,42,RT,,,11/10/22,F,1/16/22,mCherry,cno,veh,cno,cno
+19,0,42,RB,,,11/10/22,F,1/16/22,HM3DQ,cno,veh,cno,cno
+20,0,44,LT,,Spread lateral on one side,11/20/22,F,1/16/22,HM3DQ,veh,cno,cno,cno
+21,0,44,LB,,,11/20/22,F,1/16/22,mCherry,veh,cno,cno,cno
+22,0,44,RT,,,11/20/22,F,1/16/22,HM3DQ,cno,veh,cno,cno
+23,1,45,LT,,Substantial spread into BNST on one side,11/20/22,M,1/16/22,HM3DQ,veh,cno,cno,cno
+24,0,45,LB,,,11/20/22,M,1/16/22,mCherry,cno,veh,cno,cno

@@ -1,0 +1,60 @@
+This document serves to help log the changes Zach has made to the ClearMap2 Repository.
+These changes are of course also reflected in the git history.
+However, this will aid getting a clearer picture of where things are.
+
+
+#
+# Settings and initialization:
+#
+- ClearMap2/ClearMap.yml     
+  Added packages holoviews, h5py, opencv, simpleitk, dask, and xarray
+  
+- ClearMap2/ClearMap/Environment.py     Added initialization of new functions from other directories
+
+- ClearMap/IO/Workspace.py
+  Added slice_coords and hdf5 dataset ot workspace initiation
+
+
+#
+# Added modules
+#
+- ClearMap2/ClearMap/Visualization/JupNtbk_vis.py    
+  Adds jupyter notebook visualization tools
+  
+- ClearMap2/ClearMap/IO/TIF_to_HDF5.py
+  Allows conversion of to TIF folder to single HDF5 dataset. 
+  
+- ClearMap2/ClearMap/ImageProcessing/H5.py
+  Allows image processing and cell counting for datasets stored as HDF5.
+  
+  
+  
+#
+# Notebooks and analysis scripts
+#
+  
+- ClearMap2/ClearMap/Notebooks/CellCounting_Registration.ipynb
+  Notebook for registering single brain to ABA and visualizing the result
+
+- ClearMap2/ClearMap/Notebooks/CellCounting_Individual.ipynb
+  Notebook for selecting parameters for cell counts, visualizing results, and processing a single brain.
+  Note that this requires that registration has already been completed.
+
+- ClearMap2/ClearMap/Notebooks/CellCounting_Batch.ipynb
+  Having decided upon cell counting parameters, executes cell counting for batch of brains
+  Note that this requires that registration has already been completed.
+
+- ClearMap2/ClearMap/Notebooks/ExtractRegionNames_Batch.ipynb
+  Having counted cells in every brain, define region labels for centroid of each selected cell.
+
+- ClearMap2/ClearMap/Notebooks/CreateGroupVoxelData.ipynb
+  Having counted cells in every brain, create group level average heatmaps and display
+
+- ClearMap2/ClearMap/Notebooks/PostCountAnalysisTools/count_analysis.py
+  Scripts for extracting group levels statistics by brain region
+
+- ClearMap2/ClearMap/Notebooks/PostCountAnalysisTools/StatDisplay.ipynb
+  Having performed statistics by region, display results
+
+- ClearMap2/ClearMap/Notebooks/PostCountAnalysisTools/ReduceDimensionality.ipynb
+  Notebook for displaying region-region correlations, performing PCA, and displaying PCs

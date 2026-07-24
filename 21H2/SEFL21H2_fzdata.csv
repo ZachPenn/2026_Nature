@@ -1,0 +1,1486 @@
+Animal,File,Box,phase,subphase,component,freezing,motion
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,bl,bl,3.481481481,1132.143333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,bl,bl,12.2345679,784.8140741
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,bl,bl,1.407407407,1097.154568
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,bl,bl,5.271604938,703.1938272
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,bl,bl,2.444444444,1145.781852
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,bl,bl,14.43209877,707.2090123
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,bl,bl,3.580246914,872.2032099
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,bl,bl,8.271604938,829.787284
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,bl,bl,11.2962963,706.5922222
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,bl,bl,2.567901235,943.5209877
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,bl,bl,3.444444444,796.8830864
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,bl,bl,10.65432099,782.8050617
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,bl,bl,7.839506173,823.9397531
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,bl,bl,15.44444444,625.437284
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,bl,bl,3.814814815,924.3219753
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,bl,laser,0,1318.016667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,bl,laser,64.11111111,233.2666667
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,bl,laser,2,1327.09
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,bl,laser,4.333333333,832.05
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,bl,laser,1.666666667,1081.984444
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,bl,laser,50.44444444,200.54
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,bl,laser,13.44444444,778.8711111
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,bl,laser,20.55555556,510.58
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,bl,laser,17.33333333,778.8388889
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,bl,laser,47.55555556,252.6311111
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,bl,laser,6.444444444,733.4255556
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,bl,laser,2,849.5788889
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,bl,laser,12,858.1133333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,bl,laser,36.55555556,554.2488889
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,bl,laser,10.55555556,776.4833333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_1,2.666666667,1141.681667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_1,18.16666667,780.2483333
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_1,47,251.725
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_1,20.5,389.6866667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_1,7.333333333,624.4216667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_1,67,159.1933333
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_1,5.333333333,1154.25
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_1,47,212.2133333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_1,13.5,557.3366667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_1,47.16666667,232.535
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_1,3,806.3333333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_1,8,811.8566667
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_1,41.5,265.6216667
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_1,62.16666667,159.7266667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_1,76.5,126.6566667
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_10,86.02693603,72.66329966
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_10,91.24579125,49.30639731
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_10,81.17647059,98.69411765
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_10,93.94957983,41.5512605
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_10,90.38785835,32.29848229
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_10,83.5016835,67.58922559
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_10,100,0.186554622
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_10,56.22895623,290.1077441
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_10,90.21922428,43.81112985
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_10,73.01854975,115.6526138
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_10,49.07251265,226.0505902
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_10,74.32432432,102.597973
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_10,100,0.511784512
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_10,84.9915683,83.88532884
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_10,100,1.560810811
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_2,10.5,631.0483333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_2,24.66666667,308.9916667
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_2,82.33333333,120.6066667
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_2,43.16666667,342.685
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_2,45,290.7733333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_2,46.16666667,271.8216667
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_2,35.16666667,620.0266667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_2,29.5,376.875
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_2,44.16666667,332.365
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_2,22.83333333,388.9683333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_2,16,532.21
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_2,56.66666667,173.4016667
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_2,27,538.525
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_2,48.16666667,237.865
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_2,49.66666667,246.0466667
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_3,44.83333333,265.6933333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_3,51.66666667,163.8583333
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_3,29,184.9416667
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_3,55.33333333,256.685
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_3,57.66666667,158.9083333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_3,73.66666667,123.995
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_3,44.83333333,282.4883333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_3,55.66666667,189.3783333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_3,84,73.16666667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_3,62.66666667,142.8483333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_3,32,212.4133333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_3,55.83333333,222.1983333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_3,56.16666667,179.1433333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_3,85.66666667,85.04
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_3,75.5,122.23
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_4,22,680.1416667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_4,28.33333333,301.635
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_4,34.66666667,344.605
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_4,59,213.1883333
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_4,65.83333333,243.7716667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_4,17.16666667,594.9666667
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_4,82.33333333,126.3583333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_4,88.16666667,45.40166667
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_4,78.33333333,125.9033333
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_4,75.66666667,159.23
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_4,20.66666667,569.48
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_4,76.33333333,104.5883333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_4,64.83333333,157.9983333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_4,52.66666667,377.6433333
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_4,94.16666667,44.83666667
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_5,38.66666667,362.5533333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_5,41.33333333,508.6416667
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_5,81.16666667,85.96
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_5,77.5,102.18
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_5,84.66666667,67.95833333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_5,86.33333333,64.33
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_5,83,75.97666667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_5,75,136.3133333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_5,85.16666667,53.68333333
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_5,68.16666667,183.0716667
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_5,54.83333333,174.52
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_5,71,291.8533333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_5,49.66666667,373.4116667
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_5,72.66666667,156.915
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_5,96.66666667,20.74
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_6,51,357.8533333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_6,59.83333333,351.325
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_6,90.5,66.855
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_6,90.66666667,42.63166667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_6,100,5.121666667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_6,76.16666667,142.0216667
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_6,74,127.7083333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_6,90.66666667,50.405
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_6,98.33333333,21.11
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_6,89.66666667,49.78833333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_6,18.83333333,573.635
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_6,82.83333333,71.72
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_6,29,417.62
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_6,72.83333333,149.3216667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_6,99.33333333,11.25833333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_7,53.83333333,304.895
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_7,100,4.64
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_7,62.5,173.3516667
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_7,63.16666667,247.485
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_7,81.33333333,78.26666667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_7,68.5,140.535
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_7,83.33333333,69.97166667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_7,84.5,64.21666667
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_7,77.66666667,93.70333333
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_7,71.5,137.885
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_7,40.83333333,215.2216667
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_7,78.83333333,91.395
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_7,88.33333333,45.925
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_7,95.83333333,31.05333333
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_7,84,78.47833333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_8,65.16666667,165.4166667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_8,64.83333333,239.215
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_8,74.16666667,98.52833333
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_8,88,51.94166667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_8,92.33333333,43.08666667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_8,76.66666667,128.9033333
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_8,87,48.95166667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_8,56.33333333,209.8633333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_8,77.33333333,92.97166667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_8,69.5,166.2383333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_8,51.66666667,177.825
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_8,79.33333333,142.3616667
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_8,59.5,260.48
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_8,64.5,213.375
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_8,99.5,11.44333333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,postshock,postshock_9,100,0.865
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,postshock,postshock_9,96,11.07333333
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,postshock,postshock_9,79,117.0183333
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,postshock,postshock_9,76.83333333,107.9983333
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,postshock,postshock_9,96.5,11.04166667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,postshock,postshock_9,89.5,41.63333333
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,postshock,postshock_9,100,0.04
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,postshock,postshock_9,70.83333333,156.4366667
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,postshock,postshock_9,69.33333333,141.3366667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,postshock,postshock_9,75.5,127.0133333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,postshock,postshock_9,42,304.3666667
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,postshock,postshock_9,85.16666667,56.46833333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,postshock,postshock_9,77.5,164.495
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,postshock,postshock_9,87.16666667,86.765
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,postshock,postshock_9,69.16666667,148.3733333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_1,0,2648.933333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_1,6.666666667,1268.8
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_1,0,3082.733333
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_1,0,2548.2
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_1,0,3282.333333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_1,16.66666667,3083.9
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_1,0,2619.7
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_1,0,2476.333333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_1,0,2838.8
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_1,0,2379.866667
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_1,0,2447.966667
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_1,0,2906.233333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_1,0,3310.933333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_1,0,2473.166667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_1,0,2849.9
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_10,10,2665.366667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2087.5
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_10,0,3523.333333
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_10,0,1580.266667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_10,3.333333333,1564.6
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_10,16.66666667,2161.4
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_10,6.666666667,1867.533333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_10,0,2151.1
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_10,0,1909.033333
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2632.466667
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_10,0,2896.833333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2294.833333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_10,13.33333333,2658.6
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2791.266667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_10,0,2668.9
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_2,0,2910.866667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_2,0,2508.133333
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_2,0,3211.266667
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_2,0,1709.466667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_2,0,2889.4
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_2,0,2110.233333
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_2,0,3019.133333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_2,0,2337.566667
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_2,0,2320.633333
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_2,0,2123.433333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_2,0,3393.266667
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_2,0,2720.433333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_2,10,2213.9
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_2,0,2981.433333
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_2,6.666666667,1689.3
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_3,0,2833.033333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_3,0,2627.266667
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_3,10,2255.2
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_3,6.666666667,2540.233333
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_3,0,3264.333333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_3,0,2790.5
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_3,0,2333.366667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_3,6.666666667,2943.733333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_3,0,2403.966667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_3,0,1949.733333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_3,0,3376.633333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_3,0,2351.1
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_3,0,2443.4
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_3,10,1864.766667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_3,0,1333.433333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_4,0,1320.5
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_4,0,3340.866667
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_4,0,1816.3
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_4,3.333333333,2435.9
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_4,0,2298.1
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_4,10,2031.3
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_4,13.33333333,1483.833333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_4,6.666666667,2923.566667
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_4,6.666666667,2170.333333
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_4,0,1961.8
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_4,6.666666667,2382.966667
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_4,0,2068.366667
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_4,6.666666667,2605.733333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_4,6.666666667,2209.933333
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_4,6.666666667,1263.266667
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_5,0,2625.266667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_5,0,2304.5
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_5,0,2622.9
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_5,10,2189.533333
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_5,0,3022.033333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_5,0,1396.433333
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_5,0,2196.466667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_5,13.33333333,1807.2
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_5,6.666666667,2566.166667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_5,0,1678.466667
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_5,0,2621.6
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_5,0,1958.5
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_5,6.666666667,1569.766667
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_5,10,2395.9
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_5,3.333333333,2865.066667
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_6,6.666666667,2075.566667
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_6,6.666666667,1953.2
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_6,6.666666667,2691.266667
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_6,6.666666667,2003.6
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_6,3.333333333,1764.366667
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_6,10,1597.6
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_6,6.666666667,2380.033333
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_6,3.333333333,3083.433333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_6,6.666666667,1759.766667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_6,13.33333333,2085.933333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_6,0,2218.533333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_6,16.66666667,2252.466667
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_6,0,3023.733333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_6,10,2617.466667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_6,3.333333333,1569.4
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_7,0,2800.3
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,2252.333333
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_7,3.333333333,3006.433333
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,2347.266667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_7,6.666666667,2596
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,1922.2
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_7,3.333333333,3619.866667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,1776.9
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_7,36.66666667,1566.666667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,1927.433333
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_7,0,1645.533333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_7,13.33333333,1818.2
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_7,0,2500.633333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_7,3.333333333,2849.166667
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_7,6.666666667,1496.833333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,3036.2
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_8,6.666666667,2112.233333
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,2211.5
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_8,3.333333333,2520.933333
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_8,0,2798.6
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_8,10,2277.433333
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,3046.1
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_8,0,2426.5
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_8,10,1881.1
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_8,6.666666667,2082.1
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,2223.566667
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_8,3.333333333,2581.333333
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,2683.033333
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_8,6.666666667,2519.4
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_8,0,1479.533333
+1,250821_SEFL21H2_trauma_01_02 Box 1.wmv,1,trauma,shock,shock_9,0,2438.333333
+2,250821_SEFL21H2_trauma_01_02 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,2668.966667
+3,250821_SEFL21H2_trauma_03_04 Box 1.wmv,1,trauma,shock,shock_9,3.333333333,2758.1
+4,250821_SEFL21H2_trauma_03_04 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,2435.566667
+5,250821_SEFL21H2_trauma_05_06 Box 1.wmv,1,trauma,shock,shock_9,6.666666667,1394.833333
+6,250821_SEFL21H2_trauma_05_06 Box 2.wmv,2,trauma,shock,shock_9,13.33333333,2287.066667
+7,250821_SEFL21H2_trauma_07_08 Box 1.wmv,1,trauma,shock,shock_9,0,2111.566667
+8,250821_SEFL21H2_trauma_07_08 Box 2.wmv,2,trauma,shock,shock_9,0,3017.433333
+9,250821_SEFL21H2_trauma_09_10 Box 1.wmv,1,trauma,shock,shock_9,6.666666667,2227.266667
+10,250821_SEFL21H2_trauma_09_10 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,2604.366667
+11,250821_SEFL21H2_trauma_11_12 Box 1.wmv,1,trauma,shock,shock_9,0,2371.033333
+12,250821_SEFL21H2_trauma_11_12 Box 2.wmv,2,trauma,shock,shock_9,0,2624.9
+13,250821_SEFL21H2_trauma_13_14 Box 1.wmv,1,trauma,shock,shock_9,6.666666667,3110.9
+14,250821_SEFL21H2_trauma_13_14 Box 2.wmv,2,trauma,shock,shock_9,3.333333333,2401.4
+15,250821_SEFL21H2_trauma_xx_15.wmv,2,trauma,shock,shock_9,3.333333333,1032.233333
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min01,9.61,163.32
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min02,12.94,157.72
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min03,78.78,15.9
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min04,67.39,33.02
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min05,45.17,127.29
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min06,46.5,86.13
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min07,66.94,17.46
+1,082325_SEFL21H2_recall_g1,1,traumatest,min,min08,61.61,20.78
+1,082325_SEFL21H2_recall_g1,1,traumatest,avg,avg,49.1,77.7
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min01,32,56.73
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min02,41.33,53.25
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min03,36.39,48.52
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min04,50.11,29.46
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min05,25.89,108.83
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min06,74.67,14.05
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min07,56.89,27.58
+2,082325_SEFL21H2_recall_g1,2,traumatest,min,min08,26.06,91.61
+2,082325_SEFL21H2_recall_g1,2,traumatest,avg,avg,43.06,53.76
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min01,10.11,115.64
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min02,25.72,111.29
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min03,33.28,74.35
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min04,11.33,161.41
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min05,5.94,175.12
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min06,11.44,146.62
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min07,14.89,187.02
+3,082325_SEFL21H2_recall_g1,3,traumatest,min,min08,44.78,74.95
+3,082325_SEFL21H2_recall_g1,3,traumatest,avg,avg,19.69,130.8
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min01,13.5,114.14
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min02,17.56,136.33
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min03,1.67,211.12
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min04,9.17,234.45
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min05,4.56,228.46
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min06,2.83,125.74
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min07,21,158.38
+4,082325_SEFL21H2_recall_g1,4,traumatest,min,min08,22.72,111.8
+4,082325_SEFL21H2_recall_g1,4,traumatest,avg,avg,11.84,165.05
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min01,9.06,100.2
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min02,12.11,160.48
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min03,15.06,228.77
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min04,4.17,248.04
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min05,6.67,196.79
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min06,13.72,236.71
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min07,4.17,270.28
+5,082325_SEFL21H2_recall_g2,1,traumatest,min,min08,7.67,247.68
+5,082325_SEFL21H2_recall_g2,1,traumatest,avg,avg,9.13,211.12
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min01,15.44,21.16
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min02,42.72,16.64
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min03,53.39,21.18
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min04,59.83,47.42
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min05,48.33,24.19
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min06,28.67,112.13
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min07,20.33,133.58
+6,082325_SEFL21H2_recall_g2,2,traumatest,min,min08,28.83,117.39
+6,082325_SEFL21H2_recall_g2,2,traumatest,avg,avg,37.6,61.71
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min01,68.06,11.29
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min02,85.44,4.7
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min03,70.33,10.98
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min04,80.28,14.21
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min05,10.33,79.82
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min06,66.06,34.84
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min07,36.11,36.48
+7,082325_SEFL21H2_recall_g2,3,traumatest,min,min08,56.44,41.4
+7,082325_SEFL21H2_recall_g2,3,traumatest,avg,avg,59.24,29.21
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min01,15.83,104.64
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min02,36.61,77.11
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min03,17.83,106.83
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min04,41.67,61.89
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min05,36.28,43.09
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min06,29.06,88.31
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min07,32.5,90.59
+8,082325_SEFL21H2_recall_g2,4,traumatest,min,min08,58.5,18.28
+8,082325_SEFL21H2_recall_g2,4,traumatest,avg,avg,33.76,73.84
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min01,18.78,84.44
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min02,18.61,95.84
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min03,34.11,107.2
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min04,54.5,52.99
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min05,58.67,22.53
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min06,66.17,23.67
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min07,9.83,120.9
+9,082325_SEFL21H2_recall_g3,1,traumatest,min,min08,4.94,132
+9,082325_SEFL21H2_recall_g3,1,traumatest,avg,avg,33.65,79.95
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min01,8.22,175.01
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min02,8.06,150.69
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min03,26.78,108.9
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min04,48.61,32.84
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min05,30.83,67.82
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min06,18.11,76.64
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min07,62.22,23.73
+10,082325_SEFL21H2_recall_g3,2,traumatest,min,min08,17.78,87.42
+10,082325_SEFL21H2_recall_g3,2,traumatest,avg,avg,27.69,90.38
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min01,23.56,72.38
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min02,48,23.46
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min03,51.39,30.65
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min04,34.11,45.68
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min05,34.94,28.66
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min06,31.28,68.38
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min07,35.06,53.55
+11,082325_SEFL21H2_recall_g3,3,traumatest,min,min08,17.56,84.79
+11,082325_SEFL21H2_recall_g3,3,traumatest,avg,avg,34.78,50.94
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min01,21.17,71.11
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min02,37.06,63.6
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min03,12.22,191.29
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min04,40,74.75
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min05,45.61,32.97
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min06,11.44,161
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min07,15.06,147.61
+12,082325_SEFL21H2_recall_g3,4,traumatest,min,min08,16.11,114.15
+12,082325_SEFL21H2_recall_g3,4,traumatest,avg,avg,24.9,107.06
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min01,8.17,42.4
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min02,20.56,26.91
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min03,22.11,81.52
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min04,6.78,142.99
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min05,25.83,105.36
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min06,33.56,88.52
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min07,18.61,167.91
+13,082325_SEFL21H2_recall_g4,1,traumatest,min,min08,11.83,122.08
+13,082325_SEFL21H2_recall_g4,1,traumatest,avg,avg,18.51,97.21
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min01,30.44,140.85
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min02,53.22,43.42
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min03,44.17,73.23
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min04,37.83,85.44
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min05,56.33,27.47
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min06,36.5,79.14
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min07,37.11,67.84
+14,082325_SEFL21H2_recall_g4,2,traumatest,min,min08,28,100.35
+14,082325_SEFL21H2_recall_g4,2,traumatest,avg,avg,40.51,77.22
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min01,23.33,56.85
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min02,59.78,14.65
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min03,57.44,14.24
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min04,21.61,97.89
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min05,2.33,113.04
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min06,7.83,109.3
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min07,41.56,71.99
+15,082325_SEFL21H2_recall_g4,3,traumatest,min,min08,60,17.55
+15,082325_SEFL21H2_recall_g4,3,traumatest,avg,avg,34.49,61.94
+1,250825_SEFL21H2_S2_g1,1,mildstressor,prepost,bl,14.7,253.25
+1,250825_SEFL21H2_S2_g1,1,mildstressor,prepost,post,26.67,169.67
+1,250825_SEFL21H2_S2_g1,1,mildstressor,startle,startle_pre,61.11,7.49
+1,250825_SEFL21H2_S2_g1,1,mildstressor,startle,startle_startle,0,314.7
+1,250825_SEFL21H2_S2_g1,1,mildstressor,startle,startle_post,0,260.69
+2,250825_SEFL21H2_S2_g1,2,mildstressor,prepost,bl,0,417.75
+2,250825_SEFL21H2_S2_g1,2,mildstressor,prepost,post,59.33,164.6
+2,250825_SEFL21H2_S2_g1,2,mildstressor,startle,startle_pre,0,178.71
+2,250825_SEFL21H2_S2_g1,2,mildstressor,startle,startle_startle,0,575.89
+2,250825_SEFL21H2_S2_g1,2,mildstressor,startle,startle_post,36.67,433.69
+3,250825_SEFL21H2_S2_g1,3,mildstressor,prepost,bl,0,448.77
+3,250825_SEFL21H2_S2_g1,3,mildstressor,prepost,post,41,133.26
+3,250825_SEFL21H2_S2_g1,3,mildstressor,startle,startle_pre,0,253.73
+3,250825_SEFL21H2_S2_g1,3,mildstressor,startle,startle_startle,0,283.48
+3,250825_SEFL21H2_S2_g1,3,mildstressor,startle,startle_post,50,137.87
+4,250825_SEFL21H2_S2_g1,4,mildstressor,prepost,bl,0,483.31
+4,250825_SEFL21H2_S2_g1,4,mildstressor,prepost,post,10,354.39
+4,250825_SEFL21H2_S2_g1,4,mildstressor,startle,startle_pre,0,473.79
+4,250825_SEFL21H2_S2_g1,4,mildstressor,startle,startle_startle,0,306.52
+4,250825_SEFL21H2_S2_g1,4,mildstressor,startle,startle_post,0,254.27
+5,250825_SEFL21H2_S2_g2,1,mildstressor,prepost,bl,0,592.83
+5,250825_SEFL21H2_S2_g2,1,mildstressor,prepost,post,71,18.53
+5,250825_SEFL21H2_S2_g2,1,mildstressor,startle,startle_pre,0,101.3
+5,250825_SEFL21H2_S2_g2,1,mildstressor,startle,startle_startle,0,489.76
+5,250825_SEFL21H2_S2_g2,1,mildstressor,startle,startle_post,51.11,3.13
+6,250825_SEFL21H2_S2_g2,2,mildstressor,prepost,bl,2.63,310.06
+6,250825_SEFL21H2_S2_g2,2,mildstressor,prepost,post,80,9.04
+6,250825_SEFL21H2_S2_g2,2,mildstressor,startle,startle_pre,0,453.07
+6,250825_SEFL21H2_S2_g2,2,mildstressor,startle,startle_startle,0,562.13
+6,250825_SEFL21H2_S2_g2,2,mildstressor,startle,startle_post,88.89,7.43
+7,250825_SEFL21H2_S2_g2,3,mildstressor,prepost,bl,3.56,267.72
+7,250825_SEFL21H2_S2_g2,3,mildstressor,prepost,post,79.67,12.41
+7,250825_SEFL21H2_S2_g2,3,mildstressor,startle,startle_pre,0,240.69
+7,250825_SEFL21H2_S2_g2,3,mildstressor,startle,startle_startle,0,498.34
+7,250825_SEFL21H2_S2_g2,3,mildstressor,startle,startle_post,60,25.22
+8,250825_SEFL21H2_S2_g2,4,mildstressor,prepost,bl,3.63,322.69
+8,250825_SEFL21H2_S2_g2,4,mildstressor,prepost,post,99,1.38
+8,250825_SEFL21H2_S2_g2,4,mildstressor,startle,startle_pre,0,341.59
+8,250825_SEFL21H2_S2_g2,4,mildstressor,startle,startle_startle,0,589.31
+8,250825_SEFL21H2_S2_g2,4,mildstressor,startle,startle_post,96.67,3.47
+9,250825_SEFL21H2_S2_g3,1,mildstressor,prepost,bl,4.57,421.03
+9,250825_SEFL21H2_S2_g3,1,mildstressor,prepost,post,35.33,190.38
+9,250825_SEFL21H2_S2_g3,1,mildstressor,startle,startle_pre,0,500.78
+9,250825_SEFL21H2_S2_g3,1,mildstressor,startle,startle_startle,0,648.69
+9,250825_SEFL21H2_S2_g3,1,mildstressor,startle,startle_post,68.89,95.4
+10,250825_SEFL21H2_S2_g3,2,mildstressor,prepost,bl,1.13,291.04
+10,250825_SEFL21H2_S2_g3,2,mildstressor,prepost,post,12,202.66
+10,250825_SEFL21H2_S2_g3,2,mildstressor,startle,startle_pre,0,232.86
+10,250825_SEFL21H2_S2_g3,2,mildstressor,startle,startle_startle,0,685.5
+10,250825_SEFL21H2_S2_g3,2,mildstressor,startle,startle_post,0,171.64
+11,250825_SEFL21H2_S2_g3,3,mildstressor,prepost,bl,1.19,252.32
+11,250825_SEFL21H2_S2_g3,3,mildstressor,prepost,post,13,173.84
+11,250825_SEFL21H2_S2_g3,3,mildstressor,startle,startle_pre,0,285.77
+11,250825_SEFL21H2_S2_g3,3,mildstressor,startle,startle_startle,0,768.86
+11,250825_SEFL21H2_S2_g3,3,mildstressor,startle,startle_post,43.33,36.28
+12,250825_SEFL21H2_S2_g3,4,mildstressor,prepost,bl,1.31,459.6
+12,250825_SEFL21H2_S2_g3,4,mildstressor,prepost,post,34.67,92.51
+12,250825_SEFL21H2_S2_g3,4,mildstressor,startle,startle_pre,0,577.54
+12,250825_SEFL21H2_S2_g3,4,mildstressor,startle,startle_startle,0,863.72
+12,250825_SEFL21H2_S2_g3,4,mildstressor,startle,startle_post,55.56,79.1
+13,250825_SEFL21H2_S2_g4,1,mildstressor,prepost,bl,0,407.89
+13,250825_SEFL21H2_S2_g4,1,mildstressor,prepost,post,63,64.83
+13,250825_SEFL21H2_S2_g4,1,mildstressor,startle,startle_pre,0,410.79
+13,250825_SEFL21H2_S2_g4,1,mildstressor,startle,startle_startle,0,506.78
+13,250825_SEFL21H2_S2_g4,1,mildstressor,startle,startle_post,97.78,2.62
+14,250825_SEFL21H2_S2_g4,2,mildstressor,prepost,bl,12,273.33
+14,250825_SEFL21H2_S2_g4,2,mildstressor,prepost,post,12.67,101.6
+14,250825_SEFL21H2_S2_g4,2,mildstressor,startle,startle_pre,68.89,17.38
+14,250825_SEFL21H2_S2_g4,2,mildstressor,startle,startle_startle,0,659.5
+14,250825_SEFL21H2_S2_g4,2,mildstressor,startle,startle_post,0,39.23
+15,250825_SEFL21H2_S2_g4,3,mildstressor,prepost,bl,1.06,400.13
+15,250825_SEFL21H2_S2_g4,3,mildstressor,prepost,post,10,96.47
+15,250825_SEFL21H2_S2_g4,3,mildstressor,startle,startle_pre,0,271.8
+15,250825_SEFL21H2_S2_g4,3,mildstressor,startle,startle_startle,0,862.36
+15,250825_SEFL21H2_S2_g4,3,mildstressor,startle,startle_post,0,264.33
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min01,1.89,403.83
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min02,5.83,320.78
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min03,12.67,317.16
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min04,9.94,297.49
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min05,11.67,362.63
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min06,1.78,305.23
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min07,0,418.36
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,min,min08,3.56,333.93
+5,250826_SEFL21H2_S2recall_g2,1,sefltest,avg,avg,5.92,344.93
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min01,6,160.68
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min02,3.44,227.13
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min03,7.83,192.62
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min04,26,196.77
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min05,1.89,160.56
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min06,30.5,106.83
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min07,33.83,59.9
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,min,min08,35.44,113.87
+6,250826_SEFL21H2_S2recall_g2,2,sefltest,avg,avg,18.39,152.29
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min01,1.67,313.54
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min02,8.11,274.97
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min03,6.06,219.6
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min04,8.61,222.63
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min05,52.56,37.34
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min06,1.72,227.25
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min07,0,277.16
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,min,min08,4.11,229.35
+7,250826_SEFL21H2_S2recall_g2,3,sefltest,avg,avg,10.35,225.23
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min01,2.06,312.18
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min02,19.61,151.45
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min03,50.11,52.68
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min04,24.89,87.54
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min05,11.22,161.69
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min06,23.67,107.59
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min07,30.61,96.86
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,min,min08,21.33,87.93
+8,250826_SEFL21H2_S2recall_g2,4,sefltest,avg,avg,23.16,132.24
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min01,1.72,209.83
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min02,28.44,142.24
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min03,18.67,139.72
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min04,24.56,193.79
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min05,16.06,162.5
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min06,8.61,209.3
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min07,16.61,168.45
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,min,min08,14.83,196.77
+9,250826_SEFL21H2_S2recall_g3,1,sefltest,avg,avg,16.61,177.83
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min01,0,244.21
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min02,13.28,145.35
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min03,25,131.62
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min04,16.94,134.16
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min05,34.28,104.59
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min06,11.39,201
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min07,43.28,59.95
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,min,min08,12.17,195.64
+10,250826_SEFL21H2_S2recall_g3,2,sefltest,avg,avg,19.74,152.07
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min01,2.22,108.05
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min02,18.94,84.47
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min03,23.28,99.33
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min04,13,123.88
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min05,13.94,154.23
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min06,11.28,191.52
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min07,22,102.43
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,min,min08,7.33,137.18
+11,250826_SEFL21H2_S2recall_g3,3,sefltest,avg,avg,14.05,125.14
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min01,0,340.48
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min02,0,247.97
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min03,13,230.49
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min04,15.5,209.44
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min05,4.5,213.37
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min06,12,219.76
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min07,11.78,162.91
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,min,min08,17.39,157.57
+12,250826_SEFL21H2_S2recall_g3,4,sefltest,avg,avg,9.27,222.75
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min01,13.44,194.02
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min02,32.94,153.8
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min03,16.72,217.59
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min04,15.17,211.35
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min05,21.39,189.8
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min06,14.39,254.34
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min07,10.33,159.33
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,min,min08,12.22,288.07
+13,250826_SEFL21H2_S2recall_g4,1,sefltest,avg,avg,17.08,208.54
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min01,4.28,182.87
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min02,23.61,118.63
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min03,31.61,125.13
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min04,31.94,119.38
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min05,36.94,104.16
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min06,21.94,189.05
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min07,31.33,97.24
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,min,min08,30.89,76.13
+14,250826_SEFL21H2_S2recall_g4,2,sefltest,avg,avg,26.89,126.57
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min01,7.83,201.63
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min02,29.89,109.66
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min03,30.67,85.23
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min04,36.22,93.8
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min05,43.44,51.27
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min06,21.39,122.62
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min07,10.72,220.43
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,min,min08,13.61,161.26
+15,250826_SEFL21H2_S2recall_g4,3,sefltest,avg,avg,24.32,130.74
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min01,38.61,118.9
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min02,43.5,64.35
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min03,28.89,183.46
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min04,56.39,91.31
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min05,52,83.55
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min06,31.28,112.15
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min07,20.11,142.05
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,min,min08,45.28,69.05
+1,250826_SEFL21H2_S2recall_g1,1,sefltest,avg,avg,39.67,108.1
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min01,0,435.99
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min02,12,260.52
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min03,3.11,275.87
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min04,9.67,396.17
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min05,11.61,217.66
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min06,9.56,277.98
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min07,8.39,209.18
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,min,min08,11.11,213.37
+2,250826_SEFL21H2_S2recall_g1,2,sefltest,avg,avg,8.43,285.84
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min01,0,366.74
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min02,8.44,312.05
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min03,9,244.53
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min04,2.28,311.69
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min05,5.61,335.92
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min06,3.83,287.43
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min07,4.78,251.04
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,min,min08,8.94,236.92
+3,250826_SEFL21H2_S2recall_g1,3,sefltest,avg,avg,5.36,293.29
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min01,1.78,430.89
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min02,3.5,268.35
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min03,1.78,269.93
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min04,0,317.8
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min05,2.67,342.1
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min06,0,354.91
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min07,3.44,286.11
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,min,min08,8.11,299.5
+4,250826_SEFL21H2_S2recall_g1,4,sefltest,avg,avg,2.66,321.2
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,bl,bl,5.049382716,845.7702469
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,bl,bl,4.641975309,833.494321
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,bl,bl,10.66666667,677.7780247
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,bl,bl,7.641975309,682.2960494
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,bl,bl,4.641975309,811.7018519
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,bl,bl,9,729.842963
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,bl,bl,7.679012346,717.5888889
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,bl,bl,12.49382716,749.9003704
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,bl,bl,6.382716049,799.1344444
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,bl,bl,7.790123457,787.6418519
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,bl,bl,11.50617284,741.0302469
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,bl,bl,6.061728395,824.9360494
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,bl,bl,14,604.1907407
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,bl,bl,5.827160494,744.7590123
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,bl,bl,5.839506173,677.6265432
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,bl,bl,8.555555556,764.5892593
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,bl,bl,8,756.1961728
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,bl,bl,5.839506173,722.015679
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,bl,laser,1.777777778,847.3066667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,bl,laser,9.777777778,862.0833333
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,bl,laser,12.55555556,735.3777778
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,bl,laser,17.33333333,827.4833333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,bl,laser,11,676.5911111
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,bl,laser,8.222222222,759.61
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,bl,laser,15.33333333,733.5222222
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,bl,laser,8.111111111,785.3255556
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,bl,laser,0,962.0344444
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,bl,laser,39,390.92
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,bl,laser,9,806.2233333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,bl,laser,2.444444444,720.5788889
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,bl,laser,10.22222222,698.8922222
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,bl,laser,5.444444444,658.4644444
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,bl,laser,9.444444444,556.78
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,bl,laser,14,602.0344444
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,bl,laser,5.444444444,781.5577778
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,bl,laser,4.222222222,789.7022222
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_1,3.333333333,1011.453333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_1,2.5,826.7683333
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_1,17,753.235
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_1,7.333333333,549.9833333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_1,14.66666667,554.585
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_1,0,963.4333333
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_1,6.833333333,1043.016667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_1,18.33333333,615.565
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_1,9.5,843.0783333
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_1,75.83333333,110.9566667
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_1,0,879.2533333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_1,26.66666667,661.325
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_1,11.16666667,513.2566667
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_1,0,884.4933333
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_1,9.166666667,615.3316667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_1,9.333333333,658.91
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_1,18.16666667,617.39
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_1,2.5,1172.098333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_10,52.77310924,223.887395
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_10,65.54621849,179.9915966
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_10,9.443507589,533.8785835
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_10,99.32432432,12.77702703
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_10,77.64705882,79.10588235
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_10,56.13445378,194.7714286
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_10,30.01686341,250.1112985
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_10,70.77702703,125.6689189
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_10,61.8487395,184.0285714
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_10,100,7.276094276
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_10,78.99159664,82.50420168
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_10,81.34453782,74.97647059
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_10,76.00671141,101.0436242
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_10,19.63087248,417.8053691
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_10,44.87394958,206.0302521
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_10,75.12605042,101.3932773
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_10,70.03367003,158.03367
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_10,11.44781145,459.8299663
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_2,3.666666667,545.0933333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_2,26.16666667,527.8116667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_2,9.166666667,652.06
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_2,27,349.01
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_2,60.83333333,177.3033333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_2,7.5,741.135
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_2,0,827.9966667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_2,14.16666667,605.395
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_2,27.66666667,321.665
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_2,89.5,42.155
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_2,0,1099.201667
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_2,45.66666667,221.5216667
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_2,20.83333333,625.505
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_2,22.66666667,410.8883333
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_2,0,920.4566667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_2,19.66666667,627.6416667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_2,56.66666667,223.98
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_2,0,1112.445
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_3,6.166666667,573.7666667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_3,21.33333333,514.8416667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_3,6.5,607.2766667
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_3,53.83333333,148.4883333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_3,67.16666667,228.27
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_3,12.83333333,971.8216667
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_3,3.166666667,683.69
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_3,35.83333333,341.855
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_3,48.33333333,274.86
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_3,80.33333333,121.3433333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_3,4,677.8216667
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_3,69.16666667,116.5916667
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_3,44.66666667,283.1633333
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_3,2.666666667,814.045
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_3,2.5,570.5883333
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_3,86.66666667,63.29833333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_3,78.83333333,147.4
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_3,0,745.235
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_4,2.333333333,738.3416667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_4,70,114.755
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_4,2.666666667,835.3733333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_4,73.83333333,86.935
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_4,71.83333333,107.8416667
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_4,11,815.6383333
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_4,9.5,464.35
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_4,33.66666667,535.7666667
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_4,71.33333333,168.1233333
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_4,87.83333333,40.96166667
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_4,21.5,406.695
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_4,49.33333333,379.3083333
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_4,69,133.8116667
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_4,2.666666667,868.4816667
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_4,0,817.0216667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_4,23.33333333,291.9733333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_4,68.66666667,205.4416667
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_4,2.833333333,628.0483333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_5,13.33333333,513.215
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_5,69.5,106.0116667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_5,7.5,536.7283333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_5,59.33333333,179.03
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_5,78,81.09333333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_5,23.33333333,373.56
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_5,0,691.69
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_5,62,148.31
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_5,60.16666667,194.5916667
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_5,79.83333333,108.4783333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_5,21.5,496.5233333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_5,41.33333333,295.3333333
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_5,44.5,294.9233333
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_5,8,579.5133333
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_5,7.666666667,430.5066667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_5,32.33333333,362.0516667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_5,67,288.685
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_5,11,552.3316667
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_6,27.66666667,394.3433333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_6,49.66666667,248.4633333
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_6,19.33333333,528.1083333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_6,68,162.5816667
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_6,86.5,46.33
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_6,9.5,876.185
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_6,10.16666667,449.7816667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_6,58.66666667,212.71
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_6,87.83333333,69.08333333
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_6,92,42.25833333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_6,50.33333333,210.9
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_6,58.66666667,256.4883333
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_6,58.83333333,192.525
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_6,12.83333333,612.08
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_6,16.83333333,431.7566667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_6,87.16666667,57.72166667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_6,64,327.1116667
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_6,0,950.4216667
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_7,30.5,291.735
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_7,63.66666667,153.3916667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_7,12.5,529.09
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_7,37,348.4416667
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_7,57.83333333,290.49
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_7,40.16666667,258.0116667
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_7,11.33333333,649.8966667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_7,57.83333333,170.64
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_7,80.5,114.9083333
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_7,86,75.51166667
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_7,30.33333333,268.1333333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_7,67.83333333,144.115
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_7,79.16666667,93.43833333
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_7,16,506.39
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_7,33,257.5916667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_7,87,67.495
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_7,67.33333333,173.59
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_7,11.83333333,634.8583333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_8,57,201.3383333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_8,86.66666667,65.13333333
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_8,3.166666667,508.9266667
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_8,97.33333333,42.66333333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_8,85.83333333,55.18333333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_8,4,706.2766667
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_8,5.833333333,914.7066667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_8,46,395.065
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_8,99.83333333,10.64
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_8,99.33333333,13.53833333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_8,39.16666667,197.63
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_8,92.66666667,45.00166667
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_8,73.5,133.065
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_8,40.16666667,300.2083333
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_8,39.16666667,238.6016667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_8,65.33333333,255.1583333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_8,50,296.8266667
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_8,2.5,1129.895
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,postshock,postshock_9,37.66666667,237.6216667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,postshock,postshock_9,80.83333333,79.61
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,postshock,postshock_9,17.5,531.4216667
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,postshock,postshock_9,97.83333333,15.05666667
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,postshock,postshock_9,84,90.83
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,postshock,postshock_9,6.833333333,914.68
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,postshock,postshock_9,13.33333333,706.4983333
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,postshock,postshock_9,64.16666667,162.2883333
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,postshock,postshock_9,86.33333333,77.905
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,postshock,postshock_9,87.83333333,51.23833333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,postshock,postshock_9,8,635.65
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,postshock,postshock_9,83.16666667,70.64
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,postshock,postshock_9,82.66666667,77.03
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,postshock,postshock_9,44.33333333,285.615
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,postshock,postshock_9,59.33333333,155.3266667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,postshock,postshock_9,50,372.82
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,postshock,postshock_9,76.16666667,110.8533333
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,postshock,postshock_9,22.16666667,398.8383333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_1,0,2136.266667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_1,6.666666667,1708.3
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_1,0,2611.266667
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_1,0,2699.466667
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_1,6.666666667,3064.733333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_1,0,2531.9
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_1,0,3048.066667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_1,0,2051.6
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_1,0,2525.7
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_1,6.666666667,2396.033333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_1,0,2898.533333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_1,0,2739.1
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_1,0,2584.9
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_1,0,2115.966667
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_1,0,2923
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_1,0,1835.466667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_1,0,1476.666667
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_1,0,1767.633333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_10,0,2870.9
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2451.466667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_10,0,2302
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_10,10,2119.533333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_10,6.666666667,2585.333333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_10,0,2714.966667
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_10,0,2808.666667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2350
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_10,6.666666667,2348.2
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,2844.8
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_10,0,1656.366667
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_10,23.33333333,1429.566667
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_10,6.666666667,2044.233333
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_10,6.666666667,1295.933333
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_10,0,2317.066667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_10,0,1697.766667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_10,0,1873
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_10,0,1727.833333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_2,0,3114.6
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_2,0,1660.7
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_2,6.666666667,1475.433333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_2,0,3474.2
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_2,0,3020.7
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_2,0,2195.133333
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_2,0,2255.166667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_2,0,1368.866667
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_2,13.33333333,2330.966667
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_2,6.666666667,2210.633333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_2,0,2763.066667
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_2,0,1760.566667
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_2,0,2584.766667
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_2,0,2984.1
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_2,0,2633.566667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_2,0,2062.133333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_2,0,2837.566667
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_2,0,1816.2
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_3,0,1295.433333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_3,0,2265.166667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_3,0,2336.933333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_3,0,3451.266667
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_3,0,2553.833333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_3,0,1524.1
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_3,0,1977.633333
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_3,0,1767.033333
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_3,0,1947.466667
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_3,16.66666667,2103.6
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_3,0,2102.966667
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_3,0,1616.133333
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_3,0,2404.7
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_3,6.666666667,2238.4
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_3,0,2041.5
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_3,0,2432.933333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_3,0,2282.4
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_3,0,2083.233333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_4,0,2351.933333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_4,0,1981.366667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_4,0,1829.633333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_4,0,2089.3
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_4,3.333333333,2227.8
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_4,0,1747.5
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_4,0,2680.366667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_4,0,1960.433333
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_4,0,2862.5
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_4,3.333333333,2330.133333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_4,0,2430.366667
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_4,16.66666667,1916.8
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_4,0,2086.033333
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_4,0,2295.3
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_4,0,2073.2
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_4,0,1819.866667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_4,13.33333333,2375.733333
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_4,0,1612.633333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_5,0,1791.6
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_5,0,2819.1
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_5,0,1483.833333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_5,0,2382.833333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_5,13.33333333,2877.466667
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_5,0,2210.6
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_5,0,2437.066667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_5,6.666666667,2758.233333
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_5,6.666666667,1802.2
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_5,6.666666667,1626.5
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_5,0,2355.733333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_5,3.333333333,2555.9
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_5,6.666666667,2604.2
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_5,0,1384.766667
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_5,0,2262.466667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_5,0,1550.4
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_5,10,1694.9
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_5,0,1053.066667
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_6,0,2966.366667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_6,6.666666667,1986.833333
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_6,0,3028.3
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_6,0,2986.3
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_6,6.666666667,2521.866667
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_6,0,1718.733333
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_6,0,2433.766667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_6,10,1691.966667
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_6,3.333333333,2374.166667
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_6,3.333333333,2563.933333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_6,0,2670.3
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_6,0,2400.033333
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_6,10,1526.5
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_6,0,1772.5
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_6,0,1567.866667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_6,13.33333333,1604
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_6,0,2648.433333
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_6,0,2385.5
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_7,0,2033.833333
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_7,3.333333333,2376.166667
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_7,0,2015.133333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_7,0,2727.533333
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_7,6.666666667,2316.466667
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_7,13.33333333,2059.433333
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_7,0,2808.766667
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_7,13.33333333,2384.5
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_7,6.666666667,3077.933333
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,1936.233333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_7,0,2488.933333
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_7,6.666666667,2146.8
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_7,20,2162.4
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_7,0,1789.466667
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_7,0,2816.3
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_7,63.33333333,852.5333333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_7,10,1539.5
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_7,0,2180.466667
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_8,0,2979.266667
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_8,0,1760.533333
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_8,0,1666.933333
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_8,0,2536.1
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_8,3.333333333,3244.533333
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_8,0,1728.533333
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_8,0,1974.5
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_8,6.666666667,1459.566667
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_8,3.333333333,2763.6
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_8,3.333333333,2907.666667
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_8,13.33333333,1328.9
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_8,13.33333333,1687.8
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,2509
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_8,6.666666667,2379.3
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_8,6.666666667,2531.266667
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_8,6.666666667,1431.366667
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_8,0,2349.533333
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_8,0,1731.233333
+21,251210_SEFL21H2_B2_trauma_21_22 Box 1.wmv,1,trauma,shock,shock_9,0,1953.7
+22,251210_SEFL21H2_B2_trauma_21_22 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,2643.2
+23,251210_SEFL21H2_B2_trauma_23_24 Box 1.wmv,1,trauma,shock,shock_9,0,2481.966667
+24,251210_SEFL21H2_B2_trauma_23_24 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,2797.766667
+25,251210_SEFL21H2_B2_trauma_25_26 Box 1.wmv,1,trauma,shock,shock_9,10,2761.866667
+26,251210_SEFL21H2_B2_trauma_25_26 Box 2.wmv,2,trauma,shock,shock_9,0,2101.466667
+27,251210_SEFL21H2_B2_trauma_27_28 Box 1.wmv,1,trauma,shock,shock_9,0,2196.733333
+28,251210_SEFL21H2_B2_trauma_27_28 Box 2.wmv,2,trauma,shock,shock_9,0,1702.766667
+29,251210_SEFL21H2_B2_trauma_29_30 Box 1.wmv,1,trauma,shock,shock_9,3.333333333,2818.033333
+30,251210_SEFL21H2_B2_trauma_29_30 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,2106.833333
+31,251210_SEFL21H2_B2_trauma_31_32 Box 1.wmv,1,trauma,shock,shock_9,13.33333333,1902.9
+32,251210_SEFL21H2_B2_trauma_31_32 Box 2.wmv,2,trauma,shock,shock_9,6.666666667,1586.9
+33,251210_SEFL21H2_B2_trauma_33_34 Box 1.wmv,1,trauma,shock,shock_9,6.666666667,2777.8
+34,251210_SEFL21H2_B2_trauma_33_34 Box 2.wmv,2,trauma,shock,shock_9,0,2121.5
+35,251210_SEFL21H2_B2_trauma_35_36 Box 1.wmv,1,trauma,shock,shock_9,0,2460.6
+36,251210_SEFL21H2_B2_trauma_35_36 Box 2.wmv,2,trauma,shock,shock_9,13.33333333,2019.233333
+37,251210_SEFL21H2_B2_trauma_37_38 Box 1.wmv,1,trauma,shock,shock_9,6.666666667,2796.5
+38,251210_SEFL21H2_B2_trauma_37_38 Box 2.wmv,2,trauma,shock,shock_9,0,2241.666667
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min01,3.67,78.38
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min02,5.28,191.01
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min03,3.78,168.21
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min04,7.22,116.57
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min05,20.11,96.01
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min06,6,181.68
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min07,2.94,163.68
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,min,min08,4.22,137.36
+21,251212_SEFL21H2_B2_traumatest_g1,1,traumatest,avg,avg,6.97,141.61
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min01,31.39,71.14
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min02,35.06,82.89
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min03,19.67,110.24
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min04,19.61,90.51
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min05,40.89,48.71
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min06,22.94,76.14
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min07,36.78,87.27
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,min,min08,16.56,98.67
+22,251212_SEFL21H2_B2_traumatest_g1,2,traumatest,avg,avg,28.04,83.2
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min01,12.22,47.29
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min02,19.94,51.36
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min03,22.22,22.24
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min04,22.94,54
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min05,3.56,177.72
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min06,8.28,144.6
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min07,13.56,100
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,min,min08,9,117.12
+23,251212_SEFL21H2_B2_traumatest_g1,3,traumatest,avg,avg,14.01,89.29
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min01,3.94,86.09
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min02,40.39,19.97
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min03,44.5,28.84
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min04,24,108.85
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min05,78,8.07
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min06,51.11,35.51
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min07,33.28,47.54
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,min,min08,38.17,25.64
+24,251212_SEFL21H2_B2_traumatest_g1,4,traumatest,avg,avg,39.23,45.06
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min01,30.61,77.86
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min02,38.72,75.78
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min03,71.72,23.85
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min04,72.61,30.66
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min05,49.22,71.5
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min06,78.11,18.33
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min07,91.33,5.95
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,min,min08,57,26.41
+25,251212_SEFL21H2_B2_traumatest_g2,1,traumatest,avg,avg,61.22,41.29
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min01,10.22,84.17
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min02,0,144.62
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min03,8.5,130.39
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min04,12.39,157.18
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min05,6.22,150.3
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min06,8.22,215.03
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min07,5.33,186.28
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,min,min08,7.67,165.29
+26,251212_SEFL21H2_B2_traumatest_g2,2,traumatest,avg,avg,7.32,154.16
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min01,0,243.18
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min02,3.78,144.49
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min03,13.06,137.72
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min04,5.39,109.8
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min05,9.17,186.71
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min06,6.61,115.2
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min07,13.39,127.35
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,min,min08,12.83,110.45
+27,251212_SEFL21H2_B2_traumatest_g2,3,traumatest,avg,avg,8.03,146.86
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min01,3.67,214.67
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min02,18.39,148.06
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min03,23.72,102.48
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min04,35.78,59.91
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min05,16.17,130.33
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min06,38.67,34.48
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min07,22.28,104.47
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,min,min08,18.72,81.49
+28,251212_SEFL21H2_B2_traumatest_g2,4,traumatest,avg,avg,22.43,109.49
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min01,17.06,134.41
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min02,47,72.27
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min03,55.72,53.46
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min04,50.56,34.65
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min05,72.5,11.03
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min06,92.67,1.76
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min07,49.83,23.22
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,min,min08,76.56,6.03
+29,251212_SEFL21H2_B2_traumatest_g3,1,traumatest,avg,avg,58.21,42.1
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min01,42.89,31.68
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min02,59,26.05
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min03,61,21.49
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min04,71.44,24.15
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min05,55.33,33.45
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min06,51.89,33.12
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min07,52.56,33.59
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,min,min08,44.28,38.03
+30,251212_SEFL21H2_B2_traumatest_g3,2,traumatest,avg,avg,55.08,30.2
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min01,10.56,125.18
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min02,23.17,59.24
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min03,18.94,135.26
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min04,14.22,147.82
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min05,22.44,94.19
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min06,6.44,173.55
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min07,15.78,123.14
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,min,min08,11.61,104.62
+31,251212_SEFL21H2_B2_traumatest_g3,4,traumatest,avg,avg,15.41,120.38
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min01,16.89,74.65
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min02,56.11,19.83
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min03,37.83,24.41
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min04,44.5,47.68
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min05,61.5,17.95
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min06,82.06,5.16
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min07,61.11,13.69
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,min,min08,74.83,5.36
+32,251212_SEFL21H2_B2_traumatest_g3,3,traumatest,avg,avg,54.43,26.09
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min01,32.72,13.34
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min02,29.61,33.09
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min03,59.06,19.16
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min04,9.83,152.21
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min05,16.17,103.12
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min06,10.33,121.81
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min07,23.28,86.49
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,min,min08,17.44,134.01
+33,251212_SEFL21H2_B2_traumatest_g4,1,traumatest,avg,avg,25.17,82.9
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min01,5.44,79.53
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min02,8.5,64.47
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min03,23.06,67.16
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min04,9.22,155.42
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min05,13.22,127.38
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min06,13,122.91
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min07,4,106.24
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,min,min08,9.17,139.19
+34,251212_SEFL21H2_B2_traumatest_g4,2,traumatest,avg,avg,10.7,107.79
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min01,3.83,70.49
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min02,0,79.57
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min03,10.22,42.83
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min04,12.67,109.43
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min05,1.78,158.6
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min06,4.67,104.73
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min07,4.78,155.74
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,min,min08,10.83,89.99
+35,251212_SEFL21H2_B2_traumatest_g4,3,traumatest,avg,avg,6.1,101.42
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min01,0,198.94
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min02,2.06,170.12
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min03,8.5,131.59
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min04,22.67,71.95
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min05,26.33,92.64
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min06,5.72,166.98
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min07,17.11,108.52
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,min,min08,50.22,43.26
+36,251212_SEFL21H2_B2_traumatest_g4,4,traumatest,avg,avg,16.58,123
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min01,8.28,149.51
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min02,19.33,123.2
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min03,9.5,175.09
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min04,27.67,64.42
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min05,39.72,48.8
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min06,9.11,110.37
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min07,24.89,83.23
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,min,min08,44.33,30.41
+37,251212_SEFL21H2_B2_traumatest_g5,2,traumatest,avg,avg,22.94,98.13
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min01,2,94.09
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min02,0,122.23
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min03,9.5,106.83
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min04,16,102.87
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min05,24.17,59.84
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min06,3.61,134.63
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min07,0,109.38
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,min,min08,4.56,72.81
+38,251212_SEFL21H2_B2_traumatest_g5,3,traumatest,avg,avg,7.48,100.34
+21,251214_SEFL21H2__B2_S2_g1,1,mildstressor,prepost,bl,0.59,414.06
+21,251214_SEFL21H2__B2_S2_g1,1,mildstressor,prepost,post,70.33,12.25
+21,251214_SEFL21H2__B2_S2_g1,1,mildstressor,startle,startle_pre,0,311.48
+21,251214_SEFL21H2__B2_S2_g1,1,mildstressor,startle,startle_startle,0,581.73
+21,251214_SEFL21H2__B2_S2_g1,1,mildstressor,startle,startle_post,92.22,1.33
+22,251214_SEFL21H2__B2_S2_g1,2,mildstressor,prepost,bl,2.28,266.31
+22,251214_SEFL21H2__B2_S2_g1,2,mildstressor,prepost,post,31.67,55.4
+22,251214_SEFL21H2__B2_S2_g1,2,mildstressor,startle,startle_pre,0,431.71
+22,251214_SEFL21H2__B2_S2_g1,2,mildstressor,startle,startle_startle,0,557.11
+22,251214_SEFL21H2__B2_S2_g1,2,mildstressor,startle,startle_post,0,89.9
+23,251214_SEFL21H2__B2_S2_g1,3,mildstressor,prepost,bl,1.81,263.41
+23,251214_SEFL21H2__B2_S2_g1,3,mildstressor,prepost,post,10,105.32
+23,251214_SEFL21H2__B2_S2_g1,3,mildstressor,startle,startle_pre,0,13.81
+23,251214_SEFL21H2__B2_S2_g1,3,mildstressor,startle,startle_startle,0,624.89
+23,251214_SEFL21H2__B2_S2_g1,3,mildstressor,startle,startle_post,0,137.77
+24,251214_SEFL21H2__B2_S2_g1,4,mildstressor,prepost,bl,0.76,373.15
+24,251214_SEFL21H2__B2_S2_g1,4,mildstressor,prepost,post,19.33,113.81
+24,251214_SEFL21H2__B2_S2_g1,4,mildstressor,startle,startle_pre,0,388.09
+24,251214_SEFL21H2__B2_S2_g1,4,mildstressor,startle,startle_startle,0,700.89
+24,251214_SEFL21H2__B2_S2_g1,4,mildstressor,startle,startle_post,64.44,14.51
+25,251214_SEFL21H2__B2_S2_g2,1,mildstressor,prepost,bl,6.87,253.44
+25,251214_SEFL21H2__B2_S2_g2,1,mildstressor,prepost,post,58.33,78.63
+25,251214_SEFL21H2__B2_S2_g2,1,mildstressor,startle,startle_pre,0,188.1
+25,251214_SEFL21H2__B2_S2_g2,1,mildstressor,startle,startle_startle,0,705.98
+25,251214_SEFL21H2__B2_S2_g2,1,mildstressor,startle,startle_post,85.56,45.03
+26,251214_SEFL21H2__B2_S2_g2,2,mildstressor,prepost,bl,0,357.37
+26,251214_SEFL21H2__B2_S2_g2,2,mildstressor,prepost,post,45,103.64
+26,251214_SEFL21H2__B2_S2_g2,2,mildstressor,startle,startle_pre,0,360.08
+26,251214_SEFL21H2__B2_S2_g2,2,mildstressor,startle,startle_startle,0,521.14
+26,251214_SEFL21H2__B2_S2_g2,2,mildstressor,startle,startle_post,38.89,57.78
+27,251214_SEFL21H2__B2_S2_g2,3,mildstressor,prepost,bl,0,372.1
+27,251214_SEFL21H2__B2_S2_g2,3,mildstressor,prepost,post,12.67,178.96
+27,251214_SEFL21H2__B2_S2_g2,3,mildstressor,startle,startle_pre,0,142.79
+27,251214_SEFL21H2__B2_S2_g2,3,mildstressor,startle,startle_startle,0,433.97
+27,251214_SEFL21H2__B2_S2_g2,3,mildstressor,startle,startle_post,42.22,87.1
+28,251214_SEFL21H2__B2_S2_g2,4,mildstressor,prepost,bl,0.56,415.64
+28,251214_SEFL21H2__B2_S2_g2,4,mildstressor,prepost,post,0,182.85
+28,251214_SEFL21H2__B2_S2_g2,4,mildstressor,startle,startle_pre,0,79.72
+28,251214_SEFL21H2__B2_S2_g2,4,mildstressor,startle,startle_startle,0,728.4
+28,251214_SEFL21H2__B2_S2_g2,4,mildstressor,startle,startle_post,0,263.39
+29,251214_SEFL21H2__B2_S2_g3,1,mildstressor,prepost,bl,5.93,355.41
+29,251214_SEFL21H2__B2_S2_g3,1,mildstressor,prepost,post,46,79.49
+29,251214_SEFL21H2__B2_S2_g3,1,mildstressor,startle,startle_pre,41.11,50.38
+29,251214_SEFL21H2__B2_S2_g3,1,mildstressor,startle,startle_startle,0,626.53
+29,251214_SEFL21H2__B2_S2_g3,1,mildstressor,startle,startle_post,0,221.73
+30,251214_SEFL21H2__B2_S2_g3,2,mildstressor,prepost,bl,13.35,208.41
+30,251214_SEFL21H2__B2_S2_g3,2,mildstressor,prepost,post,66.33,33.29
+30,251214_SEFL21H2__B2_S2_g3,2,mildstressor,startle,startle_pre,0,186.74
+30,251214_SEFL21H2__B2_S2_g3,2,mildstressor,startle,startle_startle,0,577.44
+30,251214_SEFL21H2__B2_S2_g3,2,mildstressor,startle,startle_post,42.22,67.13
+31,251214_SEFL21H2__B2_S2_g3,3,mildstressor,prepost,bl,3.85,272.48
+31,251214_SEFL21H2__B2_S2_g3,3,mildstressor,prepost,post,44.33,57.54
+31,251214_SEFL21H2__B2_S2_g3,3,mildstressor,startle,startle_pre,0,506.61
+31,251214_SEFL21H2__B2_S2_g3,3,mildstressor,startle,startle_startle,0,744.12
+31,251214_SEFL21H2__B2_S2_g3,3,mildstressor,startle,startle_post,61.11,56.77
+32,251214_SEFL21H2__B2_S2_g3,4,mildstressor,prepost,bl,3.98,258.2
+32,251214_SEFL21H2__B2_S2_g3,4,mildstressor,prepost,post,44.67,27.55
+32,251214_SEFL21H2__B2_S2_g3,4,mildstressor,startle,startle_pre,0,193.64
+32,251214_SEFL21H2__B2_S2_g3,4,mildstressor,startle,startle_startle,0,639.03
+32,251214_SEFL21H2__B2_S2_g3,4,mildstressor,startle,startle_post,0,37.88
+33,251214_SEFL21H2__B2_S2_g4,1,mildstressor,prepost,bl,2.02,343.13
+33,251214_SEFL21H2__B2_S2_g4,1,mildstressor,prepost,post,66,21.56
+33,251214_SEFL21H2__B2_S2_g4,1,mildstressor,startle,startle_pre,0,184.42
+33,251214_SEFL21H2__B2_S2_g4,1,mildstressor,startle,startle_startle,0,1041.87
+33,251214_SEFL21H2__B2_S2_g4,1,mildstressor,startle,startle_post,90,8.1
+34,251214_SEFL21H2__B2_S2_g4,2,mildstressor,prepost,bl,0.78,267.05
+34,251214_SEFL21H2__B2_S2_g4,2,mildstressor,prepost,post,21.33,75.97
+34,251214_SEFL21H2__B2_S2_g4,2,mildstressor,startle,startle_pre,0,334.98
+34,251214_SEFL21H2__B2_S2_g4,2,mildstressor,startle,startle_startle,0,399.63
+34,251214_SEFL21H2__B2_S2_g4,2,mildstressor,startle,startle_post,71.11,3.56
+35,251214_SEFL21H2__B2_S2_g4,3,mildstressor,prepost,bl,0.7,267.75
+35,251214_SEFL21H2__B2_S2_g4,3,mildstressor,prepost,post,27,219.5
+35,251214_SEFL21H2__B2_S2_g4,3,mildstressor,startle,startle_pre,0,153.32
+35,251214_SEFL21H2__B2_S2_g4,3,mildstressor,startle,startle_startle,0,1021.68
+35,251214_SEFL21H2__B2_S2_g4,3,mildstressor,startle,startle_post,0,428.24
+36,251214_SEFL21H2__B2_S2_g4,4,mildstressor,prepost,bl,0.72,361.88
+36,251214_SEFL21H2__B2_S2_g4,4,mildstressor,prepost,post,40.67,43.37
+36,251214_SEFL21H2__B2_S2_g4,4,mildstressor,startle,startle_pre,0,152.23
+36,251214_SEFL21H2__B2_S2_g4,4,mildstressor,startle,startle_startle,0,582.98
+36,251214_SEFL21H2__B2_S2_g4,4,mildstressor,startle,startle_post,53.33,76.08
+37,251214_SEFL21H2__B2_S2_g5,2,mildstressor,prepost,bl,7.2,291.36
+37,251214_SEFL21H2__B2_S2_g5,2,mildstressor,prepost,post,10.33,88.83
+37,251214_SEFL21H2__B2_S2_g5,2,mildstressor,startle,startle_pre,0,205.24
+37,251214_SEFL21H2__B2_S2_g5,2,mildstressor,startle,startle_startle,0,603.06
+37,251214_SEFL21H2__B2_S2_g5,2,mildstressor,startle,startle_post,0,146.11
+38,251214_SEFL21H2__B2_S2_g5,3,mildstressor,prepost,bl,4.72,189.9
+38,251214_SEFL21H2__B2_S2_g5,3,mildstressor,prepost,post,11,81.41
+38,251214_SEFL21H2__B2_S2_g5,3,mildstressor,startle,startle_pre,34.44,96.99
+38,251214_SEFL21H2__B2_S2_g5,3,mildstressor,startle,startle_startle,0,388.67
+38,251214_SEFL21H2__B2_S2_g5,3,mildstressor,startle,startle_post,0,20.11
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min01,2.39,326.71
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min02,5.83,172.81
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min03,13.89,203.41
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min04,24,152.31
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min05,18.61,245
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min06,10.56,188.5
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min07,16.5,274.38
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,min,min08,14.89,149.6
+21,251215_SEFL21H2_B2_S2recall_g1,1,sefltest,avg,avg,13.33,214.09
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min01,9.33,103.2
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min02,8.61,157.61
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min03,12.44,135.69
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min04,11.06,163.67
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min05,39.94,45.95
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min06,21.83,119.11
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min07,24.22,108.01
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,min,min08,20.83,68.56
+22,251215_SEFL21H2_B2_S2recall_g1,2,sefltest,avg,avg,18.92,112.72
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min01,8.11,113.98
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min02,36.78,24.1
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min03,18.67,75.96
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min04,34.61,38.67
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min05,19.78,74.52
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min06,14.06,69.97
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min07,72.17,9.44
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,min,min08,18.56,82.53
+23,251215_SEFL21H2_B2_S2recall_g1,3,sefltest,avg,avg,28.04,61.15
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min01,2.06,261.41
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min02,19.72,85.74
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min03,22.83,103.58
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min04,8.44,173.57
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min05,41.22,82.47
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min06,4.94,125.33
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min07,22.22,175.83
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,min,min08,29.67,84.67
+24,251215_SEFL21H2_B2_S2recall_g1,4,sefltest,avg,avg,18.92,136.58
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min01,1.78,221.55
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min02,15.28,203.67
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min03,32,148.65
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min04,29.94,135.86
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min05,8.67,184.45
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min06,30.78,120.28
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min07,37.61,140.61
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,min,min08,29.67,143.49
+25,251215_SEFL21H2_B2_S2recall_g2,1,sefltest,avg,avg,23.22,162.32
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min01,0,228.81
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min02,13.67,147.38
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min03,0,211.76
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min04,0,194.58
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min05,15.33,192.46
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min06,7.56,173.78
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min07,21.67,165.7
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,min,min08,28.78,134.62
+26,251215_SEFL21H2_B2_S2recall_g2,2,sefltest,avg,avg,10.92,181.14
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min01,0,264.35
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min02,3.72,195.76
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min03,2,135.46
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min04,1.89,194.15
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min05,4.83,205.14
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min06,13.78,135.75
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min07,16.28,128.28
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,min,min08,20.56,112.37
+27,251215_SEFL21H2_B2_S2recall_g2,3,sefltest,avg,avg,7.88,171.41
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min01,0,262.29
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min02,7.67,174.05
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min03,8,148.97
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min04,3.44,202.63
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min05,5.94,300.75
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min06,16.56,157.81
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min07,7.83,202.91
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,min,min08,9.83,136.66
+28,251215_SEFL21H2_B2_S2recall_g2,4,sefltest,avg,avg,7.52,198.26
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min01,4.94,277.51
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min02,17.5,176.94
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min03,35.94,155.27
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min04,21.72,189.08
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min05,7.78,174.13
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min06,41.33,98.45
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min07,63.5,33.21
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,min,min08,17.61,247.03
+29,251215_SEFL21H2_B2_S2recall_g3,1,sefltest,avg,avg,26.44,168.95
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min01,25,149.21
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min02,48.17,67.18
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min03,45.39,143.04
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min04,21.89,138.75
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min05,26.28,188.67
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min06,63.56,46.72
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min07,63.17,29.01
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,min,min08,30.39,137.11
+30,251215_SEFL21H2_B2_S2recall_g3,2,sefltest,avg,avg,40.68,112.46
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min01,7.78,147.68
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min02,8.22,162.98
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min03,17.72,123.32
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min04,11.72,179.86
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min05,20.06,139.51
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min06,5.78,261.95
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min07,31.39,81.69
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,min,min08,25.78,99.44
+31,251215_SEFL21H2_B2_S2recall_g3,3,sefltest,avg,avg,16.2,149.55
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min01,12.89,177.25
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min02,30.28,119.91
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min03,25.17,121.01
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min04,14.56,148.68
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min05,40.33,69.03
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min06,22.44,158.03
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min07,42,66.56
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,min,min08,38.33,81.71
+32,251215_SEFL21H2_B2_S2recall_g3,4,sefltest,avg,avg,29.02,117.77
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min01,0,227.9
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min02,15.61,155.09
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min03,29.67,148.52
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min04,14.11,183.94
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min05,30.28,166.58
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min06,20.11,169.98
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min07,42.33,86.98
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,min,min08,12.56,144.57
+33,251215_SEFL21H2_B2_S2recall_g4,1,sefltest,avg,avg,20.8,160.45
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min01,0,158.68
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min02,5.72,185.65
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min03,0,250.86
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min04,4.11,180.75
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min05,0,261.87
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min06,12.33,214.92
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min07,8,217.6
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,min,min08,4.5,214.59
+34,251215_SEFL21H2_B2_S2recall_g4,2,sefltest,avg,avg,4.46,210.62
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min01,4,156.42
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min02,14.61,53.41
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min03,1.94,186.81
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min04,16.39,77.71
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min05,8.56,48.43
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min06,15.33,131.48
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min07,7.39,123.75
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,min,min08,21.17,26.95
+35,251215_SEFL21H2_B2_S2recall_g4,3,sefltest,avg,avg,11.17,100.62
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min01,1.67,266.81
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min02,9.06,201.52
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min03,12.94,157.18
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min04,22.83,175.14
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min05,12.56,185.45
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min06,9.61,187.37
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min07,19.67,137.35
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,min,min08,23.83,133.41
+36,251215_SEFL21H2_B2_S2recall_g4,4,sefltest,avg,avg,14.02,180.53
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min01,18.39,110.7
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min02,54.78,56.08
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min03,27.06,150.75
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min04,21.89,148.59
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min05,10.33,223.88
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min06,36.61,84.09
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min07,31.33,137.16
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,min,min08,33.22,93.86
+37,251215_SEFL21H2_B2_S2recall_g5,2,sefltest,avg,avg,29.2,125.64
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min01,12.44,90.72
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min02,13.94,48.2
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min03,7.5,69.1
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min04,21.44,86.67
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min05,18.17,123.35
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min06,19.5,90.37
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min07,28.39,59.81
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,min,min08,21.28,92.45
+38,251215_SEFL21H2_B2_S2recall_g5,3,sefltest,avg,avg,18.19,82.58
