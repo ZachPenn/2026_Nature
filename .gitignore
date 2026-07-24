@@ -1,0 +1,5 @@
+*.tiff
+*.tif
+*.RData
+*.Rhistory
+*.html
